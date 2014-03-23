@@ -18,7 +18,11 @@
 \date{25 mars 2014}
 
 
-
+% A changer (selon Arnaud) le utf8x pas aligné slide 12/30
+%
+%
+%
+% 
 \begin{document}
 
 %%%%%%%%%%%% SIDA
@@ -206,7 +210,7 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 	\end{center}
 
 	\begin{itemize}
-		\item Fichier source  = essai\alert{\textbf{.tex}}
+		\item Fichier source  = essais\alert{\textbf{.tex}}
 		\item Lors de compilation $\rightarrow$ création de nombreux fichiers annexes
 		\begin{itemize}
 			\item style, class;
@@ -215,7 +219,7 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 			\item liste des références;
 			\item ...
 		\end{itemize}
-		\item Création d'un fichier essai\alert{\textbf{.pdf}}
+		\item Création d'un fichier essais\alert{\textbf{.pdf}}
 	\end{itemize}
 \end{frame}
 
@@ -490,11 +494,22 @@ p(x)=\frac{1}{\sigma \sqrt{2\pi}}\exp
 \begin{frame}
 \frametitle{\insertsubsection}
 \begin{itemize}
-	\item Facile de faire référence à un numéro et la page d'une section et d'un environnement (\texttt{figure}, \texttt{equation}, \texttt{table}).\\
-	\item On place une étiquette d'un côté (\texttt{\symbol{92}label\{mon\_label\}}) et on peut utiliser \texttt{\symbol{92}ref\{mon\_label\}} ou \texttt{\symbol{92}pageref\{mon\_label\}} voir \texttt{\symbol{92}vpageref\{mon\_label\}} du paquet \texttt{varioref} avec l'option \texttt{[french]} pour imprimer le numéro ou la page correspondante.\\
+	\item Facile de faire référence à un numéro et la page d'une section et d'un environnement (\texttt{figure}, \texttt{equation}, \texttt{table}).
+	\item D'un coté une étiquette :
+	\begin{itemize}
+	\item[ ] \texttt{\symbol{92}label\{mon\_label\}}.
+	\end{itemize}
+	\item De l'autre une référence à cette étiquette :
+	\begin{itemize}
+	\item[ ] \texttt{\symbol{92}ref\{mon\_label\}}
+	\item[ ] \texttt{\symbol{92}pageref\{mon\_label\}}
+	\item[ ] \texttt{\symbol{92}vpageref\{mon\_label\}} du paquet \texttt{varioref}
+	\end{itemize}
+%	\item On place une étiquette d'un côté (\texttt{\symbol{92}label\{mon\_label\}}) et on peut utiliser \texttt{\symbol{92}ref\{mon\_label\}} ou \texttt{\symbol{92}pageref\{mon\_label\}} voir \texttt{\symbol{92}vpageref\{mon\_label\}} du paquet \texttt{varioref} avec l'option \texttt{[french]} pour imprimer le numéro ou la page correspondante.
 \end{itemize}
-\label{ref} Exemple: nous sommes à la section \ref{ref}, page \pageref{ref}, \vpageref{ref}.\\
-\vspace{.5cm}
+$\Rightarrow$ \label{ref} Exemple: nous sommes à la section \ref{ref}, page \pageref{ref}, \vpageref{ref}.
+\vspace{.3cm}
+
 $\Rightarrow$ \texttt{\symbol{92}label\{ref\} Exemple: nous sommes à la section \symbol{92}ref\{ref\}, page \symbol{92}pageref\{ref\}, \symbol{92}vpageref\{ref\}}.
 
 \end{frame}
@@ -504,15 +519,20 @@ $\Rightarrow$ \texttt{\symbol{92}label\{ref\} Exemple: nous sommes à la section
 \frametitle{\insertsubsection}
 Deux possibilités pour maintenir une bibliographie:
 \begin{itemize}
-	\item Éditer une bibliographie à la main (s'il y a très peu de référence, voir exemple)
-	\item Utiliser des fichiers \texttt{bib}.
+\item Éditer une bibliographie à la main (s'il y a très peu de référence, voir exemple)
+\item Les fichiers \texttt{bib}
 	\begin{itemize}
-		\item Disponible avec les revues scientifiques
+		\item Disponible avec les revues scientifiques et Google Scholar
 		\item En utilisant le plugin \href{https://www.zotero.org/}{Zotero} pour récupérer les informations d'un \href{http://www.amazon.fr/LaTeX-HowTo-S\%C3\%A9bastien-Comb\%C3\%A9fis/dp/1446708314/ref=sr_1_5?ie=UTF8&qid=1363022579&sr=8-5}{site}
-		\item Il faut ``compiler'' le fichier Bib\TeX{} puis ``recompiler'' le document.
+	\end{itemize}
+\item Pour les utiliser 
+	\begin{itemize}
+		\item Ajouter la source dans le fichier \texttt{bib}. 
+		\item ``Compiler'' le fichier Bib\TeX{} puis ``recompiler'' le document.
+		\item Inclure dans son texte la commande \texttt{cite} avec l'étiquette de la source à référencer.
+		\item \LaTeX{} inclut la référence dans le texte et ajoute la source à la bibliographie.
 	\end{itemize}
 \end{itemize}
-Puis il suffit d'utiliser dans son texte la commande \texttt{cite} avec l'étiquette de la source à référencer pour ajouter une référence à cette source et ajouter la source dans la bibliographie.
 \end{frame}
 
 \subsection{En vrac}
