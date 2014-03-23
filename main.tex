@@ -2,6 +2,7 @@
 \input{header_presentation}
 \usepackage{pdflscape} %% portrait
 \usepackage[french]{varioref} % \vpageref
+\usepackage{pgfplots}
 
 \graphicspath{{img/}}
 \definecolor{gris}{RGB}{228,228,228}
@@ -60,6 +61,48 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 
 \end{frame}
 
+\begin{frame}{Premier angle de comparaison}
+  \begin{description}
+    \item[Auteur]
+      %\begin{center}
+      \begin{tabular}{|lll|}
+        %\hline
+        %& Créateur & Description du créateur\\% selon wikipédia\\
+        \hline
+        Office & Microsoft & No comment\\
+        %Microsoft Word & Microsoft & Microsoft used monopolistic business practices and anti-competitive strategies including refusal to deal and tying, put unreasonable restrictions in the use of its software, and used misrepresentative marketing tactics; both the U.S. Department of Justice and European Commission found the company in violation of antitrust laws\\
+        \TeX & Donald Knuth & Père de l'algorithmie\\
+        \hline
+      \end{tabular}
+      %\end{center}
+    \item[But]
+      \begin{tabular}{|lp{0.5\textwidth}|}
+        \hline
+        %Soft & Créateur & Description du créateur\\% selon wikipédia\\
+        %Office & Microsoft & No comment\\
+        %Microsoft Word & Microsoft & Microsoft used monopolistic business practices and anti-competitive strategies including refusal to deal and tying, put unreasonable restrictions in the use of its software, and used misrepresentative marketing tactics; both the U.S. Department of Justice and European Commission found the company in violation of antitrust laws\\
+        Office & Être utilisable par n'importe qui sans connaissance ni
+        formation particulière pour aider à ancrer le monopole de Microsoft
+        grâce aux formats propriétaires \texttt{.doc}, \texttt{.xls}, \dots\\
+        \TeX & Améliorer sa productivité et
+        la qualité de rendu de ses documents sur l'algorithmie\\
+        \hline
+      \end{tabular}
+    \item[Licence]
+      \begin{tabular}{|lp{0.5\textwidth}|}
+        %\hline
+        %& Créateur & Description du créateur\\% selon wikipédia\\
+        \hline
+        Office & Propriétaire jusqu'au format (incompatibilité
+        voulue par Microsoft)\\
+        %Microsoft Word & Microsoft & Microsoft used monopolistic business practices and anti-competitive strategies including refusal to deal and tying, put unreasonable restrictions in the use of its software, and used misrepresentative marketing tactics; both the U.S. Department of Justice and European Commission found the company in violation of antitrust laws\\
+        \TeX & Libre et open source\\
+        \hline
+      \end{tabular}
+  \end{description}
+\end{frame}
+
+
 \subsection{Pourquoi \LaTeX{}?}
 \begin{frame}{Pourquoi \LaTeX{}?}
 
@@ -73,9 +116,8 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 		\item références croisées
 		\item ...
 	\end{itemize}
-	\item Ne se préoccuper que du contenu
-	\item Forme $\neq$ esthétique
-	\item Forme = message
+	\item Séparation entre contenu et forme
+	\item Description du contenu indépendant de la forme
 	\item Gratuit
 	\item Stable, même pour les très gros documents
   \end{itemize}
@@ -98,9 +140,37 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
   	\item Les tableaux...
 	\item Prise en main plus longue que pour traitement de texte WYSIWYG
 	\item Je suis allergique à toute forme de code informatique
-	\item J'ai des actions chez Microsoft Office
+	\item J'ai des actions Microsoft
 	\item Je ne trouve pas le ``\textbackslash'' sur mon clavier
   \end{itemize}
+\end{frame}
+
+\begin{frame}{Oui mais...}
+  \begin{center}
+    %\resizebox{\textwidth}{!}{
+    \begin{tikzpicture}
+      \begin{axis}[xmin=0, xmax=4, ymin=-2, ymax=5,
+          xlabel={Expérience, maitrise}, ylabel=Productivité,
+        legend style={at={(0.01,0.99)}, anchor=north west}]
+        \addplot[smooth, color=blue]{x-0.05};
+        \addlegendentry{\LaTeX}
+        \addplot[smooth, color=red,domain=0:5]{sqrt(x)};
+        \addlegendentry{Word}
+        %\xlabel{Productivité}
+        %\ylabel{Expérience/maitrise}
+      \end{axis}
+      \foreach \x/\com/\deltax/\deltay/\adj in {
+        {1.1}/{Maintenant}/{0}/{0.8}/below,
+        {2.2}/{Après la formation}/{0}/{0.4}/below,
+        {4.6}/{À l'heure de votre mémoire}/{0}/{1.2}/below
+      } {
+        %\fill \coord circle (100pt) node[\adj] {$\coord$};
+        \draw[dashed] (\x,0) -- (\x+\deltax,\deltay) node[above] {\com};
+        %\draw (\x+\deltax,\deltay) node {\com};
+      }
+    \end{tikzpicture}
+    %}
+  \end{center}
 \end{frame}
 
 %-----------------------
