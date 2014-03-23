@@ -1,0 +1,105 @@
+% document de type rapport
+\documentclass[a4paper,12pt]{report}
+
+% déclaration des variables utilisée par le style rapport.sty
+\def\hautgauche {UCL - ELI - MIAE}
+\def\hautmilieu {Thesis project}
+\def\hautdroite {September 2010}
+
+% importation des packages
+\usepackage{rapport}
+\usepackage[latin1]{inputenc}
+%\usepackage{here}
+\usepackage{floatflt}
+\usepackage{moreverb}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{colortbl}
+%\usepackage{hyperref}
+\usepackage{color}
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{fancybox}
+\usepackage{lastpage}
+\usepackage{multirow}
+\usepackage{textcomp} %degree
+\usepackage{tabularx}
+%\floatplacement{figure}{H}
+% définition des couleurs utilisées dans le document
+% pour les liens et les différents tags, commandes, ...
+\definecolor{webblue}{rgb}{0,0,1}
+\definecolor{webdarkblue}{rgb}{0,0,0.5}
+\definecolor{webgreen}{rgb}{0,0.5,0}
+\definecolor{webred}{rgb}{0.5,0,0}
+
+% auteur et titre "fictifs"
+\author{Thomas Vanzieleghem}
+\title{fichier de base Latex}
+
+% début du document en lui-même
+\begin{document}
+
+% on appelle les parties "sections"
+%\def\chaptername{}
+
+%PAGE DE GARDE---------------------------------------------------------------
+\thispagestyle{empty}
+
+
+\begin{table}[H]
+\begin{center}
+\begin {tabular}{|l||c|}
+\hline
+\textit{Inventaire} & \textbf{Nombre} \\
+\hline
+Chemises  & 4   \\
+Pulls     & 12  \\
+Pantalons & 1   \\
+\hline
+\end{tabular}
+\caption{Tableau relatif à l'inventaire}
+\end{center}
+\end{table}
+
+Sur la figure~\ref{ucl}, vous pouvez voir le logo UCL mis à 50 \% de la largueur du texte\\
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.50\textwidth]{logo-ucl.jpg}
+	\caption{Voici le logo UCL}
+	\label{ucl}
+\end{figure}
+
+Voici l'environnement \textbf{itemize} qui vous permet de créer des listes\\
+
+\begin{itemize}
+\item Premier élément de la liste
+\item Deuxième élément de la liste
+\item Troisième élément de la liste
+\item Quatrième élément de la liste
+\item ...
+\item Nième élément de la liste
+\end{itemize}
+\vspace{1cm}
+
+On peut ajouter une formule mathématique dans du texte entre deux symboles \textbf{\$}\\
+\begin{center}
+$\sin(x)$
+\end{center}
+
+
+Un environnement équation est prévu pour des formules plus longues, elles seront automatiquement centrées et numérotées pour être référencées (équation~\ref{eq:pnorm})\\
+\begin{equation} \label{eq:pnorm}
+p(x)=\frac{1}{\sigma \sqrt{2\pi}} \exp \left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+\end{equation}
+
+\pagebreak
+%FIN PAGE DE GARDE-----------------------------------------------------------
+
+% table des matières
+%\tableofcontents
+
+% fin du document
+\end{document} 
