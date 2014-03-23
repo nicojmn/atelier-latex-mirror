@@ -225,34 +225,25 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 \begin{frame}[fragile]{Structure générale du document}
 \framesubtitle{Séparation du préambule et du corps du document}
 \small
-\begin{columns}
-	\begin{column}[b] {3.3cm}
-		Type de document\\ 
-		Utilisation de \textit{package}\\ 
-		Utilisation de \textit{package}\\
-		Utilisation de \textit{package}\\
-		\vspace{0.3cm}
-		%\hline
-		\vspace{0.2cm}
-		Début du document \\
-		Corps du document  \\
-		Fin du document \\ 
-	\end{column}
-	\begin{column}[b] {3cm}
-		\begin{verbatim}
-			\documentclass[a4paper, 10pt]{article}	
-            \usepackage[utf8x]{inputenc} % ou [utf8]
-			\usepackage[T1]{fontenc}
-			\usepackage[french]{babel}
-
-			\begin{document}
-			Ceci est mon premier document en \LaTeX{}
-			\end{document}
-		\end{verbatim}
-	\end{column}
-	\begin{column}[b] {3cm}
-	\end{column}
-\end{columns}
+\begin{tabular}{ll}
+  Type de document &
+  \lstinline|\documentclass[a4paper, 10pt]{article}|\\
+  Utilisation de \textit{package} &
+  \lstinline|\usepackage[utf8x]{inputenc} % ou [utf8]|\\
+  Utilisation de \textit{package} &
+  \lstinline|\usepackage[T1]{fontenc}|\\
+  Utilisation de \textit{package} &
+  \lstinline|\usepackage[french]{babel}|\\
+  Utilisation de \textit{package} &
+  \lstinline|\usepackage{lmodern}|\\
+  Blanc pour la lisibilité &\\
+  Début du document &
+  \lstinline|\begin{document}|\\
+  Corps du document &
+  \lstinline|Ceci est mon premier document en \LaTeX{}|\\
+  Fin du document &
+  \lstinline|\end{document}|\\
+\end{tabular}
 
 
 \end{frame}
@@ -263,11 +254,11 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 
 \begin{frame}[fragile]{Les principales classes de document}
 \begin{tabular}{lp{8cm}}
-\textbf{article} & for articles in scientific journals, presentations, short reports, program documentation, invitations, ...\\
-\textbf{report} & for longer reports containing several chapters, small books, thesis, ...\\
-\textbf{book} & for real books.\\
-\textbf{letter} & for writing letters.\\
-\textbf{beamer} & for writing presentations.
+  \textbf{article} & pour les articles de journaux scientifiques, présentations, rapports courts...\\
+  \textbf{report} & pour de plus long rapports de plusieurs chapitres, petits livres, thèses, ...\\
+  \textbf{book} & pour de vrais livres.\\
+  \textbf{letter} & pour écrire des lettres.\\
+  \textbf{beamer} & pour écrire des présentations (comme celle-ci).
 \end{tabular}
 \vspace{1cm}
 \begin{center}
@@ -282,14 +273,14 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 		\item \LaTeX{} se charge de la numérotation et de la mise en page\\
 	\end{itemize}
 	\vspace{1cm}
-	
+
 	\verb|\part{}|\\
 	\hspace{1cm} \verb|\chapter{}| \hspace{2cm}$\Longrightarrow$ \textcolor{bleu}{uniquement \textit{books}}\\
 	\hspace{2cm} \verb|\section{}|\\
 	\hspace{3cm} \verb|\subsection{}| \\
 	\hspace{4cm} \verb|\subsubsection{}| \\
 	\hspace{5cm} \verb|\paragraph{}	| \\
-	
+
 \end{frame}
 
 %-----------------------
@@ -349,34 +340,54 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 
 \subsection{Mise en forme simple}
 \begin{frame}[fragile]{Mise en forme simple}
-\footnotesize 
-\begin{lstlisting}[frame=single,language=TeX]
-	Je peux mettre en \textbf{gras}, en \textit{italique}, en \texttt{machine a
-	ecrire}, dans un format pour les \textsc{Noms}, etc. % c'est ecrit sur 2 lignes
-	
-	Voici un nouveau paragraphe.\\ % un commentaire
+  \footnotesize
+  \begin{lstlisting}[frame=single]
+  Je peux mettre en \textbf{gras}, en \textit{italique}, en \texttt{machine a
+  ecrire}, dans un format pour les \textsc{Noms}, etc. % c'est ecrit sur 2 lignes
 
-	Mais j'ai envie d'avoir une separation avec le reste du texte en ajoutant une ligne vide.\\
-	(je peux aussi forcer le retour a la ligne, a vous de choisir le style).
-\end{lstlisting}
-\begin{center}
-	\fbox{\includegraphics[width=\textwidth]{mise_en_page_simple.png}}
-	\end{center}
+  Voici un nouveau paragraphe. % un commentaire
+
+  Mais j'ai envie d'avoir une separation avec le reste du texte en ajoutant une ligne vide.
+  (je peux aussi forcer le retour a la ligne, a vous de choisir le style).
+  \end{lstlisting}
+  \begin{center}
+    \fbox{\includegraphics[width=\textwidth]{mise_en_page_simple.png}}
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Définition de la forme}
+  %"LaTeX takes care of the formatting, breaks included. You should avoid manual breaking as much as possible, or it could lead to very bad formatting. Controlling the breaks should be reserved to macro and package writers" http://en.wikibooks.org/wiki/LaTeX/Paragraph_Formatting
+  Ne pas faire de \lstinline|\\| dans le code !
+  Les lines breaks sont gérés automatiquement, il ne faut pas s'en occuper !
+  \begin{lstlisting}
+  Premier paragraphe.\\ % BAD !!!
+
+  Second paragraphe avec espace entre les paragraphes.
+  \end{lstlisting}
+  % do not modify \setlength{parskip} since it is used by lists, use \usepackage{parskip} instead
+  \begin{lstlisting}
+  \usepackage{parskip} % Ajoute de l'espace entre les paragraphes et mets l'indentation to 0
+  \setlength{\parindent}{15pt} % Remets l'indentation par default
+  \begin{document}
+  Premier paragraphe.
+
+  Second paragraphe avec espace entre les paragraphes.
+  \end{lstlisting}
 \end{frame}
 
 %-----------------------
 \subsection{Les listes}
 \begin{frame}[fragile]{Les listes}
-	\begin{itemize} 
+	\begin{itemize}
 		\item Trois types de listes: \verb|itemize|, \verb|enumerate| et \verb|description|
 	\end{itemize}
 	\vspace{0.5cm}
 	\hspace{1cm} \verb|\begin{|{\usebeamercolor[fg]{example text} \verb|itemize|}\verb|} |\\
-	\hspace{2cm} \verb|\item Premier élément de la liste|\\ 
-	\hspace{2cm} \verb|\item Deuxième élément de la liste|\\ 
+	\hspace{2cm} \verb|\item Premier élément de la liste|\\
+	\hspace{2cm} \verb|\item Deuxième élément de la liste|\\
 	\hspace{1cm} \verb|\end{|{\usebeamercolor[fg]{example text} \verb|itemize|}\verb|} |\\
 	\vspace{0.5cm}
-	
+
 	\fbox{\includegraphics[width=\textwidth]{liste.jpg}}
 \end{frame}
 
@@ -391,7 +402,7 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 %\framesubtitle{Un contenant pour des éléments de type \textit{table} et \textit{figure}}
 
 \begin{verbatim}
-Sur la figure~\ref{ucl}, vous pouvez voir le logo UCL 
+Sur la figure~\ref{ucl}, vous pouvez voir le logo UCL
 mis à 50 \% de la largueur du texte.
 
 \begin{figure}[H]
@@ -404,8 +415,8 @@ mis à 50 \% de la largueur du texte.
 \end{frame}
 %	\vspace{0.5cm}
 %	\hspace{1cm} \verb|\begin{|{\usebeamercolor[fg]{example text} \verb|itemize|}\verb|} |\\
-%	\hspace{2cm} \verb|\item Premier élément de la liste|\\ 
-%	\hspace{2cm} \verb|\item Deuxième élément de la liste|\\ 
+%	\hspace{2cm} \verb|\item Premier élément de la liste|\\
+%	\hspace{2cm} \verb|\item Deuxième élément de la liste|\\
 %	\hspace{1cm} \verb|\end{|{\usebeamercolor[fg]{example text} \verb|itemize|}\verb|} |\\
 %	\vspace{0.5cm}
 
@@ -441,14 +452,14 @@ On peut ajouter une formule mathématique dans du texte entre deux symboles \tex
 
 \begin{center}
 \vspace{1cm}
-	
+
 	\Large
 	\hspace{1cm} \verb|$x^{2n}$| \hspace{1cm} $\Rightarrow$ \hspace{1cm}  $x^{2n}$
 	\medskip
-	
+
 	\hspace{1cm} \verb|$\sin(x)$| \hspace{1cm} $\Rightarrow$ \hspace{1cm}  $\sin(x)$
 \end{center}
-	
+
 \end{frame}
 
 \begin{frame}[fragile]{L'environnement mathématique}
@@ -471,7 +482,7 @@ p(x)=\frac{1}{\sigma \sqrt{2\pi}}\exp
 \begin{equation}
 \label{eq:pnorm}
 
-p(x)=\frac{1}{\sigma \sqrt{2\pi}}\exp 
+p(x)=\frac{1}{\sigma \sqrt{2\pi}}\exp
          \left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
 
 \end{equation}
@@ -479,7 +490,7 @@ p(x)=\frac{1}{\sigma \sqrt{2\pi}}\exp
 
 \end{footnotesize}
 \end{center}
-	
+
 \end{frame}
 
 %%%%%%%%%%%%%
@@ -545,6 +556,7 @@ Pour avoir un plus grand aperçu, n'hésitez pas à consulter le livre \LaTeX{} 
 			\begin{itemize}
 				\item \url{http://en.wikibooks.org/wiki/LaTeX}
 				\item \url{http://www.grappa.univ-lille3.fr/FAQ-LaTeX}
+                \item \url{http://www.andy-roberts.net/writing/latex}
 				\item Google est ton ami !
 				\item Livres:
 				\begin{itemize}
