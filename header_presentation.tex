@@ -2,9 +2,9 @@
 
 \usetheme[compress]{Singapore} % theme
 
-\usepackage[utf8x]{inputenc}
 \usepackage[frenchb]{babel}
 \usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
 \usepackage{lmodern}
 \usepackage{amsmath,amsthm,amssymb}        % un packages mathématiques
 \usepackage{xcolor}         % pour définir plus de couleurs
@@ -14,7 +14,15 @@
 	\urlstyle{sf}
 \usepackage{lastpage}
 \usepackage{endnotes}
+
 \usepackage{listings}
+\usepackage{listingsutf8}
+
+\usepackage{siunitx}
+\usepackage{circuitikz}
+\usepackage{chemfig}
+\usepackage[version=3]{mhchem}
+
 \usepackage[french]{varioref}
 \usepackage{wrapfig}
 \usepackage{pdfpages}
@@ -128,8 +136,9 @@
       extendedchars=true,
       basicstyle=\ttfamily\scriptsize,
       showstringspaces=false,
-      morekeywords={usepackage,documentclass,begin,textbf,textit,texttt},
+      morekeywords={usepackage,documentclass,begin,textbf,textit,texttt,ref,includegraphics,caption,label,setlength,mathbb,notag,frac,num,si,ang,SI,textwidth,percent,meter,ohm,joule,second,more,section,subsection,tableofcontents,setstretch,TeX,LaTeX,huge,sffamily,emph,chemfig,pageref,vpageref},
       frame=single,
       extendedchars=true,
       inputencoding=utf8x
     }
+\lstset{inputencoding=utf8/latin1}

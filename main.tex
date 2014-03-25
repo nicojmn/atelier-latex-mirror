@@ -19,10 +19,10 @@
 
 
 % A changer (selon Arnaud) le utf8x pas aligné slide 12/30
+% Math: align, eqref
+% Physics
 %
 %
-%
-% 
 \begin{document}
 
 %%%%%%%%%%%% SIDA
@@ -223,6 +223,26 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 	\end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Encoding}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item En anglais, ASCII est suffisant, 1 byte par caractère;
+        \item UTF-8, 1 byte pour un caractère simple, plus de bytes pour un plus exotique;
+        \item latin-1, \dots, à éviter.
+        \item Les caractères ASCII sont les mêmes pour tous les encodages !
+        \item Si vous en utilisez d'autres (e.g. accent), \LaTeX{} doit savoir l'encodage !
+        \item Le package \lstinline|inputenc| (INPUT ENCoding) s'en charge !
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{img/utf8_circle.png}
+    \end{column}
+  \end{columns}
+\end{frame}
+
 %-----------------------
 \subsection{La structure}
 
@@ -295,27 +315,24 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 		\item Une ligne de commande suffit pour générer toute la table des matières
 	\end{itemize}
 	\begin{columns}
-	\column{0.5\textwidth}
-	\vspace{0.3cm}
-	\small
-	\verb|\documentclass[a4paper,10pt]{article}|\\
-	\verb|\usepackage[francais]{babel} |\\
-	\verb|\usepackage[latin1]{inputenc}|\\
-	\verb|\usepackage[T1]{fontenc}|\\
-	\vspace{0.4cm}
-	\verb|\begin{document} |\\
-	{\usebeamercolor[fg]{example text} \verb|\tableofcontents|}\\
-	\verb|\section{Section 1} |\\
-	\verb|Ceci est mon premier document écrit en TEX |\\
-	\verb|\section{Section 2} |\\
-	\verb|Ceci est ma deuxième section |\\
-	\verb|\subsection{Sous-section 2.1} |\\
-	\verb|Ceci est une sous-section|\\
-	\verb|\end{document}|
-	\column{0.5\textwidth}
-	\begin{flushright}
-	\fbox{\includegraphics[width=0.6\textwidth]{table.png}}
-	\end{flushright}
+      \begin{column}{0.5\textwidth}
+        \begin{lstlisting}
+\begin{document}
+\tableofcontents
+\section{Introduction}
+Ceci est mon premier document en \TeX{}
+\section{Le vif du sujet}
+Le sujet est en or mais pas le vif.
+\subsection{Mais quel est le sujet ?}
+\LaTeX{}, ce logiciel d'exception !
+\end{document}
+        \end{lstlisting}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+        \begin{flushright}
+          \fbox{\includegraphics[width=0.6\textwidth]{table.png}}
+        \end{flushright}
+      \end{column}
 	\end{columns}
 \end{frame}
 
@@ -324,42 +341,43 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 \begin{frame}[fragile]{Jouer avec les fontes}
 \framesubtitle{Changer la taille et le type de police}
 	\begin{center}
-	\fbox{\includegraphics[width=0.7\textwidth]{font.png}}
+      \fbox{\includegraphics[width=0.7\textwidth]{font.png}}
 	\end{center}
-	\small
-	\verb|\documentclass[a4paper,10pt]{article}|\\
-	\verb|\usepackage[french]{babel} |\\
-	\verb|\usepackage[T1]{fontenc}|\\
-	\verb|\usepackage[latin1]{inputenc}|\\
-	\vspace{0.4cm}
-	\verb|\begin{document} |\\
-	\verb|Ceci est mon premier document écrit en \LaTeX{} |\\
-	{\usebeamercolor[fg]{example text} \verb|\huge|}\\
-	\verb|Ecrit un peu plus grand. |\\
-	{\usebeamercolor[fg]{example text} \verb|\sffamily |}\\
-	\verb|Dans une autre police de caractère|\\
-	\verb|\end{document}|
-
+    \begin{lstlisting}
+Ceci est mon premier document en \LaTeX{}
+\huge
+Ecrit un peu plus grand.
+\sffamily
+Dans une autre police
+    \end{lstlisting}
 \end{frame}
 
-\subsection{Mise en forme simple}
-\begin{frame}[fragile]{Mise en forme simple}
-  \footnotesize
-  \begin{lstlisting}[frame=single]
-  Je peux mettre en \textbf{gras}, en \textit{italique}, en \texttt{machine a
-  ecrire}, dans un format pour les \textsc{Noms}, etc. % c'est ecrit sur 2 lignes
-
-  Voici un nouveau paragraphe. % un commentaire
-
-  Mais j'ai envie d'avoir une separation avec le reste du texte en ajoutant une ligne vide.
-  (je peux aussi forcer le retour a la ligne, a vous de choisir le style).
-  \end{lstlisting}
-  \begin{center}
-    \fbox{\includegraphics[width=\textwidth]{mise_en_page_simple.png}}
-  \end{center}
+\begin{frame}[fragile]
+  \frametitle{Formatting}
+  \begin{block}{Alignement}
+    Par défaut, c'est justifié.
+    \begin{lstlisting}
+\begin{center}
+\end{center}
+\begin{left}
+\end{left}
+{\centering ...}
+    \end{lstlisting}
+  \end{block}
+  \begin{block}{Gras}
+    \begin{itemize}
+      \item \lstinline|\emph{Salut}|, marquer comme important, \emph{Salut}.
+      \item \lstinline|\textbf{Salut}|, \lstinline|{\bf Salut}|,
+        \textbf{Salut}.
+      \item \lstinline|\textit{Salut}|, \lstinline|{\it Salut}|,
+        {\it Salut}.
+    \end{itemize}
+  \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Définition de la forme}
+
+
+\begin{frame}[fragile]{Définition de la forme d'un paragraphe}
   %"LaTeX takes care of the formatting, breaks included. You should avoid manual breaking as much as possible, or it could lead to very bad formatting. Controlling the breaks should be reserved to macro and package writers" http://en.wikibooks.org/wiki/LaTeX/Paragraph_Formatting
   Ne pas faire de \lstinline|\\| dans le code !
   Les lines breaks sont gérés automatiquement, il ne faut pas s'en occuper !
@@ -377,45 +395,144 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 
   Second paragraphe avec espace entre les paragraphes.
   \end{lstlisting}
+  \begin{block}{Espace interligne}
+    \begin{lstlisting}
+    \usepackage{setspace}
+    \setstretch{1.5}
+    \end{lstlisting}
+  \end{block}
 \end{frame}
+
 
 %-----------------------
-\subsection{Les listes}
-\begin{frame}[fragile]{Les listes}
-	\begin{itemize}
-		\item Trois types de listes: \verb|itemize|, \verb|enumerate| et \verb|description|
-	\end{itemize}
-	\vspace{0.5cm}
-	\hspace{1cm} \verb|\begin{|{\usebeamercolor[fg]{example text} \verb|itemize|}\verb|} |\\
-	\hspace{2cm} \verb|\item Premier élément de la liste|\\
-	\hspace{2cm} \verb|\item Deuxième élément de la liste|\\
-	\hspace{1cm} \verb|\end{|{\usebeamercolor[fg]{example text} \verb|itemize|}\verb|} |\\
-	\vspace{0.5cm}
+\begin{frame}[fragile]
+  \frametitle{Itemize et enumerate}
+  \begin{columns}
+    \begin{column}{0.45\textwidth}
+      \begin{block}{Code}
+        \begin{lstlisting}
+\begin{itemize}
+  \item Un chat;
+  \item une poule;
+  \item un chien.
+\end{itemize}
+        \end{lstlisting}
+      \end{block}
+      \begin{block}{Rendu}
+        \begin{itemize}
+          \item Un chat;
+          \item une poule;
+          \item un chien.
+        \end{itemize}
+      \end{block}
+    \end{column}
 
-	\fbox{\includegraphics[width=\textwidth]{liste.jpg}}
+    \begin{column}{0.45\textwidth}
+      \begin{block}{Code}
+        \begin{lstlisting}
+\begin{enumerate}
+  \item Mettez de l'eau.
+  \item Chauffer l'eau.
+  \item Mettez les pasta.
+\end{enumerate}
+        \end{lstlisting}
+      \end{block}
+      \begin{block}{Rendu}
+        \begin{enumerate}
+          \item Mettez de l'eau.
+          \item Chauffer l'eau.
+          \item Mettez les pasta.
+        \end{enumerate}
+      \end{block}
+    \end{column}
+  \end{columns}
 \end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Description}
+  \begin{block}{Code}
+    \begin{lstlisting}
+\begin{description}
+  \item[ODT] Open Document Text.
+  \item[ODS] Open Document Spreadsheet.
+  \item[ODP] Open Document Presentation.
+\end{description}
+    \end{lstlisting}
+  \end{block}
+  \begin{block}{Rendu}
+    \begin{description}
+      \item[ODT] Open Document Text.
+      \item[ODS] Open Document Spreadsheet.
+      \item[ODP] Open Document Presentation.
+    \end{description}
+  \end{block}
+\end{frame}
+
+
+
 
 %-----------------------
 \section{Les environnements flottants}
 \subsection{Les figures}
-\begin{frame}[fragile]{Les figures}
+\begin{frame}[fragile,allowframebreaks]
+  \frametitle{Figures}
+  \begin{block}{Non-flottant}
+    Référencement par ``ci-dessous'', \dots
+    \begin{lstlisting}
+\begin{center}
+  \includegraphics{image.jpg}
+\end{center}
+    \end{lstlisting}
+  \end{block}
+  \begin{block}{Flottant}
+    Référencement par \lstinline|voir figure~\ref{fig:graphique}|
+    \begin{lstlisting}
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{graph.png}
+  \caption{Voici un beau graphique}
+  \label{fig:graphique}
+\end{figure}
+    \end{lstlisting}
+  \end{block}
+  \begin{block}{Hybride: référençable mais non-flottant}
+    Référencement par \lstinline|voir figure~\ref{fig:graphique}|
+    \begin{lstlisting}
+\usepackage{here}
+...
+\begin{figure}[H]
+  ...
+  \label{fig:graphique}
+\end{figure}
+    \end{lstlisting}
+  \end{block}
+  \begin{block}{Scaling}
+    \begin{lstlisting}
+\includegraphics[width=\textwidth]{image.jpg} % Largeur d'une ligne de texte
+\includegraphics[height=4cm]{image.jpg} % Hauteur de 4cm
+\includegraphics[scale=0.5]{image.png} % taille / 2
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Exemple de figure}
 	\fbox{\includegraphics[width=\textwidth]{figure.jpg}}
 \end{frame}
 
-\begin{frame}[fragile]{Les figures}
+\begin{frame}[fragile]{Exemple de figure}
 %\framesubtitle{Un contenant pour des éléments de type \textit{table} et \textit{figure}}
 
-\begin{verbatim}
-Sur la figure~\ref{ucl}, vous pouvez voir le logo UCL
-mis à 50 \% de la largueur du texte.
+\begin{lstlisting}
+Sur la figure~\ref{fig:ucl}, vous pouvez voir le logo UCL
+mis a \SI{50}{\percent} de la largueur du texte.
 
-\begin{figure}[H]
+\begin{figure}[!ht]
     \centering
         \includegraphics[width=0.50\textwidth]{logo-ucl.jpg}
     \caption{Voici le logo UCL}
-    \label{ucl}
+    \label{fig:ucl}
 \end{figure}
-\end{verbatim}
+\end{lstlisting}
 \end{frame}
 %	\vspace{0.5cm}
 %	\hspace{1cm} \verb|\begin{|{\usebeamercolor[fg]{example text} \verb|itemize|}\verb|} |\\
@@ -425,10 +542,61 @@ mis à 50 \% de la largueur du texte.
 %	\vspace{0.5cm}
 
 \subsection{Les tableaux}
-\begin{frame}[fragile]{Les tableaux}
+\begin{frame}[fragile,allowframebreaks]
+  \frametitle{Tableaux}
+  \begin{block}{Non-flottant}
+    Référencement par ``ci-dessous'', \dots
+    \begin{lstlisting}
+\begin{center}
+  \begin{tabular}{...}
+    ...
+  \end{tabular}
+\end{center}
+    \end{lstlisting}
+  \end{block}
+  \begin{block}{Flottant}
+    Référencement par \lstinline|voir tableau~\ref{tab:data}|
+    \begin{lstlisting}
+\begin{table}
+  \centering
+  \begin{tabular}{...}
+    ...
+  \end{tabular}
+  \caption{Voici un beau tableau}
+  \label{tab:data}
+\end{table}
+    \end{lstlisting}
+  \end{block}
+  \begin{block}{Code}
+    \begin{lstlisting}
+\begin{tabular}{|lcr|}
+  \hline
+  A & B & C\\
+  \hline
+  a & b & c\\
+  $\alpha$ & $\beta$ & $\gamma$\\
+  \hline
+\end{tabular}
+    \end{lstlisting}
+  \end{block}
+  \begin{block}{Rendu}
+\begin{tabular}{|lcr|}
+  \hline
+  A & B & C\\
+  \hline
+  a & b & c\\
+  $\alpha$ & $\beta$ & $\gamma$\\
+  \hline
+\end{tabular}
+  \end{block}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Exemple de tableau}
 \begin{footnotesize}
-\begin{verbatim}
-\begin{table}[H]
+\begin{lstlisting}
+\begin{table}[!ht]
     \begin{center}
             \begin {tabular}{|l||c|} %% 2 columns
             \hline
@@ -439,62 +607,190 @@ mis à 50 \% de la largueur du texte.
                 Pantalons & 1   \\
             \hline
             \end{tabular}
-        \caption{Tableau relatif à l'inventaire}
+        \caption{Tableau relatif a l'inventaire}
     \end{center}
 \end{table}
-\end{verbatim}
+\end{lstlisting}
 \end{footnotesize}
 \begin{center}
 \fbox{\includegraphics[width=0.6\textwidth]{table.jpg}}
 \end{center}
 \end{frame}
 %-----------------------
-\subsection{Les maths}
+\section{Sciences}
+\subsection{Écrire des mathématiques}
 \begin{frame}[fragile]{L'environnement mathématique}
 \framesubtitle{Inclure des formules dans le texte}
 On peut ajouter une formule mathématique dans du texte entre deux symboles \textbf{\$}.
 
-\begin{center}
 \vspace{1cm}
-
-	\Large
-	\hspace{1cm} \verb|$x^{2n}$| \hspace{1cm} $\Rightarrow$ \hspace{1cm}  $x^{2n}$
-	\medskip
-
-	\hspace{1cm} \verb|$\sin(x)$| \hspace{1cm} $\Rightarrow$ \hspace{1cm}  $\sin(x)$
+\begin{center}
+    \Large
+  \begin{tabular}{lll}
+    \verb|$x^{2n}$| & $\rightarrow$ &  $x^{2n}$\\
+    \medskip
+    \verb|$\sin(x)$| & $\rightarrow$ &  $\sin(x)$
+  \end{tabular}
 \end{center}
+\end{frame}
+\begin{frame}[fragile]{L'environnement mathématique}
+\framesubtitle{Inclure des formules centrées hors du texte}
+On peut aussi ajouter une formule mathématique centrées hors du texte entre deux symboles \textbf{\$\$}. Exemple:
+
+\begin{columns}
+  \begin{column}{0.45\textwidth}
+    $|x|$ is positive for any value of $x$,
+    we can define it like so
+    $$x =
+    \begin{cases}
+      -x & \text{si }x < 0\\
+      x & \text{sinon}.
+    \end{cases}$$
+
+    Be aware that
+    $$|x + y| \neq |x| + |y|.$$
+    However, we have the triangle inequality
+    $$|x + y| \leq |x| + |y|$$
+    for any $x,y \in \mathbb{C}$.
+  \end{column}
+  \begin{column}{0.45\textwidth}
+    \begin{lstlisting}
+$|x|$ is positive for
+any value of $x$,
+we can define it like so
+$$x =
+\begin{cases}
+  -x & \text{si }x < 0\\
+  x & \text{sinon}.
+\end{cases}$$
+
+Be aware that
+$$|x + y| \neq |x| + |y|.$$
+However, we have the triangle inequality
+$$|x + y| \leq |x| + |y|$$
+for any $x,y \in \mathbb{C}$.
+    \end{lstlisting}
+  \end{column}
+\end{columns}
 
 \end{frame}
+
 
 \begin{frame}[fragile]{L'environnement mathématique}
 \framesubtitle{Formules numérotées}
 
-Un environnement équation est prévu pour des formules plus longues, elles seront automatiquement centrées et numérotées pour être référencées (équation~\ref{eq:pnorm})
-
-\begin{equation}
-\label{eq:pnorm}
-p(x)=\frac{1}{\sigma \sqrt{2\pi}}\exp
-		 \left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
-\end{equation}
+Un environnement équation est prévu pour des formules plus longues, elles seront automatiquement centrées et numérotées pour être référencées
 
 \vspace{0.2cm}
-\begin{center}
-\begin{footnotesize}
-	\begin{verbatim}
-(équation~\ref{eq:pnorm})
+\begin{columns}
+  \begin{column}{0.6\textwidth}
+I like trains and the equation~\eqref{eq:euler}
+\begin{align}
+  \label{eq:euler}
+  e^{i\pi} + 1 & = 0\\
+  \notag
+  p(x) & = \frac{1}{\sigma \sqrt{2\pi}}
+  \exp
+    \left(-\frac{(x-\mu)^2}
+                {2\sigma^2}\right).
+\end{align}
+I also know that
+\begin{align*}
+  1 + 1 & = 2 & 1 + 2 & = 3\\
+  2 + 3 & = 5 & 3 + 5 & = 8.
+\end{align*}
+  \end{column}
+  \begin{column}{0.4\textwidth}
+    \begin{lstlisting}
+I like trains and
+the equation~\eqref{eq:euler}
+\begin{align}
+  \label{eq:euler}
+  e^{i\pi} + 1 & = 0\\
+  \notag
+  p(x) & = \frac{1}{\sigma \sqrt{2\pi}}
+  \exp
+    \left(-\frac{(x-\mu)^2}
+    {2\sigma^2}\right).
+\end{align}
+I also know that
+\begin{align*}
+  1 + 1 & = 2 & 1 + 2 & = 3\\
+  2 + 3 & = 5 & 3 + 5 & = 8.
+\end{align*}
+    \end{lstlisting}
+  \end{column}
+\end{columns}
 
-\begin{equation}
-\label{eq:pnorm}
+\end{frame}
 
-p(x)=\frac{1}{\sigma \sqrt{2\pi}}\exp
-         \left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+\subsection{La physique}
+\begin{frame}[fragile]
+  \frametitle{Les unités}
+  \lstinline|\usepackage{siunitx}|
+  \begin{center}
+    \begin{tabular}{ll}
+      \num{314e-2} & \lstinline|\num{314e-2}|\\
+      \ang{42} & \lstinline|\ang{42}|\\
+      \si{g_{polymer}~mol_{cat}.s^{-1}} &
+      \lstinline|\si{g_{polymer}~mol_{cat}.s^{-1}}|\\
+      \si{\square\volt\cubic\lumen\per\farad} &
+      \lstinline|\si{\square\volt\cubic\lumen\per\farad}|\\
+      \SI{e-6}{\meter\per\second\per\ohm} &
+      \lstinline|\SI{e-6}{\meter\per\second\per\ohm}|\\
+      \SI[per-mode=symbol]{5.3e9}{m\per s} &
+      \lstinline|\SI[per-mode=symbol]{5.3e9}{m\per s}|\\
+      \SI[per-mode=symbol]{5.3e9}{\meter\per\second\per\ohm} &
+      \lstinline|\SI[per-mode=symbol]{5.3e9}{\meter\per\second\per\ohm}|\\
+      \SI[per-mode=fraction]{5e6}{\joule\per\second} &
+      \lstinline|\SI[per-mode=fraction]{5e6}{\joule\per\second}|
+    \end{tabular}
+  \end{center}
+  Super doc sur \url{http://ctan.org/pkg/siunitx}
+\end{frame}
 
-\end{equation}
-\end{verbatim}
+\subsection{La chimie}
+\begin{frame}[fragile]
+  \centering
+  \frametitle{La chimie}
+  \begin{lstlisting}
+\usepackage{chemfig}
+...
+\chemfig{*6(-=(-CH_2OH)-(-COOH)=-=)}
+  \end{lstlisting}
+  \begin{center}
+    \chemfig{*6(-=(-CH_2OH)-(-COOH)=-=)}
+  \end{center}
+  \begin{lstlisting}
+\usepackage[version=3]{mhchem}
+...
+$$\ce{3H2O + 1/2H2O -> AgCl2- + H2_{(aq)}}$$
+  \end{lstlisting}
+  $$\ce{3H2O + 1/2H2O -> AgCl2- + H2_{(aq)}}$$
+\end{frame}
 
-\end{footnotesize}
-\end{center}
-
+\subsection{Les circuits}
+\begin{frame}[fragile]
+  \begin{lstlisting}
+    \usepackage{circuitikz}
+    ...
+    \begin{circuitikz}
+      \draw (0,0) to [sI, v=$V_2$] (0,-3);
+      \draw (6,-3) to[short, i = $I_2$] (0,-3);
+      \draw (0,0) to [R = R, v = $V_R$] (3,0);
+      \draw (3,0) to [L = L, v = $V_L$] (6,0);
+      \draw (6,0) to [C = C, v = $V_C$] (6,-3);
+    \end{circuitikz}
+  \end{lstlisting}
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0) to [sI, v=$V_2$] (0,-3);
+      \draw (6,-3) to[short, i = $I_2$] (0,-3);
+      \draw (0,0) to [R = R, v = $V_R$] (3,0);
+      \draw (3,0) to [L = L, v = $V_L$] (6,0);
+      \draw (6,0) to [C = C, v = $V_C$] (6,-3);
+    \end{circuitikz}
+  \end{center}
 \end{frame}
 
 %%%%%%%%%%%%%
@@ -502,26 +798,37 @@ p(x)=\frac{1}{\sigma \sqrt{2\pi}}\exp
 \section{Références}
 
 \subsection{Références des éléments du texte}
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{\insertsubsection}
 \begin{itemize}
-	\item Facile de faire référence à un numéro et la page d'une section et d'un environnement (\texttt{figure}, \texttt{equation}, \texttt{table}).
-	\item D'un coté une étiquette :
-	\begin{itemize}
-	\item[ ] \texttt{\symbol{92}label\{mon\_label\}}.
-	\end{itemize}
-	\item De l'autre une référence à cette étiquette :
-	\begin{itemize}
-	\item[ ] \texttt{\symbol{92}ref\{mon\_label\}}
-	\item[ ] \texttt{\symbol{92}pageref\{mon\_label\}}
-	\item[ ] \texttt{\symbol{92}vpageref\{mon\_label\}} du paquet \texttt{varioref}
-	\end{itemize}
-%	\item On place une étiquette d'un côté (\texttt{\symbol{92}label\{mon\_label\}}) et on peut utiliser \texttt{\symbol{92}ref\{mon\_label\}} ou \texttt{\symbol{92}pageref\{mon\_label\}} voir \texttt{\symbol{92}vpageref\{mon\_label\}} du paquet \texttt{varioref} avec l'option \texttt{[french]} pour imprimer le numéro ou la page correspondante.
+  \item Facile de faire référence à un numéro et la page d'une section et d'un environnement (\texttt{figure}, \texttt{equation}, \texttt{table}).
+  \item D'un coté une étiquette :
+    \begin{itemize}
+      \item \lstinline|\label{id}|.
+    \end{itemize}
+  \item De l'autre une référence à cette étiquette :
+    \begin{itemize}
+      \item \lstinline|\ref{id}|
+      \item \lstinline|\pageref{id}|
+      \item \lstinline|\vpageref{id}| du paquet \lstinline|varioref|
+    \end{itemize}
 \end{itemize}
-$\Rightarrow$ \label{ref} Exemple: nous sommes à la section \ref{ref}, page \pageref{ref}, \vpageref{ref}.
-\vspace{.3cm}
-
-$\Rightarrow$ \texttt{\symbol{92}label\{ref\} Exemple: nous sommes à la section \symbol{92}ref\{ref\}, page \symbol{92}pageref\{ref\}, \symbol{92}vpageref\{ref\}}.
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+    \label{id}
+    Nous sommes section~\ref{id},
+    page~\pageref{id},
+    \vpageref{id}.
+  \end{column}
+  \begin{column}{0.5\textwidth}
+    \begin{lstlisting}
+\label{ref}
+Nous sommes section~\ref{ref},
+page~\pageref{ref},
+\vpageref{ref}.
+    \end{lstlisting}
+  \end{column}
+\end{columns}
 
 \end{frame}
 
@@ -557,9 +864,9 @@ Deux possibilités pour maintenir une bibliographie:
 		\item Disponible avec les revues scientifiques et Google Scholar
 		\item En utilisant le plugin \href{https://www.zotero.org/}{Zotero} pour récupérer les informations d'un \href{http://www.amazon.fr/LaTeX-HowTo-S\%C3\%A9bastien-Comb\%C3\%A9fis/dp/1446708314/ref=sr_1_5?ie=UTF8&qid=1363022579&sr=8-5}{site}
 	\end{itemize}
-\item Pour les utiliser 
+\item Pour les utiliser
 	\begin{itemize}
-		\item Ajouter la source dans le fichier \texttt{bib}. 
+		\item Ajouter la source dans le fichier \texttt{bib}.
 		\item ``Compiler'' le fichier Bib\TeX{} puis ``recompiler'' le document.
 		\item Inclure dans son texte la commande \texttt{cite} avec l'étiquette de la source à référencer.
 		\item \LaTeX{} inclut la référence dans le texte et ajoute la source à la bibliographie.
@@ -587,7 +894,7 @@ Deux possibilités pour maintenir une bibliographie:
 \end{column}
 \begin{column}{0.45\textwidth}
   \centering
-  \includegraphics[width=\textwidth]{img/scholar.png}
+  \includegraphics[width=\textwidth]{img/scholar_circle.png}
 \end{column}
 \end{columns}
 \bibliographystyle{plain}
@@ -644,7 +951,9 @@ Pour avoir un plus grand aperçu, n'hésitez pas à consulter le livre \LaTeX{} 
 				\item \url{http://en.wikibooks.org/wiki/LaTeX}
 				\item \url{http://www.grappa.univ-lille3.fr/FAQ-LaTeX}
                 \item \url{http://www.andy-roberts.net/writing/latex}
+                \item \url{http://ctan.org/pkg/packagename} ou \lstinline[language=sh,morekeywords={texdoc}]{$ texdoc packagename}
 				\item Google est ton ami !
+                \item \url{http://www.sharelatex.com/learn}
                 \item La version de StackExchange spécialisée pour le \TeX:
       \url{tex.stackexchange.com}.
 				\item Livres:
@@ -654,7 +963,6 @@ Pour avoir un plus grand aperçu, n'hésitez pas à consulter le livre \LaTeX{} 
 				\end{itemize}
 			\end{itemize}
 	\end{itemize}
-
 \end{frame}
 
 
