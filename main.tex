@@ -19,8 +19,7 @@
 
 
 % A changer (selon Arnaud) le utf8x pas aligné slide 12/30
-% Math: align, eqref
-% Physics
+% maketitle
 %
 %
 \begin{document}
@@ -57,7 +56,7 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 \begin{itemize}
 \item \TeX{} $ \Rightarrow$ programme de mise en page
 \vspace{0.5cm}
-\item \LaTeX{} $ \Rightarrow$ ensemble de commanges qui seront
+\item \LaTeX{} $ \Rightarrow$ ensemble de commandes qui seront
  interprétées par le programme \TeX
  \vspace{0.5cm}
 \item \LaTeX{} $ \neq$ WYSIWYG (What You See Is What You Get)
@@ -920,14 +919,29 @@ Deux possibilités pour maintenir une bibliographie:
 \end{frame}
 
 
-\subsection{En vrac}
-\begin{frame}
-\frametitle{\insertsubsection}
-Dans le même domaine, on peut parler des annexes (\texttt{\symbol{92}Appendix}), mais également des environnements \texttt{abstract}, \texttt{quotation}, etc.\\
-\vspace{1cm}
-Astuce sympa, on peut séparer un document en plusieurs petits fichiers et les inclure avec la commande \texttt{input} avec le nom du fichier en seul paramètre. Attention que seul le document principal (qui contient le \texttt{\symbol{92}begin\{document\}}) peut compiler!\\
-\vspace{1cm}
-Pour avoir un plus grand aperçu, n'hésitez pas à consulter le livre \LaTeX{} How To, les slides et exercices avancées disponibles sur notre site mais à regarder les nombreux boutons que comportent les éditeurs de texte dédiés à \LaTeX.
+\subsection{include et input}
+\begin{frame}[fragile]
+  \frametitle{include et input}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{lstlisting}
+\input{chap1}
+\input{chap2}
+\input{chap3}
+\input{chap4}
+      \end{lstlisting}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{lstlisting}
+\includeonly{chap1,chap3}
+...
+\include{chap1}
+\include{chap2}
+\include{chap3}
+\include{chap4}
+      \end{lstlisting}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \AtBeginSection[]{} %% stop TOC
