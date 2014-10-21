@@ -9,6 +9,7 @@
 \definecolor{bleu}{RGB}{34,148,255}
 \definecolor{darkgray}{rgb}{0.3,0.3,0.3}
 
+\usefonttheme[onlymath]{serif} % to see the difference when I do mathsf
 
 \logo{\includegraphics[height=5mm]{logo_12-13-mini.png}}
 \institute{Louvain-li-Nux}
@@ -628,7 +629,7 @@ On peut ajouter une formule mathématique dans du texte entre deux symboles \tex
   \begin{tabular}{lll}
     \verb|$x^{2n}$| & $\rightarrow$ &  $x^{2n}$\\
     \medskip
-    \verb|$\sin(x)$| & $\rightarrow$ &  $\sin(x)$
+    \verb|$\sin(x)$| & $\rightarrow$ &  $\sin(x)$\\
   \end{tabular}
 \end{center}
 \end{frame}
@@ -654,6 +655,51 @@ On peut aussi ajouter une formule mathématique centrées hors du texte entre de
   \end{column}
   \begin{column}{0.45\textwidth}
     \begin{lstlisting}
+\usepackage{amssymb} % for \mathbb
+...
+$|x|$ is positive for
+any value of $x$,
+we can define it like so
+$$x =
+\begin{cases}
+  -x & \text{si }x < 0\\
+  x & \text{sinon}.
+\end{cases}$$
+
+Be aware that
+$$|x + y| \neq |x| + |y|.$$
+However, we have the triangle inequality
+$$|x + y| \leq |x| + |y|$$
+for any $x,y \in \mathbb{C}$.
+    \end{lstlisting}
+  \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{L'environnement mathématique}
+\framesubtitle{Inclure des formules centrées hors du texte}
+On peut aussi ajouter une formule mathématique centrées hors du texte entre deux symboles \textbf{\$\$}. Exemple:
+
+\begin{columns}
+  \begin{column}{0.45\textwidth}
+    $|x|$ is positive for any value of $x$,
+    we can define it like so
+    $$x =
+    \begin{cases}
+      -x & \text{si }x < 0\\
+      x & \text{sinon}.
+    \end{cases}$$
+
+    Be aware that
+    $$|x + y| \neq |x| + |y|.$$
+    However, we have the triangle inequality
+    $$|x + y| \leq |x| + |y|$$
+    for any $x,y \in \mathbb{C}$.
+  \end{column}
+  \begin{column}{0.45\textwidth}
+    \begin{lstlisting}
+\usepackage{amssymb} % for \mathbb
+...
 $|x|$ is positive for
 any value of $x$,
 we can define it like so
@@ -675,12 +721,12 @@ for any $x,y \in \mathbb{C}$.
 \end{frame}
 
 
+
 \begin{frame}[fragile]{L'environnement mathématique}
 \framesubtitle{Formules numérotées}
 
 Un environnement équation est prévu pour des formules plus longues, elles seront automatiquement centrées et numérotées pour être référencées
 
-\vspace{0.2cm}
 \begin{columns}
   \begin{column}{0.6\textwidth}
 I like trains and the equation~\eqref{eq:euler}
@@ -701,6 +747,8 @@ I also know that
   \end{column}
   \begin{column}{0.4\textwidth}
     \begin{lstlisting}
+\usepackage{amsmath} % for eqref
+...
 I like trains and
 the equation~\eqref{eq:euler}
 \begin{align}
@@ -721,6 +769,94 @@ I also know that
   \end{column}
 \end{columns}
 
+\end{frame}
+
+\begin{frame}[fragile]{L'environnement mathématique}
+\framesubtitle{Variable à plusieurs lettres}
+
+Attention aux yeux du lecteurs (surtout ceux ayant un compas à portée de main).
+$cube = c \cdot u \cdot b \cdot e = c \times u \times b \times e$.
+Les variables plusieurs lettres doivent être différenciées de celles à une seule lettre.
+
+%\begin{columns}
+%  \begin{column}{0.6\textwidth}
+\begin{center}
+  \begin{tabular}{|c|c|}
+    \hline
+    Bad & Good\\
+    \hline
+    $cube(x) = x^3$ & $\mathsf{cube}(x) = x^3$\\
+    \hline
+    $flux_{in}(k_{orig}) = flux_{out}(k_{dest})$ & $\mathsf{flux}_{\text{in}}(k_{\text{orig}}) = \mathsf{flux}_{\text{out}}(k_{\text{dest}})$\\
+    \hline
+  \end{tabular}
+\end{center}
+%  \end{column}
+%  \begin{column}{0.4\textwidth}
+\begin{lstlisting}
+\begin{center}
+  \begin{tabular}{|c|c|}
+    \hline
+    Bad & Good\\
+    \hline
+    $cube(x) = x^3$ & $\mathsf{cube}(x) = x^3$\\
+    \hline
+    $flux_{in}(k_{orig}) = flux_{out}(k_{dest})$ & $\mathsf{flux}_{\text{in}}(k_{\text{orig}}) = \mathsf{flux}_{\text{out}}(k_{\text{dest}})$\\
+    \hline
+  \end{tabular}
+\end{center}
+\end{lstlisting}
+%  \end{column}
+%\end{columns}
+\textbf{Problème} Le code se ralonge (solution dans 2 slides).
+\end{frame}
+
+\begin{frame}[fragile]{L'environnement mathématique}
+\framesubtitle{Math Operators}
+Les opérateurs mathématiques sont $\lim, \min, \max, \sum, \prod, \ldots$.
+Quelle différence ? Leurs indices et exposant sont au dessus et en dessous mais pas à leur droite.
+
+\begin{columns}
+  \begin{column}{0.6\textwidth}
+\begin{align*}
+  \min_{x \in \mathbb{R^n}} \|x\|\\
+  \sum_{i = 1}^n x_i & = 1
+\end{align*}
+
+$\min_{x \in \mathbb{R^n}} \|x\|$ tel que $\sum_{i = 1}^n x_i = 1$.
+
+$\min\limits_{x \in \mathbb{R^n}} \|x\|$ tel que $\sum\limits_{i = 1}^n x_i = 1$.
+  \end{column}
+  \begin{column}{0.4\textwidth}
+\begin{lstlisting}
+\begin{align*}
+  \min_{x \in \mathbb{R^n}} \|x\|\\
+  \sum_{i = 1}^n x_i & = 1
+\end{align*}
+
+$\min_{x \in \mathbb{R^n}} \|x\|$ tel que $\sum_{i = 1}^n x_i = 1$.
+
+$\min\limits_{x \in \mathbb{R^n}} \|x\|$ tel que $\sum\limits_{i = 1}^n x_i = 1$.
+\end{lstlisting}
+  \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{L'environnement mathématique}
+\framesubtitle{Définition de Math Operator ou Command}
+Les opérateurs mathématiques sont $\lim, \min, \max, \sum, \prod, \ldots$.
+Quelle différence ? Leurs indices et exposant sont au dessus et en dessous mais pas à leur droite.
+
+\begin{lstlisting}
+\newcommand{\fin}{\mathsf{flux}_{\text{in}}}
+\newcommand{\fout}{\mathsf{flux}_{\text{out}}}
+% if \kor already exists
+\renewcommand{\kor}{k_{\text{orig}}}
+\newcommand{\kde}{k_{\text{dest}}}
+\DeclareMathOperator{\pot}{potato}
+\let\min\relax
+\DeclareMathOperator{\min}{minimum}
+\end{lstlisting}
 \end{frame}
 
 \subsection{La physique}

@@ -22,6 +22,8 @@
 \usepackage{booktabs} %% tableau
 \usepackage{graphicx} %% images
 \usepackage{hyperref} %% liens
+\usepackage{amsmath}
+\usepackage{amssymb}
 
 % \renewcommand{\familydefault}{\sfdefault} %% utilise la police SC, p-ê plus agréable
 
@@ -38,23 +40,32 @@
 \newpage
 
 \section{Introduction}
-L'écriture de texte se fait très simplement. Chaque paragraphe est séparé par un retour à la ligne et l'indentation est automatique. De même, la césure \footnote{La rupture d'un mot en fin de ligne} et les numérotations sont gérées automatiquement qu'il s'agisse des numéros de pages, de tableaux, de figures ou encore des notes en bas de page.
+L'écriture de texte se fait très simplement. Chaque paragraphe est séparé par une ligne blanche dans le \verb|.tex| et l'indentation est automatique. De même, la césure \footnote{La rupture d'un mot en fin de ligne} et les numérotations sont gérées automatiquement qu'il s'agisse des numéros de pages, de tableaux, de figures ou encore des notes en bas de page.
 
 \section{Problématique}
 
 L'écriture mathématique peut s'écrire de plusieurs façons, nous en verrons ici deux, à savoir:
 \begin{enumerate}
- 	\item dans une ligne de texte.\\Par exemple, $A$ est une variable définie par $A=\sin(2x)$
+ 	\item dans une ligne de texte.
+      Par exemple, $A$ est une variable définie par $A=\sin(2x)$
  	\item sur une ligne séparée (voir section \ref{eq}).
  \end{enumerate}
 
 \subsection{Équations}\label{eq}
 
-Les équations peuvent être référencées dans le texte facilement sans se préoccuper de la numérotation, un label pouvant être associé à chaque équation hors-ligne. L'équation (\ref{eq:pnorm}) permet de déterminer la densité de probabilité d'une variable aléatoire suivant une loi normale.
+Les équations peuvent être référencées dans le texte facilement sans se préoccuper de la numérotation, un label pouvant être associé à chaque équation hors-ligne.
+L'équation \eqref{eq:pnorm} permet de déterminer la densité de probabilité d'une variable aléatoire suivant une loi normale.
 
-\begin{equation} \label{eq:pnorm}
-	p(x)=\frac{1}{\sigma \sqrt{2\pi}} \exp \left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
-\end{equation}
+\begin{align}
+  \notag
+  \sum_{i=1}^n i & =
+  \begin{cases}
+    \frac{n (n+1)}{2} & \text{si } i \geq 0\\
+    0 & \text{sinon}
+  \end{cases} & \forall i \in \mathbb{Z}\\
+  \label{eq:pnorm}
+  \mathsf{density}(x) & = \frac{1}{\sigma \sqrt{2\pi}} \exp \left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+\end{align}
 
 \subsection{Figures}
 
@@ -67,13 +78,13 @@ Les figures, comme décrit dans plusieurs sources dont \cite{codeco_endemic_2001
 	\item une préférence sur le positionnement dans le document.
 \end{itemize}
 
-Néanmoins, \LaTeX reste seul juge sur l'emplacement de votre élément flottant (environnements \textbf{table} et \textbf{figure} par exemple).
+Néanmoins, \LaTeX{} reste seul juge sur l'emplacement de votre élément flottant (environnements \textbf{table} et \textbf{figure} par exemple).
 
 % Attention, le nom du fichier image "image.png" est à remplacer par le nom d'une de vos images.
 % L'image doit être présente dans le même dossier que ce fichier .tex
 \begin{figure}[ht] % ou [!ht] pour forcer ([!]) à mettre l'image ici ([h]ere) ou alors en haut ([t]op)
 	\centering
-	\includegraphics[width=\textwidth]{image.png}			
+	\includegraphics[width=\textwidth]{image.png}
 	\caption{Régression linéaire multiple sur deux facteurs : $x_2$ et $\log(x_1)$.}
 	\label{fig:image}
 \end{figure}
