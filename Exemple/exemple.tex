@@ -24,6 +24,7 @@
 \usepackage{hyperref} %% liens
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{siunitx}
 
 % \renewcommand{\familydefault}{\sfdefault} %% utilise la police SC, p-ê plus agréable
 
@@ -97,7 +98,7 @@ Le tableau \ref{tab:env} est un exemple de tableau avec l'environnement \textbf{
 	\centering
 	\begin{tabular}{lcc}
 		\toprule
-		\textbf{Sample Site} & \textbf{Temperature ($\degres$C)} & \textbf{Gradient ($\degres$)}\\
+        \textbf{Sample Site} & \textbf{Temperature (\si{\celsius})} & \textbf{Gradient (\si{\degree})}\\
 		\midrule
 		Shakespeare & 22 & 5\\
 		Wenderholm & 25 & 12\\
@@ -106,7 +107,7 @@ Le tableau \ref{tab:env} est un exemple de tableau avec l'environnement \textbf{
 		\textbf{Average} & \textbf{21.7} & \textbf{8.7}\\
 		\bottomrule
 	\end{tabular}
-	\caption{Environmental variables for several sample sites.}
+    \caption{Environmental variables for several sample sites. The average is \SI{217e-1}{\celsius}.}
 	\label{tab:env}
 \end{table}
 
