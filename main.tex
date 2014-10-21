@@ -479,6 +479,8 @@ Dans une autre police
   \begin{block}{Non-flottant}
     Référencement par ``ci-dessous'', \dots
     \begin{lstlisting}
+\usepackage{graphicx}
+...
 \begin{center}
   \includegraphics{image.jpg}
 \end{center}
@@ -487,6 +489,8 @@ Dans une autre police
   \begin{block}{Flottant}
     Référencement par \lstinline|voir figure~\ref{fig:graphique}|
     \begin{lstlisting}
+\usepackage{graphicx}
+...
 \begin{figure}[!ht]
   \centering
   \includegraphics{graph.png}
@@ -498,6 +502,7 @@ Dans une autre police
   \begin{block}{Hybride: référençable mais non-flottant}
     Référencement par \lstinline|voir figure~\ref{fig:graphique}|
     \begin{lstlisting}
+\usepackage{graphicx}
 \usepackage{here}
 ...
 \begin{figure}[H]
@@ -508,6 +513,8 @@ Dans une autre police
   \end{block}
   \begin{block}{Scaling}
     \begin{lstlisting}
+\usepackage{graphicx}
+...
 \includegraphics[width=\textwidth]{image.jpg} % Largeur d'une ligne de texte
 \includegraphics[height=4cm]{image.jpg} % Hauteur de 4cm
 \includegraphics[scale=0.5]{image.png} % taille / 2
@@ -523,6 +530,8 @@ Dans une autre police
 %\framesubtitle{Un contenant pour des éléments de type \textit{table} et \textit{figure}}
 
 \begin{lstlisting}
+\usepackage{graphicx}
+...
 Sur la figure~\ref{fig:ucl}, vous pouvez voir le logo UCL
 mis a \SI{50}{\percent} de la largueur du texte.
 
@@ -655,6 +664,7 @@ On peut aussi ajouter une formule mathématique centrées hors du texte entre de
   \end{column}
   \begin{column}{0.45\textwidth}
     \begin{lstlisting}
+\usepackage{amsmath} % for \begin{cases}
 \usepackage{amssymb} % for \mathbb
 ...
 $|x|$ is positive for
@@ -819,24 +829,24 @@ Quelle différence ? Leurs indices et exposant sont au dessus et en dessous mais
 \begin{columns}
   \begin{column}{0.6\textwidth}
 \begin{align*}
-  \min_{x \in \mathbb{R^n}} \|x\|\\
+  \min_{x \in \mathbb{R}^n} \|x\|\\
   \sum_{i = 1}^n x_i & = 1
 \end{align*}
 
-$\min_{x \in \mathbb{R^n}} \|x\|$ tel que $\sum_{i = 1}^n x_i = 1$.
+$\min_{x \in \mathbb{R}^n} \|x\|$ tel que $\sum_{i = 1}^n x_i = 1$.
 
-$\min\limits_{x \in \mathbb{R^n}} \|x\|$ tel que $\sum\limits_{i = 1}^n x_i = 1$.
+$\min\limits_{x \in \mathbb{R}^n} \|x\|$ tel que $\sum\limits_{i = 1}^n x_i = 1$.
   \end{column}
   \begin{column}{0.4\textwidth}
 \begin{lstlisting}
 \begin{align*}
-  \min_{x \in \mathbb{R^n}} \|x\|\\
+  \min_{x \in \mathbb{R}^n} \|x\|\\
   \sum_{i = 1}^n x_i & = 1
 \end{align*}
 
-$\min_{x \in \mathbb{R^n}} \|x\|$ tel que $\sum_{i = 1}^n x_i = 1$.
+$\min_{x \in \mathbb{R}^n} \|x\|$ tel que $\sum_{i = 1}^n x_i = 1$.
 
-$\min\limits_{x \in \mathbb{R^n}} \|x\|$ tel que $\sum\limits_{i = 1}^n x_i = 1$.
+$\min\limits_{x \in \mathbb{R}^n} \|x\|$ tel que $\sum\limits_{i = 1}^n x_i = 1$.
 \end{lstlisting}
   \end{column}
 \end{columns}
@@ -1023,7 +1033,7 @@ Deux possibilités pour maintenir une bibliographie:
   \begin{block}{Inclure la bibliographie}
     \begin{lstlisting}
 \bibliographystyle{plain}
-\bibliography{biblio.bib}
+\bibliography{biblio}
     \end{lstlisting}
   \end{block}
 \end{column}
