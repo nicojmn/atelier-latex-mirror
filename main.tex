@@ -767,51 +767,6 @@ for any $x,y \in \mathbb{C}$.
 \end{columns}
 \end{frame}
 
-\begin{frame}[fragile]{L'environnement mathématique}
-\framesubtitle{Inclure des formules centrées hors du texte}
-On peut aussi ajouter une formule mathématique centrées hors du texte entre deux symboles \textbf{\$\$}. Exemple:
-
-\begin{columns}
-  \begin{column}{0.45\textwidth}
-    $|x|$ is positive for any value of $x$,
-    we can define it like so
-    $$x =
-    \begin{cases}
-      -x & \text{si }x < 0\\
-      x & \text{sinon}.
-    \end{cases}$$
-
-    Be aware that
-    $$|x + y| \neq |x| + |y|.$$
-    However, we have the triangle inequality
-    $$|x + y| \leq |x| + |y|$$
-    for any $x,y \in \mathbb{C}$.
-  \end{column}
-  \begin{column}{0.45\textwidth}
-    \begin{lstlisting}
-\usepackage{amssymb} % for \mathbb
-...
-$|x|$ is positive for
-any value of $x$,
-we can define it like so
-$$x =
-\begin{cases}
-  -x & \text{si }x < 0\\
-  x & \text{sinon}.
-\end{cases}$$
-
-Be aware that
-$$|x + y| \neq |x| + |y|.$$
-However, we have the triangle inequality
-$$|x + y| \leq |x| + |y|$$
-for any $x,y \in \mathbb{C}$.
-    \end{lstlisting}
-  \end{column}
-\end{columns}
-
-\end{frame}
-
-
 
 \begin{frame}[fragile]{L'environnement mathématique}
 \framesubtitle{Formules numérotées}
