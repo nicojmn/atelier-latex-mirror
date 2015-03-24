@@ -369,7 +369,7 @@ de document \LaTeX}
 
 
 %-----------------------
-\subsection{La taille des polices}
+\subsection{Les polices}
 \begin{frame}[fragile]{Jouer avec les fontes}
 \framesubtitle{Changer la taille et le type de police}
 	\begin{center}
@@ -408,7 +408,7 @@ Dans une autre police
 \end{frame}
 
 
-
+\subsection{Paragraphes}
 \begin{frame}[fragile]{Définition de la forme d'un paragraphe}
   %"LaTeX takes care of the formatting, breaks included. You should avoid manual breaking as much as possible, or it could lead to very bad formatting. Controlling the breaks should be reserved to macro and package writers" http://en.wikibooks.org/wiki/LaTeX/Paragraph_Formatting
   Ne pas faire de \lstinline|\\| dans le code !
@@ -437,6 +437,7 @@ Dans une autre police
 
 
 %-----------------------
+\subsection{Listes}
 \begin{frame}[fragile]
   \frametitle{Itemize et enumerate}
   \begin{columns}
@@ -500,8 +501,23 @@ Dans une autre police
   \end{block}
 \end{frame}
 
+\subsection{Divers}
+\begin{frame}[fragile]
+  \frametitle{Divers}
+  \begin{block}{Erreur extrêmement courante}
+    Utiliser \lstinline|``| et \lstinline|''| et non \lstinline|"|.
 
+    "bad" ``good''.
+  \end{block}
 
+ \begin{block}{Dashing}
+   \begin{tabular}{llp{0.5\textwidth}}
+     \lstinline|-| & mots composés & Jean-Patrick\\
+     \lstinline|--| & intervals & 1984--2015\\
+     \lstinline|---| & parenthèses & le \LaTeX{} ---c'est chouette--- a été créé par Leslie Lamport\\
+   \end{tabular}
+ \end{block}
+\end{frame}
 
 %-----------------------
 \section{Les environnements flottants}
@@ -883,19 +899,19 @@ Les variables plusieurs lettres doivent être différenciées de celles à une s
 \end{lstlisting}
 %  \end{column}
 %\end{columns}
-\textbf{Problème} Le code se ralonge (solution dans 2 slides).
+\textbf{Problème} Le code se ralonge (solution dans quelques slides).
 \end{frame}
 
 \begin{frame}[fragile]{L'environnement mathématique}
 \framesubtitle{Les classes}
-Les espaces sont ignorés en math mode.
+Les espaces du code sont ignorés en math mode.
 Comment \TeX détermine l'espacement à faire ?
 
 Il distingue 8 classes.
 Chaque symbole, caractère ou sous-formule est dans une classe qui détermine l'espacement autour de lui.
 \begin{center}
   \begin{tabular}{cp{0.5\textwidth}l}
-    Ordinary & \lstinline|/|, sous-formule (en général) & \lstinline|\mathord|\\
+    Ordinary & \lstinline|/|, sous-formule (en général) & \lstinline|\mathord| or \lstinline|{}|\\
     Large operator & \lstinline|\sum|, \lstinline|\prod| & \lstinline|\mathop|\\
     Binary operation & \lstinline|+| & \lstinline|\mathbin|\\
     Relation & \lstinline|=|, \lstinline|:| & \lstinline|\mathrel|\\
@@ -906,7 +922,6 @@ Chaque symbole, caractère ou sous-formule est dans une classe qui détermine l'
     Interne & aucun symbole seul. Sous-formule avec fraction ou \lstinline|\left..\right| & \lstinline|\mathinner|\\
   \end{tabular}
 \end{center}
-
 \end{frame}
 
 
@@ -950,30 +965,11 @@ Tableau pris de ``Handbook of Writing for the Mathematical Sciences'', Nicholas 
   \lstinline|:| & $\{\,z : |z| \leq 1\,\}$ & \lstinline|\colon| & $f \colon A \to B$\\
   \lstinline|\mid| & $\{\,x \mid x > 0\,\}$ & \lstinline|\vert| ou \lstinline$|$ & $|z|$\\
   \lstinline|\setminus| & $\mathbb{R} \setminus \{0\}$ & \lstinline|\backslash| & $p \backslash n$\\
-  \lstinline|\parallel| & $\vec{u} \parallel \vec{v}$ & \lstinline|\Vert| ou \lstinline|\|| & $\|A\|$\\
+  \lstinline|\parallel| & $\vec{u} \parallel \vec{v}$ & \lstinline|\Vert| ou \lstinline$\|$ & $\|A\|$\\
   \lstinline|\perp| & $\vec{u} \perp \vec{v}$ & \lstinline|\bot| & $x_\bot$\\
   \lstinline|\in| & $x \in \mathbb{R}$ & $\epsilon$ & $\epsilon > 0$\\
 \end{tabular}
 
-Erreur courante: les ensembles besoin d'espacement (i.e. \lstinline|\,|) en compréhension mais pas en extension.
-\begin{columns}
-  \begin{column}{0.5\textwidth}
-    \begin{lstlisting}
-\begin{align*}
-  \mathbb{R}_+ & = \{\, x \in \mathbb{R} \mid R \geq 0 \,\}\\
-  \mathbb{R}_+ & = \{\, x \in \mathbb{R} : R \geq 0 \,\}\\
-  \mathbb{N} & = \{0, 1, 2, 3, 4, \ldots\}\\
-\end{align*}
-    \end{lstlisting}
-  \end{column}
-  \begin{column}{0.5\textwidth}
-\begin{align*}
-  \mathbb{R}_+ & = \{\, x \in \mathbb{R} \mid R \geq 0 \,\}\\
-  \mathbb{R}_+ & = \{\, x \in \mathbb{R} : R \geq 0 \,\}\\
-  \mathbb{N} & = \{0, 1, 2, 3, 4, \ldots\}\\
-\end{align*}
-  \end{column}
-\end{columns}
 \end{frame}
 
 
@@ -1017,6 +1013,65 @@ Erreur courante: les ensembles besoin d'espacement (i.e. \lstinline|\,|) en comp
   \end{column}
   \begin{column}{0.2\textwidth}
     \includegraphics[height=3em]{success_kid.jpg}
+  \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{L'environnement mathématique}
+\framesubtitle{Forcer un espacement}
+Rarement utile !
+
+\begin{center}
+  \begin{tabular}{ll}
+    Commande & espacements en mu (espace normal${}={}$6mu)\\
+    \hline
+    \lstinline|\!|     & $-$3\\
+    \lstinline|\,|     &  3\\
+    \lstinline|\:|     &  4\\
+    \lstinline|\;|     &  5\\
+    \lstinline|\ |     &  6\\
+    \lstinline|\quad|  & 18\\
+    \lstinline|\qquad| & 36
+  \end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{L'environnement mathématique}
+\framesubtitle{Forcer un espacement : Exemples}
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+    \begin{lstlisting}
+\begin{align*}
+  a & = u + v + w + x + y\\
+    & \quad + z
+\end{align*}
+    \end{lstlisting}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+\begin{align*}
+  a & = u + v + w + x + y\\
+    & \quad + z
+\end{align*}
+  \end{column}
+\end{columns}
+
+Erreur courante: les ensembles besoin d'espacement (i.e. \lstinline|\,|) en compréhension mais pas en extension.
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+    \begin{lstlisting}
+\begin{align*}
+  \mathbb{R}_+ & = \{\, x \in \mathbb{R} \mid R \geq 0 \,\}\\
+  \mathbb{R}_+ & = \{\, x \in \mathbb{R} : R \geq 0 \,\}\\
+  \mathbb{N} & = \{0, 1, 2, 3, 4, \ldots\}\\
+\end{align*}
+    \end{lstlisting}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+\begin{align*}
+  \mathbb{R}_+ & = \{\, x \in \mathbb{R} \mid R \geq 0 \,\}\\
+  \mathbb{R}_+ & = \{\, x \in \mathbb{R} : R \geq 0 \,\}\\
+  \mathbb{N} & = \{0, 1, 2, 3, 4, \ldots\}\\
+\end{align*}
   \end{column}
 \end{columns}
 \end{frame}
