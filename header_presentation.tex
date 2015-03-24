@@ -7,6 +7,9 @@
 \usepackage[utf8x]{inputenc}
 \usepackage{lmodern}
 \usepackage{amsmath,amsthm,amssymb}        % un packages mathématiques
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
 \usepackage{xcolor}         % pour définir plus de couleurs
 \usepackage{graphicx}       % pour insérer des figures
 \usepackage{lmodern}
@@ -136,9 +139,16 @@
       extendedchars=true,
       basicstyle=\ttfamily\scriptsize,
       showstringspaces=false,
-      morekeywords={usepackage,documentclass,begin,textbf,textit,texttt,ref,includegraphics,caption,label,setlength,mathbb,notag,frac,num,si,ang,SI,textwidth,percent,meter,ohm,joule,second,more,section,subsection,tableofcontents,setstretch,TeX,LaTeX,huge,sffamily,emph,chemfig,pageref,vpageref},
+      morekeywords={usepackage,documentclass,begin,textbf,textit,texttt,ref,includegraphics,caption,label,setlength,mathbb,notag,frac,num,si,ang,SI,textwidth,percent,meter,ohm,joule,second,more,section,subsection,tableofcontents,setstretch,TeX,LaTeX,huge,sffamily,emph,chemfig,pageref,vpageref,date,maketitle,institute,author,and,textsc,title,includeonly,include,clearpage,newcommand,mathsf,renewcommand,DeclareMathOperator,mathrm,captionof},
       frame=single,
       extendedchars=true,
       inputencoding=utf8x
     }
 \lstset{inputencoding=utf8/latin1}
+
+\newsavebox\mybox
+\newenvironment{aquote}[1]
+{\savebox\mybox{#1}\begin{quote}}
+{{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
+    \hbox{}\nobreak\hfil(\usebox\mybox)%
+\parfillskip=0pt \finalhyphendemerits=0 \endgraf}}\end{quote}}

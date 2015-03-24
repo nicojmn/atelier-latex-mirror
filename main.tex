@@ -4,6 +4,9 @@
 \usepackage[french]{varioref} % \vpageref
 \usepackage{pgfplots}
 
+\newcommand{\badet}{et}
+\newcommand{\goodet}{\mathbin{\mathrm{et}}}
+
 \graphicspath{{img/}}
 \definecolor{gris}{RGB}{228,228,228}
 \definecolor{bleu}{RGB}{34,148,255}
@@ -13,10 +16,11 @@
 
 \logo{\includegraphics[height=5mm]{logo_12-13-mini.png}}
 \institute{Louvain-li-Nux}
-\title{\textbf{Formation \LaTeX}\\Introduction à l'écriture de document \textrm{\LaTeX}}
+\title{\textbf{Formation \LaTeX}\\
+Introduction à l'écriture de document \textrm{\LaTeX}}
 \author{Arnaud \textsc{Cerckel} \and Benoît \textsc{Legat}}
 
-\date{25 mars 2014}
+%\date{24 mars 2015}
 
 
 % A changer (selon Arnaud) le utf8x pas aligné slide 12/30
@@ -336,6 +340,34 @@ Le sujet est en or mais pas le vif.
 	\end{columns}
 \end{frame}
 
+\subsection{Titre}
+\begin{frame}[fragile]{Titre}
+	\begin{itemize}
+		\item Automatiquement la date d'aujourd'hui dans la bonne langue grâce à \lstinline|babel|
+	\end{itemize}
+	\begin{columns}
+      \begin{column}{0.4\textwidth}
+        \begin{lstlisting}
+\institute{Louvain-li-Nux}
+\title{\textbf{Formation \LaTeX}\\
+Introduction \`a l'\'ecriture
+de document \LaTeX}
+\author{Arnaud \textsc{Cerckel}
+   \and Beno\^it \textsc{Legat}}
+                    % today
+\date{24 mars 2015} % fixed data
+\date{}             % no date
+\begin{document}
+\maketitle
+        \end{lstlisting}
+      \end{column}
+      \begin{column}{0.6\textwidth}
+        \maketitle
+      \end{column}
+	\end{columns}
+\end{frame}
+
+
 %-----------------------
 \subsection{La taille des polices}
 \begin{frame}[fragile]{Jouer avec les fontes}
@@ -503,12 +535,23 @@ Dans une autre police
     Référencement par \lstinline|voir figure~\ref{fig:graphique}|
     \begin{lstlisting}
 \usepackage{graphicx}
-\usepackage{here}
+\usepackage{float}
 ...
 \begin{figure}[H]
   ...
   \label{fig:graphique}
 \end{figure}
+    \end{lstlisting}
+    ou
+    \begin{lstlisting}
+\usepackage{graphicx}
+\usepackage{caption}
+...
+\begin{center}
+  ...
+  \captionof{figure}{Voici un beau graphique}
+  \label{fig:graphique}
+\end{center}
     \end{lstlisting}
   \end{block}
   \begin{block}{Scaling}
@@ -520,6 +563,27 @@ Dans une autre police
 \includegraphics[scale=0.5]{image.png} % taille / 2
     \end{lstlisting}
   \end{block}
+
+  \vspace{4.2em}
+
+\begin{quote}
+  1992: Extensive testing shows that 98.3\% of the time
+  no matter which of the
+  \lstinline|[h]|,
+  \lstinline|[t]|,
+  \lstinline|[b]|, or
+  \lstinline|[p]|
+  options is used,
+  \LaTeX{} will put your \lstinline|table| at the end of the document.
+
+  \vspace{1em}
+  \hfill
+  \em
+  \begin{minipage}{8cm}
+    DAVID F. GRIFFITHS and DESMOND J. HIGHAM, Great Moments in \LaTeX{} History (1997)
+  \end{minipage}
+\end{quote}
+
 \end{frame}
 
 \begin{frame}[fragile]{Exemple de figure}
@@ -542,6 +606,7 @@ mis a \SI{50}{\percent} de la largueur du texte.
     \label{fig:ucl}
 \end{figure}
 \end{lstlisting}
+
 \end{frame}
 %	\vspace{0.5cm}
 %	\hspace{1cm} \verb|\begin{|{\usebeamercolor[fg]{example text} \verb|itemize|}\verb|} |\\
@@ -822,9 +887,33 @@ Les variables plusieurs lettres doivent être différenciées de celles à une s
 \end{frame}
 
 \begin{frame}[fragile]{L'environnement mathématique}
-\framesubtitle{Math Operators}
-Les opérateurs mathématiques sont $\lim, \min, \max, \sum, \prod, \ldots$.
-Quelle différence ? Leurs indices et exposant sont au dessus et en dessous mais pas à leur droite.
+\framesubtitle{Les classes}
+Les espaces sont ignorés en math mode.
+Comment \TeX détermine l'espacement à faire ?
+
+Il distingue 8 classes.
+Chaque symbole, caractère ou sous-formule est dans une classe qui détermine l'espacement autour de lui.
+\begin{center}
+  \begin{tabular}{cp{0.5\textwidth}l}
+    Ordinary & \lstinline|/|, sous-formule (en général) & \lstinline|\mathord|\\
+    Large operator & \lstinline|\sum|, \lstinline|\prod| & \lstinline|\mathop|\\
+    Binary operation & \lstinline|+| & \lstinline|\mathbin|\\
+    Relation & \lstinline|=|, \lstinline|:| & \lstinline|\mathrel|\\
+    Opening & \lstinline|(| & \lstinline|\mathopen|\\
+    Closing & \lstinline|)| & \lstinline|\mathclose|\\
+    Punctuation & \lstinline|,| & \lstinline|\mathpunct|\\
+    Variable family & \lstinline|x| & \\
+    Interne & aucun symbole seul. Sous-formule avec fraction ou \lstinline|\left..\right| & \lstinline|\mathinner|\\
+  \end{tabular}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{L'environnement mathématique}
+\framesubtitle{Large Operators}
+Ces opérateurs mathématiques sont $\lim, \min, \max, \sum, \prod, \ldots$.
+Quelle différence ? Leurs indices et exposant sont au dessus et en dessous et pas à leur droite.
 
 \begin{columns}
   \begin{column}{0.6\textwidth}
@@ -853,9 +942,43 @@ $\min\limits_{x \in \mathbb{R}^n} \|x\|$ tel que $\sum\limits_{i = 1}^n x_i = 1$
 \end{frame}
 
 \begin{frame}[fragile]{L'environnement mathématique}
-\framesubtitle{Définition de Math Operator ou Command}
-Les opérateurs mathématiques sont $\lim, \min, \max, \sum, \prod, \ldots$.
-Quelle différence ? Leurs indices et exposant sont au dessus et en dessous mais pas à leur droite.
+\framesubtitle{Binary Operations and Relations}
+Tableau pris de ``Handbook of Writing for the Mathematical Sciences'', Nicholas J. Higham.
+\begin{tabular}{cc|cc}
+  Relation or Binary operation & Exemple & Ordinary symbol & Exemple\\
+  \hline
+  \lstinline|:| & $\{\,z : |z| \leq 1\,\}$ & \lstinline|\colon| & $f \colon A \to B$\\
+  \lstinline|\mid| & $\{\,x \mid x > 0\,\}$ & \lstinline|\vert| ou \lstinline$|$ & $|z|$\\
+  \lstinline|\setminus| & $\mathbb{R} \setminus \{0\}$ & \lstinline|\backslash| & $p \backslash n$\\
+  \lstinline|\parallel| & $\vec{u} \parallel \vec{v}$ & \lstinline|\Vert| ou \lstinline|\|| & $\|A\|$\\
+  \lstinline|\perp| & $\vec{u} \perp \vec{v}$ & \lstinline|\bot| & $x_\bot$\\
+  \lstinline|\in| & $x \in \mathbb{R}$ & $\epsilon$ & $\epsilon > 0$\\
+\end{tabular}
+
+Erreur courante: les ensembles besoin d'espacement (i.e. \lstinline|\,|) en compréhension mais pas en extension.
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+    \begin{lstlisting}
+\begin{align*}
+  \mathbb{R}_+ & = \{\, x \in \mathbb{R} \mid R \geq 0 \,\}\\
+  \mathbb{R}_+ & = \{\, x \in \mathbb{R} : R \geq 0 \,\}\\
+  \mathbb{N} & = \{0, 1, 2, 3, 4, \ldots\}\\
+\end{align*}
+    \end{lstlisting}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+\begin{align*}
+  \mathbb{R}_+ & = \{\, x \in \mathbb{R} \mid R \geq 0 \,\}\\
+  \mathbb{R}_+ & = \{\, x \in \mathbb{R} : R \geq 0 \,\}\\
+  \mathbb{N} & = \{0, 1, 2, 3, 4, \ldots\}\\
+\end{align*}
+  \end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]{L'environnement mathématique}
+\framesubtitle{Définition de commandes, plus d'excuse !}
 
 \begin{lstlisting}
 \newcommand{\fin}{\mathsf{flux}_{\text{in}}}
@@ -863,10 +986,39 @@ Quelle différence ? Leurs indices et exposant sont au dessus et en dessous mais
 % if \kor already exists
 \renewcommand{\kor}{k_{\text{orig}}}
 \newcommand{\kde}{k_{\text{dest}}}
-\DeclareMathOperator{\pot}{potato}
-\let\min\relax
+\DeclareMathOperator{\pot}{potato} % mieux que \newcommand{\mathop{\mathrm{..}}}
+% \min already exists: Trick for ``reDeclareMathOperator''
+\let\min\relax% Set equal to \relax so that LaTeX thinks it's not defined
 \DeclareMathOperator{\min}{minimum}
+\newcommand{\badet}{et}
+\newcommand{\goodet}{\mathbin{\mathrm{et}}}
 \end{lstlisting}
+\begin{columns}
+  \begin{column}{0.45\textwidth}
+    \begin{lstlisting}
+\[ \alpha >> \beta \badet <x,y> = 0 => \]
+    \end{lstlisting}
+  \end{column}
+  \begin{column}{0.35\textwidth}
+    \[ \alpha >> \beta \badet <x,y> = 0 => \]
+  \end{column}
+  \begin{column}{0.2\textwidth}
+    \includegraphics[height=3em]{i_dont_want_to_live_on_this_planet_anymore.jpg}
+  \end{column}
+\end{columns}
+\begin{columns}
+  \begin{column}{0.45\textwidth}
+    \begin{lstlisting}
+\[ \alpha \gg \beta \goodet \langle x,y \rangle = 0 \Rightarrow \]
+    \end{lstlisting}
+  \end{column}
+  \begin{column}{0.35\textwidth}
+    \[ \alpha \gg \beta \goodet \langle x,y \rangle = 0 \Rightarrow \]
+  \end{column}
+  \begin{column}{0.2\textwidth}
+    \includegraphics[height=3em]{success_kid.jpg}
+  \end{column}
+\end{columns}
 \end{frame}
 
 \subsection{La physique}
@@ -888,7 +1040,9 @@ Quelle différence ? Leurs indices et exposant sont au dessus et en dessous mais
       \SI[per-mode=symbol]{5.3e9}{\meter\per\second\per\ohm} &
       \lstinline|\SI[per-mode=symbol]{5.3e9}{\meter\per\second\per\ohm}|\\
       \SI[per-mode=fraction]{5e6}{\joule\per\second} &
-      \lstinline|\SI[per-mode=fraction]{5e6}{\joule\per\second}|
+      \lstinline|\SI[per-mode=fraction]{5e6}{\joule\per\second}|\\
+      \SI{-273.15}{\celsius} &
+      \lstinline|\SI{-273.15}{\celsius}|
     \end{tabular}
   \end{center}
   Super doc sur \url{http://ctan.org/pkg/siunitx}
@@ -1042,6 +1196,13 @@ Deux possibilités pour maintenir une bibliographie:
   \includegraphics[width=\textwidth]{img/scholar_circle.png}
 \end{column}
 \end{columns}
+
+\begin{description}
+  \item[bad] \lstinline|voir\cite{goossens93}|
+  \item[ok] \lstinline|voir \cite{goossens93}|
+  \item[ok] \lstinline|voir~\cite{goossens93}|
+\end{description}
+
 \bibliographystyle{plain}
   \begin{block}{Élément d'une bibliographie}
     À mettre dans \lstinline|biblio.bib|
@@ -1070,6 +1231,7 @@ Deux possibilités pour maintenir une bibliographie:
   \frametitle{include et input}
   \begin{columns}
     \begin{column}{0.5\textwidth}
+      Simple ``copier/coller''.
       \begin{lstlisting}
 \input{chap1}
 \input{chap2}
@@ -1078,6 +1240,13 @@ Deux possibilités pour maintenir une bibliographie:
       \end{lstlisting}
     \end{column}
     \begin{column}{0.5\textwidth}
+      \lstinline|\include{x}| c'est comme faire
+      \begin{lstlisting}
+\clearpage
+\input{x}
+\clearpage
+      \end{lstlisting}
+      Il y a aussi \lstinline|includeonly| pour gagner du temps
       \begin{lstlisting}
 \includeonly{chap1,chap3}
 ...
