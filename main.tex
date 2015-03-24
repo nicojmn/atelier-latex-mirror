@@ -854,7 +854,7 @@ Les variables plusieurs lettres doivent être différenciées de celles à une s
 \end{lstlisting}
 %  \end{column}
 %\end{columns}
-\textbf{Problème} Le code se ralonge (solution dans quelques slides).
+\textbf{Problème} Le code se ralonge (solution slide~\ref{noexcuse}).
 \end{frame}
 
 \begin{frame}[fragile]{L'environnement mathématique}
@@ -930,7 +930,7 @@ Tableau pris de ``Handbook of Writing for the Mathematical Sciences'', Nicholas 
 
 \begin{frame}[fragile]{L'environnement mathématique}
 \framesubtitle{Définition de commandes, plus d'excuse !}
-
+\label{noexcuse}
 \begin{lstlisting}
 \newcommand{\fin}{\mathsf{flux}_{\text{in}}}
 \newcommand{\fout}{\mathsf{flux}_{\text{out}}}
@@ -1080,6 +1080,7 @@ $$\ce{3H2O + 1/2H2O -> AgCl2- + H2_{(aq)}}$$
 
 \subsection{Les circuits}
 \begin{frame}[fragile]
+  \frametitle{Les circuits}
   \begin{lstlisting}
     \usepackage{circuitikz}
     ...
@@ -1100,6 +1101,36 @@ $$\ce{3H2O + 1/2H2O -> AgCl2- + H2_{(aq)}}$$
       \draw (6,0) to [C = C, v = $V_C$] (6,-3);
     \end{circuitikz}
   \end{center}
+\end{frame}
+
+\subsection{Inclure du code}
+\begin{frame}[fragile]
+  \frametitle{Inclure du code}
+  \begin{lstlisting}[mathescape=true]
+\begin{lstlisting}
+if a == b:
+  return 0
+else:
+  return 1
+\$$end{lstlisting}
+  \end{lstlisting}
+donne
+  \begin{lstlisting}[language=Python]
+if a == b:
+  return 0
+else:
+  return 1
+  \end{lstlisting}
+
+  Il y a aussi
+  \begin{lstlisting}
+\lstinputlisting[caption={...},label=...]{main.py}
+  \end{lstlisting}
+  et
+  \begin{lstlisting}
+\lstinline|if a == b|
+  \end{lstlisting}
+  qui donne \lstinline[language=Python]|if a == b|.
 \end{frame}
 
 %%%%%%%%%%%%%
