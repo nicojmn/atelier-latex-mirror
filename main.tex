@@ -18,7 +18,7 @@
 \institute{Louvain-li-Nux}
 \title{\textbf{Formation \LaTeX}\\
 Introduction à l'écriture de document \textrm{\LaTeX}}
-\author{Arnaud \textsc{Cerckel} \and Benoît \textsc{Legat}}
+\author{Xavier \textsc{Lambein} \and Geoffroy \textsc{Jacquet}}
 
 %\date{24 mars 2015}
 
@@ -42,7 +42,7 @@ Introduction à l'écriture de document \textrm{\LaTeX}}
 \begin{frame}
 \maketitle
 Merci à Jolan \textsc{Wolter} et Thomas \textsc{Vanzieleghem} pour avoir réalisé la première version de ces slides
-ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalisé la deuxième version.
+ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalisé la deuxième version, ainsi qu'à Arnaud \textsc{Cerckel} et Benoît \textsc{Legat} pour avoir réalisé la troisième version.
 \end{frame}
 
 \AtBeginSection[]
@@ -68,48 +68,6 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 \end{itemize}
 
 \end{frame}
-
-\begin{frame}{Premier angle de comparaison}
-  \begin{description}
-    \item[Auteur]
-      %\begin{center}
-      \begin{tabular}{|lll|}
-        %\hline
-        %& Créateur & Description du créateur\\% selon wikipédia\\
-        \hline
-        Office & Microsoft & No comment\\
-        %Microsoft Word & Microsoft & Microsoft used monopolistic business practices and anti-competitive strategies including refusal to deal and tying, put unreasonable restrictions in the use of its software, and used misrepresentative marketing tactics; both the U.S. Department of Justice and European Commission found the company in violation of antitrust laws\\
-        \TeX & Donald Knuth & Père de l'algorithmie\\
-        \hline
-      \end{tabular}
-      %\end{center}
-    \item[But]
-      \begin{tabular}{|lp{0.5\textwidth}|}
-        \hline
-        %Soft & Créateur & Description du créateur\\% selon wikipédia\\
-        %Office & Microsoft & No comment\\
-        %Microsoft Word & Microsoft & Microsoft used monopolistic business practices and anti-competitive strategies including refusal to deal and tying, put unreasonable restrictions in the use of its software, and used misrepresentative marketing tactics; both the U.S. Department of Justice and European Commission found the company in violation of antitrust laws\\
-        Office & Être utilisable par n'importe qui sans connaissance ni
-        formation particulière pour aider à ancrer le monopole de Microsoft
-        grâce aux formats propriétaires \texttt{.doc}, \texttt{.xls}, \dots\\
-        \TeX & Améliorer sa productivité et
-        la qualité de rendu de ses documents sur l'algorithmie\\
-        \hline
-      \end{tabular}
-    \item[Licence]
-      \begin{tabular}{|lp{0.5\textwidth}|}
-        %\hline
-        %& Créateur & Description du créateur\\% selon wikipédia\\
-        \hline
-        Office & Propriétaire jusqu'au format (incompatibilité
-        voulue par Microsoft)\\
-        %Microsoft Word & Microsoft & Microsoft used monopolistic business practices and anti-competitive strategies including refusal to deal and tying, put unreasonable restrictions in the use of its software, and used misrepresentative marketing tactics; both the U.S. Department of Justice and European Commission found the company in violation of antitrust laws\\
-        \TeX & Libre et open source\\
-        \hline
-      \end{tabular}
-  \end{description}
-\end{frame}
-
 
 \subsection{Pourquoi \LaTeX{}?}
 \begin{frame}{Pourquoi \LaTeX{}?}
@@ -170,7 +128,8 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
       \foreach \x/\com/\deltax/\deltay/\adj in {
         {1.1}/{Maintenant}/{0}/{0.8}/below,
         {2.2}/{Après la formation}/{0}/{0.4}/below,
-        {4.6}/{À l'heure de votre mémoire}/{0}/{1.2}/below
+        %{4.6}/{À l'heure de votre mémoire}/{0}/{1.2}/below
+        {4.6}/{Au bout de queques semaines}/{0}/{1.2}/below
       } {
         %\fill \coord circle (100pt) node[\adj] {$\coord$};
         \draw[dashed] (\x,0) -- (\x+\deltax,\deltay) node[above] {\com};
@@ -199,7 +158,12 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 	  \item Mac OS
 	  \begin{itemize}
 	  	\item Distribution \LaTeX{} = \textbf{MacTeX}
-		\item Éditeur de texte =\textbf{TeXMaker, TeXShop, iTeXMac}
+		\item Éditeur de texte = \textbf{TeXMaker, TeXShop, iTeXMac}
+	  \end{itemize}
+	  \item Dans votre navigateur
+	  \begin{itemize}
+		\item \textbf{\url{www.overleaf.com}}
+  		\item \textbf{\url{www.sharelatex.com}}
 	  \end{itemize}
   \end{itemize}
 \end{frame}
@@ -214,7 +178,8 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 	\end{center}
 
 	\begin{itemize}
-		\item Fichier source  = essais\alert{\textbf{.tex}}
+		\item Fichier source = essais\alert{\textbf{.tex}}
+		\item Fichier de bibliographie = essais\alert{\textbf{.bib}}
 		\item Lors de compilation $\rightarrow$ création de nombreux fichiers annexes
 		\begin{itemize}
 			\item style, class;
@@ -225,26 +190,6 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 		\end{itemize}
 		\item Création d'un fichier essais\alert{\textbf{.pdf}}
 	\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Encoding}
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-      \begin{itemize}
-        \item En anglais, ASCII est suffisant, 1 byte par caractère;
-        \item UTF-8, 1 byte pour un caractère simple, plus de bytes pour un plus exotique;
-        \item latin-1, \dots, à éviter.
-        \item Les caractères ASCII sont les mêmes pour tous les encodages !
-        \item Si vous en utilisez d'autres (e.g. accent), \LaTeX{} doit savoir l'encodage !
-        \item Le package \lstinline|inputenc| (INPUT ENCoding) s'en charge !
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{img/utf8_circle.png}
-    \end{column}
-  \end{columns}
 \end{frame}
 
 %-----------------------
@@ -290,11 +235,29 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 \end{tabular}
 \vspace{1cm}
 \begin{center}
-\verb|\documentclass[a4paper,10pt]{article}|\\
+\verb|\documentclass[a4paper,10pt]{|\alert{\texttt{article}}\verb|}|\\
 \end{center}
 \end{frame}
 
-\subsection{La structure}
+\subsection{Les options}
+
+\begin{frame}[fragile]{Les principales options de document}
+\begin{tabular}{lp{8cm}}
+  \textbf{10pt, 11pt, 12pt} & pour la taille de police.\\
+  \textbf{a4paper, a5paper} & pour la taille de page.\\
+  \textbf{onecolumn, twocolumn} & pour faire plusieurs colonnes.\\
+  \textbf{landscape} & pour une mise en page paysage.\\
+  \textbf{twoside} & pour des marges de livre
+\end{tabular}
+\vspace{1cm}
+\begin{center}
+\verb|\documentclass[|\alert{\texttt{a4paper,10pt}}\verb|]{article}|\\
+\end{center}
+\end{frame}
+
+%TODO: abstract
+
+\subsection{La structure} %TODO: exemple
 \begin{frame}[fragile]{La structure logique du document}
 	\begin{itemize}
 		\item Structure logique du document uniquement
@@ -303,7 +266,7 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 	\vspace{1cm}
 
 	\verb|\part{}|\\
-	\hspace{1cm} \verb|\chapter{}| \hspace{2cm}$\Longrightarrow$ \textcolor{bleu}{uniquement \textit{books}}\\
+	\hspace{1cm} \verb|\chapter{}| \hspace{2cm}$\Longrightarrow$ \textcolor{bleu}{uniquement \textit{book} et \textit{report}}\\
 	\hspace{2cm} \verb|\section{}|\\
 	\hspace{3cm} \verb|\subsection{}| \\
 	\hspace{4cm} \verb|\subsubsection{}| \\
@@ -312,7 +275,60 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 \end{frame}
 
 %-----------------------
-\section{Mise en page générale}
+\section{Mise en page générale} %TODO: faire ca plus clairement
+\subsection{Titre}
+\begin{frame}[fragile]{Titre}
+	\begin{itemize}
+		\item Automatiquement la date d'aujourd'hui dans la bonne langue grâce à \lstinline|babel|
+	\end{itemize}
+	\begin{columns}
+      \begin{column}{0.4\textwidth}
+        \begin{lstlisting}
+\institute{Louvain-li-Nux}
+\title{\textbf{Formation \LaTeX}\\
+Introduction \`a l'\'ecriture
+de document \LaTeX}
+\author{Xavier \textsc{Lambein}
+   \and Geoffroy \textsc{Jacquet}}
+                    % today
+\date{24 mars 2015} % fixed data
+\date{}             % no date
+\begin{document}
+\maketitle
+        \end{lstlisting}
+      \end{column}
+      \begin{column}{0.6\textwidth}
+        \maketitle
+      \end{column}
+	\end{columns}
+\end{frame}
+
+\subsection{Le résumé ou abstract}
+\begin{frame}[fragile]{Le résumé ou abstract}
+	\begin{itemize}
+		\item L'environnement \texttt{abstract} permet de mettre en page un résumé au début du document.
+	\end{itemize}
+	\begin{columns}
+      \begin{column}{0.5\textwidth}
+        \begin{lstlisting}
+\begin{document}
+...
+\begin{abstract}
+	Voici un résumé succint du contenu
+	de mon document.
+\end{abstract}
+...
+\end{document}
+        \end{lstlisting}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+				\begin{abstract}
+					Voici un résumé succint du contenu de mon document.
+				\end{abstract}
+      \end{column}
+	\end{columns}
+\end{frame}
+
 \subsection{La table des matières}
 \begin{frame}[fragile]{Table des matières}
 	\begin{itemize}
@@ -322,7 +338,8 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
       \begin{column}{0.5\textwidth}
         \begin{lstlisting}
 \begin{document}
-\tableofcontents
+\tableofcontents % Table des matières
+
 \section{Introduction}
 Ceci est mon premier document en \TeX{}
 \section{Le vif du sujet}
@@ -340,99 +357,114 @@ Le sujet est en or mais pas le vif.
 	\end{columns}
 \end{frame}
 
-\subsection{Titre}
-\begin{frame}[fragile]{Titre}
-	\begin{itemize}
-		\item Automatiquement la date d'aujourd'hui dans la bonne langue grâce à \lstinline|babel|
-	\end{itemize}
-	\begin{columns}
-      \begin{column}{0.4\textwidth}
-        \begin{lstlisting}
-\institute{Louvain-li-Nux}
-\title{\textbf{Formation \LaTeX}\\
-Introduction \`a l'\'ecriture
-de document \LaTeX}
-\author{Arnaud \textsc{Cerckel}
-   \and Beno\^it \textsc{Legat}}
-                    % today
-\date{24 mars 2015} % fixed data
-\date{}             % no date
-\begin{document}
-\maketitle
-        \end{lstlisting}
-      \end{column}
-      \begin{column}{0.6\textwidth}
-        \maketitle
-      \end{column}
-	\end{columns}
-\end{frame}
-
 
 %-----------------------
 \subsection{Les polices}
 \begin{frame}[fragile]{Jouer avec les fontes}
-\framesubtitle{Changer la taille et le type de police}
-	\begin{center}
-      \fbox{\includegraphics[width=0.7\textwidth]{font.png}}
-	\end{center}
-    \begin{lstlisting}
-Ceci est mon premier document en \LaTeX{}
-\huge
-Ecrit un peu plus grand.
-\sffamily
-Dans une autre police
-    \end{lstlisting}
+\framesubtitle{Changer la taille de police}
+\begin{columns} %TODO: tableau
+  \begin{column}{0.4\textwidth}
+  	\begin{lstlisting}[language=tex]
+\tiny{polygenelubricants}
+\small{polygenelubricants}
+\normalsize{polygenelubricants}
+\large{polygenelubricants}
+\Large{polygenelubricants}
+\LARGE{polygenelubricants}
+\huge{polygenelubricants}
+\Huge{polygenelubricants}
+		\end{lstlisting}
+  \end{column}
+  \begin{column}{0.6\textwidth}
+		\begin{flushright}
+			\tiny{polygenelubricants} \\
+			\small{polygenelubricants} \\
+			\normalsize{polygenelubricants} \\
+			\large{polygenelubricants} \\
+			\Large{polygenelubricants} \\
+			\LARGE{polygenelubricants} \\
+			\huge{polygenelubricants} \\
+			\Huge{polygenelubricants}
+		\end{flushright}
+  \end{column}
+\end{columns}
 \end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{Formatting}
-  \begin{block}{Alignement}
-    Par défaut, c'est justifié.
-    \begin{lstlisting}
-\begin{center}
-\end{center}
-\begin{left}
-\end{left}
-{\centering ...}
-    \end{lstlisting}
-  \end{block}
-  \begin{block}{Gras}
-    \begin{itemize}
-      \item \lstinline|\emph{Salut}|, marquer comme important, \emph{Salut}.
-      \item \lstinline|\textbf{Salut}|, \lstinline|{\bf Salut}|,
-        \textbf{Salut}.
-      \item \lstinline|\textit{Salut}|, \lstinline|{\it Salut}|,
-        {\it Salut}.
-    \end{itemize}
-  \end{block}
+\begin{frame}[fragile]{Jouer avec les fontes}
+\framesubtitle{Changer le type et style de police}
+
+\begin{block}{Type de police}
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+		\begin{lstlisting}
+\textrm{Serif (par défaut)}
+\textsf{Sans serif}
+\texttt{Machine à écrire}
+		\end{lstlisting}
+  \end{column}
+  \begin{column}{0.4\textwidth}
+		\textrm{Serif (par défaut)} \\
+		\textsf{Sans serif} \\
+		\texttt{Machine à écrire}
+	\end{column}
+\end{columns}
+\end{block}
+
+\begin{block}{Style de police}
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+		\begin{lstlisting}
+\emph{Emphase}
+\textbf{Gras}
+\textsl{Italique}
+\textsc{Petites majuscules}
+		\end{lstlisting}
+  \end{column}
+  \begin{column}{0.4\textwidth}
+		\emph{Emphase} \\
+		\textbf{Gras} \\
+		\textsl{Italique} \\
+		\textsc{Petites majuscules}
+	\end{column}
+\end{columns}
+\end{block}
 \end{frame}
 
 
 \subsection{Paragraphes}
-\begin{frame}[fragile]{Définition de la forme d'un paragraphe}
-  %"LaTeX takes care of the formatting, breaks included. You should avoid manual breaking as much as possible, or it could lead to very bad formatting. Controlling the breaks should be reserved to macro and package writers" http://en.wikibooks.org/wiki/LaTeX/Paragraph_Formatting
-  Ne pas faire de \lstinline|\\| dans le code !
-  Les lines breaks sont gérés automatiquement, il ne faut pas s'en occuper !
-  \begin{lstlisting}
-  Premier paragraphe.\\ % BAD !!!
+\begin{frame}[fragile]{Les paragraphes avec \LaTeX{}}
+	\begin{block}{Définition d'un paragraphe}
+	  Pour créer un nouveau paragraphe, il suffit de faire deux retours à la ligne
+	  \begin{lstlisting}
+	  Premier paragraphe.
 
-  Second paragraphe avec espace entre les paragraphes.
-  \end{lstlisting}
-  % do not modify \setlength{parskip} since it is used by lists, use \usepackage{parskip} instead
-  \begin{lstlisting}
-  \usepackage{parskip} % Ajoute de l'espace entre les paragraphes et mets l'indentation to 0
-  \setlength{\parindent}{15pt} % Remets l'indentation par default
-  \begin{document}
-  Premier paragraphe.
-
-  Second paragraphe avec espace entre les paragraphes.
-  \end{lstlisting}
+	  Second paragraphe.
+	  \end{lstlisting}
+	\end{block}
+	\begin{block}{Ajouter de l'espace entre les paragraphes et changer l'indentation}
+	  \begin{lstlisting}
+	  \usepackage{parskip} % Ajoute de l'espace entre les paragraphes et mets l'indentation to 0
+	  \setlength{\parindent}{15pt} % Remets l'indentation par default
+	  \end{lstlisting}
+	\end{block}
   \begin{block}{Espace interligne}
     \begin{lstlisting}
     \usepackage{setspace}
     \setstretch{1.5}
     \end{lstlisting}
   \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Alignement d'un paragraphe}
+  Par défaut, c'est justifié.
+  \begin{lstlisting}
+\begin{center} % Pour centrer
+\end{center}
+\begin{right} % Pour aligner à droite
+\end{right}
+{\centering ...}
+  \end{lstlisting}
 \end{frame}
 
 
@@ -504,13 +536,13 @@ Dans une autre police
 \subsection{Divers}
 \begin{frame}[fragile]
   \frametitle{Divers}
-  \begin{block}{Erreur extrêmement courante}
-    Utiliser \lstinline|``| et \lstinline|''| et non \lstinline|"|.
+  \begin{block}{Guillemets français}
+    Utiliser \lstinline|\og{}| et \lstinline|\fg{}| et non \lstinline|"|.
 
-    "bad" ``good''.
+    "bad" \og{}good\fg{}.
   \end{block}
 
- \begin{block}{Dashing}
+ \begin{block}{Tirets}
    \begin{tabular}{llp{0.5\textwidth}}
      \lstinline|-| & mots composés & Jean-Patrick\\
      \lstinline|--| & intervals & 1984--2015\\
@@ -631,7 +663,7 @@ mis a \SI{50}{\percent} de la largueur du texte.
 %	\hspace{1cm} \verb|\end{|{\usebeamercolor[fg]{example text} \verb|itemize|}\verb|} |\\
 %	\vspace{0.5cm}
 
-\subsection{Les tableaux}
+\subsection{Les tableaux} %TODO: site web
 \begin{frame}[fragile,allowframebreaks]
   \frametitle{Tableaux}
   \begin{block}{Non-flottant}
@@ -706,6 +738,166 @@ mis a \SI{50}{\percent} de la largueur du texte.
 \fbox{\includegraphics[width=0.6\textwidth]{table.jpg}}
 \end{center}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Références}
+
+\subsection{Références des éléments du texte}
+\begin{frame}[fragile]
+\frametitle{\insertsubsection}
+\begin{itemize}
+  \item Facile de faire référence à un numéro et la page d'une section et d'un environnement (\texttt{figure}, \texttt{equation}, \texttt{table}).
+  \item D'un coté une étiquette :
+    \begin{itemize}
+      \item \lstinline|\label{id}|.
+    \end{itemize}
+  \item De l'autre une référence à cette étiquette :
+    \begin{itemize}
+      \item \lstinline|\ref{id}|
+      \item \lstinline|\pageref{id}|
+      \item \lstinline|\vpageref{id}| du paquet \lstinline|varioref|
+    \end{itemize}
+\end{itemize}
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+    \label{id}
+    Nous sommes section~\ref{id},
+    page~\pageref{id},
+    \vpageref{id}.
+  \end{column}
+  \begin{column}{0.5\textwidth}
+    \begin{lstlisting}
+\label{ref}
+Nous sommes section~\ref{ref},
+page~\pageref{ref},
+\vpageref{ref}.
+    \end{lstlisting}
+  \end{column}
+\end{columns}
+
+\end{frame}
+
+\subsection{Footnote}
+\begin{frame}[fragile]
+  \frametitle{Footnote}
+  \begin{lstlisting}
+    The earth\footnote{mostly harmless} was destroyed
+    by Vogons\footnote{They have the worst poetry in the universe}.
+
+    But Don't Panic\footnote{By the way, the answer is 42},
+    even when you're at the restaurant at
+    the end of the universe.
+  \end{lstlisting}
+  \begin{block}{Result}
+    The earth\footnote{Mostly harmless} was destroyed
+    by Vogons\footnote{They have the worst poetry in the universe}.
+
+    But Don't Panic\footnote{By the way, the answer is 42},
+    even when you're at the restaurant at
+    the end of the universe.
+  \end{block}
+\end{frame}
+
+\subsection{Bibliographie}
+\begin{frame}
+\frametitle{\insertsubsection}
+Pour maintenir une bibliographie, on utilise de préférence le fichier \texttt{\textbf{.bib}}, qui contient toutes les références bibliographiques.
+
+Pour les utiliser:
+\begin{itemize}
+	\item Ajouter la source dans le fichier \texttt{bib}.
+	\item Inclure dans son texte la commande \texttt{cite} avec l'étiquette de la source à référencer.
+	\item \LaTeX{} inclut la référence dans le texte et ajoute la source à la bibliographie.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]
+  \frametitle{Bibliography}
+  \begin{columns}
+    \begin{column}{0.45\textwidth}
+  \begin{block}{Citer}
+    \begin{lstlisting}
+\cite{goossens93}
+\cite[p.~42]{goossens93}
+\cite{goossens93,combefis11,...}
+    \end{lstlisting}
+  \end{block}
+  \begin{block}{Inclure la bibliographie}
+    \begin{lstlisting}
+\bibliographystyle{plain}
+\bibliography{biblio}
+    \end{lstlisting}
+  \end{block}
+\end{column}
+\begin{column}{0.45\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{img/scholar_circle.png}
+\end{column}
+\end{columns}
+
+\begin{description}
+  \item[bad] \lstinline|voir\cite{goossens93}|
+  \item[ok] \lstinline|voir \cite{goossens93}|
+  \item[ok] \lstinline|voir~\cite{goossens93}|
+\end{description}
+
+\bibliographystyle{plain}
+  \begin{block}{Élément d'une bibliographie}
+    À mettre dans \lstinline|biblio.bib|
+    \begin{lstlisting}
+@book{goossens93,
+    author    = "Michel Goossens and Frank Mittelbach and Alexander Samarin",
+    title     = "The LaTeX Companion",
+    year      = "1993",
+    publisher = "Addison-Wesley",
+    address   = "Reading, Massachusetts"
+}
+@book{knuth1986texbook,
+  title={The texbook},
+  author={Knuth, Donald Ervin and Bibby, Duane},
+  volume={1993},
+  year={1986},
+  publisher={Addison-Wesley Reading, MA, USA}
+}
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+
+\subsection{include et input}
+\begin{frame}[fragile]
+  \frametitle{include et input}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      Simple ``copier/coller''.
+      \begin{lstlisting}
+\input{chap1}
+\input{chap2}
+\input{chap3}
+\input{chap4}
+      \end{lstlisting}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \lstinline|\include{x}| c'est comme faire
+      \begin{lstlisting}
+\clearpage
+\input{x}
+\clearpage
+      \end{lstlisting}
+      Il y a aussi \lstinline|includeonly| pour gagner du temps
+      \begin{lstlisting}
+\includeonly{chap1,chap3}
+...
+\include{chap1}
+\include{chap2}
+\include{chap3}
+\include{chap4}
+      \end{lstlisting}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
 %-----------------------
 \section{Sciences}
 \subsection{Écrire des mathématiques}
@@ -831,9 +1023,9 @@ Les variables plusieurs lettres doivent être différenciées de celles à une s
     \hline
     Bad & Good\\
     \hline
-    $cube(x) = x^3$ & $\mathsf{cube}(x) = x^3$\\
+    $cube(x) = x^3$ & $\mathrm{cube}(x) = x^3$\\
     \hline
-    $flux_{in}(k_{orig}) = flux_{out}(k_{dest})$ & $\mathsf{flux}_{\text{in}}(k_{\text{orig}}) = \mathsf{flux}_{\text{out}}(k_{\text{dest}})$\\
+    $flux_{in}(k_{orig}) = flux_{out}(k_{dest})$ & $\mathrm{flux}_{\text{in}}(k_{\text{orig}}) = \mathrm{flux}_{\text{out}}(k_{\text{dest}})$\\
     \hline
   \end{tabular}
 \end{center}
@@ -1084,6 +1276,7 @@ $$\ce{3H2O + 1/2H2O -> AgCl2- + H2_{(aq)}}$$
   \begin{lstlisting}
     \usepackage{circuitikz}
     ...
+		\shorthandoff{:!} % Pour certaines versions de circuitikz
     \begin{circuitikz}
       \draw (0,0) to [sI, v=$V_2$] (0,-3);
       \draw (6,-3) to[short, i = $I_2$] (0,-3);
@@ -1091,8 +1284,10 @@ $$\ce{3H2O + 1/2H2O -> AgCl2- + H2_{(aq)}}$$
       \draw (3,0) to [L = L, v = $V_L$] (6,0);
       \draw (6,0) to [C = C, v = $V_C$] (6,-3);
     \end{circuitikz}
+		\shorthandon{:!} % Pour certaines versions de circuitikz
   \end{lstlisting}
   \begin{center}
+		\shorthandoff{:!}
     \begin{circuitikz}
       \draw (0,0) to [sI, v=$V_2$] (0,-3);
       \draw (6,-3) to[short, i = $I_2$] (0,-3);
@@ -1100,6 +1295,7 @@ $$\ce{3H2O + 1/2H2O -> AgCl2- + H2_{(aq)}}$$
       \draw (3,0) to [L = L, v = $V_L$] (6,0);
       \draw (6,0) to [C = C, v = $V_C$] (6,-3);
     \end{circuitikz}
+		\shorthandon{:!}
   \end{center}
 \end{frame}
 
@@ -1134,171 +1330,6 @@ else:
 \end{frame}
 
 %%%%%%%%%%%%%
-
-\section{Références}
-
-\subsection{Références des éléments du texte}
-\begin{frame}[fragile]
-\frametitle{\insertsubsection}
-\begin{itemize}
-  \item Facile de faire référence à un numéro et la page d'une section et d'un environnement (\texttt{figure}, \texttt{equation}, \texttt{table}).
-  \item D'un coté une étiquette :
-    \begin{itemize}
-      \item \lstinline|\label{id}|.
-    \end{itemize}
-  \item De l'autre une référence à cette étiquette :
-    \begin{itemize}
-      \item \lstinline|\ref{id}|
-      \item \lstinline|\pageref{id}|
-      \item \lstinline|\vpageref{id}| du paquet \lstinline|varioref|
-    \end{itemize}
-\end{itemize}
-\begin{columns}
-  \begin{column}{0.5\textwidth}
-    \label{id}
-    Nous sommes section~\ref{id},
-    page~\pageref{id},
-    \vpageref{id}.
-  \end{column}
-  \begin{column}{0.5\textwidth}
-    \begin{lstlisting}
-\label{ref}
-Nous sommes section~\ref{ref},
-page~\pageref{ref},
-\vpageref{ref}.
-    \end{lstlisting}
-  \end{column}
-\end{columns}
-
-\end{frame}
-
-\subsection{Footnote}
-\begin{frame}[fragile]
-  \frametitle{Footnote}
-  \begin{lstlisting}
-    The earth\footnote{mostly harmless} was destroyed
-    by Vogons\footnote{They have the worst poetry in the universe}.
-
-    But Don't Panic\footnote{By the way, the answer is 42},
-    even when you're at the restaurant at
-    the end of the universe.
-  \end{lstlisting}
-  \begin{block}{Result}
-    The earth\footnote{Mostly harmless} was destroyed
-    by Vogons\footnote{They have the worst poetry in the universe}.
-
-    But Don't Panic\footnote{By the way, the answer is 42},
-    even when you're at the restaurant at
-    the end of the universe.
-  \end{block}
-\end{frame}
-
-\subsection{Bibliographie}
-\begin{frame}
-\frametitle{\insertsubsection}
-Deux possibilités pour maintenir une bibliographie:
-\begin{itemize}
-\item Éditer une bibliographie à la main (s'il y a très peu de référence, voir exemple)
-\item Les fichiers \texttt{bib}
-	\begin{itemize}
-		\item Disponible avec les revues scientifiques et Google Scholar
-		\item En utilisant le plugin \href{https://www.zotero.org/}{Zotero} pour récupérer les informations d'un \href{http://www.amazon.fr/LaTeX-HowTo-S\%C3\%A9bastien-Comb\%C3\%A9fis/dp/1446708314/ref=sr_1_5?ie=UTF8&qid=1363022579&sr=8-5}{site}
-	\end{itemize}
-\item Pour les utiliser
-	\begin{itemize}
-		\item Ajouter la source dans le fichier \texttt{bib}.
-		\item ``Compiler'' le fichier Bib\TeX{} puis ``recompiler'' le document.
-		\item Inclure dans son texte la commande \texttt{cite} avec l'étiquette de la source à référencer.
-		\item \LaTeX{} inclut la référence dans le texte et ajoute la source à la bibliographie.
-	\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile,allowframebreaks]
-  \frametitle{Bibliography}
-  \begin{columns}
-    \begin{column}{0.45\textwidth}
-  \begin{block}{Citer}
-    \begin{lstlisting}
-\cite{goossens93}
-\cite[p.~42]{goossens93}
-\cite{goossens93,combefis11,...}
-    \end{lstlisting}
-  \end{block}
-  \begin{block}{Inclure la bibliographie}
-    \begin{lstlisting}
-\bibliographystyle{plain}
-\bibliography{biblio}
-    \end{lstlisting}
-  \end{block}
-\end{column}
-\begin{column}{0.45\textwidth}
-  \centering
-  \includegraphics[width=\textwidth]{img/scholar_circle.png}
-\end{column}
-\end{columns}
-
-\begin{description}
-  \item[bad] \lstinline|voir\cite{goossens93}|
-  \item[ok] \lstinline|voir \cite{goossens93}|
-  \item[ok] \lstinline|voir~\cite{goossens93}|
-\end{description}
-
-\bibliographystyle{plain}
-  \begin{block}{Élément d'une bibliographie}
-    À mettre dans \lstinline|biblio.bib|
-    \begin{lstlisting}
-@book{goossens93,
-    author    = "Michel Goossens and Frank Mittelbach and Alexander Samarin",
-    title     = "The LaTeX Companion",
-    year      = "1993",
-    publisher = "Addison-Wesley",
-    address   = "Reading, Massachusetts"
-}
-@book{knuth1986texbook,
-  title={The texbook},
-  author={Knuth, Donald Ervin and Bibby, Duane},
-  volume={1993},
-  year={1986},
-  publisher={Addison-Wesley Reading, MA, USA}
-}
-    \end{lstlisting}
-  \end{block}
-\end{frame}
-
-
-\subsection{include et input}
-\begin{frame}[fragile]
-  \frametitle{include et input}
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-      Simple ``copier/coller''.
-      \begin{lstlisting}
-\input{chap1}
-\input{chap2}
-\input{chap3}
-\input{chap4}
-      \end{lstlisting}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      \lstinline|\include{x}| c'est comme faire
-      \begin{lstlisting}
-\clearpage
-\input{x}
-\clearpage
-      \end{lstlisting}
-      Il y a aussi \lstinline|includeonly| pour gagner du temps
-      \begin{lstlisting}
-\includeonly{chap1,chap3}
-...
-\include{chap1}
-\include{chap2}
-\include{chap3}
-\include{chap4}
-      \end{lstlisting}
-    \end{column}
-  \end{columns}
-\end{frame}
 
 \AtBeginSection[]{} %% stop TOC
 
