@@ -7,6 +7,9 @@
 \newcommand{\badet}{et}
 \newcommand{\goodet}{\mathbin{\mathrm{et}}}
 
+\lstdefinestyle{nonumbers}
+{numbers=none}
+
 \graphicspath{{img/}}
 \definecolor{gris}{RGB}{228,228,228}
 \definecolor{bleu}{RGB}{34,148,255}
@@ -195,8 +198,28 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 %-----------------------
 \subsection{La structure}
 
-\begin{frame}[fragile]{Structure générale du document}
-\framesubtitle{Séparation du préambule et du corps du document}
+\begin{frame}[fragile]{Structure générale du document I}
+\framesubtitle{Document minimal}
+\small
+
+\begin{lstlisting}[style=nonumbers]
+	\documentclass{article} %Type de document
+	
+	%Préambule
+	
+	\begin{document} %Corps du document
+	
+	\end{document}
+\end{lstlisting}
+\begin{itemize}
+	\item On charge les \textit{packages} et effectue certains réglages dans le préambule.
+	\item Commentaires introduits par \%
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Structure générale du document II}
+\framesubtitle{Exemple de document type}
 \small
 \begin{tabular}{ll}
   Type de document &
@@ -209,7 +232,7 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
   \lstinline|\usepackage[french]{babel}|\\
   Utilisation de \textit{package} &
   \lstinline|\usepackage{lmodern}|\\
-  Blanc pour la lisibilité &\\
+  \textbf{Blanc pour la lisibilité} &\\
   Début du document &
   \lstinline|\begin{document}|\\
   Corps du document &
@@ -217,18 +240,45 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
   Fin du document &
   \lstinline|\end{document}|\\
 \end{tabular}
-
-
 \end{frame}
 
+\subsection{Commandes et environnements}
+\begin{frame}[fragile]{Les commandes et environnements}
+\begin{itemize}
+\item \textbf{Commande} 
+	\begin{itemize}
+	\item Débute par \textbackslash
+	\item S'applique à une partie du texte, délimité par des accolades
+	\item Permet d'insérer des symboles
+	\end{itemize}
+	\begin{lstlisting}[style=nonumbers]
+	\commandName[options]{FirstParameter}...{LastParameter}
+	\end{lstlisting}
+	\begin{center}
+	\begin{tabular}{llll}
+	\lstinline|\LaTeX| & \LaTeX & \lstinline|\textbf{texte}| & \textbf{texte}
+	\end{tabular}
+	\end{center}
+\item \textbf{Environnement}
+	\begin{itemize}
+	\item S'applique à des portions de texte et applique une règle de mise en page,\dots
+	\item Délimité par \lstinline|\begin| et \lstinline|\end|
+	\end{itemize}
+	\begin{lstlisting}[style=nonumbers]
+	\begin{EnvironnementName}[options]
+	
+	\end{EnvironnementName}
+	\end{lstlisting}
+\end{itemize}
+\end{frame}
 %-----------------------
 
 \subsection{Les classes}
 
 \begin{frame}[fragile]{Les principales classes de document}
 \begin{tabular}{lp{8cm}}
-  \textbf{article} & pour les articles de journaux scientifiques, présentations, rapports courts...\\
-  \textbf{report} & pour de plus long rapports de plusieurs chapitres, petits livres, thèses, ...\\
+  \textbf{article} & pour les articles de journaux scientifiques, présentations, rapports courts,\dots \\
+  \textbf{report} & pour de plus long rapports de plusieurs chapitres, petits livres, thèses,\dots \\
   \textbf{book} & pour de vrais livres.\\
   \textbf{letter} & pour écrire des lettres.\\
   \textbf{beamer} & pour écrire des présentations (comme celle-ci).
@@ -255,7 +305,22 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 \end{center}
 \end{frame}
 
-%TODO: abstract
+\subsection{Les packages}
+
+\begin{frame}[fragile]{Les packages}
+\begin{itemize}
+\item Les \textbf{packages} sont des extensions contenant de nouveaux environnements et commandes
+\item Appel du package dans le \textit{préambule} à l'aide de la commande \lstinline|\usepackage[options]{packageName}|
+\end{itemize}
+
+\begin{tabular}{ll}
+\lstinline|\usepackage[utf8]{inputenc}| & Utilisation des caractères accentués \\
+\lstinline|\usepackage[T1]{fontenc}| & Permet d'utiliser tous les caractères du clavier \\
+\lstinline|\usepackage[french]{babbel}| & Spécifie la langue (français ici) \\
+\lstinline|\usepackage{lmodern}| & Pour les polices 
+\end{tabular}
+
+\end{frame}
 
 \subsection{La structure} %TODO: exemple
 \begin{frame}[fragile]{La structure logique du document}
@@ -265,40 +330,44 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 	\end{itemize}
 	\vspace{1cm}
 
-	\verb|\part{}|\\
-	\hspace{1cm} \verb|\chapter{}| \hspace{2cm}$\Longrightarrow$ \textcolor{bleu}{uniquement \textit{book} et \textit{report}}\\
-	\hspace{2cm} \verb|\section{}|\\
-	\hspace{3cm} \verb|\subsection{}| \\
-	\hspace{4cm} \verb|\subsubsection{}| \\
-	\hspace{5cm} \verb|\paragraph{}	| \\
+	\lstinline|\part{}|\\
+	\hspace{1cm} \lstinline|\chapter{}| \hspace{2cm}$\Longrightarrow$ \textcolor{red}{uniquement \textit{book} et \textit{report}}\\
+	\hspace{2cm} \lstinline|\section{}|\\
+	\hspace{3cm} \lstinline|\subsection{}| \\
+	\hspace{4cm} \lstinline|\subsubsection{}| \\
+	\hspace{5cm} \lstinline|\paragraph{}	| \\
 
 \end{frame}
 
 %-----------------------
 \section{Mise en page générale} %TODO: faire ca plus clairement
+
 \subsection{Titre}
 \begin{frame}[fragile]{Titre}
 	\begin{itemize}
-		\item Automatiquement la date d'aujourd'hui dans la bonne langue grâce à \lstinline|babel|
+		\item Informations données dans \lstinline|\author{}|, \lstinline|\date{}| and \lstinline|\title{}| \textbf{avant} le \lstinline|\begin{document}|
+		\item Ne pas mettre de \lstinline|\today| pour avoir la date d'aujourd'hui
+		\item Création de la page de titre avec \lstinline|\maketitle| \textbf{après} le \lstinline|\begin{document}|
 	\end{itemize}
 	\begin{columns}
-      \begin{column}{0.4\textwidth}
-        \begin{lstlisting}
-\institute{Louvain-li-Nux}
-\title{\textbf{Formation \LaTeX}\\
-Introduction \`a l'\'ecriture
-de document \LaTeX}
+      \begin{column}{0.5\textwidth}
+        \begin{lstlisting}[style=nonumbers]
+\title{\textbf{Formation \LaTeX}}
+
 \author{Xavier \textsc{Lambein}
-   \and Geoffroy \textsc{Jacquet}}
+        \and Geoffroy \textsc{Jacquet}}
+
                     % today
 \date{24 mars 2015} % fixed data
 \date{}             % no date
+
 \begin{document}
+
 \maketitle
         \end{lstlisting}
       \end{column}
-      \begin{column}{0.6\textwidth}
-        \maketitle
+      \begin{column}{0.5\textwidth}
+        \includegraphics[scale=0.35]{pdg.png}
       \end{column}
 	\end{columns}
 \end{frame}
@@ -310,7 +379,7 @@ de document \LaTeX}
 	\end{itemize}
 	\begin{columns}
       \begin{column}{0.5\textwidth}
-        \begin{lstlisting}
+        \begin{lstlisting}[style=nonumbers]
 \begin{document}
 ...
 \begin{abstract}
@@ -335,8 +404,8 @@ de document \LaTeX}
 		\item Une ligne de commande suffit pour générer toute la table des matières
 	\end{itemize}
 	\begin{columns}
-      \begin{column}{0.5\textwidth}
-        \begin{lstlisting}
+      \begin{column}{0.6\textwidth}
+        \begin{lstlisting}[style=nonumbers]
 \begin{document}
 \tableofcontents % Table des matières
 
@@ -349,10 +418,10 @@ Le sujet est en or mais pas le vif.
 \end{document}
         \end{lstlisting}
       \end{column}
-      \begin{column}{0.5\textwidth}
-        \begin{flushright}
+      \begin{column}{0.4\textwidth}
+        \begin{center}
           \fbox{\includegraphics[width=0.6\textwidth]{table.png}}
-        \end{flushright}
+        \end{center}
       \end{column}
 	\end{columns}
 \end{frame}
@@ -360,111 +429,92 @@ Le sujet est en or mais pas le vif.
 
 %-----------------------
 \subsection{Les polices}
+
 \begin{frame}[fragile]{Jouer avec les fontes}
 \framesubtitle{Changer la taille de police}
-\begin{columns} %TODO: tableau
-  \begin{column}{0.4\textwidth}
-  	\begin{lstlisting}[language=tex]
-{\tiny polygenelubricants}
-{\small polygenelubricants}
-{\normalsize polygenelubricants}
-{\large polygenelubricants}
-{\Large polygenelubricants}
-{\LARGE polygenelubricants}
-{\huge polygenelubricants}
-{\Huge polygenelubricants}
-		\end{lstlisting}
-  \end{column}
-  \begin{column}{0.6\textwidth}
-		\begin{flushright}
-			\tiny{polygenelubricants} \\
-			\small{polygenelubricants} \\
-			\normalsize{polygenelubricants} \\
-			\large{polygenelubricants} \\
-			\Large{polygenelubricants} \\
-			\LARGE{polygenelubricants} \\
-			\huge{polygenelubricants} \\
-			\Huge{polygenelubricants}
-		\end{flushright}
-  \end{column}
-\end{columns}
+\begin{itemize}
+	\item \lstinline|{\small text}| pour changer la taille du texte à l'intérieur
+	\item \lstinline|\small| pour changer tout le texte jusqu'au prochain appel de \lstinline|\normalsize| 
+\end{itemize}
+\begin{tabular}{ll}
+\lstinline|{\tiny polygenelubricants}| & {\tiny polygenelubricants} \\
+\lstinline|{\small polygenelubricants}| & {\small polygenelubricants} \\
+\lstinline|{\normalsize polygenelubricants}| & {\normalsize polygenelubricants} \\
+\lstinline|{\large polygenelubricants}| & {\large polygenelubricants} \\
+\lstinline|{\Large polygenelubricants}| & {\Large polygenelubricants} \\
+\lstinline|{\LARGE polygenelubricants}| & {\LARGE polygenelubricants} \\
+\lstinline|{\huge polygenelubricants}| & {\huge polygenelubricants} \\
+\lstinline|{\Huge polygenelubricants}| & {\Huge polygenelubricants} \\
+\end{tabular}
 \end{frame}
 
 \begin{frame}[fragile]{Jouer avec les fontes}
 \framesubtitle{Changer le type et style de police}
 
-\begin{block}{Type de police}
-\begin{columns}
-  \begin{column}{0.5\textwidth}
-		\begin{lstlisting}
-\textrm{Serif (par défaut)}
-\textsf{Sans serif}
-\texttt{Machine à écrire}
-		\end{lstlisting}
-  \end{column}
-  \begin{column}{0.4\textwidth}
-		\textrm{Serif (par défaut)} \\
-		\textsf{Sans serif} \\
-		\texttt{Machine à écrire}
-	\end{column}
-\end{columns}
-\end{block}
+\begin{itemize}
+\item Type de police
+\begin{center}
+\begin{tabular}{ll}
+\lstinline|\textrm{Serif (par défaut)}| & \textrm{Serif (par défaut)} \\
+\lstinline|\textsf{Sans serif}| & \textsf{Sans serif} \\
+\lstinline|\texttt{Machine à écrire}| & \texttt{Machine à écrire}
+\end{tabular}
+\end{center}
 
-\begin{block}{Style de police}
-\begin{columns}
-  \begin{column}{0.5\textwidth}
-		\begin{lstlisting}
-\emph{Emphase}
-\textbf{Gras}
-\textsl{Italique}
-\textsc{Petites majuscules}
-		\end{lstlisting}
-  \end{column}
-  \begin{column}{0.4\textwidth}
-		\emph{Emphase} \\
-		\textbf{Gras} \\
-		\textsl{Italique} \\
-		\textsc{Petites majuscules}
-	\end{column}
-\end{columns}
-\end{block}
+\item Style de police
+\begin{center}
+\begin{tabular}{ll}
+\lstinline|\emph{Emphase}| & \emph{Emphase} \\
+\lstinline|\textbf{Gras}| & \textbf{Gras} \\
+\lstinline|\textsl{Italique}| & \textsl{Italique} \\
+\lstinline|\textsc{Petites majuscules}| & \textsc{Petites majuscules}
+\end{tabular}
+\end{center}
+\end{itemize}
 \end{frame}
 
 
 \subsection{Paragraphes}
 \begin{frame}[fragile]{Les paragraphes avec \LaTeX{}}
-	\begin{block}{Définition d'un paragraphe}
-	  Pour créer un nouveau paragraphe, il suffit de faire deux retours à la ligne
-	  \begin{lstlisting}
+	\begin{itemize}
+	\item Pour créer un nouveau paragraphe, il suffit de faire deux retours à la ligne
+	  \begin{lstlisting}[style=nonumbers]
 	  Premier paragraphe.
 
 	  Second paragraphe.
 	  \end{lstlisting}
-	\end{block}
-	\begin{block}{Ajouter de l'espace entre les paragraphes et changer l'indentation}
-	  \begin{lstlisting}
-	  \usepackage{parskip} % Ajoute de l'espace entre les paragraphes et mets l'indentation to 0
-	  \setlength{\parindent}{15pt} % Remets l'indentation par default
+	
+	\item Ajouter de l'espace entre les paragraphes et changer l'indentation
+	  \begin{lstlisting}[style=nonumbers]
+	  \usepackage{parskip} % Ajoute de l'espace entre les paragraphes et met l'indentation à 0
 	  \end{lstlisting}
-	\end{block}
-  \begin{block}{Espace interligne}
-    \begin{lstlisting}
-    \usepackage{setspace}
-    \setstretch{1.5}
-    \end{lstlisting}
-  \end{block}
+	  \includegraphics[scale=0.35]{par1.png}
+	  \begin{lstlisting}[style=nonumbers]
+	  \setlength{\parindent}{15pt} % Remet l'indentation par défault
+	  \end{lstlisting}
+	  \includegraphics[scale=0.35]{par2.png}
+
+    \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Alignement d'un paragraphe}
-  Par défaut, c'est justifié.
-  \begin{lstlisting}
+  \begin{itemize}
+  	\item Par défaut, c'est justifié.
+  \begin{lstlisting}[style=nonumbers]
 \begin{center} % Pour centrer
 \end{center}
 \begin{flushright} % Pour aligner à droite
 \end{flushright}
 {\centering ...}
   \end{lstlisting}
+  
+    \item Espace interligne
+    \begin{lstlisting}[style=nonumbers]
+    \usepackage{setspace}
+    \setstretch{1.5}
+    \end{lstlisting}
+    \end{itemize}	
 \end{frame}
 
 
@@ -474,103 +524,135 @@ Le sujet est en or mais pas le vif.
   \frametitle{Itemize et enumerate}
   \begin{columns}
     \begin{column}{0.45\textwidth}
-      \begin{block}{Code}
-        \begin{lstlisting}
+      \begin{itemize}
+      \item Code
+        \begin{lstlisting}[style=nonumbers]
 \begin{itemize}
   \item Un chat;
   \item une poule;
   \item un chien.
 \end{itemize}
         \end{lstlisting}
-      \end{block}
-      \begin{block}{Rendu}
+      \item Rendu
         \begin{itemize}
           \item Un chat;
           \item une poule;
           \item un chien.
         \end{itemize}
-      \end{block}
+	\end{itemize}
     \end{column}
 
     \begin{column}{0.45\textwidth}
-      \begin{block}{Code}
-        \begin{lstlisting}
+      \begin{itemize}
+      \item Code
+        \begin{lstlisting}[style=nonumbers]
 \begin{enumerate}
   \item Mettez de l'eau.
   \item Chauffer l'eau.
   \item Mettez les pasta.
 \end{enumerate}
         \end{lstlisting}
-      \end{block}
-      \begin{block}{Rendu}
+      \item Rendu
         \begin{enumerate}
           \item Mettez de l'eau.
           \item Chauffer l'eau.
           \item Mettez les pasta.
         \end{enumerate}
-      \end{block}
+	\end{itemize}
     \end{column}
   \end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Description}
-  \begin{block}{Code}
-    \begin{lstlisting}
+  \begin{itemize}
+  \item Code
+    \begin{lstlisting}[style=nonumbers]
 \begin{description}
   \item[ODT] Open Document Text.
   \item[ODS] Open Document Spreadsheet.
   \item[ODP] Open Document Presentation.
 \end{description}
     \end{lstlisting}
-  \end{block}
-  \begin{block}{Rendu}
+  \item Rendu
     \begin{description}
       \item[ODT] Open Document Text.
       \item[ODS] Open Document Spreadsheet.
       \item[ODP] Open Document Presentation.
     \end{description}
-  \end{block}
+\end{itemize}
 \end{frame}
 
 \subsection{Divers}
-\begin{frame}[fragile]
+\begin{frame}[fragile]{Divers I}
   \frametitle{Divers}
-  \begin{block}{Guillemets français}
-    Utiliser \lstinline|\og{}| et \lstinline|\fg{}| et non \lstinline|"|.
+  \begin{itemize}
+  \item Caractères spéciaux utilisés par \LaTeX
+  
+  \begin{tabular}{cccccccccc}
+  \$ & \& & \% & \# & \_ & \{ & \} & \~{} & \^{} & \textbackslash \\
+  \lstinline|\$| & \lstinline|\&| & \lstinline|\%| & \lstinline|\#| & \lstinline|\_| & \lstinline|\{| & \lstinline|\}| & \lstinline|\~{}| & \lstinline|\^{}| & \lstinline|\textbackslash|
+  \end{tabular}
+  
 
-    "bad" \og{}good\fg{}.
-  \end{block}
-
- \begin{block}{Tirets}
+ \item Tirets
    \begin{tabular}{llp{0.5\textwidth}}
-     \lstinline|-| & mots composés & Jean-Patrick\\
-     \lstinline|--| & intervals & 1984--2015\\
-     \lstinline|---| & parenthèses & le \LaTeX{} ---c'est chouette--- a été créé par Leslie Lamport\\
+     \lstinline|-| & court & Jean-Patrick\\
+     \lstinline|--| & moyen ou semi-cadratin & 1984--2015\\
+     \lstinline|---| & cadratin & le \LaTeX{} --- c'est chouette --- a été créé par Leslie Lamport\\
    \end{tabular}
- \end{block}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Divers II}
+\begin{itemize}
+	\item Accents 
+	\\
+	\begin{tabular}{ccccccc}
+		\lstinline|\'e| & \lstinline|\`e| & \lstinline|\^e| & \lstinline|\~n| & \lstinline|\=a| & \lstinline|\.e| & \lstinline|\c c| \\ 
+		\'e & \`e & \^e & \~n & \=a & \.e & \c c \\
+		\lstinline|\u e| & \lstinline|\v e| & \lstinline|\H a| & \lstinline|\d a| & \lstinline|\b a| & \lstinline|\t a| &\\
+		\u e & \v e & \H a & \d a & \b a & \t a &
+	\end{tabular}
+	\item Autres caractères
+	\begin{itemize}
+		\item \lstinline|M\up{me}| pour M\up{me}
+		\item \lstinline|1\ier 2\ieme| pour 1\ier et 2\ieme
+		\item \lstinline|\no \No| pour \no et \No
+		\item \lstinline|\degres C| pour \degres C
+		\item \lstinline|\og{} \fg{}| pour \og{} \fg{}. \textcolor{red}{Attention, ne pas utiliser "}
+	\end{itemize}
+\end{itemize}
 \end{frame}
 
 %-----------------------
 \section{Les environnements flottants}
 \subsection{Les figures}
+
 \begin{frame}[fragile,allowframebreaks]
   \frametitle{Figures}
-  \begin{block}{Non-flottant}
+  \begin{itemize}
+  
+  \item Utilisation du package \lstinline|\usepackage{graphicx}|
+  \item Insertion de l'image avec \lstinline|\includegraphics[options]{filename.ext}|  
+  
+  \item \textbf{Non-flottant}
+  
     Référencement par ``ci-dessous'', \dots
-    \begin{lstlisting}
-\usepackage{graphicx}
-...
+    \begin{lstlisting}[style=nonumbers]
 \begin{center}
   \includegraphics{image.jpg}
 \end{center}
     \end{lstlisting}
-  \end{block}
-  \begin{block}{Flottant}
-    Référencement par \lstinline|voir figure~\ref{fig:graphique}|
-    \begin{lstlisting}
-\usepackage{graphicx}
-...
+  
+  \item \textbf{Flottant}
+  	\begin{itemize}
+  		\item Environnement \lstinline|figure|
+  		\item Ajout d'une référence par \lstinline|\label{...}|
+    	\item Référencement par \lstinline|voir figure~\ref{fig:graphique}|
+    	\item Ajout d'une légende par \lstinline|\caption{...}|
+    \end{itemize}
+    \begin{lstlisting}[style=nonumbers]
 \begin{figure}[!ht]
   \centering
   \includegraphics{graph.png}
@@ -578,42 +660,19 @@ Le sujet est en or mais pas le vif.
   \label{fig:graphique}
 \end{figure}
     \end{lstlisting}
-  \end{block}
-  \begin{block}{Hybride: référençable mais non-flottant}
-    Référencement par \lstinline|voir figure~\ref{fig:graphique}|
-    \begin{lstlisting}
-\usepackage{graphicx}
-\usepackage{float}
-...
-\begin{figure}[H]
-  ...
-  \label{fig:graphique}
-\end{figure}
-    \end{lstlisting}
-    ou
-    \begin{lstlisting}
-\usepackage{graphicx}
-\usepackage{caption}
-...
-\begin{center}
-  ...
-  \captionof{figure}{Voici un beau graphique}
-  \label{fig:graphique}
-\end{center}
-    \end{lstlisting}
-  \end{block}
-  \begin{block}{Scaling}
-    \begin{lstlisting}
-\usepackage{graphicx}
-...
+    
+ 
+  \item \textbf{Scaling}
+    \begin{lstlisting}[style=nonumbers]
 \includegraphics[width=\textwidth]{image.jpg} % Largeur d'une ligne de texte
 \includegraphics[height=4cm]{image.jpg} % Hauteur de 4cm
 \includegraphics[scale=0.5]{image.png} % taille / 2
     \end{lstlisting}
-  \end{block}
 
-  \vspace{4.2em}
+  \vspace{2em}
 
+
+\end{itemize} 
 \begin{quote}
   1992: Extensive testing shows that 98.3\% of the time
   no matter which of the
@@ -634,50 +693,61 @@ Le sujet est en or mais pas le vif.
 
 \end{frame}
 
-\begin{frame}[fragile]{Exemple de figure}
-	\fbox{\includegraphics[width=\textwidth]{figure.jpg}}
-\end{frame}
 
 \begin{frame}[fragile]{Exemple de figure}
-%\framesubtitle{Un contenant pour des éléments de type \textit{table} et \textit{figure}}
 
-\begin{lstlisting}
-\usepackage{graphicx}
-...
+\begin{columns}
+    \begin{column}{0.5\textwidth}
 Sur la figure~\ref{fig:ucl}, vous pouvez voir le logo UCL
-mis a \SI{50}{\percent} de la largueur du texte.
+mis a \SI{50}{\percent} de la largeur du texte.
 
 \begin{figure}[!ht]
     \centering
-        \includegraphics[width=0.50\textwidth]{logo-ucl.jpg}
+        \includegraphics[width=0.50\textwidth]{logo-ucl.eps}
+    \caption{Voici le logo UCL}
+    \label{fig:ucl}
+\end{figure}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\begin{lstlisting}[style=nonumbers]
+
+Sur la figure~\ref{fig:ucl}, vous pouvez 
+voir le logo UCL mis a \SI{50}{\percent}
+de la largeur du texte.
+
+\begin{figure}[!ht]
+    \centering
+        \includegraphics[width=0.50\textwidth]{logo-ucl.eps}
     \caption{Voici le logo UCL}
     \label{fig:ucl}
 \end{figure}
 \end{lstlisting}
+\end{column}
+\end{columns}
 
 \end{frame}
-%	\vspace{0.5cm}
-%	\hspace{1cm} \verb|\begin{|{\usebeamercolor[fg]{example text} \verb|itemize|}\verb|} |\\
-%	\hspace{2cm} \verb|\item Premier élément de la liste|\\
-%	\hspace{2cm} \verb|\item Deuxième élément de la liste|\\
-%	\hspace{1cm} \verb|\end{|{\usebeamercolor[fg]{example text} \verb|itemize|}\verb|} |\\
-%	\vspace{0.5cm}
 
-\subsection{Les tableaux} %TODO: site web
+
+\subsection{Les tableaux} 
 \begin{frame}[fragile,allowframebreaks]
   \frametitle{Tableaux}
-  \begin{block}{Non-flottant}
+  \begin{itemize}
+  \item Utilisation de l'environnement \lstinline|tabular|
+  \item \textbf{Non-flottant}
+  
     Référencement par ``ci-dessous'', \dots
-    \begin{lstlisting}
-\begin{center}
+    \begin{lstlisting}[style=nonumbers]
   \begin{tabular}{...}
     ...
   \end{tabular}
-\end{center}
     \end{lstlisting}
-  \end{block}
-  \begin{block}{Flottant}
-    Référencement par \lstinline|voir tableau~\ref{tab:data}|
+    
+  \item \textbf{Flottant}
+  	\begin{itemize}
+  		\item Environnement \lstinline|table|
+    	\item Référencement par \lstinline|voir tableau~\ref{tab:data}|
+    \end{itemize}
     \begin{lstlisting}
 \begin{table}
   \centering
@@ -688,8 +758,26 @@ mis a \SI{50}{\percent} de la largueur du texte.
   \label{tab:data}
 \end{table}
     \end{lstlisting}
-  \end{block}
-  \begin{block}{Code}
+    
+  \item \textbf{Code}
+  	\begin{lstlisting}[style=nonumbers]
+\begin{tabular}{<colonnes>}
+  	<lignes>
+\end{tabular}
+  	\end{lstlisting}
+  	\begin{itemize}
+  		\item Définition de l'alignement des <colonnes> par :
+  			\begin{itemize}
+  				\item un \lstinline|l| pour aligner à gauche (\textit{left})
+  				\item un \lstinline|c| pour centrer (\textit{center})
+  				\item un \lstinline|r| pour aligner à droite (\textit{right})
+  				\item un \lstinline|p{<largeur>}| pour un texte justifié sur une largeur donnée
+  			\end{itemize}
+  		\item Une ligne verticale est tracée par \lstinline|||
+  		\item Le contenu des <lignes> est séparé par colonnes par \lstinline|&|
+  		\item Une <ligne> se termine par \lstinline|\\|
+  		\item Une ligne horizontalle est tracée par \lstinline|\hline|
+  	\end{itemize}
     \begin{lstlisting}
 \begin{tabular}{|lcr|}
   \hline
@@ -700,8 +788,8 @@ mis a \SI{50}{\percent} de la largueur du texte.
   \hline
 \end{tabular}
     \end{lstlisting}
-  \end{block}
-  \begin{block}{Rendu}
+  \item \textbf{Rendu}
+  
 \begin{tabular}{|lcr|}
   \hline
   A & B & C\\
@@ -710,7 +798,7 @@ mis a \SI{50}{\percent} de la largueur du texte.
   $\alpha$ & $\beta$ & $\gamma$\\
   \hline
 \end{tabular}
-  \end{block}
+  \end{itemize}
 \end{frame}
 
 
