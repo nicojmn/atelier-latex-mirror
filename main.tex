@@ -256,7 +256,7 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 	\end{lstlisting}
 	\begin{center}
 	\begin{tabular}{llll}
-	\lstinline|\LaTeX| & \LaTeX & \lstinline|\textbf{texte}| & \textbf{texte}
+	\lstinline|\LaTeX{}| & \LaTeX{} & \lstinline|\textbf{texte}| & \textbf{texte}
 	\end{tabular}
 	\end{center}
 \item \textbf{Environnement}
@@ -504,8 +504,10 @@ Le sujet est en or mais pas le vif.
   \begin{lstlisting}[style=nonumbers]
 \begin{center} % Pour centrer
 \end{center}
+
 \begin{flushright} % Pour aligner à droite
 \end{flushright}
+
 {\centering ...}
   \end{lstlisting}
   
@@ -617,7 +619,7 @@ Le sujet est en or mais pas le vif.
 	\item Autres caractères
 	\begin{itemize}
 		\item \lstinline|M\up{me}| pour M\up{me}
-		\item \lstinline|1\ier 2\ieme| pour 1\ier et 2\ieme
+		\item \lstinline|1\ier{} 2\ieme{}| pour 1\ier{} et 2\ieme{}
 		\item \lstinline|\no \No| pour \no et \No
 		\item \lstinline|\degres C| pour \degres C
 		\item \lstinline|\og{} \fg{}| pour \og{} \fg{}. \textcolor{red}{Attention, ne pas utiliser "}
@@ -805,7 +807,7 @@ de la largeur du texte.
 
 \begin{frame}[fragile]{Exemple de tableau}
 \begin{footnotesize}
-\begin{lstlisting}
+\begin{lstlisting}[style=nonumbers]
 \begin{table}[!ht]
     \begin{center}
             \begin {tabular}{|l||c|} %% 2 columns
