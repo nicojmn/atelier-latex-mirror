@@ -3,6 +3,7 @@
 \usepackage{pdflscape} %% portrait
 \usepackage[french]{varioref} % \vpageref
 \usepackage{pgfplots}
+\usepackage{framed}
 
 \newcommand{\badet}{et}
 \newcommand{\goodet}{\mathbin{\mathrm{et}}}
@@ -34,18 +35,28 @@ Introduction à l'écriture de document \textrm{\LaTeX}}
 
 %%%%%%%%%%%% SIDA
 \begin{landscape}
-\begin{frame}[noframenumbering,plain]
-	\vspace{-.5cm}
-	\hspace*{.1mm}
-	\includegraphics[page=1,height=\paperwidth]{latex_sida.pdf}
-\end{frame}
+  \begin{frame}[noframenumbering,plain]
+    \vspace{-.5cm}
+    \hspace*{.1mm}
+    \includegraphics[page=1,height=\paperwidth]{latex_sida.pdf}
+  \end{frame}
 \end{landscape}
 %%%%%%%%%%%%
 
 \begin{frame}
-\maketitle
-Merci à Jolan \textsc{Wolter} et Thomas \textsc{Vanzieleghem} pour avoir réalisé la première version de ces slides
-ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalisé la deuxième version, ainsi qu'à Arnaud \textsc{Cerckel} et Benoît \textsc{Legat} pour avoir réalisé la troisième version.
+  \begin{center}\Large
+  Suivez cette présentation sur votre ordinateur :)
+  
+  \vspace{1cm}
+  \fbox{\url{bit.ly/2cYF8sb}}
+  \end{center}
+\end{frame}
+
+
+\begin{frame}
+  \maketitle
+  Merci à Jolan \textsc{Wolter} et Thomas \textsc{Vanzieleghem} pour avoir réalisé la première version de ces slides
+  ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalisé la deuxième version, ainsi qu'à Arnaud \textsc{Cerckel} et Benoît \textsc{Legat} pour avoir réalisé la troisième version.
 \end{frame}
 
 \AtBeginSection[]
@@ -145,7 +156,7 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 
 %-----------------------
 \subsection{Les Outils}
-\begin{frame}{Ce qu'il faut pour commencer.}
+\begin{frame}{Quels logiciels pour utiliser \LaTeX{}?}
 
   \begin{itemize}
 	  \item GNU/Linux
@@ -169,6 +180,7 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
   		\item \textbf{\url{www.sharelatex.com}}
 	  \end{itemize}
   \end{itemize}
+  Par simplicité, nous utiliserons \textbf{Overleaf} dans ce cours.
 \end{frame}
 
 \section{Les concepts de base}
@@ -198,21 +210,22 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 %-----------------------
 \subsection{La structure}
 
-\begin{frame}[fragile]{Structure générale du document I}
+\begin{frame}[fragile,label=frame:structure]{Structure générale du document I}
 \framesubtitle{Document minimal}
 \small
 
 \begin{lstlisting}[style=nonumbers]
-	\documentclass{article} %Type de document
-	
-	%Préambule
-	
-	\begin{document} %Corps du document
-	
-	\end{document}
+\documentclass{article} %Type de document
+
+%Préambule
+
+\begin{document}
+    %Corps du document
+\end{document}
 \end{lstlisting}
 \begin{itemize}
 	\item On charge les \textit{packages} et effectue certains réglages dans le préambule.
+	\item On écrit le contenu de son docuement entre \lstinline|\begin{document}| et \lstinline|\end{document}|.
 	\item Commentaires introduits par \%
 \end{itemize}
 
@@ -225,7 +238,7 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
   Type de document &
   \lstinline|\documentclass[a4paper, 10pt]{article}|\\
   Utilisation de \textit{package} &
-  \lstinline|\usepackage[utf8x]{inputenc} % ou [utf8]|\\
+  \lstinline|\usepackage[utf8x]{inputenc}|\\
   Utilisation de \textit{package} &
   \lstinline|\usepackage[T1]{fontenc}|\\
   Utilisation de \textit{package} &
@@ -252,7 +265,7 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 	\item Permet d'insérer des symboles
 	\end{itemize}
 	\begin{lstlisting}[style=nonumbers]
-	\commandName[options]{FirstParameter}...{LastParameter}
+\commandName[options]{FirstParameter}...{LastParameter}
 	\end{lstlisting}
 	\begin{center}
 	\begin{tabular}{llll}
@@ -265,9 +278,9 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 	\item Délimité par \lstinline|\begin| et \lstinline|\end|
 	\end{itemize}
 	\begin{lstlisting}[style=nonumbers]
-	\begin{EnvironnementName}[options]
-	
-	\end{EnvironnementName}
+\begin{EnvironnementName}[options]
+
+\end{EnvironnementName}
 	\end{lstlisting}
 \end{itemize}
 \end{frame}
@@ -312,7 +325,7 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 \item Les \textbf{packages} sont des extensions contenant de nouveaux environnements et commandes
 \item Appel du package dans le \textit{préambule} à l'aide de la commande \lstinline|\usepackage[options]{packageName}|
 \end{itemize}
-
+\vskip2em
 \begin{tabular}{ll}
 \lstinline|\usepackage[utf8]{inputenc}| & Utilisation des caractères accentués \\
 \lstinline|\usepackage[T1]{fontenc}| & Permet d'utiliser tous les caractères du clavier \\
@@ -322,7 +335,7 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 
 \end{frame}
 
-\subsection{La structure} %TODO: exemple
+\subsection{La structure}
 \begin{frame}[fragile]{La structure logique du document}
 	\begin{itemize}
 		\item Structure logique du document uniquement
@@ -339,6 +352,22 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 
 \end{frame}
 
+\begin{frame}[fragile]{La structure logique du document}
+\framesubtitle{Exemple}
+	\begin{columns}
+      \begin{column}{0.5\textwidth}
+        \begin{lstlisting}[style=nonumbers]
+\part{Ma partie}
+\section{Une section de mon document}
+\subsection{Ma sous-section}
+        \end{lstlisting}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+        \fbox{\includegraphics[width=1\textwidth]{structure_logique.png}}
+      \end{column}
+	\end{columns}
+\end{frame}
+
 %-----------------------
 \section{Mise en page générale} %TODO: faire ca plus clairement
 
@@ -346,21 +375,23 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 \begin{frame}[fragile]{Titre}
 	\begin{itemize}
 		\item Informations données dans \lstinline|\author{}|, \lstinline|\date{}| and \lstinline|\title{}| \textbf{avant} le \lstinline|\begin{document}|
-		\item Ne pas mettre de \lstinline|\today| pour avoir la date d'aujourd'hui
 		\item Création de la page de titre avec \lstinline|\maketitle| \textbf{après} le \lstinline|\begin{document}|
 	\end{itemize}
 	\begin{columns}
       \begin{column}{0.5\textwidth}
         \begin{lstlisting}[style=nonumbers]
-\title{\textbf{Formation \LaTeX}}
+\title{Formation \LaTeX}
 
+% Séparer les auteurs avec \and
 \author{Xavier \textsc{Lambein}
         \and Geoffroy \textsc{Jacquet}}
 
                     % today
 \date{24 mars 2015} % fixed data
 \date{}             % no date
+        \end{lstlisting}
 
+        \begin{lstlisting}[style=nonumbers]
 \begin{document}
 
 \maketitle
@@ -375,7 +406,7 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 \subsection{Le résumé ou abstract}
 \begin{frame}[fragile]{Le résumé ou abstract}
 	\begin{itemize}
-		\item L'environnement \texttt{abstract} permet de mettre en page un résumé au début du document.
+		\item L'environnement \lstinline|abstract| permet de mettre en page un résumé au début du document.
 	\end{itemize}
 	\begin{columns}
       \begin{column}{0.5\textwidth}
@@ -383,8 +414,8 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 \begin{document}
 ...
 \begin{abstract}
-	Voici un résumé succint du contenu
-	de mon document.
+  Voici un résumé succint du contenu
+  de mon document.
 \end{abstract}
 ...
 \end{document}
@@ -401,29 +432,54 @@ ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalis�
 \subsection{La table des matières}
 \begin{frame}[fragile]{Table des matières}
 	\begin{itemize}
-		\item Une ligne de commande suffit pour générer toute la table des matières
+		\item La commande \lstinline|\tableofcontents| suffit pour générer toute la table des matières
 	\end{itemize}
 	\begin{columns}
       \begin{column}{0.6\textwidth}
         \begin{lstlisting}[style=nonumbers]
 \begin{document}
+
 \tableofcontents % Table des matières
 
 \section{Introduction}
 Ceci est mon premier document en \TeX{}
+
 \section{Le vif du sujet}
 Le sujet est en or mais pas le vif.
+
 \subsection{Mais quel est le sujet ?}
 \LaTeX{}, ce logiciel d'exception !
+
 \end{document}
         \end{lstlisting}
       \end{column}
       \begin{column}{0.4\textwidth}
         \begin{center}
-          \fbox{\includegraphics[width=0.6\textwidth]{table.png}}
+          \fbox{\includegraphics[width=0.9\textwidth]{table.png}}
         \end{center}
       \end{column}
 	\end{columns}
+\end{frame}
+
+\subsection{Exercice 1}
+\begin{frame}[fragile]{Premier exercice}
+  \begin{center}\large
+    Cliquez sur ce lien, puis sur \og{}Clone this project\fg{}, pour commencer le premier exercice:
+    
+    \vspace{0.5cm}
+    \fbox{\url{http://bit.ly/2ecAO9b}}
+  \end{center}
+  \vspace{0.5cm}
+  
+  Dans cet exercice, on vous invite à:
+  \begin{itemize}
+	  \item créer un \textbf{titre} de document;
+	  \item changer la \textbf{taille de police} du document;
+	  \item ajouter un \textbf{résumé} (abstract);
+	  \item définir la structure de votre document avec quelques \textbf{sections} et \textbf{sous-sections};
+	  \item écrir un peu de \textbf{texte};
+	  \item générer la \textbf{table des matières} au début de votre document.
+  \end{itemize}
 \end{frame}
 
 
