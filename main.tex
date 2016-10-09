@@ -15,7 +15,6 @@
 \definecolor{gris}{RGB}{228,228,228}
 \definecolor{bleu}{RGB}{34,148,255}
 \definecolor{darkgray}{rgb}{0.3,0.3,0.3}
-
 \usefonttheme[onlymath]{serif} % to see the difference when I do mathsf
 
 \logo{\includegraphics[height=5mm]{logo_12-13-mini.png}}
@@ -1106,115 +1105,179 @@ Pour les utiliser:
 \subsection{Écrire des mathématiques}
 \begin{frame}[fragile]{L'environnement mathématique}
 \framesubtitle{Inclure des formules dans le texte}
-On peut ajouter une formule mathématique dans du texte entre deux symboles \textbf{\$}.
+\begin{itemize}
+	\item On peut ajouter une formule mathématique dans du texte entre deux symboles \textbf{\$} ou entre \lstinline|\( ... \)|
 
-\vspace{1cm}
 \begin{center}
-    \Large
   \begin{tabular}{lll}
-    \verb|$x^{2n}$| & $\rightarrow$ &  $x^{2n}$\\
+    \lstinline|$x + 1 = 2$| & $\Rightarrow$ &  $x + 1 = 2$\\
     \medskip
-    \verb|$\sin(x)$| & $\rightarrow$ &  $\sin(x)$\\
+    \lstinline|$\frac{1}{x}$| & $\Rightarrow$ &  $\frac{1}{x}$\\
   \end{tabular}
 \end{center}
+	\item Les opérateurs, symboles,\dots commencent par \textbf{\textbackslash}, sauf \lstinline|+, -, /, ^, _,...|
+	\begin{center}
+		\begin{tabular}{lllr}
+			\lstinline|$a^{11}$| & $\Rightarrow$ & $a^{11}$ & Good \\
+			\lstinline|$a^11$| & $\Rightarrow$ & $a^11$ & Bad ! \\
+			\lstinline|$\sin(x)$| & $\Rightarrow$ & $\sin(x)$ & Good \\
+			\lstinline|$sin(x)$| & $\Rightarrow$ & $sin(x)$ & Bad !\\
+			\lstinline|$\frac{\Theta}{\sqrt{\beta}}$| & $\Rightarrow$ & $\frac{\Theta}{\sqrt{\beta}}$ & 
+		
+		\end{tabular}
+	\end{center}
+	\item Les packages \lstinline|amsmath| et \lstinline|amssymb| apportent beaucoup d'envirronement et symboles supplémentaires très utiles, à inclure par défaut
+\end{itemize}
 \end{frame}
+
 \begin{frame}[fragile]{L'environnement mathématique}
 \framesubtitle{Inclure des formules centrées hors du texte}
-On peut aussi ajouter une formule mathématique centrées hors du texte entre deux symboles \textbf{\$\$}. Exemple:
 
+\begin{itemize}
+\item On peut aussi ajouter une formule mathématique centrées hors du texte entre deux symboles \textbf{\$\$} ou entre \lstinline|\[ ... \]|
+\vspace{0.5cm}
 \begin{columns}
   \begin{column}{0.45\textwidth}
-    $|x|$ is positive for any value of $x$,
-    we can define it like so
-    $$x =
-    \begin{cases}
-      -x & \text{si }x < 0\\
-      x & \text{sinon}.
-    \end{cases}$$
+    L'expression $\sin(x)$ peut s'écrire de différents manières. En effet, il a été démontré que 
+    
+    $$\sin(x) = \frac{e^{iz} - e^{-iz}}{2i}$$
 
-    Be aware that
-    $$|x + y| \neq |x| + |y|.$$
-    However, we have the triangle inequality
-    $$|x + y| \leq |x| + |y|$$
-    for any $x,y \in \mathbb{C}$.
+    avec $i$ étant l'unité imaginaire.
   \end{column}
   \begin{column}{0.45\textwidth}
-    \begin{lstlisting}
-\usepackage{amsmath} % for \begin{cases}
-\usepackage{amssymb} % for \mathbb
-...
-$|x|$ is positive for
-any value of $x$,
-we can define it like so
-$$x =
-\begin{cases}
-  -x & \text{si }x < 0\\
-  x & \text{sinon}.
-\end{cases}$$
+    \begin{lstlisting}[style = nonumbers]
+L'expression $\sin(x)$ peut s'écrire de différents manières. En effet, il a été démontré que 
 
-Be aware that
-$$|x + y| \neq |x| + |y|.$$
-However, we have the triangle inequality
-$$|x + y| \leq |x| + |y|$$
-for any $x,y \in \mathbb{C}$.
+$$\sin(x) = \frac{e^{iz} - e^{-iz}}{2i}$$
+
+avec $i$ étant l'unité imaginaire.
     \end{lstlisting}
   \end{column}
 \end{columns}
+
+\end{itemize}
+\end{frame}
+\subsection{Matrices}
+\begin{frame}[fragile]{Matrices}
+	\begin{itemize}
+		\item Les matrices s'écrivent avec l'environnement \lstinline|array| (fonctionnement semblable à \lstinline|tabular|)
+			\begin{columns}
+				\begin{column}{0.45\textwidth}
+					$$\left(
+					\begin{array}{c c}
+						\alpha & \beta \\
+						\gamma & \delta \\
+					\end{array}
+					\right)$$
+				\end{column}
+				\begin{column}{0.45\textwidth}
+					\begin{lstlisting}[style=nonumbers]
+$$\left(
+\begin{array}{c c}
+\alpha & \beta \\
+\gamma & \delta \\
+\end{array}
+\right)$$
+					\end{lstlisting}
+				\end{column}
+			\end{columns}
+		\item Les commandes \lstinline|\left| et \lstinline|\right| permettent de changer les délimiteurs de la matrice
+			\begin{columns}
+				\begin{column}{0.45\textwidth}
+					$$\left\{
+					\begin{array}{r c l}
+						a + b & = & c \\
+						d & = & e + f \\
+					\end{array}
+					\right.$$
+				\end{column}
+				\begin{column}{0.45\textwidth}
+					\begin{lstlisting}[style=nonumbers]
+$$\left\{
+\begin{array}{r c l}
+a + b & = & c \\
+d & = & e + f \\
+\end{array}
+\right.$$
+					\end{lstlisting}
+				\end{column}
+			\end{columns}
+	\end{itemize}
 \end{frame}
 
+\subsection{Formles numérotées}
+\begin{frame}[fragile,allowframebreaks]{Formules numérotées}
 
-\begin{frame}[fragile]{L'environnement mathématique}
-\framesubtitle{Formules numérotées}
-
-Un environnement équation est prévu pour des formules plus longues, elles seront automatiquement centrées et numérotées pour être référencées
-
+\begin{itemize}
+	\item L'environnement \lstinline|align| permet d'écrire des équations alignées et numérotées.
+	\item On peut ne pas numéroter une équation en plaçant \lstinline|\nonumber| à la fin de la ligne. 
+	
+	\vspace{0.50cm}
 \begin{columns}
-  \begin{column}{0.6\textwidth}
-I like trains and the equation~\eqref{eq:euler}
+  \begin{column}{0.45\textwidth}
+I like trains and the equations
 \begin{align}
-  \label{eq:euler}
   e^{i\pi} + 1 & = 0\\
-  \notag
-  p(x) & = \frac{1}{\sigma \sqrt{2\pi}}
-  \exp
-    \left(-\frac{(x-\mu)^2}
-                {2\sigma^2}\right).
+  f(t) & = A\cos(\omega t + \phi) \nonumber 
 \end{align}
 I also know that
 \begin{align*}
-  1 + 1 & = 2 & 1 + 2 & = 3\\
-  2 + 3 & = 5 & 3 + 5 & = 8.
+  1 + 1 & = 2\\
+  2 + 3 & = 5
 \end{align*}
   \end{column}
   \begin{column}{0.4\textwidth}
-    \begin{lstlisting}
-\usepackage{amsmath} % for eqref
-...
-I like trains and
-the equation~\eqref{eq:euler}
+    \begin{lstlisting}[style = nonumbers]
+I like trains and the equations
 \begin{align}
-  \label{eq:euler}
   e^{i\pi} + 1 & = 0\\
-  \notag
-  p(x) & = \frac{1}{\sigma \sqrt{2\pi}}
-  \exp
-    \left(-\frac{(x-\mu)^2}
-    {2\sigma^2}\right).
+  f(t) & = A\cos(\omega t + \phi) \nonumber 
 \end{align}
 I also know that
 \begin{align*}
-  1 + 1 & = 2 & 1 + 2 & = 3\\
-  2 + 3 & = 5 & 3 + 5 & = 8.
+  1 + 1 & = 2\\
+  2 + 3 & = 5
 \end{align*}
     \end{lstlisting}
   \end{column}
 \end{columns}
-
+\framebreak
+\item Possibilité de référencer les équation en plaçant \lstinline|\label| à la fin de la ligne dans l'environnement \lstinline|align|
+\vspace{0.5cm}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			We see in equation~\ref{first} that $x$ is smaller than $3$ and in equation~\ref{third} that $y$ is greater than $x$. 
+			\begin{align}
+				x & < 3 \label{first} \\
+				y & > 5 \label{second} \\
+				y & > x \label{third}
+			\end{align}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+		\begin{lstlisting}[style=nonumbers]
+We see in equation~\ref{first} that $x$ is smaller than $3$ and in equation~\ref{third} that $y$ is greater than $x$. 
+\begin{align}
+x & < 3 \label{first} \\
+y & > 5 \label{second} \\
+y & > x \label{third}
+\end{align}
+		\end{lstlisting}
+		\end{column}
+	\end{columns}
+\end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{L'environnement mathématique}
-\framesubtitle{Variable à plusieurs lettres}
-
+\section{Les maths et les polices}
+\begin{frame}[fragile]{Les maths et les polices}
+\begin{itemize}
+	\item Parfois, certaines variables sont composées de plusieurs lettres. On doit utiliser des polices différentes comme \lstinline|\mathrm| ou \lstinline|\mathsf|
+	\begin{center}
+			\begin{tabular}{llll}
+				\lstinline|$Var(x)$| & $\Rightarrow$ & $Var(x)$ & Bad ! \\
+				\lstinline|$\mathrm{Var}(x)$| & $\Rightarrow$ & $\mathrm{Var}(x)$ & Good 
+			\end{tabular}
+	\end{center}
+\end{itemize}
 Attention aux yeux du lecteurs (surtout ceux ayant un compas à portée de main).
 $cube = c \cdot u \cdot b \cdot e = c \times u \times b \times e$.
 Les variables plusieurs lettres doivent être différenciées de celles à une seule lettre.
