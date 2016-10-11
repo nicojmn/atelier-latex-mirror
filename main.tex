@@ -929,12 +929,12 @@ de la largeur du texte.
 	  \begin{itemize}
 	  	\item écrire un peu de \textbf{texte};
 	  	\item ajouter une \textbf{figure} (flottant) avec une \textbf{légende} (caption) et \textbf{référence} (label);
-	  	\item écrire un peu de \textbf{texte} et faire \textbf{référence} à votre image.
+	  	\item écrire un peu de \textbf{texte} et faire \textbf{référence} à votre image;
 	  \end{itemize} 
 	  \item créer une \textbf{section} de document : 
 	  \begin{itemize}
 	  	\item écrire un peu de \textbf{texte} et faire \textbf{référence} à votre \textbf{tableau} (qui sera écrit plus bas);
-	  	\item ajouter un \textbf{tableau} (flottant) avec une \textbf{légende} (caption) et \textbf{référence} (label).
+	  	\item ajouter un \textbf{tableau} (flottant) avec une \textbf{légende} (caption) et \textbf{référence} (label);
 	  \end{itemize}
   \end{itemize}
 \end{frame}
@@ -1106,27 +1106,27 @@ Pour les utiliser:
 \begin{frame}[fragile]{L'environnement mathématique}
 \framesubtitle{Inclure des formules dans le texte}
 \begin{itemize}
-	\item On peut ajouter une formule mathématique dans du texte entre deux symboles \textbf{\$} ou entre \lstinline|\( ... \)|
+	\item On peut ajouter une formule mathématique dans du texte entre deux symboles \textbf{\$} ou entre \lstinline|\( ... \)|.
 
 \begin{center}
   \begin{tabular}{lll}
-    \lstinline|$x + 1 = 2$| & $\Rightarrow$ &  $x + 1 = 2$\\
+    \lstinline|$x + 1 = 2$| & $x + 1 = 2$\\
     \medskip
-    \lstinline|$\frac{1}{x}$| & $\Rightarrow$ &  $\frac{1}{x}$\\
+    \lstinline|$\frac{1}{x}$| & $\frac{1}{x}$\\
   \end{tabular}
 \end{center}
-	\item Les opérateurs, symboles,\dots commencent par \textbf{\textbackslash}, sauf \lstinline|+, -, /, ^, _,...|
+	\item Les opérateurs, symboles,\dots commencent par \textbf{\textbackslash}, sauf \lstinline|+, -, /, ^, _,...|.
 	\begin{center}
-		\begin{tabular}{lllr}
-			\lstinline|$a^{11}$| & $\Rightarrow$ & $a^{11}$ & Good \\
-			\lstinline|$a^11$| & $\Rightarrow$ & $a^11$ & Bad ! \\
-			\lstinline|$\sin(x)$| & $\Rightarrow$ & $\sin(x)$ & Good \\
-			\lstinline|$sin(x)$| & $\Rightarrow$ & $sin(x)$ & Bad !\\
-			\lstinline|$\frac{\Theta}{\sqrt{\beta}}$| & $\Rightarrow$ & $\frac{\Theta}{\sqrt{\beta}}$ & 
+		\begin{tabular}{llr}
+			\lstinline|$a^{11}$| & $a^{11}$ & Good \\
+			\lstinline|$a^11$| & $a^11$ & Bad ! \\
+			\lstinline|$\sin(x)$| & $\sin(x)$ & Good \\
+			\lstinline|$sin(x)$| & $sin(x)$ & Bad !\\
+			\lstinline|$\frac{\Theta}{\sqrt{\beta}}$| & $\frac{\Theta}{\sqrt{\beta}}$ & 
 		
 		\end{tabular}
 	\end{center}
-	\item Les packages \lstinline|amsmath| et \lstinline|amssymb| apportent beaucoup d'envirronement et symboles supplémentaires très utiles, à inclure par défaut
+	\item Les packages \lstinline|amsmath| et \lstinline|amssymb| apportent beaucoup d'envirronement et symboles supplémentaires très utiles, à inclure par défaut.
 \end{itemize}
 \end{frame}
 
@@ -1134,7 +1134,7 @@ Pour les utiliser:
 \framesubtitle{Inclure des formules centrées hors du texte}
 
 \begin{itemize}
-\item On peut aussi ajouter une formule mathématique centrées hors du texte entre deux symboles \textbf{\$\$} ou entre \lstinline|\[ ... \]|
+\item On peut aussi ajouter une formule mathématique centrées hors du texte entre deux symboles \textbf{\$\$} ou entre \lstinline|\[ ... \]|.
 \vspace{0.5cm}
 \begin{columns}
   \begin{column}{0.45\textwidth}
@@ -1160,7 +1160,7 @@ avec $i$ étant l'unité imaginaire.
 \subsection{Matrices}
 \begin{frame}[fragile]{Matrices}
 	\begin{itemize}
-		\item Les matrices s'écrivent avec l'environnement \lstinline|array| (fonctionnement semblable à \lstinline|tabular|)
+		\item Les matrices s'écrivent avec l'environnement \lstinline|array| (fonctionnement semblable à \lstinline|tabular|).
 			\begin{columns}
 				\begin{column}{0.45\textwidth}
 					$$\left(
@@ -1181,7 +1181,7 @@ $$\left(
 					\end{lstlisting}
 				\end{column}
 			\end{columns}
-		\item Les commandes \lstinline|\left| et \lstinline|\right| permettent de changer les délimiteurs de la matrice
+		\item Les commandes \lstinline|\left| et \lstinline|\right| permettent de changer les délimiteurs de la matrice.
 			\begin{columns}
 				\begin{column}{0.45\textwidth}
 					$$\left\{
@@ -1242,7 +1242,7 @@ I also know that
   \end{column}
 \end{columns}
 \framebreak
-\item Possibilité de référencer les équation en plaçant \lstinline|\label| à la fin de la ligne dans l'environnement \lstinline|align|
+\item Possibilité de référencer les équation en plaçant \lstinline|\label| à la fin de la ligne dans l'environnement \lstinline|align|.
 \vspace{0.5cm}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
@@ -1267,84 +1267,63 @@ y & > x \label{third}
 \end{itemize}
 \end{frame}
 
-\section{Les maths et les polices}
+\subsection{Les maths et les polices}
 \begin{frame}[fragile]{Les maths et les polices}
 \begin{itemize}
-	\item Parfois, certaines variables sont composées de plusieurs lettres. On doit utiliser des polices différentes comme \lstinline|\mathrm| ou \lstinline|\mathsf|
+	\item Parfois, certaines variables sont composées de plusieurs lettres. On doit utiliser des polices différentes comme \lstinline|\mathrm| ou \lstinline|\mathsf|. \lstinline|\mathcal| produit des lettres \og calligraphiques \fg{}. 
 	\begin{center}
-			\begin{tabular}{llll}
-				\lstinline|$Var(x)$| & $\Rightarrow$ & $Var(x)$ & Bad ! \\
-				\lstinline|$\mathrm{Var}(x)$| & $\Rightarrow$ & $\mathrm{Var}(x)$ & Good 
+			\begin{tabular}{lll}
+				\lstinline|$Var(x)$| & $Var(x)$ & Bad ! \\
+				\lstinline|$\mathrm{Var}(x)$| & $\mathrm{Var}(x)$ & Good \\
+				\lstinline|$\mathcal{M}$| & $\mathcal{M}$ &
 			\end{tabular}
 	\end{center}
-\end{itemize}
-Attention aux yeux du lecteurs (surtout ceux ayant un compas à portée de main).
-$cube = c \cdot u \cdot b \cdot e = c \times u \times b \times e$.
-Les variables plusieurs lettres doivent être différenciées de celles à une seule lettre.
-
-%\begin{columns}
-%  \begin{column}{0.6\textwidth}
-\begin{center}
-  \begin{tabular}{|c|c|}
-    \hline
-    Bad & Good\\
-    \hline
-    $cube(x) = x^3$ & $\mathrm{cube}(x) = x^3$\\
-    \hline
-    $flux_{in}(k_{orig}) = flux_{out}(k_{dest})$ & $\mathrm{flux}_{\text{in}}(k_{\text{orig}}) = \mathrm{flux}_{\text{out}}(k_{\text{dest}})$\\
-    \hline
-  \end{tabular}
-\end{center}
-%  \end{column}
-%  \begin{column}{0.4\textwidth}
-\begin{lstlisting}
-\begin{center}
-  \begin{tabular}{|c|c|}
-    \hline
-    Bad & Good\\
-    \hline
-    $cube(x) = x^3$ & $\mathsf{cube}(x) = x^3$\\
-    \hline
-    $flux_{in}(k_{orig}) = flux_{out}(k_{dest})$ & $\mathsf{flux}_{\text{in}}(k_{\text{orig}}) = \mathsf{flux}_{\text{out}}(k_{\text{dest}})$\\
-    \hline
-  \end{tabular}
-\end{center}
-\end{lstlisting}
-%  \end{column}
-%\end{columns}
-\textbf{Problème} Le code se ralonge (solution slide~\ref{noexcuse}).
+	
+	\item Pour les intégrales, le \og dx \fg{} ne s'écrit pas n'importe comment.
+	\begin{center}
+			\begin{tabular}{ll}
+				\lstinline|$\int y \,\mathrm{d}x$| & $\int y \,\mathrm{d}x$\\
+			\end{tabular}
+	\end{center}
+	\item Les ensembles s'écrivent à l'aide de la police \lstinline|\mathbb|.
+	\begin{center}
+		\begin{tabular}{cccc}
+		\lstinline|$\mathbb{N}$| & $\mathbb{N}$ & \lstinline|$\mathbb{Z}$| & $\mathbb{Z}$ \\
+		\lstinline|$\mathbb{D}$| & $\mathbb{D}$ & \lstinline|$\mathbb{Q}$| & $\mathbb{Q}$ \\
+		\lstinline|$\mathbb{N}$| & $\mathbb{R}$ & \lstinline|$\mathbb{C}$| & $\mathbb{C}$			
+		\end{tabular}
+	\end{center}
+\end{itemize}	
 \end{frame}
 
-
-\begin{frame}[fragile]{L'environnement mathématique}
-\framesubtitle{Large Operators}
-Ces opérateurs mathématiques sont $\lim, \min, \max, \sum, \prod, \ldots$.
+\subsection{Large Operators}
+\begin{frame}[fragile,allowframebreaks]{Large Operators}
+\begin{itemize}
+	\item Ces opérateurs mathématiques sont $\lim, \min, \max, \sum, \prod, \ldots$.
+	
 Quelle différence ? Leurs indices et exposant sont au dessus et en dessous et pas à leur droite.
-
-\begin{columns}
-  \begin{column}{0.6\textwidth}
-\begin{align*}
-  \min_{x \in \mathbb{R}^n} \|x\|\\
-  \sum_{i = 1}^n x_i & = 1
-\end{align*}
-
-$\min_{x \in \mathbb{R}^n} \|x\|$ tel que $\sum_{i = 1}^n x_i = 1$.
-
-$\min\limits_{x \in \mathbb{R}^n} \|x\|$ tel que $\sum\limits_{i = 1}^n x_i = 1$.
-  \end{column}
-  \begin{column}{0.4\textwidth}
-\begin{lstlisting}
-\begin{align*}
-  \min_{x \in \mathbb{R}^n} \|x\|\\
-  \sum_{i = 1}^n x_i & = 1
-\end{align*}
-
-$\min_{x \in \mathbb{R}^n} \|x\|$ tel que $\sum_{i = 1}^n x_i = 1$.
-
-$\min\limits_{x \in \mathbb{R}^n} \|x\|$ tel que $\sum\limits_{i = 1}^n x_i = 1$.
+	\item Dans un texte, on obtient 
+	$\min_{x \in \mathbb{R}^n} \|x\| \text{~tel que~} \sum_{i = 1}^n x_i = 1$
+\begin{lstlisting}[style=nonumbers]
+Dans un texte, on obtient 
+$\min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1$
 \end{lstlisting}
-  \end{column}
-\end{columns}
+
+	\item Dans une équation, le résultat est : $$\min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1$$
+\begin{lstlisting}[style=nonumbers]
+Dans une équation, le résultat est : 
+$$\min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1$$
+\end{lstlisting}
+\framebreak
+	\item Pour quand même placer les indices/exposants au dessus/dessous, utiliser \lstinline|\limits| juste après l'opérateur.
+	\begin{center}
+	\begin{tabular}{ll}
+	\lstinline|$\min\limits_{x \in \mathbb{R}^n} x$| & $\min\limits_{x \in \mathbb{R}^n} x$\\
+	& \\
+	\lstinline|$\sum\limits_{i = 1}^n x_i = 1$| & $\sum\limits_{i = 1}^n x_i = 1$
+	\end{tabular}
+	\end{center}
+\end{itemize}
 \end{frame}
 
 %TODO : Exemple plus simple et \operatorname{}
