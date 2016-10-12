@@ -4,6 +4,7 @@
 \usepackage[french]{varioref} % \vpageref
 \usepackage{pgfplots}
 \usepackage{framed}
+\usepackage{mdframed}
 
 \newcommand{\badet}{et}
 \newcommand{\goodet}{\mathbin{\mathrm{et}}}
@@ -496,6 +497,132 @@ Le sujet est en or mais pas le vif.
 
 
 %-----------------------
+\subsection{Paragraphes}
+\begin{frame}[fragile]{Les paragraphes avec \LaTeX{}}
+	\begin{itemize}
+	\item Pour créer un nouveau paragraphe, il suffit de faire deux retours à la ligne
+    \begin{columns}
+      \begin{column}{0.4\textwidth}
+    	  \begin{lstlisting}[style=nonumbers]
+Premier paragraphe.
+Ceci est toujours le premier
+paragraphe.
+
+Second paragraphe.
+	      \end{lstlisting}
+      \end{column}
+      \begin{column}{0.6\textwidth}
+        \setlength{\parindent}{1.5em}
+        \par{}Premier paragraphe.
+        Ceci est toujours le premier paragraphe.
+
+        Second paragraphe.
+        \setlength{\parindent}{0pt}
+      \end{column}
+    \end{columns}
+  \end{itemize}
+\end{frame}
+
+\subsection{Paragraphes}
+\begin{frame}[fragile]{Les paragraphes avec \LaTeX{}}
+\framesubtitle{Les styles de paragraphes}
+	\begin{itemize}
+	\setlength\itemsep{1em}
+	\item Par défaut, le style des paragraphes est défini par la langue
+
+	\item Ajouter de l'espace entre les paragraphes. Attention: ce package retire l'indentation.
+	  \begin{columns}
+	    \begin{column}{0.4\textwidth}
+    	  \begin{lstlisting}[style=nonumbers]
+\usepackage{parskip}
+	      \end{lstlisting}
+	    \end{column}
+	    \begin{column}{0.6\textwidth}
+        \par{}Ces deux paragraphes ont maintenant un espace entre eux.
+        \vspace{0.5em}
+
+        \par{}Cependant, l'indentation a disparue.
+	    \end{column}
+    \end{columns}
+  
+	\item Changer (ou remettre) l'indentation des paragraphes
+	  \begin{columns}
+	    \begin{column}{0.4\textwidth}
+	      \begin{lstlisting}[style=nonumbers]
+\setlength{\parindent}{30pt}
+    	  \end{lstlisting}
+	    \end{column}
+	    \begin{column}{0.6\textwidth}
+        \setlength{\parindent}{30pt}
+        \par{}Ce paragraphe est fortement indenté.
+        \setlength{\parindent}{0em}
+	    \end{column}
+    \end{columns}
+    
+  \item Ajouter un espace interligne
+	  \begin{columns}
+	    \begin{column}{0.4\textwidth}
+        \begin{lstlisting}[style=nonumbers]
+\usepackage{setspace}
+\setstretch{1.5}
+        \end{lstlisting}
+	    \end{column}
+	    \begin{column}{0.6\textwidth}
+        \setlength{\parindent}{1.5em}
+        \setstretch{1.5}
+        \par{}Ce paragraphe a un espace interligne plus important que les autres.
+        \setlength{\parindent}{0em}
+	    \end{column}
+    \end{columns}
+  \end{itemize}
+  \setstretch{1.0}
+\end{frame}
+
+\begin{frame}[fragile]{Les paragraphes avec \LaTeX{}}
+  \framesubtitle{Alignement d'un paragraphe}
+  \begin{itemize}
+  	\item Les environnements \lstinline|center|, \lstinline|flushright| et \lstinline|flushleft| permettent d'aligner un paragraphe.
+    \begin{columns}
+      \begin{column}{0.4\textwidth}
+        \begin{lstlisting}[style=nonumbers]
+Justifié; c'est le comportement par défaut de \LaTeX{}  
+
+\begin{center}
+  Centré
+\end{center}
+
+\begin{flushright}
+  Aligné à droite
+\end{flushright}
+
+\begin{flushleft}
+  Aligné à gauche, mais pas justifié, comme vous pouvez le voir
+\end{flushleft}
+        \end{lstlisting}
+      \end{column}
+      \begin{column}{0.6\textwidth}
+        \begin{mdframed}
+          Justifié; c'est le comportement par défaut de \LaTeX{} 
+
+          \begin{center}
+            Centré
+          \end{center}
+
+          \begin{flushright}
+            Aligné à droite
+          \end{flushright}
+
+          \begin{flushleft}
+            Aligné à gauche, mais pas justifié, comme vous pouvez le voir
+          \end{flushleft}
+        \end{mdframed}
+      \end{column}
+    \end{columns}
+  \end{itemize}	
+\end{frame}
+
+
+%-----------------------
 \subsection{Les polices}
 
 \begin{frame}[fragile]{Jouer avec les fontes}
@@ -542,60 +669,14 @@ Le sujet est en or mais pas le vif.
 \end{frame}
 
 
-\subsection{Paragraphes}
-\begin{frame}[fragile]{Les paragraphes avec \LaTeX{}}
-	\begin{itemize}
-	\item Pour créer un nouveau paragraphe, il suffit de faire deux retours à la ligne
-	  \begin{lstlisting}[style=nonumbers]
-	  Premier paragraphe.
-
-	  Second paragraphe.
-	  \end{lstlisting}
-	
-	\item Ajouter de l'espace entre les paragraphes et changer l'indentation
-	  \begin{lstlisting}[style=nonumbers]
-	  \usepackage{parskip} % Ajoute de l'espace entre les paragraphes et met l'indentation à 0
-	  \end{lstlisting}
-	  \includegraphics[scale=0.35]{par1.png}
-	  \begin{lstlisting}[style=nonumbers]
-	  \setlength{\parindent}{15pt} % Remet l'indentation par défault
-	  \end{lstlisting}
-	  \includegraphics[scale=0.35]{par2.png}
-
-    \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Alignement d'un paragraphe}
-  \begin{itemize}
-  	\item Par défaut, c'est justifié.
-  \begin{lstlisting}[style=nonumbers]
-\begin{center} % Pour centrer
-\end{center}
-
-\begin{flushright} % Pour aligner à droite
-\end{flushright}
-
-{\centering ...}
-  \end{lstlisting}
-  
-    \item Espace interligne
-    \begin{lstlisting}[style=nonumbers]
-    \usepackage{setspace}
-    \setstretch{1.5}
-    \end{lstlisting}
-    \end{itemize}	
-\end{frame}
-
-
 %-----------------------
 \subsection{Listes}
 \begin{frame}[fragile]
   \frametitle{Itemize et enumerate}
-  \begin{columns}
-    \begin{column}{0.45\textwidth}
-      \begin{itemize}
-      \item Code
+  \begin{itemize}
+    \item Pour faire des listes à puce, utiliser l'environnement \lstinline|itemize|.
+    \begin{columns}
+      \begin{column}{0.45\textwidth}
         \begin{lstlisting}[style=nonumbers]
 \begin{itemize}
   \item Un chat;
@@ -603,18 +684,19 @@ Le sujet est en or mais pas le vif.
   \item un chien.
 \end{itemize}
         \end{lstlisting}
-      \item Rendu
+      \end{column}
+      \begin{column}{0.45\textwidth}
         \begin{itemize}
           \item Un chat;
           \item une poule;
           \item un chien.
         \end{itemize}
-	\end{itemize}
-    \end{column}
+      \end{column}
+    \end{columns}
 
-    \begin{column}{0.45\textwidth}
-      \begin{itemize}
-      \item Code
+    \item Pour faire des listes numerotées, utiliser l'environnement \lstinline|enumerate|.
+    \begin{columns}
+      \begin{column}{0.45\textwidth}
         \begin{lstlisting}[style=nonumbers]
 \begin{enumerate}
   \item Mettez de l'eau.
@@ -622,21 +704,22 @@ Le sujet est en or mais pas le vif.
   \item Mettez les pasta.
 \end{enumerate}
         \end{lstlisting}
-      \item Rendu
+      \end{column}
+      \begin{column}{0.45\textwidth}
         \begin{enumerate}
           \item Mettez de l'eau.
           \item Chauffer l'eau.
-          \item Mettez les pasta.
+          \item Mettez les pâtes.
         \end{enumerate}
-	\end{itemize}
-    \end{column}
-  \end{columns}
+      \end{column}
+    \end{columns}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Description}
   \begin{itemize}
-  \item Code
+    \item L'environnement \lstinline|description| permet de faire des définitions.
     \begin{lstlisting}[style=nonumbers]
 \begin{description}
   \item[ODT] Open Document Text.
@@ -644,7 +727,6 @@ Le sujet est en or mais pas le vif.
   \item[ODP] Open Document Presentation.
 \end{description}
     \end{lstlisting}
-  \item Rendu
     \begin{description}
       \item[ODT] Open Document Text.
       \item[ODS] Open Document Spreadsheet.
@@ -693,6 +775,43 @@ Le sujet est en or mais pas le vif.
 		\item \lstinline|\og{} \fg{}| pour \og{} \fg{}. \textcolor{red}{Attention, ne pas utiliser "}
 	\end{itemize}
 \end{itemize}
+\end{frame}
+
+%-----------------------
+\subsection{Exercice 2}
+\begin{frame}[fragile]{Deuxième exercice}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \begin{center}\large
+        Exercice sur Overleaf\footnotemark{}:
+        
+        \vspace{0.25cm}
+        \fbox{\url{http://bit.ly/2dJSO9A}}
+      \end{center}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{center}\large
+        \vfill
+        Exemple de résultat:
+        
+        \vspace{0.25cm}
+        \fbox{\url{http://bit.ly/2e1LpR2}}
+      \end{center}
+        \vfill
+    \end{column}
+  \end{columns}
+  \footnotetext{Cliquez sur \og{}Clone this project\fg{} pour commencer à écrire.}
+  \vspace{0.25cm}
+  
+  Dans cet exercice, on vous invite à:
+  \begin{itemize}
+    \item faire quelques paragraphes avec interligne double;
+    \item faire un paragraphe centré;
+    \item mettre un des mot en très grand, et un autre en très petit;
+    \item faire une liste numérotée avec un type de police différent pour chaque élément;
+    \item faire une list à puce avec un style de police différent pour chaque élément;
+    \item combiner ce qui a été vu jusqu'ici à votre guise.
+  \end{itemize}
 \end{frame}
 
 %-----------------------
@@ -915,7 +1034,7 @@ de la largeur du texte.
         Exemple de résultat:
         
         \vspace{0.25cm}
-        \fbox{\url{http://bit.ly/2dL13kb}}
+        \fbox{\url{http://bit.ly/2egnhhy}}
       \end{center}
         \vfill
     \end{column}
