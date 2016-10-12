@@ -1170,34 +1170,41 @@ avec $i$ étant l'unité imaginaire.
 				\end{column}
 				\begin{column}{0.45\textwidth}
 					\begin{lstlisting}[style=nonumbers]
-$$\begin{matrix}
+$$\begin{matrix}	
 \alpha & \beta \\
 \gamma & \delta \\
 \end{matrix}$$
 					\end{lstlisting}
 				\end{column}
 			\end{columns}
-		\item Les commandes \lstinline|\left| et \lstinline|\right| permettent de changer les délimiteurs de la matrice.
+		\item On ajoute des délimiteurs avec \lstinline|pmatrix|,\lstinline|vmatrix|,...
 			\begin{columns}
 				\begin{column}{0.45\textwidth}
-					$$\left\{
-					\begin{array}{r c l}
-						a + b & = & c \\
-						d & = & e + f \\
-					\end{array}
-					\right.$$
+					$$\begin{pmatrix}
+						a + b & c \\
+						d & e + f \\
+					\end{pmatrix}$$
 				\end{column}
 				\begin{column}{0.45\textwidth}
 					\begin{lstlisting}[style=nonumbers]
-$$\left\{
-\begin{array}{r c l}
-a + b & = & c \\
-d & = & e + f \\
-\end{array}
-\right.$$
+$$$\begin{pmatrix}
+a + b & c \\
+d & e + f \\
+\end{pmatrix}$$
 					\end{lstlisting}
 				\end{column}
 			\end{columns}
+			
+		\begin{center}
+		\begin{tabular}{ll}
+			\lstinline|bmatrix| & [ ] \\
+			\lstinline|Bmatrix| & \{ \} \\
+			\lstinline|pmatrix| & ( ) \\
+			\lstinline|vmatrix| & | | \\
+			\lstinline|Vmatrix| & || || \\
+			\lstinline|smallmatrix| & petite matrice
+		\end{tabular}
+		\end{center}
 	\end{itemize}
 \end{frame}
 
@@ -1237,6 +1244,26 @@ I also know that
     \end{lstlisting}
   \end{column}
 \end{columns}
+\framebreak
+	\item Utilisation de l'environnement \lstinline|aligned| pour faire un système d'équation (utilisation semblable à \lstinline|align|).
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			$$ \left\{\begin{aligned}
+				x^2 + y & = 3 \\
+				\frac{y}{x} & = 0.42
+			\end{aligned}\right.$$
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{lstlisting}[style=nonumbers]
+$$\left\{
+\begin{aligned}
+x^2 + y & = 3 \\
+\frac{y}{x} & = 0.42
+\end{aligned}
+\right.$$
+			\end{lstlisting}	
+		\end{column}
+	\end{columns}
 \framebreak
 \item Possibilité de référencer les équation en plaçant \lstinline|\label| à la fin de la ligne dans l'environnement \lstinline|align|.
 \vspace{0.5cm}
