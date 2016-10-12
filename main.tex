@@ -20,7 +20,7 @@
 \logo{\includegraphics[height=5mm]{logo_12-13-mini.png}}
 \institute{Louvain-li-Nux}
 \title{\textbf{Formation \LaTeX}\\
-Introduction à l'écriture de document \textrm{\LaTeX}}
+Introduction à l'écriture de documents \textrm{\LaTeX{}}}
 \author{Xavier \textsc{Lambein} \and Geoffroy \textsc{Jacquet}}
 
 %\date{24 mars 2015}
@@ -54,8 +54,8 @@ Introduction à l'écriture de document \textrm{\LaTeX}}
 
 \begin{frame}
   \maketitle
-  Merci à Jolan \textsc{Wolter} et Thomas \textsc{Vanzieleghem} pour avoir réalisé la première version de ces slides
-  ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalisé la deuxième version, ainsi qu'à Arnaud \textsc{Cerckel} et Benoît \textsc{Legat} pour avoir réalisé la troisième version.
+  Merci à Jolan \textsc{Wolter} et Thomas \textsc{Vanzieleghem} pour avoir réalisé la première version de ces slides,
+  à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalisé la deuxième version, ainsi qu'à Arnaud \textsc{Cerckel} et Benoît \textsc{Legat} pour avoir réalisé la troisième version.
 \end{frame}
 
 \AtBeginSection[]
@@ -86,7 +86,7 @@ Introduction à l'écriture de document \textrm{\LaTeX}}
 \begin{frame}{Pourquoi \LaTeX{}?}
 
   \begin{itemize}
-  	\item Qualité professionnelle de document
+  	\item Qualité professionnelle de documents
 	\item Facilité d'emploi des :
 	\begin{itemize}
 		\item formules mathématiques
@@ -128,7 +128,7 @@ Introduction à l'écriture de document \textrm{\LaTeX}}
   \begin{center}
     %\resizebox{\textwidth}{!}{
     \begin{tikzpicture}
-      \begin{axis}[xmin=0, xmax=4, ymin=-2, ymax=5,
+      \begin{axis}[ticks=none,xmin=0, xmax=4, ymin=-2, ymax=5,
           xlabel={Expérience, maitrise}, ylabel=Productivité,
         legend style={at={(0.01,0.99)}, anchor=north west}]
         \addplot[smooth, color=blue]{x-0.05};
@@ -214,17 +214,17 @@ Introduction à l'écriture de document \textrm{\LaTeX}}
 \small
 
 \begin{lstlisting}[style=nonumbers]
-\documentclass{article} %Type de document
+\documentclass{article} % Type de document
 
-%Préambule
+% Préambule
 
 \begin{document}
-    %Corps du document
+    % Corps du document
 \end{document}
 \end{lstlisting}
 \begin{itemize}
 	\item On charge les \textit{packages} et effectue certains réglages dans le préambule.
-	\item On écrit le contenu de son docuement entre \lstinline|\begin{document}| et \lstinline|\end{document}|.
+	\item On écrit le contenu de son document entre \lstinline|\begin{document}| et \lstinline|\end{document}|.
 	\item Commentaires introduits par \%
 \end{itemize}
 
@@ -258,7 +258,7 @@ Introduction à l'écriture de document \textrm{\LaTeX}}
 \item \textbf{Commande} 
 	\begin{itemize}
 	\item Débute par \textbackslash
-	\item S'applique à une partie du texte, délimité par des accolades
+	\item S'applique à une partie du texte, délimitée par des accolades
 	\item Permet d'insérer des symboles
 	\end{itemize}
 	\begin{lstlisting}[style=nonumbers]
@@ -288,7 +288,7 @@ Introduction à l'écriture de document \textrm{\LaTeX}}
 \begin{frame}[fragile]{Les principales classes de document}
 \begin{tabular}{lp{8cm}}
   \textbf{article} & pour les articles de journaux scientifiques, présentations, rapports courts,\dots \\
-  \textbf{report} & pour de plus long rapports de plusieurs chapitres, petits livres, thèses,\dots \\
+  \textbf{report} & pour de plus longs rapports de plusieurs chapitres, petits livres, thèses,\dots \\
   \textbf{book} & pour de vrais livres.\\
   \textbf{letter} & pour écrire des lettres.\\
   \textbf{beamer} & pour écrire des présentations (comme celle-ci).
@@ -326,7 +326,7 @@ Introduction à l'écriture de document \textrm{\LaTeX}}
 \begin{tabular}{ll}
 \lstinline|\usepackage[utf8]{inputenc}| & Utilisation des caractères accentués \\
 \lstinline|\usepackage[T1]{fontenc}| & Permet d'utiliser tous les caractères du clavier \\
-\lstinline|\usepackage[french]{babbel}| & Spécifie la langue (français ici)
+\lstinline|\usepackage[french]{babel}| & Spécifie la langue (français ici)
 \end{tabular}
 
 \end{frame}
@@ -383,7 +383,7 @@ Introduction à l'écriture de document \textrm{\LaTeX}}
         \and Geoffroy \textsc{Jacquet}}
 
                     % today
-\date{24 mars 2015} % fixed data
+\date{24 mars 2015} % fixed date
 \date{}             % no date
         \end{lstlisting}
 
@@ -558,7 +558,7 @@ Le sujet est en or mais pas le vif.
 	  \end{lstlisting}
 	  \includegraphics[scale=0.35]{par1.png}
 	  \begin{lstlisting}[style=nonumbers]
-	  \setlength{\parindent}{15pt} % Remet l'indentation par défault
+	  \setlength{\parindent}{15pt} % Remet l'indentation par défaut
 	  \end{lstlisting}
 	  \includegraphics[scale=0.35]{par2.png}
 
@@ -591,7 +591,7 @@ Le sujet est en or mais pas le vif.
 %-----------------------
 \subsection{Listes}
 \begin{frame}[fragile]
-  \frametitle{Itemize et enumerate}
+  \frametitle{\texttt{itemize} et \texttt{enumerate}}
   \begin{columns}
     \begin{column}{0.45\textwidth}
       \begin{itemize}
@@ -618,7 +618,7 @@ Le sujet est en or mais pas le vif.
         \begin{lstlisting}[style=nonumbers]
 \begin{enumerate}
   \item Mettez de l'eau.
-  \item Chauffer l'eau.
+  \item Chauffez l'eau.
   \item Mettez les pasta.
 \end{enumerate}
         \end{lstlisting}
@@ -634,7 +634,7 @@ Le sujet est en or mais pas le vif.
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Description}
+  \frametitle{\texttt{description}}
   \begin{itemize}
   \item Code
     \begin{lstlisting}[style=nonumbers]
@@ -844,7 +844,7 @@ de la largeur du texte.
   				\item un \lstinline|p{<largeur>}| pour un texte justifié sur une largeur donnée
   			\end{itemize}
   		\item Une ligne verticale est tracée par \lstinline|||
-  		\item Le contenu des <lignes> est séparé par colonnes par \lstinline|&|
+  		\item Le contenu des <lignes> est séparé en colonnes par \lstinline|&|
   		\item Une <ligne> se termine par \lstinline|\\|
   		\item Une ligne horizontalle est tracée par \lstinline|\hline|
   	\end{itemize}
@@ -928,13 +928,13 @@ de la largeur du texte.
 	  \item créer une \textbf{section} de document : 
 	  \begin{itemize}
 	  	\item écrire un peu de \textbf{texte};
-	  	\item ajouter une \textbf{figure} (flottant) avec une \textbf{légende} (caption) et \textbf{référence} (label);
+        \item ajouter une \textbf{figure} (flottant) avec une \textbf{légende} (\texttt{caption}) et \textbf{référence} (\texttt{label});
 	  	\item écrire un peu de \textbf{texte} et faire \textbf{référence} à votre image;
 	  \end{itemize} 
 	  \item créer une \textbf{section} de document : 
 	  \begin{itemize}
 	  	\item écrire un peu de \textbf{texte} et faire \textbf{référence} à votre \textbf{tableau} (qui sera écrit plus bas);
-	  	\item ajouter un \textbf{tableau} (flottant) avec une \textbf{légende} (caption) et \textbf{référence} (label);
+        \item ajouter un \textbf{tableau} (flottant) avec une \textbf{légende} (\texttt{caption}) et \textbf{référence} (\texttt{label});
 	  \end{itemize}
   \end{itemize}
 \end{frame}
@@ -979,9 +979,9 @@ page~\pageref{ref},
 
 \end{frame}
 
-\subsection{Footnote}
+\subsection{\texttt{footnote}}
 \begin{frame}[fragile]
-  \frametitle{Footnote}
+  \frametitle{\texttt{footnote}}
   \begin{lstlisting}
     The earth\footnote{mostly harmless} was destroyed
     by Vogons\footnote{They have the worst poetry in the universe}.
@@ -1066,9 +1066,9 @@ Pour les utiliser:
 \end{frame}
 
 
-\subsection{include et input}
+\subsection{\texttt{include} et \texttt{input}}
 \begin{frame}[fragile]
-  \frametitle{include et input}
+  \frametitle{\texttt{include} et \texttt{input}}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       Simple ``copier/coller''.
@@ -1126,7 +1126,7 @@ Pour les utiliser:
 		
 		\end{tabular}
 	\end{center}
-	\item Les packages \lstinline|amsmath| et \lstinline|amssymb| apportent beaucoup d'envirronement et symboles supplémentaires très utiles, à inclure par défaut.
+	\item Les packages \lstinline|amsmath| et \lstinline|amssymb| apportent beaucoup d'environnements et symboles supplémentaires très utiles, à inclure par défaut.
 \end{itemize}
 \end{frame}
 
@@ -1134,7 +1134,7 @@ Pour les utiliser:
 \framesubtitle{Inclure des formules centrées hors du texte}
 
 \begin{itemize}
-\item On peut aussi ajouter une formule mathématique centrées hors du texte entre deux symboles \textbf{\$\$} ou entre \lstinline|\[ ... \]|.
+\item On peut aussi ajouter une formule mathématique centrée hors du texte entre deux symboles \textbf{\$\$} ou entre \lstinline|\[ ... \]|.
 \vspace{0.5cm}
 \begin{columns}
   \begin{column}{0.45\textwidth}
@@ -1409,7 +1409,7 @@ Rarement utile !
   \end{column}
 \end{columns}
 
-Erreur courante: les ensembles besoin d'espacement (i.e. \lstinline|\,|) en compréhension mais pas en extension.
+Erreur courante: les ensembles ont besoin d'espacement (i.e. \lstinline|\,|) en compréhension mais pas en extension.
 \begin{columns}
   \begin{column}{0.5\textwidth}
     \begin{lstlisting}
