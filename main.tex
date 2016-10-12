@@ -7,6 +7,8 @@
 
 \newcommand{\badet}{et}
 \newcommand{\goodet}{\mathbin{\mathrm{et}}}
+\DeclareMathOperator{\sumN}{\sum_{i=1}^n}
+\DeclareMathOperator{\var}{\mathrm{Var}}
 
 \lstdefinestyle{nonumbers}
 {numbers=none}
@@ -1349,49 +1351,35 @@ $$\min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1$$
 \end{itemize}
 \end{frame}
 
+\subsection{Définir des commandes}
 %TODO : Exemple plus simple et \operatorname{}
-\begin{frame}[fragile]{L'environnement mathématique}
-\framesubtitle{Définition de commandes, plus d'excuse !}
-\label{noexcuse}
-\begin{lstlisting}
-\newcommand{\fin}{\mathsf{flux}_{\text{in}}}
-\newcommand{\fout}{\mathsf{flux}_{\text{out}}}
-% if \kor already exists
-\renewcommand{\kor}{k_{\text{orig}}}
-\newcommand{\kde}{k_{\text{dest}}}
-\DeclareMathOperator{\pot}{potato} % mieux que \newcommand{\mathop{\mathrm{..}}}
-% \min already exists: Trick for ``reDeclareMathOperator''
-\let\min\relax% Set equal to \relax so that LaTeX thinks it's not defined
-\DeclareMathOperator{\min}{minimum}
-\newcommand{\badet}{et}
-\newcommand{\goodet}{\mathbin{\mathrm{et}}}
-\end{lstlisting}
-\begin{columns}
-  \begin{column}{0.45\textwidth}
-    \begin{lstlisting}
-\[ \alpha >> \beta \badet <x,y> = 0 => \]
-    \end{lstlisting}
-  \end{column}
-  \begin{column}{0.35\textwidth}
-    \[ \alpha >> \beta \badet <x,y> = 0 => \]
-  \end{column}
-  \begin{column}{0.2\textwidth}
-    \includegraphics[height=3em]{i_dont_want_to_live_on_this_planet_anymore.jpg}
-  \end{column}
-\end{columns}
-\begin{columns}
-  \begin{column}{0.45\textwidth}
-    \begin{lstlisting}
-\[ \alpha \gg \beta \goodet \langle x,y \rangle = 0 \Rightarrow \]
-    \end{lstlisting}
-  \end{column}
-  \begin{column}{0.35\textwidth}
-    \[ \alpha \gg \beta \goodet \langle x,y \rangle = 0 \Rightarrow \]
-  \end{column}
-  \begin{column}{0.2\textwidth}
-    \includegraphics[height=3em]{success_kid.jpg}
-  \end{column}
-\end{columns}
+\begin{frame}[fragile]{Définition de commandes, plus d'excuse !}
+
+\begin{itemize}
+	\item Définition de nouvelles commandes par \lstinline|\newcommand{nom}{définition}|
+	\item Dans un environnement mathématique, on utilise \lstinline|\DeclareMathOperator{nom}{définition}|
+	
+	\begin{lstlisting}[style=nonumbers]
+\DeclareMathOperator{\sumN}{\sum_{i=1}^n}
+
+\DeclareMathOperator{\var}{\mathrm{Var}}
+	\end{lstlisting}
+	
+	\begin{columns}
+		\begin{column}{0.5\textwidth}	
+			$$\var(x) = \pi$$
+			$$\sumN \frac{i}{i+1}$$
+		\end{column}	
+		\begin{column}{0.5\textwidth}	
+			\begin{lstlisting}[style=nonumbers]
+$$\var(x) = \pi$$
+
+$$\sumN \frac{i}{i+1}$$
+			\end{lstlisting}
+		\end{column}	
+	\end{columns}
+
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{L'environnement mathématique}
