@@ -166,8 +166,8 @@ Introduction à l'écriture de document \textrm{\LaTeX}}
 	  \end{itemize}
 	  \item Windows
 	  \begin{itemize}
-	  	\item Distribution \LaTeX{} = \textbf{MikTeX}
-		\item Éditeur de texte = \textbf{TeXMaker, TeXnicCenter}
+	  	\item Distribution \LaTeX{} = \textbf{TeXLive}
+		\item Éditeur de texte = \textbf{TeXMaker}
 	  \end{itemize}
 	  \item Mac OS
 	  \begin{itemize}
@@ -1025,7 +1025,7 @@ de la largeur du texte.
         Exercice sur Overleaf\footnotemark{}:
         
         \vspace{0.25cm}
-        \fbox{\url{http://bit.ly/2ecAO9b}}
+        \fbox{\url{http://bit.ly/2daowce}}
       \end{center}
     \end{column}
     \begin{column}{0.5\textwidth}
@@ -1279,24 +1279,20 @@ avec $i$ étant l'unité imaginaire.
 \subsection{Matrices}
 \begin{frame}[fragile]{Matrices}
 	\begin{itemize}
-		\item Les matrices s'écrivent avec l'environnement \lstinline|array| (fonctionnement semblable à \lstinline|tabular|).
+		\item Les matrices s'écrivent avec l'environnement \lstinline|matrix| (fonctionnement semblable à \lstinline|tabular|).
 			\begin{columns}
 				\begin{column}{0.45\textwidth}
-					$$\left(
-					\begin{array}{c c}
+					$$\begin{matrix}
 						\alpha & \beta \\
 						\gamma & \delta \\
-					\end{array}
-					\right)$$
+					\end{matrix}$$
 				\end{column}
 				\begin{column}{0.45\textwidth}
 					\begin{lstlisting}[style=nonumbers]
-$$\left(
-\begin{array}{c c}
+$$\begin{matrix}
 \alpha & \beta \\
 \gamma & \delta \\
-\end{array}
-\right)$$
+\end{matrix}$$
 					\end{lstlisting}
 				\end{column}
 			\end{columns}
