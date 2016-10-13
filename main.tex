@@ -1063,45 +1063,47 @@ de la largeur du texte.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Références}
 
-\subsection{Références des éléments du texte}
+\subsection{Référencer des éléments du texte}
 \begin{frame}[fragile]
-\frametitle{\insertsubsection}
-\begin{itemize}
-  \item Facile de faire référence à un numéro et la page d'une section et d'un environnement (\texttt{figure}, \texttt{equation}, \texttt{table}).
-  \item D'un coté une étiquette :
-    \begin{itemize}
-      \item \lstinline|\label{id}|.
-    \end{itemize}
-  \item De l'autre une référence à cette étiquette :
-    \begin{itemize}
-      \item \lstinline|\ref{id}|
-      \item \lstinline|\pageref{id}|
-      \item \lstinline|\vpageref{id}| du package \lstinline|varioref|
-    \end{itemize}
-\end{itemize}
-\begin{columns}
-  \begin{column}{0.5\textwidth}
-    \begin{lstlisting}
-\label{ref}
-Nous sommes section~\ref{ref},
-page~\pageref{ref},
-\vpageref{ref}.
-    \end{lstlisting}
-  \end{column}
-  \begin{column}{0.5\textwidth}
-    \label{id}
-    \par{}Nous sommes section~\ref{id},
-    page~\pageref{id},
-    \vpageref{id}.
-  \end{column}
-\end{columns}
-
+  \frametitle{\insertsubsection}
+  Pour faire référence à une page, section, figure, table, \dots:
+  \begin{itemize}
+    \item Mettre une étiquette (label) à l'endroit à référencer
+      \begin{itemize}
+        \item \lstinline|\label{identifiant}|.
+      \end{itemize}
+    \item Mettre une référence à cette étiquette :
+      \begin{itemize}
+        \item \lstinline|\ref{identifiant}| pour le numéro de section, figure, table, équation;
+        \item \lstinline|\pageref{identifiant}| pour le numéro de page;
+        \item \lstinline|\vpageref{identifiant}| du package \lstinline|varioref|, pour une référence verbeuse à la page.
+      \end{itemize}
+    \item Séparer la référence avec une espace insécable \og{}\texttt{\textasciitilde}\fg{}.
+  \end{itemize}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{lstlisting}[style=nonumbers]
+  \label{ref}
+  Nous sommes section~\ref{ref},
+  page~\pageref{ref},
+  \vpageref{ref}.
+      \end{lstlisting}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \label{id}
+      \par{}Nous sommes section~\ref{id},
+      page~\pageref{id},
+      \vpageref{id}.
+    \end{column}
+  \end{columns}
 \end{frame}
 
-\subsection{Footnote}
+%-------------------
+\subsection{Notes de bas de page}
 \begin{frame}[fragile]
-  \frametitle{Footnote}
-  \begin{lstlisting}
+  \frametitle{Notes de bas de page}
+  La commande \lstinline|\footnote{}| permet d'ajouter une note de bas de page:
+  \begin{lstlisting}[style=nonumbers]
 The earth\footnote{mostly harmless} was destroyed
 by Vogons\footnote{They have the worst poetry in the universe}.
 
@@ -1109,82 +1111,99 @@ But Don't Panic\footnote{By the way, the answer is 42},
 even when you're at the restaurant at
 the end of the universe.
   \end{lstlisting}
-  \begin{block}{Result}
+  \begin{minipage}{\textwidth}
     The earth\footnote{Mostly harmless} was destroyed
     by Vogons\footnote{They have the worst poetry in the universe}.
 
     But Don't Panic\footnote{By the way, the answer is 42},
     even when you're at the restaurant at
     the end of the universe.
-  \end{block}
+  \end{minipage}
 \end{frame}
 
+%-------------------
 \subsection{Bibliographie}
-\begin{frame}
-\frametitle{\insertsubsection}
-Pour maintenir une bibliographie, on utilise de préférence le fichier \texttt{\textbf{.bib}}, qui contient toutes les références bibliographiques.
-
-Pour les utiliser:
-\begin{itemize}
-	\item Ajouter la source dans le fichier \texttt{bib}.
-	\item Inclure dans son texte la commande \texttt{cite} avec l'étiquette de la source à référencer.
-	\item \LaTeX{} inclut la référence dans le texte et ajoute la source à la bibliographie.
-\end{itemize}
+\begin{frame}[fragile]
+  \frametitle{\insertsubsection}
+  \begin{itemize}
+    \item Avec \LaTeX{}, la bibliographie est séparée du reste dans un fichier \texttt{.bib} (par exemple: \texttt{biblio.bib}).
+    \item Pour chaque référence bibliographique, on ajoute une entrée au fichier selon le format suivant:
+     \begin{lstlisting}[style=nonumbers]
+@type{identifiant,
+  paramètre1 = "valeur1",
+  paramètre2 = "valeur2",
+  ...
+}
+      \end{lstlisting}
+    \item Exemple avec un livre:
+      \begin{lstlisting}[style=nonumbers]
+@book{h2g2,
+  author    = "Douglas Adams",
+  title     = "The Hitchhiker's Guide to the Galaxy",
+  year      = "1979",
+  publisher = "Pan Books",
+  address   = "United Kingdom"
+}
+      \end{lstlisting}
+  \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile,allowframebreaks]
-  \frametitle{Bibliography}
-  \begin{columns}
-    \begin{column}{0.45\textwidth}
-  \begin{block}{Citer}
-    \begin{lstlisting}
-\cite{goossens93}
-\cite[p.~42]{goossens93}
-\cite{goossens93,combefis11,...}
-    \end{lstlisting}
-  \end{block}
-  \begin{block}{Inclure la bibliographie}
-    \begin{lstlisting}
-\bibliographystyle{plain}
-\bibliography{biblio}
-    \end{lstlisting}
-  \end{block}
-\end{column}
-\begin{column}{0.45\textwidth}
-  \centering
-  \includegraphics[width=\textwidth]{img/scholar_circle.png}
-\end{column}
-\end{columns}
+\begin{frame}[fragile]
+  \frametitle{\insertsubsection}
+  \framesubtitle{Types et paramètres d'entrées bibliographiques}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      Types d'entrées bibliographiques:
+      \begin{itemize}
+        \item \texttt{article};
+        \item \texttt{book};
+        \item \texttt{misc} (notamment pour les sites web);
+        \item beaucoup d'autres, à trouver sur le net.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      Paramètres d'entrées bibliographiques:
+      \begin{itemize}
+        \item \texttt{author};
+        \item \texttt{title};
+        \item \texttt{publisher} (pour \texttt{book});
+        \item \texttt{journal} (pour \texttt{article});
+        \item \texttt{url} (pour un site web);
+        \item \texttt{volume};
+        \item \texttt{year};
+        \item \texttt{month};
+        \item \texttt{address};
+        \item à nouveau, beaucoup d'autres.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
 
-\begin{description}
-  \item[bad] \lstinline|voir\cite{goossens93}|
-  \item[ok] \lstinline|voir \cite{goossens93}|
-  \item[ok] \lstinline|voir~\cite{goossens93}|
-\end{description}
-
-\bibliographystyle{plain}
-  \begin{block}{Élément d'une bibliographie}
-    À mettre dans \lstinline|biblio.bib|
-    \begin{lstlisting}
-@book{goossens93,
-    author    = "Michel Goossens and Frank Mittelbach and Alexander Samarin",
-    title     = "The LaTeX Companion",
-    year      = "1993",
-    publisher = "Addison-Wesley",
-    address   = "Reading, Massachusetts"
-}
-@book{knuth1986texbook,
-  title={The texbook},
-  author={Knuth, Donald Ervin and Bibby, Duane},
-  volume={1993},
-  year={1986},
-  publisher={Addison-Wesley Reading, MA, USA}
-}
-    \end{lstlisting}
-  \end{block}
+\begin{frame}[fragile]
+  \frametitle{\insertsubsection}
+  \framesubtitle{Inclure et référencer la bibliographie}
+  \begin{itemize}
+    \item À l'endroit où vous voulez mettre la bibliographie, ajoutez le code suivant:
+      \begin{lstlisting}[style=nonumbers]
+\bibliographystyle{plain} % Définit le style de bibliographie
+\bibliography{biblio} % Génère la bibliographie à partir du fichier "biblio.bib"
+      \end{lstlisting}
+    \item Pour référencer une entrée bibliographique, utiliser \lstinline|cite{}| avec l'identifiant de la référence:
+      \begin{lstlisting}[style=nonumbers]
+\cite{h2g2} % Une seule référence
+\cite[p.~42]{h2g2} % Une page en particulier
+\cite{h2g2,lotr,...} % Plusieurs références
+      \end{lstlisting}
+    \item Par exemple:
+      \begin{lstlisting}[style=nonumbers]
+Le Guide du Voyageur Galactique est sans aucun doute l'ouvrage le plus
+remarquable jamais publié par les éditeurs de la Petite Ourse~\cite{h2g2}.
+      \end{lstlisting}
+  \end{itemize}
 \end{frame}
 
 
+%-------------------
 \subsection{Découpe d'un projet en fichiers}
 \begin{frame}[fragile]
   \frametitle{Découpe d'un projet en fichiers}
@@ -1203,7 +1222,6 @@ Pour les utiliser:
   \end{itemize}
 \end{frame}
 
-\subsection{Découpe d'un projet en fichiers}
 \begin{frame}[fragile]
   \frametitle{Découpe d'un projet en fichiers}
   \framesubtitle{input et include}
@@ -1218,7 +1236,6 @@ Pour les utiliser:
   \end{itemize}
 \end{frame}
 
-\subsection{Découpe d'un projet en fichiers}
 \begin{frame}[fragile]
   \frametitle{Découpe d'un projet en fichiers}
   \framesubtitle{Exemple du roman}
@@ -1269,6 +1286,48 @@ Pour les utiliser:
       \end{lstlisting}
     \end{column}
   \end{columns}
+\end{frame}
+
+
+%-----------------------
+\subsection{Exercice 4}
+\begin{frame}[fragile]{Quatrième exercice}
+  
+	\begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \begin{center}\large
+        Exercice sur Overleaf\footnotemark{}:
+        
+        \vspace{0.25cm}
+        \fbox{\url{http://bit.ly/2ekxIRo}}
+      \end{center}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{center}\large
+        \vfill
+        Exemple de résultat:
+        
+        \vspace{0.25cm}
+        \fbox{\url{http://bit.ly/2d9LoNW}}
+      \end{center}
+        \vfill
+    \end{column}
+	\end{columns}
+  \footnotetext{Cliquez sur \og{}Clone this project\fg{} pour commencer à écrire.}
+  \vspace{0.25cm}
+  
+  Dans cet exercice, on vous invite à:
+  \begin{itemize}
+	  \item créer deux sections, et référencer l'une dans l'autre;
+	  \item ajouter une ou deux notes de bas de page;
+	  \item créer une bibliographie avec au moins deux entrées, les citer dans votre document et inclure la bibliographie à la fin;
+	  \item séparer votre document en trois:
+	  \begin{itemize}
+	    \item \texttt{main.tex} contient la structure générale,
+	    \item \texttt{entete.tex} contient les packages,
+	    \item \texttt{corps.tex} contient le corps du document.
+    \end{itemize}
+  \end{itemize}
 \end{frame}
 
 
@@ -1708,38 +1767,37 @@ else:
 
 \AtBeginSection[]{} %% stop TOC
 
-\section{Exercices}
+\section{Conclusion}
 \begin{frame}
-\frametitle{Exerçons-nous}
+  \frametitle{Pour aller plus loin}
+  Chercher de l'information:
 	\begin{itemize}
-		\item<1-> Télécharger le document \textbf{exemple.pdf}
-		\item<2-> Reproduire une structure similaire :
-			\begin{itemize}
-				\item page de titre
-				\item table des matières
-				\item liste, tableau, figure
-				\item math en ligne, hors-ligne
-				\item références
-				\item \dots
-			\end{itemize}
-		\item<3-> Chercher de l'information :
-			\begin{itemize}
-				\item \url{http://en.wikibooks.org/wiki/LaTeX}
-				\item \url{http://www.grappa.univ-lille3.fr/FAQ-LaTeX}
-                \item \url{http://www.andy-roberts.net/writing/latex}
-                \item \url{http://ctan.org/pkg/packagename} ou \lstinline[language=sh,morekeywords={texdoc}]{$ texdoc packagename}
-				\item Google est ton ami !
-                \item \url{http://www.sharelatex.com/learn}
-                \item La version de StackExchange spécialisée pour le \TeX:
-      \url{tex.stackexchange.com}.
-				\item Livres:
-				\begin{itemize}
-					\item \LaTeX HowTo par Sébastien Combéfis (EN/FR)
-					\item Framabook \LaTeX
-				\end{itemize}
-				\item \url{http://www.tablesgenerator.com/}
-			\end{itemize}
+		\item \url{http://en.wikibooks.org/wiki/LaTeX}
+		\item \url{http://www.grappa.univ-lille3.fr/FAQ-LaTeX}
+            \item \url{http://www.andy-roberts.net/writing/latex}
+            \item \url{http://ctan.org/pkg/packagename} ou \lstinline[language=sh,morekeywords={texdoc}]{$ texdoc packagename}
+		\item Google est ton ami !
+            \item \url{http://www.sharelatex.com/learn}
+            \item La version de StackExchange spécialisée pour le \TeX:
+  \url{tex.stackexchange.com}.
+		\item Livres:
+		\begin{itemize}
+			\item \LaTeX HowTo par Sébastien Combéfis (EN/FR)
+			\item Framabook \LaTeX
+		\end{itemize}
+		\item \url{http://www.tablesgenerator.com/}
 	\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Corrigés des exercices de ce cours}
+	\begin{description}
+		\item[Exercice 1] \url{http://bit.ly/2dBmaHo}
+		\item[Exercice 2] \url{http://bit.ly/2evTfWi}
+		\item[Exercice 3] \url{http://bit.ly/2dTdKcK}
+		\item[Exercice 4] \url{http://bit.ly/2dZBs7w}
+		\item[Exercice 5] \url{}
+	\end{description}
 \end{frame}
 
 
