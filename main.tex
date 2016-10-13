@@ -1346,7 +1346,7 @@ remarquable jamais publié par les éditeurs de la Petite Ourse~\cite{h2g2}.
     \lstinline|$\frac{1}{x}$| & $\frac{1}{x}$\\
   \end{tabular}
 \end{center}
-	\item Les opérateurs, symboles,\dots commencent par \textbf{\textbackslash}, sauf \lstinline|+, -, /, ^, _,...|.
+	\item Les opérateurs, symboles,\dots{} commencent par \textbf{\textbackslash}, sauf \lstinline|+, -, /, ^, _,|\dots
 	\begin{center}
 		\begin{tabular}{llr}
 			\lstinline|$a^{11}$| & $a^{11}$ & Good \\
@@ -1357,7 +1357,7 @@ remarquable jamais publié par les éditeurs de la Petite Ourse~\cite{h2g2}.
 		
 		\end{tabular}
 	\end{center}
-	\item Les packages \lstinline|amsmath| et \lstinline|amssymb| apportent beaucoup d'envirronement et symboles supplémentaires très utiles, à inclure par défaut.
+	\item Les packages \lstinline|amsmath| et \lstinline|amssymb| apportent beaucoup d'environements et symboles supplémentaires très utiles, à inclure par défaut.
 \end{itemize}
 \end{frame}
 
@@ -1365,13 +1365,13 @@ remarquable jamais publié par les éditeurs de la Petite Ourse~\cite{h2g2}.
 \framesubtitle{Inclure des formules centrées hors du texte}
 
 \begin{itemize}
-\item On peut aussi ajouter une formule mathématique centrées hors du texte entre deux symboles \textbf{\$\$} ou entre \lstinline|\[ ... \]|.
+\item On peut aussi ajouter une formule mathématique centrée hors du texte entre \lstinline|\[ ... \]|.
 \vspace{0.5cm}
 \begin{columns}
   \begin{column}{0.45\textwidth}
     L'expression $\sin(x)$ peut s'écrire de différents manières. En effet, il a été démontré que 
     
-    $$\sin(x) = \frac{e^{iz} - e^{-iz}}{2i}$$
+    \[ \sin(x) = \frac{e^{iz} - e^{-iz}}{2i} \]
 
     avec $i$ étant l'unité imaginaire.
   \end{column}
@@ -1379,7 +1379,10 @@ remarquable jamais publié par les éditeurs de la Petite Ourse~\cite{h2g2}.
     \begin{lstlisting}[style = nonumbers]
 L'expression $\sin(x)$ peut s'écrire de différents manières. En effet, il a été démontré que 
 
-$$\sin(x) = \frac{e^{iz} - e^{-iz}}{2i}$$
+\[
+  \sin(x) =
+    \frac{e^{iz} - e^{-iz}}{2i}
+\]
 
 avec $i$ étant l'unité imaginaire.
     \end{lstlisting}
