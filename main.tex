@@ -1076,16 +1076,10 @@ de la largeur du texte.
     \begin{itemize}
       \item \lstinline|\ref{id}|
       \item \lstinline|\pageref{id}|
-      \item \lstinline|\vpageref{id}| du paquet \lstinline|varioref|
+      \item \lstinline|\vpageref{id}| du package \lstinline|varioref|
     \end{itemize}
 \end{itemize}
 \begin{columns}
-  \begin{column}{0.5\textwidth}
-    \label{id}
-    Nous sommes section~\ref{id},
-    page~\pageref{id},
-    \vpageref{id}.
-  \end{column}
   \begin{column}{0.5\textwidth}
     \begin{lstlisting}
 \label{ref}
@@ -1093,6 +1087,12 @@ Nous sommes section~\ref{ref},
 page~\pageref{ref},
 \vpageref{ref}.
     \end{lstlisting}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+    \label{id}
+    \par{}Nous sommes section~\ref{id},
+    page~\pageref{id},
+    \vpageref{id}.
   \end{column}
 \end{columns}
 
@@ -1102,12 +1102,12 @@ page~\pageref{ref},
 \begin{frame}[fragile]
   \frametitle{Footnote}
   \begin{lstlisting}
-    The earth\footnote{mostly harmless} was destroyed
-    by Vogons\footnote{They have the worst poetry in the universe}.
+The earth\footnote{mostly harmless} was destroyed
+by Vogons\footnote{They have the worst poetry in the universe}.
 
-    But Don't Panic\footnote{By the way, the answer is 42},
-    even when you're at the restaurant at
-    the end of the universe.
+But Don't Panic\footnote{By the way, the answer is 42},
+even when you're at the restaurant at
+the end of the universe.
   \end{lstlisting}
   \begin{block}{Result}
     The earth\footnote{Mostly harmless} was destroyed
@@ -1185,34 +1185,87 @@ Pour les utiliser:
 \end{frame}
 
 
-\subsection{include et input}
+\subsection{Découpe d'un projet en fichiers}
 \begin{frame}[fragile]
-  \frametitle{include et input}
+  \frametitle{Découpe d'un projet en fichiers}
+  \begin{itemize}
+    \item Si vous travaillez sur un projet de moyenne ou grande envergure, il vaut la peine de le découper en plusieurs fichiers
+    \item Cela accélère la recompilation et permet une séparation plus claire entre les sections
+    \item Par exemple, un roman pourrait avoir un fichier par chapitre:
+    \begin{itemize}
+      \item \texttt{roman.tex} contient la structure du projet;
+      \item \texttt{entete.tex} contient l'en-tête \LaTeX{};
+      \item \texttt{intro.tex} contient l'introduction et les remerciements;
+      \item \texttt{chap1.tex} contient le premier chapitre et son titre;
+      \item \texttt{chap2.tex} contient le deuxième chapitre et son titre;
+      \item \dots
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\subsection{Découpe d'un projet en fichiers}
+\begin{frame}[fragile]
+  \frametitle{Découpe d'un projet en fichiers}
+  \framesubtitle{input et include}
+  \begin{itemize}
+    \item Deux commandes permettent l'inclusion d'un fichier dans un autre: \lstinline|\input{}| et \lstinline|\include{}|
+    \item On leur donne en argument le nom du fichier sans le \texttt{.tex}
+    \item \lstinline|\input{}| \og{}copie\fg{} le document littéralement
+    \item \lstinline|\include{}| termine la page courante, copie le document, puis termine la page courante à nouveau
+    \item \lstinline|\input{}| peut se trouver n'importe où, y compris dans le préambule, tandis que \lstinline|\include{}| doit se trouver dans le corps du document
+    \item \lstinline|\include{}| accélère la compilation du document, car cela permet de ne recompiler que ce qui a été modifié
+    \item La commande \lstinline|\includeonly{doc1,doc2,...}| permet de restreindre les documents à inclure
+  \end{itemize}
+\end{frame}
+
+\subsection{Découpe d'un projet en fichiers}
+\begin{frame}[fragile]
+  \frametitle{Découpe d'un projet en fichiers}
+  \framesubtitle{Exemple du roman}
   \begin{columns}
     \begin{column}{0.5\textwidth}
-      Simple ``copier/coller''.
-      \begin{lstlisting}
-\input{chap1}
-\input{chap2}
-\input{chap3}
-\input{chap4}
+      Dans \texttt{roman.tex}
+      \begin{lstlisting}[style=nonumbers]
+\documentclass[a4paper]{book}
+
+\input{entete}
+
+\begin{document}
+  \maketitle
+  \tableofcontents
+  
+  \includeonly{intro,chap2} % Inclure uniquement ces fichiers-ci
+  
+  \include{intro}
+  \include{chap1}
+  \include{chap2}
+  ...
+\end{document}
       \end{lstlisting}
     \end{column}
     \begin{column}{0.5\textwidth}
-      \lstinline|\include{x}| c'est comme faire
-      \begin{lstlisting}
-\clearpage
-\input{x}
-\clearpage
-      \end{lstlisting}
-      Il y a aussi \lstinline|includeonly| pour gagner du temps
-      \begin{lstlisting}
-\includeonly{chap1,chap3}
+      Dans \texttt{entete.tex}
+      \begin{lstlisting}[style=nonumbers]
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
 ...
-\include{chap1}
-\include{chap2}
-\include{chap3}
-\include{chap4}
+      \end{lstlisting}
+      
+      Dans \texttt{intro.tex}
+      \begin{lstlisting}[style=nonumbers]
+\begin{center}
+  Je dédie ce roman à mon chat.
+  Tu nous a quitté trop vite, Dragibus.
+  Repose en paix.
+\end{center}
+      \end{lstlisting}
+      
+      Dans \texttt{chap1.tex}
+      \begin{lstlisting}[style=nonumbers]
+\chapter{Le début d'une histoire
+         trépidante!...}
+...
       \end{lstlisting}
     \end{column}
   \end{columns}
