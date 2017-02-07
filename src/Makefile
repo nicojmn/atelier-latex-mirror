@@ -6,19 +6,22 @@
 #PDFVIEWER=xpdf # lightweight
 PDFVIEWER=xdg-open # Default pdf viewer - GNU/Linux
 #PDFVIEWER=open # Default pdf viewer - Mac OS
-MAIN_NAME=exemple
-PDF_NAME=$(MAIN_NAME).pdf
+ROOT=..
+
+MAIN_NAME=main
 
 # You want latexmk to *always* run, because make does not have all the info.
-.PHONY: $(PDF_NAME)
+.PHONY: $(MAIN_NAME).pdf
 
 # If you want the pdf to be opened by your preferred pdf viewer
 # after `$ make', comment the following line and uncomment the
 # line after
-#default: all
-default: show
+default: all
 
-all: $(PDF_NAME)
+all: $(MAIN_NAME).pdf
+	rm $(ROOT)/*.aux $(ROOT)/*.fls $(ROOT)/*.log $(ROOT)/*.out \
+	  $(ROOT)/*.fdb_latexmk
+	$(PDFVIEWER) $(ROOT)/$(MAIN_NAME).pdf 2> /dev/null &
 
 # MAIN LATEXMK RULE
 
@@ -29,17 +32,13 @@ all: $(PDF_NAME)
 # -interactive=nonstopmode keeps the pdflatex backend from stopping at a
 # missing file reference and interactively asking you for an alternative.
 
-# Other depences are gessed automatically by latexmk
-# see http://tex.stackexchange.com/questions/40738/how-to-properly-make-a-latex-project
-$(PDF_NAME): $(MAIN_NAME).tex
+$(MAIN_NAME).pdf: $(MAIN_NAME).tex
 	latexmk -pdf -pdflatex="pdflatex -shell-escape -enable-write18" \
-	  -use-make $(MAIN_NAME).tex
+	  -output-directory=$(ROOT) -use-make $(MAIN_NAME).tex
 
 clean:
-	latexmk -CA
+	rm $(ROOT)/*.aux $(ROOT)/*.fls $(ROOT)/*.log $(ROOT)/*.out \
+	  $(ROOT)/*.fdb_latexmk
 
-show: $(PDF_NAME)
-	$(PDFVIEWER) $(PDF_NAME) 2> /dev/null &
-
-release: all
-	smartcp -v config.yml
+show: $(MAIN_NAME).pdf
+	$(PDFVIEWER) $(ROOT)/$(MAIN_NAME).pdf 2> /dev/null &
