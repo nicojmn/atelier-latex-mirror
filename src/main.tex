@@ -14,6 +14,12 @@
 \lstdefinestyle{nonumbers}
 {numbers=none}
 
+% Pour rendre les toc plus compactes (pour éviter que ça déborde)
+\makeatletter
+\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0.5em}{}{}
+\makeatother
+\setbeamerfont{subsection in toc}{size=\scriptsize}
+
 \graphicspath{{img/}}
 \definecolor{gris}{RGB}{228,228,228}
 \definecolor{bleu}{RGB}{34,148,255}
@@ -23,11 +29,10 @@
 \logo{\includegraphics[height=5mm]{logo_12-13-mini.png}}
 \institute{Louvain-li-Nux}
 \title{\textbf{Formation \LaTeX}\\
-Introduction à l'écriture de documents \LaTeX}
-\author{Xavier \textsc{Lambein} \and Geoffroy \textsc{Jacquet}}
+Introduction à l'écriture de documents avec \LaTeX}
+\author{Mattéo \textsc{Couplet} \and Geoffroy \textsc{Jacquet}}
 
-%\date{24 mars 2015}
-
+\date{22 février 2017}
 
 % A changer (selon Arnaud) le utf8x pas aligné slide 12/30
 % maketitle
@@ -47,7 +52,7 @@ Introduction à l'écriture de documents \LaTeX}
 
 \begin{frame}
   \begin{center}\Large
-  Suivez cette présentation sur votre ordinateur :)
+  Suivez cette présentation sur votre ordinateur :-)
   
   \vspace{1cm}
   \fbox{\url{http://bit.ly/2cYF8sb}}
@@ -72,7 +77,7 @@ Introduction à l'écriture de documents \LaTeX}
 \section{Introduction}
 \subsection{Qu'est-ce que \LaTeX{}?}
 \begin{frame}
-\frametitle{Qu'est ce que \LaTeX}
+\frametitle{Qu'est-ce que \LaTeX}
 
 \begin{itemize}
 \item \TeX{} $ \Rightarrow$ programme de mise en page
@@ -96,7 +101,7 @@ Introduction à l'écriture de documents \LaTeX}
 		\item tables des matières
 		\item références bibliographiques
 		\item références croisées
-		\item ...
+        \item \ldots{}
 	\end{itemize}
 	\item Séparation entre contenu et forme
 	\item Description du contenu indépendant de la forme
@@ -119,7 +124,7 @@ Introduction à l'écriture de documents \LaTeX}
 \begin{frame}{Pourquoi pas \LaTeX{}?}
 
   \begin{itemize}
-  	\item Les tableaux...
+    \item Les tableaux\ldots{}
 	\item Prise en main plus longue que pour traitement de texte WYSIWYG
 	\item Je suis allergique à toute forme de code informatique
 	\item J'ai des actions Microsoft
@@ -127,12 +132,12 @@ Introduction à l'écriture de documents \LaTeX}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Oui mais...}
+\begin{frame}{Oui mais\ldots{}}
   \begin{center}
     %\resizebox{\textwidth}{!}{
     \begin{tikzpicture}
-      \begin{axis}[xmin=0, xmax=4, ymin=-2, ymax=5,
-          xlabel={Expérience, maitrise}, ylabel=Productivité,
+      \begin{axis}[xmin=0, xmax=4, ymin=-2, ymax=5, ticks=none,
+          xlabel={Expérience}, ylabel=Productivité,
         legend style={at={(0.01,0.99)}, anchor=north west}]
         \addplot[smooth, color=blue]{x-0.05};
         \addlegendentry{\LaTeX}
@@ -142,10 +147,11 @@ Introduction à l'écriture de documents \LaTeX}
         %\ylabel{Expérience/maitrise}
       \end{axis}
       \foreach \x/\com/\deltax/\deltay/\adj in {
-        {1.1}/{Maintenant}/{0}/{0.8}/below,
-        {2.2}/{Après la formation}/{0}/{0.4}/below,
+        %\small
+        {1.1}/{\scriptsize Maintenant}/{0}/{0.8}/below,
+        {2.2}/{\scriptsize Après la formation}/{0}/{0.4}/below,
         %{4.6}/{À l'heure de votre mémoire}/{0}/{1.2}/below
-        {4.6}/{Au bout de queques semaines}/{0}/{1.2}/below
+        {4.6}/{\scriptsize Au bout de quelques semaines}/{0}/{1.2}/below
       } {
         %\fill \coord circle (100pt) node[\adj] {$\coord$};
         \draw[dashed] (\x,0) -- (\x+\deltax,\deltay) node[above] {\com};
@@ -185,6 +191,21 @@ Introduction à l'écriture de documents \LaTeX}
   Par simplicité, nous utiliserons \textbf{Overleaf} dans ce cours.
 \end{frame}
 
+\subsection{Symboles spéciaux sur Mac}
+\begin{frame}{Symboles spéciaux sur Mac}
+  \begin{center}
+    \begin{tabular}{|lc|l|}
+      \hline
+      Symbole & & Raccourci clavier \\\hline
+      \textit{backslash} & \textbackslash & alt + shift + / \\
+      accolade & \{\} & alt + () \\
+      crochet & $[]$ & alt + shift + () \\
+      \textit{pipe} & | & alt + shift + L \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{frame}
+
 \section{Les concepts de base}
 \subsection{Les fichiers}
 
@@ -203,7 +224,7 @@ Introduction à l'écriture de documents \LaTeX}
 			\item structure du document;
 			\item table des matières, liste des figures;
 			\item liste des références;
-			\item ...
+            \item \ldots{}
 		\end{itemize}
 		\item Création d'un fichier essais\alert{\textbf{.pdf}}
 	\end{itemize}
@@ -265,7 +286,7 @@ Introduction à l'écriture de documents \LaTeX}
 	\item Permet d'insérer des symboles
 	\end{itemize}
 	\begin{lstlisting}[style=nonumbers]
-\commandName[options]{FirstParameter}...{LastParameter}
+\commandName[options]{FirstParameter} ... {LastParameter}
 	\end{lstlisting}
 	\begin{center}
 	\begin{tabular}{llll}
@@ -386,7 +407,7 @@ Introduction à l'écriture de documents \LaTeX}
         \and Geoffroy \textsc{Jacquet}}
 
                     % today
-\date{24 mars 2015} % fixed data
+\date{24 mars 2015} % fixed date
 \date{}             % no date
         \end{lstlisting}
 
@@ -928,9 +949,9 @@ de la largeur du texte.
   
     Référencement par ``ci-dessous'', \dots
     \begin{lstlisting}[style=nonumbers]
-  \begin{tabular}{...}
-    ...
-  \end{tabular}
+\begin{tabular}{...}
+  ...
+\end{tabular}
     \end{lstlisting}
     
   \item \textbf{Flottant}
@@ -952,7 +973,7 @@ de la largeur du texte.
   \item \textbf{Code}
   	\begin{lstlisting}[style=nonumbers]
 \begin{tabular}{<colonnes>}
-  	<lignes>
+  <lignes>
 \end{tabular}
   	\end{lstlisting}
   	\begin{itemize}
@@ -997,18 +1018,18 @@ de la largeur du texte.
 \begin{footnotesize}
 \begin{lstlisting}[style=nonumbers]
 \begin{table}[!ht]
-    \begin{center}
-            \begin {tabular}{|l||c|} %% 2 columns
-            \hline
-                \textit{Inventaire} & \textbf{Nombre} \\
-            \hline
-                Chemises  & 4   \\
-                Pulls     & 12  \\
-                Pantalons & 1   \\
-            \hline
-            \end{tabular}
-        \caption{Tableau relatif a l'inventaire}
-    \end{center}
+  \begin{center}
+    \begin {tabular}{|l||c|} %% 2 columns
+      \hline
+      \textit{Inventaire} & \textbf{Nombre} \\
+      \hline
+      Chemises  & 4   \\
+      Pulls     & 12  \\
+      Pantalons & 1   \\
+      \hline
+    \end{tabular}
+    \caption{Tableau relatif a l'inventaire}
+  \end{center}
 \end{table}
 \end{lstlisting}
 \end{footnotesize}
@@ -1282,7 +1303,7 @@ remarquable jamais publié par les éditeurs de la Petite Ourse~\cite{h2g2}.
       Dans \texttt{chap1.tex}
       \begin{lstlisting}[style=nonumbers]
 \chapter{Le début d'une histoire
-         trépidante!...}
+         trépidante ! ...}
 ...
       \end{lstlisting}
     \end{column}
@@ -1314,7 +1335,7 @@ remarquable jamais publié par les éditeurs de la Petite Ourse~\cite{h2g2}.
         \vfill
     \end{column}
 	\end{columns}
-  \footnotesize{Cliquez sur \og{}Clone this project\fg{} pour commencer à écrire.}
+  {\footnotesize Cliquez sur \og{}Clone this project\fg{} pour commencer à écrire.}
   \vspace{0.25cm}
   
   Dans cet exercice, on vous invite à:
@@ -1382,7 +1403,7 @@ L'expression $\sin(x)$ peut s'écrire de différents manières. En effet, il a �
 
 \[
   \sin(x) =
-    \frac{e^{iz} - e^{-iz}}{2i}
+  \frac{e^{iz} - e^{-iz}}{2i}
 \]
 
 avec $i$ étant l'unité imaginaire.
@@ -1398,34 +1419,38 @@ avec $i$ étant l'unité imaginaire.
 		\item Les matrices s'écrivent avec l'environnement \lstinline|matrix| (fonctionnement semblable à \lstinline|tabular|).
 			\begin{columns}
 				\begin{column}{0.45\textwidth}
-					$$\begin{matrix}
+                  \[\begin{matrix}
 						\alpha & \beta \\
 						\gamma & \delta \\
-					\end{matrix}$$
+                  \end{matrix}\]
 				\end{column}
 				\begin{column}{0.45\textwidth}
 					\begin{lstlisting}[style=nonumbers]
-$$\begin{matrix}	
-\alpha & \beta \\
-\gamma & \delta \\
-\end{matrix}$$
+\[
+  \begin{matrix}	
+    \alpha & \beta \\
+    \gamma & \delta \\
+  \end{matrix}
+\]
 					\end{lstlisting}
 				\end{column}
 			\end{columns}
-		\item On ajoute des délimiteurs avec \lstinline|pmatrix|,\lstinline|vmatrix|,...
+          \item On ajoute des délimiteurs avec \lstinline|pmatrix|,\lstinline|vmatrix|,\ldots{}
 			\begin{columns}
 				\begin{column}{0.45\textwidth}
-					$$\begin{pmatrix}
+                  \[\begin{pmatrix}
 						a + b & c \\
 						d & e + f \\
-					\end{pmatrix}$$
+                  \end{pmatrix}\]
 				\end{column}
 				\begin{column}{0.45\textwidth}
 					\begin{lstlisting}[style=nonumbers]
-$$$\begin{pmatrix}
-a + b & c \\
-d & e + f \\
-\end{pmatrix}$$
+\[
+  \begin{pmatrix}
+    a + b & c \\
+    d & e + f \\
+  \end{pmatrix}
+\]
 					\end{lstlisting}
 				\end{column}
 			\end{columns}
@@ -1443,7 +1468,7 @@ d & e + f \\
 	\end{itemize}
 \end{frame}
 
-\subsection{Formles numérotées}
+\subsection{Formules numérotées}
 \begin{frame}[fragile,allowframebreaks]{Formules numérotées}
 
 \begin{itemize}
@@ -1483,19 +1508,21 @@ I also know that
 	\item Utilisation de l'environnement \lstinline|aligned| pour faire un système d'équation (utilisation semblable à \lstinline|align|).
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
-			$$ \left\{\begin{aligned}
+          \[ \left\{\begin{aligned}
 				x^2 + y & = 3 \\
 				\frac{y}{x} & = 0.42
-			\end{aligned}\right.$$
+          \end{aligned}\right.\]
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\begin{lstlisting}[style=nonumbers]
-$$\left\{
-\begin{aligned}
-x^2 + y & = 3 \\
-\frac{y}{x} & = 0.42
-\end{aligned}
-\right.$$
+\[
+  \left\{
+    \begin{aligned}
+      x^2 + y & = 3 \\
+      \frac{y}{x} & = 0.42
+    \end{aligned}
+  \right.
+\]
 			\end{lstlisting}	
 		\end{column}
 	\end{columns}
@@ -1515,9 +1542,9 @@ x^2 + y & = 3 \\
 		\begin{lstlisting}[style=nonumbers]
 We see in equation~\ref{first} that $x$ is smaller than $3$ and in equation~\ref{third} that $y$ is greater than $x$. 
 \begin{align}
-x & < 3 \label{first} \\
-y & > 5 \label{second} \\
-y & > x \label{third}
+  x & < 3 \label{first} \\
+  y & > 5 \label{second} \\
+  y & > x \label{third}
 \end{align}
 		\end{lstlisting}
 		\end{column}
@@ -1567,10 +1594,10 @@ Dans un texte, on obtient
 $\min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1$
 \end{lstlisting}
 
-	\item Dans une équation, le résultat est : $$\min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1$$
+    \item Dans une équation, le résultat est : \[\min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1\]
 \begin{lstlisting}[style=nonumbers]
 Dans une équation, le résultat est : 
-$$\min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1$$
+\[ \min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1 \]
 \end{lstlisting}
 \framebreak
 	\item Pour quand même placer les indices/exposants au dessus/dessous, utiliser \lstinline|\limits| juste après l'opérateur.
@@ -1600,14 +1627,13 @@ $$\min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1$$
 	
 	\begin{columns}
 		\begin{column}{0.5\textwidth}	
-			$$\var(x) = \pi$$
-			$$\sumN \frac{i}{i+1}$$
+          \[\var(x) = \pi\]
+            \[\sumN \frac{i}{i+1}\]
 		\end{column}	
 		\begin{column}{0.5\textwidth}	
 			\begin{lstlisting}[style=nonumbers]
-$$\var(x) = \pi$$
-
-$$\sumN \frac{i}{i+1}$$
+\[ \var(x) = \pi \]
+\[ \sumN \frac{i}{i+1} \]
 			\end{lstlisting}
 		\end{column}	
 	\end{columns}
@@ -1653,7 +1679,7 @@ Rarement utile !
   \end{column}
 \end{columns}
 
-Erreur courante: les ensembles besoin d'espacement (i.e. \lstinline|\,|) en compréhension mais pas en extension.
+Erreur courante: les ensembles ont besoin d'espacement (i.e. \lstinline|\,|) en compréhension mais pas en extension.
 \begin{columns}
   \begin{column}{0.5\textwidth}
     \begin{lstlisting}
@@ -1716,26 +1742,26 @@ Erreur courante: les ensembles besoin d'espacement (i.e. \lstinline|\,|) en comp
   \begin{lstlisting}
 \usepackage[version=3]{mhchem}
 ...
-$$\ce{3H2O + 1/2H2O -> AgCl2- + H2_{(aq)}}$$
+  \[\ce{3H2O + 1/2H2O -> AgCl2- + H2_{(aq)}}\]
   \end{lstlisting}
-  $$\ce{3H2O + 1/2H2O -> AgCl2- + H2_{(aq)}}$$
+  \[\ce{3H2O + 1/2H2O -> AgCl2- + H2_{(aq)}}\]
 \end{frame}
 
 \subsection{Les circuits}
 \begin{frame}[fragile]
   \frametitle{Les circuits}
   \begin{lstlisting}
-    \usepackage{circuitikz}
-    ...
-		\shorthandoff{:!} % Pour certaines versions de circuitikz
-    \begin{circuitikz}
-      \draw (0,0) to [sI, v=$V_2$] (0,-3);
-      \draw (6,-3) to[short, i = $I_2$] (0,-3);
-      \draw (0,0) to [R = R, v = $V_R$] (3,0);
-      \draw (3,0) to [L = L, v = $V_L$] (6,0);
-      \draw (6,0) to [C = C, v = $V_C$] (6,-3);
-    \end{circuitikz}
-		\shorthandon{:!} % Pour certaines versions de circuitikz
+\usepackage{circuitikz}
+...
+\shorthandoff{:!} % Pour certaines versions de circuitikz
+\begin{circuitikz}
+  \draw (0,0) to [sI, v=$V_2$] (0,-3);
+  \draw (6,-3) to[short, i = $I_2$] (0,-3);
+  \draw (0,0) to [R = R, v = $V_R$] (3,0);
+  \draw (3,0) to [L = L, v = $V_L$] (6,0);
+  \draw (6,0) to [C = C, v = $V_C$] (6,-3);
+\end{circuitikz}
+\shorthandon{:!} % Pour certaines versions de circuitikz
   \end{lstlisting}
   \begin{center}
 		\shorthandoff{:!}
@@ -1802,7 +1828,7 @@ else:
         \vfill 
     \end{column} 
   \end{columns} 
-  \footnotesize{Cliquez sur \og{}Clone this project\fg{} pour commencer à écrire.} 
+  {\footnotesize Cliquez sur \og{}Clone this project\fg{} pour commencer à écrire.} 
   \vspace{0.25cm} 
    
   Dans cet exercice, on vous invite à: 
