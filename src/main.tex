@@ -5,6 +5,7 @@
 \usepackage{pgfplots}
 \usepackage{framed}
 \usepackage{mdframed}
+\usepackage{systeme}
 
 \newcommand{\badet}{et}
 \newcommand{\goodet}{\mathbin{\mathrm{et}}}
@@ -1466,23 +1467,20 @@ I also know that
   \end{column}
 \end{columns}
 \framebreak
-	\item Utilisation de l'environnement \lstinline|aligned| pour faire un système d'équation (utilisation semblable à \lstinline|align|).
+	\item Utilisation de l'environnement \lstinline|systeme| 
+      (du package \lstinline|systeme|)
+      pour faire un système d'équations.
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
-          \[ \left\{\begin{aligned}
-				x^2 + y & = 3 \\
-				\frac{y}{x} & = 0.42
-          \end{aligned}\right.\]
+          \[ \systeme{x^2+y = 3, \frac{y}{x} = 0.42} \]
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\begin{lstlisting}[style=nonumbers]
 \[
-  \left\{
-    \begin{aligned}
-      x^2 + y & = 3 \\
-      \frac{y}{x} & = 0.42
-    \end{aligned}
-  \right.
+  \systeme{
+    x^2 + y = 3,
+    \frac{y}{x} = 0.42
+  }
 \]
 			\end{lstlisting}	
 		\end{column}
