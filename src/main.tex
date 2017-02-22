@@ -169,18 +169,20 @@ Introduction à l'écriture de documents avec \LaTeX}
   \begin{itemize}
 	  \item GNU/Linux
 	  \begin{itemize}
-	  	\item Distribution \LaTeX{} = \textbf{TeXLive}
-		\item Éditeur de texte = \textbf{TeXMaker, LaTeXila, Kile}
+	  	\item Distribution \LaTeX{} : \textbf{TeXLive}
+          {\tiny (\lstinline|sudo apt install texlive-full|)}
+		\item Éditeur : \textbf{
+            \href{http://www.xm1math.net/texmaker/}{TeXMaker}, LaTeXila, Kile}
 	  \end{itemize}
 	  \item Windows
 	  \begin{itemize}
-	  	\item Distribution \LaTeX{} = \textbf{TeXLive}
-		\item Éditeur de texte = \textbf{TeXMaker}
+        \item Distribution \LaTeX{} : \textbf{\href{https://miktex.org/}{MiKTeX}}
+        \item Éditeur : \textbf{\href{http://www.xm1math.net/texmaker/}{TeXMaker}}
 	  \end{itemize}
 	  \item Mac OS
 	  \begin{itemize}
-	  	\item Distribution \LaTeX{} = \textbf{MacTeX}
-		\item Éditeur de texte = \textbf{TeXMaker, TeXShop, iTeXMac}
+        \item Distribution \LaTeX{} : \textbf{\href{https://www.tug.org/mactex/}{MacTeX}}
+		\item Éditeur : \textbf{\href{http://www.xm1math.net/texmaker/}{TeXMaker}, TeXShop, iTeXMac}
 	  \end{itemize}
 	  \item Dans votre navigateur
 	  \begin{itemize}
@@ -261,7 +263,7 @@ Introduction à l'écriture de documents avec \LaTeX}
   Type de document &
   \lstinline|\documentclass[a4paper, 10pt]{article}|\\
   Utilisation de \textit{package} &
-  \lstinline|\usepackage[utf8x]{inputenc}|\\
+  \lstinline|\usepackage[utf8]{inputenc}|\\
   Utilisation de \textit{package} &
   \lstinline|\usepackage[T1]{fontenc}|\\
   Utilisation de \textit{package} &
@@ -683,7 +685,7 @@ Justifié; c'est le comportement par défaut de \LaTeX{}
 \begin{tabular}{ll}
 \lstinline|\emph{Emphase}| & \emph{Emphase} \\
 \lstinline|\textbf{Gras}| & \textbf{Gras} \\
-\lstinline|\textsl{Italique}| & \textsl{Italique} \\
+\lstinline|\textit{Italique}| & \textsl{Italique} \\
 \lstinline|\textsc{Petites majuscules}| & \textsc{Petites majuscules}
 \end{tabular}
 \end{center}
@@ -972,7 +974,7 @@ de la largeur du texte.
   		\item Une ligne verticale est tracée par \lstinline|||
   		\item Le contenu des <lignes> est séparé par colonnes par \lstinline|&|
   		\item Une <ligne> se termine par \lstinline|\\|
-  		\item Une ligne horizontalle est tracée par \lstinline|\hline|
+  		\item Une ligne horizontale est tracée par \lstinline|\hline|
   	\end{itemize}
     \begin{lstlisting}
 \begin{tabular}{|lcr|}
@@ -1255,7 +1257,7 @@ remarquable jamais publié par les éditeurs de la Petite Ourse~\cite{h2g2}.
     \begin{column}{0.5\textwidth}
       Dans \texttt{entete.tex}
       \begin{lstlisting}[style=nonumbers]
-\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
 ...
