@@ -6,6 +6,7 @@
 \usepackage{framed}
 \usepackage{mdframed}
 \usepackage{systeme}
+\usepackage{epstopdf}
 
 \newcommand{\badet}{et}
 \newcommand{\goodet}{\mathbin{\mathrm{et}}}
@@ -31,9 +32,9 @@
 \institute{Louvain-li-Nux}
 \title{\textbf{Formation \LaTeX}\\
 Introduction à l'écriture de documents avec \LaTeX}
-\author{Mattéo \textsc{Couplet} \and Geoffroy \textsc{Jacquet} \and Xavier \textsc{Lambein}}
+\author{Louis \textsc{Arys} \and Sébastien \textsc{de Longueville} \and Tux}
 
-\date{22 février 2017}
+\date{5 octobre 2017}
 
 % A changer (selon Arnaud) le utf8x pas aligné slide 12/30
 % maketitle
@@ -56,15 +57,15 @@ Introduction à l'écriture de documents avec \LaTeX}
   Suivez cette présentation sur votre ordinateur :-)
   
   \vspace{1cm}
-  \fbox{\url{http://bit.ly/2cYF8sb}}
+  \fbox{\url{https://louvainlinux.org/activites/atelier-latex}}
   \end{center}
 \end{frame}
 
 
 \begin{frame}
-  \maketitle
-  Merci à Jolan \textsc{Wolter} et Thomas \textsc{Vanzieleghem} pour avoir réalisé la première version de ces slides
-  ainsi qu'à David \textsc{Ernst} et Matthieu \textsc{Baerts} pour avoir réalisé la deuxième version, ainsi qu'à Arnaud \textsc{Cerckel} et Benoît \textsc{Legat} pour avoir réalisé la troisième version.
+  \maketitle  
+  Merci à Jolan \textsc{Wolter}, Thomas \textsc{Vanzieleghem}, David \textsc{Ernst}, Matthieu \textsc{Baerts}, Arnaud \textsc{Cerckel}, Benoît \textsc{Legat}, Mattéo \textsc{Couplet}, Geoffroy \textsc{Jacquet} et Xavier \textsc{Lambein} pour la réalisation des précédentes versions de ces transparents
+
 \end{frame}
 
 \AtBeginSection[]
@@ -108,6 +109,7 @@ Introduction à l'écriture de documents avec \LaTeX}
 	\item Description du contenu indépendant de la forme
 	\item Gratuit
 	\item Stable, même pour les très gros documents
+	\item Possède une très bonne rétro compatibilité
   \end{itemize}
 \end{frame}
 
@@ -353,7 +355,7 @@ Introduction à l'écriture de documents avec \LaTeX}
 \begin{tabular}{ll}
 \lstinline|\usepackage[utf8]{inputenc}| & Utilisation des caractères accentués \\
 \lstinline|\usepackage[T1]{fontenc}| & Permet d'utiliser tous les caractères du clavier \\
-\lstinline|\usepackage[french]{babbel}| & Spécifie la langue (français ici)
+\lstinline|\usepackage[french]{babel}| & Spécifie la langue (français ici)
 \end{tabular}
 
 \end{frame}
@@ -406,11 +408,11 @@ Introduction à l'écriture de documents avec \LaTeX}
 \title{Formation \LaTeX}
 
 % Séparer les auteurs avec \and
-\author{Xavier \textsc{Lambein}
-        \and Geoffroy \textsc{Jacquet}}
+\author{Louis \textsc{Arys}
+        \and Sébastien \textsc{de Longueville}}
 
                     % today
-\date{24 mars 2015} % fixed date
+\date{5 october 2017} % fixed date
 \date{}             % no date
         \end{lstlisting}
 
@@ -502,7 +504,7 @@ Le sujet est en or mais pas le vif.
         Exemple de résultat:
         
         \vspace{0.25cm}
-        \fbox{\url{http://bit.ly/2dL13kb}}
+        \fbox{\url{http://bit.ly/2wzoGVm}}
       \end{center}
         \vfill
     \end{column}
@@ -767,8 +769,8 @@ Justifié; c'est le comportement par défaut de \LaTeX{}
   \item Caractères spéciaux utilisés par \LaTeX
   
   \begin{tabular}{cccccccccc}
-  \$ & \& & \% & \# & \_ & \{ & \} & \~{} & \^{} & \textbackslash \\
-  \lstinline|\$| & \lstinline|\&| & \lstinline|\%| & \lstinline|\#| & \lstinline|\_| & \lstinline|\{| & \lstinline|\}| & \lstinline|\~{}| & \lstinline|\^{}| & \lstinline|\textbackslash|
+  \lstinline|\$| & \lstinline|\&| & \lstinline|\%| & \lstinline|\#| & \lstinline|\_| & \lstinline|\{| & \lstinline|\}| & \lstinline|\~{}| & \lstinline|\^{}| & \lstinline|\textbackslash| \\
+  \$ & \& & \% & \# & \_ & \{ & \} & \~{} & \^{} & \textbackslash
   \end{tabular}
   
 
@@ -797,7 +799,7 @@ Justifié; c'est le comportement par défaut de \LaTeX{}
 		\item \lstinline|1\ier{} 2\ieme{}| pour 1\ier{} et 2\ieme{}
 		\item \lstinline|\no \No| pour \no et \No
 		\item \lstinline|\degres C| pour \degres C
-		\item \lstinline|\og{} \fg{}| pour \og{} \fg{}. \textcolor{red}{Attention, ne pas utiliser "}
+		%\item \lstinline|\og{} \fg{}| pour \og{} \fg{}. \textcolor{red}{Attention, ne pas utiliser "}
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -810,7 +812,7 @@ Justifié; c'est le comportement par défaut de \LaTeX{}
     Exemple de résultat:
     
     \vspace{0.25cm}
-    \fbox{\url{http://bit.ly/2e1LpR2}}
+    \fbox{\url{http://bit.ly/2hPVveb}}
   \end{center}
 
   Dans cet exercice, on vous invite à:
@@ -1032,7 +1034,7 @@ de la largeur du texte.
         Exemple de résultat:
         
         \vspace{0.25cm}
-        \fbox{\url{http://bit.ly/2egnhhy}}
+        \fbox{\url{http://bit.ly/2y3xTIR}}
       \end{center}
   
   Dans cet exercice, on vous invite à:
@@ -1291,7 +1293,7 @@ remarquable jamais publié par les éditeurs de la Petite Ourse~\cite{h2g2}.
     Exemple de résultat:
     
     \vspace{0.25cm}
-    \fbox{\url{http://bit.ly/2d9LoNW}}
+    \fbox{\url{http://bit.ly/2y3ydHz}}
   \end{center}
 
   Dans cet exercice, on vous invite à:
