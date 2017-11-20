@@ -5,7 +5,6 @@
 \usepackage{pgfplots}
 \usepackage{framed}
 \usepackage{mdframed}
-\usepackage{systeme}
 \usepackage{epstopdf}
 
 \newcommand{\badet}{et}
@@ -1469,20 +1468,23 @@ I also know that
   \end{column}
 \end{columns}
 \framebreak
-	\item Utilisation de l'environnement \lstinline|systeme| 
-      (du package \lstinline|systeme|)
-      pour faire un système d'équations.
+	\item Utilisation de l'environnement \lstinline|aligned| pour faire un système d'équation (utilisation semblable à \lstinline|align|).
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
-          \[ \systeme{x^2+y = 3, \frac{y}{x} = 0.42} \]
+			\[ \left\{\begin{aligned}
+				x^2 + y &= 3 \\
+				\frac{y}{x} &= 0.42
+			\end{aligned}\right. \]
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\begin{lstlisting}[style=nonumbers]
-\[
-  \systeme{
-    x^2 + y = 3,
-    \frac{y}{x} = 0.42
-  }
+\[ 
+	\left\{ 
+		\begin{aligned}
+		 x^2 + y &= 3 \\
+		 \frac{y}{x} &= 0.42
+		\end{aligned}
+	\right.
 \]
 			\end{lstlisting}	
 		\end{column}
