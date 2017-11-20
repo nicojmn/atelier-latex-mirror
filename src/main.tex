@@ -245,6 +245,7 @@ Introduction à l'écriture de documents avec \LaTeX}
 \documentclass{article} %Type de document
 
 %Préambule
+%On charge ici les packages
 
 \begin{document}
     %Corps du document
@@ -270,7 +271,7 @@ Introduction à l'écriture de documents avec \LaTeX}
   \lstinline|\usepackage[T1]{fontenc}|\\
   Utilisation de \textit{package} &
   \lstinline|\usepackage[french]{babel}|\\
-  \textbf{Blanc pour la lisibilité} &\\
+   &\\
   Début du document &
   \lstinline|\begin{document}|\\
   Corps du document &
@@ -307,6 +308,11 @@ Introduction à l'écriture de documents avec \LaTeX}
 
 \end{EnvironnementName}
 	\end{lstlisting}
+	\begin{center}
+	\begin{tabular}{ll}
+		\lstinline|\begin{scriptsize} Louvain-li-Nux \end{scriptsize}| & \begin{scriptsize} Louvain-li-Nux \end{scriptsize}
+	\end{tabular}
+	\end{center}
 \end{itemize}
 \end{frame}
 %-----------------------
@@ -356,7 +362,10 @@ Introduction à l'écriture de documents avec \LaTeX}
 \lstinline|\usepackage[T1]{fontenc}| & Permet d'utiliser tous les caractères du clavier \\
 \lstinline|\usepackage[french]{babel}| & Spécifie la langue (français ici)
 \end{tabular}
-
+\vskip2em
+\begin{itemize}
+	\item Ces 3 packages sont nécessaires à la compilation
+\end{itemize}
 \end{frame}
 
 \subsection{La structure}
@@ -410,23 +419,25 @@ Introduction à l'écriture de documents avec \LaTeX}
 \author{Louis \textsc{Arys}
         \and Sébastien \textsc{de Longueville}}
 
-                    % today
-\date{5 october 2017} % fixed date
-\date{}             % no date
-        \end{lstlisting}
+\date{}               % pas de date
+\date{\today}         % aujourd'hui
+\date{5 october 2017} 
 
-        \begin{lstlisting}[style=nonumbers]
 \begin{document}
 
 \maketitle
+
+\end{document}
         \end{lstlisting}
       \end{column}
       \begin{column}{0.5\textwidth}
+		  \centering
         \includegraphics[scale=0.35]{pdg.png}
       \end{column}
 	\end{columns}
 \end{frame}
 
+\begin{comment}
 \subsection{Le résumé ou abstract}
 \begin{frame}[fragile]{Le résumé ou abstract}
 	\begin{itemize}
@@ -452,6 +463,7 @@ Introduction à l'écriture de documents avec \LaTeX}
       \end{column}
 	\end{columns}
 \end{frame}
+\end{comment}
 
 \subsection{La table des matières}
 \begin{frame}[fragile]{Table des matières}
@@ -515,7 +527,6 @@ Le sujet est en or mais pas le vif.
   \begin{itemize}
 	  \item créer un \textbf{titre} de document;
 	  \item changer la \textbf{taille de police} du document;
-	  \item ajouter un \textbf{résumé} (abstract);
 	  \item définir la structure de votre document avec quelques \textbf{sections} et \textbf{sous-sections};
 	  \item écrire un peu de \textbf{texte};
 	  \item générer la \textbf{table des matières} au début de votre document.
@@ -585,6 +596,7 @@ Second paragraphe.
 	    \end{column}
     \end{columns}
     
+\begin{comment}
   \item Ajouter un espace interligne
 	  \begin{columns}
 	    \begin{column}{0.4\textwidth}
@@ -600,6 +612,7 @@ Second paragraphe.
         \setlength{\parindent}{0em}
 	    \end{column}
     \end{columns}
+\end{comment}
   \end{itemize}
   \setstretch{1.0}
 \end{frame}
@@ -651,7 +664,7 @@ Justifié; c'est le comportement par défaut de \LaTeX{}
 %-----------------------
 \subsection{Les polices}
 
-\begin{frame}[fragile]{Jouer avec les fontes}
+\begin{frame}[fragile]{Jouer avec la police}
 \framesubtitle{Changer la taille de police}
 \begin{itemize}
 	\item \lstinline|{\small text}| pour changer la taille du texte à l'intérieur
@@ -816,7 +829,7 @@ Justifié; c'est le comportement par défaut de \LaTeX{}
 
   Dans cet exercice, on vous invite à:
   \begin{itemize}
-    \item faire quelques paragraphes avec interligne double;
+    \item faire quelques paragraphes;
     \item faire un paragraphe centré;
     \item mettre un des mots en très grand, et un autre en très petit;
     \item faire une liste numérotée avec un type de police différent pour chaque élément;
@@ -989,7 +1002,8 @@ de la largeur du texte.
 \end{tabular}
     \end{lstlisting}
   \item \textbf{Rendu}
-  
+\begin{table}[!ht] 
+\centering
 \begin{tabular}{|lcr|}
   \hline
   A & B & C\\
@@ -998,6 +1012,7 @@ de la largeur du texte.
   $\alpha$ & $\beta$ & $\gamma$\\
   \hline
 \end{tabular}
+\end{table}
   \end{itemize}
 \end{frame}
 
@@ -1072,7 +1087,6 @@ de la largeur du texte.
       \begin{itemize}
         \item \lstinline|\ref{identifiant}| pour le numéro de section, figure, table, équation;
         \item \lstinline|\pageref{identifiant}| pour le numéro de page;
-        \item \lstinline|\vpageref{identifiant}| du package \lstinline|varioref|, pour une référence verbeuse à la page.
       \end{itemize}
     \item Séparer la référence avec une espace insécable \og{}\texttt{\textasciitilde}\fg{}.
   \end{itemize}
@@ -1082,14 +1096,12 @@ de la largeur du texte.
   \label{ref}
   Nous sommes section~\ref{ref},
   page~\pageref{ref},
-  \vpageref{ref}.
       \end{lstlisting}
     \end{column}
     \begin{column}{0.5\textwidth}
       \label{id}
       \par{}Nous sommes section~\ref{id},
       page~\pageref{id},
-      \vpageref{id}.
     \end{column}
   \end{columns}
 \end{frame}
@@ -1118,6 +1130,7 @@ the end of the universe.
 \end{frame}
 
 %-------------------
+\begin{comment}
 \subsection{Bibliographie}
 \begin{frame}[fragile]
   \frametitle{\insertsubsection}
@@ -1197,6 +1210,7 @@ remarquable jamais publié par les éditeurs de la Petite Ourse~\cite{h2g2}.
       \end{lstlisting}
   \end{itemize}
 \end{frame}
+\end{comment}
 
 
 %-------------------
@@ -1322,7 +1336,7 @@ remarquable jamais publié par les éditeurs de la Petite Ourse~\cite{h2g2}.
 \begin{frame}[fragile]{L'environnement mathématique}
 \framesubtitle{Inclure des formules dans le texte}
 \begin{itemize}
-	\item On peut ajouter une formule mathématique dans du texte entre deux symboles \textbf{\$} ou entre \lstinline|\( ... \)|.
+	\item On peut ajouter une formule mathématique dans du texte entre deux symboles \textbf{\$}.
 
 \begin{center}
   \begin{tabular}{lll}
@@ -1338,8 +1352,7 @@ remarquable jamais publié par les éditeurs de la Petite Ourse~\cite{h2g2}.
 			\lstinline|$a^11$| & $a^11$ & Bad ! \\
 			\lstinline|$\sin(x)$| & $\sin(x)$ & Good \\
 			\lstinline|$sin(x)$| & $sin(x)$ & Bad !\\
-			\lstinline|$\frac{\Theta}{\sqrt{\beta}}$| & $\frac{\Theta}{\sqrt{\beta}}$ & 
-		
+			\lstinline|$\frac{\Theta}{\sqrt{\beta}}$| & $\frac{\Theta}{\sqrt{\beta}}$ & Very good !	
 		\end{tabular}
 	\end{center}
 	\item Les packages \lstinline|amsmath| et \lstinline|amssymb| apportent beaucoup d'environements et symboles supplémentaires très utiles, à inclure par défaut.
@@ -1527,12 +1540,6 @@ We see in equation~\ref{first} that $x$ is smaller than $3$ and in equation~\ref
 			\end{tabular}
 	\end{center}
 	
-	\item Pour les intégrales, le \og dx \fg{} ne s'écrit pas n'importe comment.
-	\begin{center}
-			\begin{tabular}{ll}
-				\lstinline|$\int y \,\mathrm{d}x$| & $\int y \,\mathrm{d}x$\\
-			\end{tabular}
-	\end{center}
 	\item Les ensembles s'écrivent à l'aide de la police \lstinline|\mathbb|.
 	\begin{center}
 		\begin{tabular}{cccc}
@@ -1545,7 +1552,7 @@ We see in equation~\ref{first} that $x$ is smaller than $3$ and in equation~\ref
 \end{frame}
 
 \subsection{Large Operators}
-\begin{frame}[fragile,allowframebreaks]{Large Operators}
+\begin{frame}[fragile]{Large Operators}
 \begin{itemize}
 	\item Ces opérateurs mathématiques sont $\lim, \min, \max, \sum, \prod, \ldots$.
 	
@@ -1562,18 +1569,10 @@ $\min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1$
 Dans une équation, le résultat est : 
 \[ \min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1 \]
 \end{lstlisting}
-\framebreak
-	\item Pour quand même placer les indices/exposants au dessus/dessous, utiliser \lstinline|\limits| juste après l'opérateur.
-	\begin{center}
-	\begin{tabular}{ll}
-	\lstinline|$\min\limits_{x \in \mathbb{R}^n} x$| & $\min\limits_{x \in \mathbb{R}^n} x$\\
-	& \\
-	\lstinline|$\sum\limits_{i = 1}^n x_i = 1$| & $\sum\limits_{i = 1}^n x_i = 1$
-	\end{tabular}
-	\end{center}
 \end{itemize}
 \end{frame}
 
+\begin{comment}
 \subsection{Définir des commandes}
 %TODO : Exemple plus simple et \operatorname{}
 \begin{frame}[fragile]{Définition de commandes, plus d'excuse !}
@@ -1662,6 +1661,7 @@ Erreur courante: les ensembles ont besoin d'espacement (i.e. \lstinline|\,|) en 
   \end{column}
 \end{columns}
 \end{frame}
+\end{comment}
 
 \subsection{La physique}
 \begin{frame}[fragile]
@@ -1768,6 +1768,16 @@ else:
   \end{lstlisting}
   qui donne \lstinline|if a == b|.
 \end{frame}
+
+\subsection{Dessiner en LaTeX avec Tikz}
+\begin{frame}[fragile]
+\frametitle{Dessiner en LaTeX avec Tikz}
+	\begin{figure}[!ht] \centering
+		\includegraphics[width=0.4\textwidth]{img/turbine}
+	\end{figure}
+\end{frame}
+
+
 
 \subsection{Exercice 5} 
 \begin{frame}[fragile]{Cinquième exercice} 
