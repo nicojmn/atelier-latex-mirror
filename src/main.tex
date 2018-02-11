@@ -755,27 +755,8 @@ Justifié; c'est le comportement par défaut de \LaTeX{}
   \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{Description}
-  \begin{itemize}
-    \item L'environnement \lstinline|description| permet de faire des définitions.
-    \begin{lstlisting}[style=nonumbers]
-\begin{description}
-  \item[ODT] Open Document Text.
-  \item[ODS] Open Document Spreadsheet.
-  \item[ODP] Open Document Presentation.
-\end{description}
-    \end{lstlisting}
-    \begin{description}
-      \item[ODT] Open Document Text.
-      \item[ODS] Open Document Spreadsheet.
-      \item[ODP] Open Document Presentation.
-    \end{description}
-\end{itemize}
-\end{frame}
-
 \subsection{Divers}
-\begin{frame}[fragile]{Divers I}
+\begin{frame}[fragile]{Divers}
   \frametitle{Divers}
   \begin{itemize}
   \item Caractères spéciaux utilisés par \LaTeX
@@ -785,35 +766,20 @@ Justifié; c'est le comportement par défaut de \LaTeX{}
   \$ & \& & \% & \# & \_ & \{ & \} & \~{} & \^{} & \textbackslash
   \end{tabular}
   
-
  \item Tirets
    \begin{tabular}{llp{0.5\textwidth}}
      \lstinline|-| & court & Jean-Patrick\\
      \lstinline|--| & moyen ou semi-cadratin & 1984--2015\\
      \lstinline|---| & cadratin & le \LaTeX{} --- c'est chouette --- a été créé par Leslie Lamport\\
    \end{tabular}
- \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{Divers II}
-\begin{itemize}
-	\item Accents 
-	\\
-	\begin{tabular}{ccccccc}
-		\lstinline|\'e| & \lstinline|\`e| & \lstinline|\^e| & \lstinline|\~n| & \lstinline|\=a| & \lstinline|\.e| & \lstinline|\c c| \\ 
-		\'e & \`e & \^e & \~n & \=a & \.e & \c c \\
-		\lstinline|\u e| & \lstinline|\v e| & \lstinline|\H a| & \lstinline|\d a| & \lstinline|\b a| & \lstinline|\t a| &\\
-		\u e & \v e & \H a & \d a & \b a & \t a &
-	\end{tabular}
+    
 	\item Autres caractères
 	\begin{itemize}
 		\item \lstinline|M\up{me}| pour M\up{me}
 		\item \lstinline|1\ier{} 2\ieme{}| pour 1\ier{} et 2\ieme{}
 		\item \lstinline|\no \No| pour \no et \No
-		\item \lstinline|\degres C| pour \degres C
-		%\item \lstinline|\og{} \fg{}| pour \og{} \fg{}. \textcolor{red}{Attention, ne pas utiliser "}
 	\end{itemize}
-\end{itemize}
+ \end{itemize}
 \end{frame}
 
 %-----------------------
@@ -1502,29 +1468,6 @@ I also know that
 			\end{lstlisting}	
 		\end{column}
 	\end{columns}
-\framebreak
-\item Possibilité de référencer les équation en plaçant \lstinline|\label| à la fin de la ligne dans l'environnement \lstinline|align|.
-\vspace{0.5cm}
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			We see in equation~\ref{first} that $x$ is smaller than $3$ and in equation~\ref{third} that $y$ is greater than $x$. 
-			\begin{align}
-				x & < 3 \label{first} \\
-				y & > 5 \label{second} \\
-				y & > x \label{third}
-			\end{align}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-		\begin{lstlisting}[style=nonumbers]
-We see in equation~\ref{first} that $x$ is smaller than $3$ and in equation~\ref{third} that $y$ is greater than $x$. 
-\begin{align}
-  x & < 3 \label{first} \\
-  y & > 5 \label{second} \\
-  y & > x \label{third}
-\end{align}
-		\end{lstlisting}
-		\end{column}
-	\end{columns}
 \end{itemize}
 \end{frame}
 
@@ -1801,7 +1744,8 @@ else:
 
 \AtBeginSection[]{} %% stop TOC
 
-\section{Conclusion}
+\section{Ressources}
+\subsection{conclusion}
 \begin{frame}
   \frametitle{Pour aller plus loin}
   Chercher de l'information:
@@ -1833,6 +1777,50 @@ else:
 		\item[Exercice 5] \url{http://bit.ly/2dz9nlG}
 	\end{description}
 \end{frame}
+\subsection{documentation supplémentaire}
+\begin{frame}[fragile]
+  \frametitle{Description}
+  \begin{itemize}
+    \item L'environnement \lstinline|description| permet de faire des définitions.
+    \begin{lstlisting}[style=nonumbers]
+\begin{description}
+  \item[ODT] Open Document Text.
+  \item[ODS] Open Document Spreadsheet.
+  \item[ODP] Open Document Presentation.
+\end{description}
+    \end{lstlisting}
+    \begin{description}
+      \item[ODT] Open Document Text.
+      \item[ODS] Open Document Spreadsheet.
+      \item[ODP] Open Document Presentation.
+    \end{description}
+\end{itemize}
+\end{frame}
+
+\subsection{Formules numérotées}
+
+\begin{frame}
+ \frametitle{Formules Numérotées +}
+		\begin{column}{0.5\textwidth}
+			We see in equation~\ref{first} that $x$ is smaller than $3$ and in equation~\ref{third} that $y$ is greater than $x$. 
+			\begin{align}
+				x & < 3 \label{first} \\
+				y & > 5 \label{second} \\
+				y & > x \label{third}
+			\end{align}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+		\begin{lstlisting}[style=nonumbers]
+We see in equation~\ref{first} that $x$ is smaller than $3$ and in equation~\ref{third} that $y$ is greater than $x$. 
+\begin{align}
+  x & < 3 \label{first} \\
+  y & > 5 \label{second} \\
+  y & > x \label{third}
+\end{align}
+		\end{lstlisting}
+		\end{column}
+\end{frame}
+
 
 
 \end{document}
