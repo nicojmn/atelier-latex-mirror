@@ -520,7 +520,7 @@ Le sujet est en or mais pas le vif.
         \vfill
     \end{column}
 	\end{columns}
-  Cliquez sur \og{}Clone this project\fg{} pour commencer à écrire.
+  Essayez de recopier les pdf disponibles ci-dessus.
   \vspace{0.25cm}
   
   Dans cet exercice, on vous invite à:
@@ -805,6 +805,353 @@ Justifié; c'est le comportement par défaut de \LaTeX{}
 \end{frame}
 
 %-----------------------
+
+\section{Mathématiques}
+
+\subsection{Écrire des mathématiques}
+\begin{frame}[fragile]{L'environnement mathématique}
+\framesubtitle{Inclure des formules dans le texte}
+\begin{itemize}
+	\item On peut ajouter une formule mathématique dans du texte entre deux symboles \textbf{\$}.
+
+\begin{center}
+  \begin{tabular}{lll}
+    \lstinline|$x + 1 = 2$| & $x + 1 = 2$\\
+    \medskip
+    \lstinline|$\frac{1}{x}$| & $\frac{1}{x}$\\
+  \end{tabular}
+\end{center}
+	\item Les opérateurs, symboles,\dots{} commencent par \textbf{\textbackslash}, sauf \lstinline|+, -, /, ^, _,|\dots
+	\begin{center}
+		\begin{tabular}{llr}
+			\lstinline|$a^{11}$| & $a^{11}$ & Good \\
+			\lstinline|$a^11$| & $a^11$ & Bad ! \\
+			\lstinline|$\sin(x)$| & $\sin(x)$ & Good \\
+			\lstinline|$sin(x)$| & $sin(x)$ & Bad !\\
+			\lstinline|$\frac{\Theta}{\sqrt{\beta}}$| & $\frac{\Theta}{\sqrt{\beta}}$ & Very good !	
+		\end{tabular}
+	\end{center}
+	\item Les packages \lstinline|amsmath| et \lstinline|amssymb| apportent beaucoup d'environements et symboles supplémentaires très utiles, à inclure par défaut.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{L'environnement mathématique}
+\framesubtitle{Inclure des formules centrées hors du texte}
+
+\begin{itemize}
+\item On peut aussi ajouter une formule mathématique centrée hors du texte entre \lstinline|\[ ... \]|.
+\vspace{0.5cm}
+\begin{columns}
+  \begin{column}{0.45\textwidth}
+    L'expression $\sin(x)$ peut s'écrire de différents manières. En effet, il a été démontré que 
+    
+    \[ \sin(x) = \frac{e^{iz} - e^{-iz}}{2i} \]
+
+    avec $i$ étant l'unité imaginaire.
+  \end{column}
+  \begin{column}{0.45\textwidth}
+    \begin{lstlisting}[style = nonumbers]
+L'expression $\sin(x)$ peut s'écrire de différents manières. En effet, il a été démontré que 
+
+\[
+  \sin(x) =
+  \frac{e^{iz} - e^{-iz}}{2i}
+\]
+
+avec $i$ étant l'unité imaginaire.
+    \end{lstlisting}
+  \end{column}
+\end{columns}
+
+\end{itemize}
+\end{frame}
+\subsection{Matrices}
+\begin{frame}[fragile]{Matrices}
+	\begin{itemize}
+		\item Les matrices s'écrivent avec l'environnement \lstinline|matrix| (fonctionnement semblable à \lstinline|tabular|).
+			\begin{columns}
+				\begin{column}{0.45\textwidth}
+                  \[\begin{matrix}
+						\alpha & \beta \\
+						\gamma & \delta \\
+                  \end{matrix}\]
+				\end{column}
+				\begin{column}{0.45\textwidth}
+					\begin{lstlisting}[style=nonumbers]
+\[
+  \begin{matrix}	
+    \alpha & \beta \\
+    \gamma & \delta \\
+  \end{matrix}
+\]
+					\end{lstlisting}
+				\end{column}
+			\end{columns}
+          \item On ajoute des délimiteurs avec \lstinline|pmatrix|,\lstinline|vmatrix|,\ldots{}
+			\begin{columns}
+				\begin{column}{0.45\textwidth}
+                  \[\begin{pmatrix}
+						a + b & c \\
+						d & e + f \\
+                  \end{pmatrix}\]
+				\end{column}
+				\begin{column}{0.45\textwidth}
+					\begin{lstlisting}[style=nonumbers]
+\[
+  \begin{pmatrix}
+    a + b & c \\
+    d & e + f \\
+  \end{pmatrix}
+\]
+					\end{lstlisting}
+				\end{column}
+			\end{columns}
+			
+		\begin{center}
+		\begin{tabular}{ll}
+			\lstinline|bmatrix| & [ ] \\
+			\lstinline|Bmatrix| & \{ \} \\
+			\lstinline|pmatrix| & ( ) \\
+			\lstinline|vmatrix| & | | \\
+			\lstinline|Vmatrix| & || || \\
+			\lstinline|smallmatrix| & petite matrice
+		\end{tabular}
+		\end{center}
+	\end{itemize}
+\end{frame}
+
+\subsection{Formules numérotées}
+\begin{frame}[fragile,allowframebreaks]{Formules numérotées}
+
+\begin{itemize}
+	\item L'environnement \lstinline|align| permet d'écrire des équations alignées et numérotées.
+	\item On peut ne pas numéroter une équation en plaçant \lstinline|\nonumber| à la fin de la ligne. 
+	
+	\vspace{0.50cm}
+\begin{columns}
+  \begin{column}{0.45\textwidth}
+I like trains and the equations
+\begin{align}
+  e^{i\pi} + 1 & = 0\\
+  f(t) & = A\cos(\omega t + \phi) \nonumber 
+\end{align}
+I also know that
+\begin{align*}
+  1 + 1 & = 2\\
+  2 + 3 & = 5
+\end{align*}
+  \end{column}
+  \begin{column}{0.4\textwidth}
+    \begin{lstlisting}[style = nonumbers]
+I like trains and the equations
+\begin{align}
+  e^{i\pi} + 1 & = 0\\
+  f(t) & = A\cos(\omega t + \phi) \nonumber 
+\end{align}
+I also know that
+\begin{align*}
+  1 + 1 & = 2\\
+  2 + 3 & = 5
+\end{align*}
+    \end{lstlisting}
+  \end{column}
+\end{columns}
+\framebreak
+	\item Utilisation de l'environnement \lstinline|aligned| pour faire un système d'équation (utilisation semblable à \lstinline|align|).
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\[ \left\{\begin{aligned}
+				x^2 + y &= 3 \\
+				\frac{y}{x} &= 0.42
+			\end{aligned}\right. \]
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{lstlisting}[style=nonumbers]
+\[ 
+	\left\{ 
+		\begin{aligned}
+		 x^2 + y &= 3 \\
+		 \frac{y}{x} &= 0.42
+		\end{aligned}
+	\right.
+\]
+			\end{lstlisting}	
+		\end{column}
+	\end{columns}
+\end{itemize}
+\end{frame}
+
+\subsection{Les maths et les polices}
+\begin{frame}[fragile]{Les maths et les polices}
+\begin{itemize}
+	\item Parfois, certaines variables sont composées de plusieurs lettres. On doit utiliser des polices différentes comme \lstinline|\mathrm| ou \lstinline|\mathsf|. \lstinline|\mathcal| produit des lettres \og calligraphiques \fg{}. 
+	\begin{center}
+			\begin{tabular}{lll}
+				\lstinline|$Var(x)$| & $Var(x)$ & Bad ! \\
+				\lstinline|$\mathrm{Var}(x)$| & $\mathrm{Var}(x)$ & Good \\
+				\lstinline|$\mathcal{M}$| & $\mathcal{M}$ &
+			\end{tabular}
+	\end{center}
+	
+	\item Les ensembles s'écrivent à l'aide de la police \lstinline|\mathbb|.
+	\begin{center}
+		\begin{tabular}{cccc}
+		\lstinline|$\mathbb{N}$| & $\mathbb{N}$ & \lstinline|$\mathbb{Z}$| & $\mathbb{Z}$ \\
+		\lstinline|$\mathbb{D}$| & $\mathbb{D}$ & \lstinline|$\mathbb{Q}$| & $\mathbb{Q}$ \\
+		\lstinline|$\mathbb{N}$| & $\mathbb{R}$ & \lstinline|$\mathbb{C}$| & $\mathbb{C}$			
+		\end{tabular}
+	\end{center}
+	\item Il est possible d'écrire du texte à l'intérieur des formules à l'aide de \lstinline|_\text|.
+	\begin{center}
+		\begin{tabular}{cccc}
+		 Avec & \lstinline|$Demo_\text{one}$| & $Demo_\text{one}$\\
+		 Sans & \lstinline|$Demo_{one}$| & $Demo_{one}$ 
+		\end{tabular}
+	\end{center}
+\end{itemize}	
+\end{frame}
+
+\subsection{Large Operators}
+\begin{frame}[fragile]{Large Operators}
+\begin{itemize}
+	\item Ces opérateurs mathématiques sont $\lim, \min, \max, \sum, \prod, \ldots$.
+	
+Quelle différence ? Leurs indices et exposant sont au dessus et en dessous et pas à leur droite.
+	\item Dans un texte, on obtient 
+	$\min_{x \in \mathbb{R}^n} \|x\| \text{~tel que~} \sum_{i = 1}^n x_i = 1$
+\begin{lstlisting}[style=nonumbers]
+Dans un texte, on obtient 
+$\min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1$
+\end{lstlisting}
+
+    \item Dans une équation, le résultat est : \[\min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1\]
+\begin{lstlisting}[style=nonumbers]
+Dans une équation, le résultat est : 
+\[ \min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1 \]
+\end{lstlisting}
+\item Une liste des opérateurs mathématiques les plus courant est disponible à cette adresse : \url{http://www.univ-irem.fr/lexique/res/Annexe_E_-_Liste_des_symboles_mathematiques_usuels__LaTeX_.pdf}
+\end{itemize}
+\end{frame}
+
+\begin{comment}
+\subsection{Définir des commandes}
+%TODO : Exemple plus simple et \operatorname{}
+\begin{frame}[fragile]{Définition de commandes, plus d'excuse !}
+
+\begin{itemize}
+	\item Définition de nouvelles commandes par \lstinline|\newcommand{nom}{définition}|
+	\item Dans un environnement mathématique, on utilise \lstinline|\DeclareMathOperator{nom}{définition}|
+	
+	\begin{lstlisting}[style=nonumbers]
+\DeclareMathOperator{\sumN}{\sum_{i=1}^n}
+
+\DeclareMathOperator{\var}{\mathrm{Var}}
+	\end{lstlisting}
+	
+	\begin{columns}
+		\begin{column}{0.5\textwidth}	
+          \[\var(x) = \pi\]
+            \[\sumN \frac{i}{i+1}\]
+		\end{column}	
+		\begin{column}{0.5\textwidth}	
+			\begin{lstlisting}[style=nonumbers]
+\[ \var(x) = \pi \]
+\[ \sumN \frac{i}{i+1} \]
+			\end{lstlisting}
+		\end{column}	
+	\end{columns}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{L'environnement mathématique}
+\framesubtitle{Forcer un espacement}
+Rarement utile !
+
+\begin{center}
+  \begin{tabular}{ll}
+    Commande & espacements en mu (espace normal${}={}$6mu)\\
+    \hline
+    \lstinline|\!|     & $-$3\\
+    \lstinline|\,|     &  3\\
+    \lstinline|\:|     &  4\\
+    \lstinline|\;|     &  5\\
+    \lstinline|\ |     &  6\\
+    \lstinline|\quad|  & 18\\
+    \lstinline|\qquad| & 36
+  \end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{L'environnement mathématique}
+\framesubtitle{Forcer un espacement : Exemples}
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+    \begin{lstlisting}
+\begin{align*}
+  a & = u + v + w + x + y\\
+    & \quad + z
+\end{align*}
+    \end{lstlisting}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+\begin{align*}
+  a & = u + v + w + x + y\\
+    & \quad + z
+\end{align*}
+  \end{column}
+\end{columns}
+
+Erreur courante: les ensembles ont besoin d'espacement (i.e. \lstinline|\,|) en compréhension mais pas en extension.
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+    \begin{lstlisting}
+\begin{align*}
+  \mathbb{R}_+ & = \{\, x \in \mathbb{R} \mid R \geq 0 \,\}\\
+  \mathbb{R}_+ & = \{\, x \in \mathbb{R} : R \geq 0 \,\}\\
+  \mathbb{N} & = \{0, 1, 2, 3, 4, \ldots\}\\
+\end{align*}
+    \end{lstlisting}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+\begin{align*}
+  \mathbb{R}_+ & = \{\, x \in \mathbb{R} \mid R \geq 0 \,\}\\
+  \mathbb{R}_+ & = \{\, x \in \mathbb{R} : R \geq 0 \,\}\\
+  \mathbb{N} & = \{0, 1, 2, 3, 4, \ldots\}\\
+\end{align*}
+  \end{column}
+\end{columns}
+\end{frame}
+\end{comment}
+
+\subsection{La physique}
+\begin{frame}[fragile]
+  \frametitle{Les unités}
+  \lstinline|\usepackage{siunitx}|
+  \begin{center}
+    \begin{tabular}{ll}
+      \num{314e-2} & \lstinline|\num{314e-2}|\\
+      \ang{42} & \lstinline|\ang{42}|\\
+      \si{g_{polymer}~mol_{cat}.s^{-1}} &
+      \lstinline|\si{g_{polymer}~mol_{cat}.s^{-1}}|\\
+      \si{\square\volt\cubic\lumen\per\farad} &
+      \lstinline|\si{\square\volt\cubic\lumen\per\farad}|\\
+      \SI{e-6}{\meter\per\second\per\ohm} &
+      \lstinline|\SI{e-6}{\meter\per\second\per\ohm}|\\
+      \SI[per-mode=symbol]{5.3e9}{m\per s} &
+      \lstinline|\SI[per-mode=symbol]{5.3e9}{m\per s}|\\
+      \SI[per-mode=symbol]{5.3e9}{\meter\per\second\per\ohm} &
+      \lstinline|\SI[per-mode=symbol]{5.3e9}{\meter\per\second\per\ohm}|\\
+      \SI[per-mode=fraction]{5e6}{\joule\per\second} &
+      \lstinline|\SI[per-mode=fraction]{5e6}{\joule\per\second}|\\
+      \SI{-273.15}{\celsius} &
+      \lstinline|\SI{-273.15}{\celsius}|
+    \end{tabular}
+  \end{center}
+  Super doc sur \url{http://ctan.org/pkg/siunitx}
+\end{frame}
+
+%-----------------------
 \section{Les environnements flottants}
 \subsection{Les figures}
 
@@ -1043,7 +1390,7 @@ de la largeur du texte.
 \subsection{Référencer des éléments du texte}
 \begin{frame}[fragile]
   \frametitle{\insertsubsection}
-  Pour faire référence à une page, section, figure, table, \dots:
+  Pour faire référence à une page, section, figure, table, équation mathématique, \dots:
   \begin{itemize}
     \item Mettre une étiquette (label) à l'endroit à référencer
       \begin{itemize}
@@ -1295,343 +1642,63 @@ remarquable jamais publié par les éditeurs de la Petite Ourse~\cite{h2g2}.
   }
 \end{frame}
 
+%%%%%%%%%%%%%
 
-%-----------------------
-\section{Sciences}
-\subsection{Écrire des mathématiques}
-\begin{frame}[fragile]{L'environnement mathématique}
-\framesubtitle{Inclure des formules dans le texte}
-\begin{itemize}
-	\item On peut ajouter une formule mathématique dans du texte entre deux symboles \textbf{\$}.
+\AtBeginSection[]{} %% stop TOC
 
-\begin{center}
-  \begin{tabular}{lll}
-    \lstinline|$x + 1 = 2$| & $x + 1 = 2$\\
-    \medskip
-    \lstinline|$\frac{1}{x}$| & $\frac{1}{x}$\\
-  \end{tabular}
-\end{center}
-	\item Les opérateurs, symboles,\dots{} commencent par \textbf{\textbackslash}, sauf \lstinline|+, -, /, ^, _,|\dots
-	\begin{center}
-		\begin{tabular}{llr}
-			\lstinline|$a^{11}$| & $a^{11}$ & Good \\
-			\lstinline|$a^11$| & $a^11$ & Bad ! \\
-			\lstinline|$\sin(x)$| & $\sin(x)$ & Good \\
-			\lstinline|$sin(x)$| & $sin(x)$ & Bad !\\
-			\lstinline|$\frac{\Theta}{\sqrt{\beta}}$| & $\frac{\Theta}{\sqrt{\beta}}$ & Very good !	
-		\end{tabular}
-	\end{center}
-	\item Les packages \lstinline|amsmath| et \lstinline|amssymb| apportent beaucoup d'environements et symboles supplémentaires très utiles, à inclure par défaut.
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{L'environnement mathématique}
-\framesubtitle{Inclure des formules centrées hors du texte}
-
-\begin{itemize}
-\item On peut aussi ajouter une formule mathématique centrée hors du texte entre \lstinline|\[ ... \]|.
-\vspace{0.5cm}
-\begin{columns}
-  \begin{column}{0.45\textwidth}
-    L'expression $\sin(x)$ peut s'écrire de différents manières. En effet, il a été démontré que 
-    
-    \[ \sin(x) = \frac{e^{iz} - e^{-iz}}{2i} \]
-
-    avec $i$ étant l'unité imaginaire.
-  \end{column}
-  \begin{column}{0.45\textwidth}
-    \begin{lstlisting}[style = nonumbers]
-L'expression $\sin(x)$ peut s'écrire de différents manières. En effet, il a été démontré que 
-
-\[
-  \sin(x) =
-  \frac{e^{iz} - e^{-iz}}{2i}
-\]
-
-avec $i$ étant l'unité imaginaire.
-    \end{lstlisting}
-  \end{column}
-\end{columns}
-
-\end{itemize}
-\end{frame}
-\subsection{Matrices}
-\begin{frame}[fragile]{Matrices}
+\section{Ressources}
+\subsection{conclusion}
+\begin{frame}
+  \frametitle{Pour aller plus loin}
+  Chercher de l'information:
 	\begin{itemize}
-		\item Les matrices s'écrivent avec l'environnement \lstinline|matrix| (fonctionnement semblable à \lstinline|tabular|).
-			\begin{columns}
-				\begin{column}{0.45\textwidth}
-                  \[\begin{matrix}
-						\alpha & \beta \\
-						\gamma & \delta \\
-                  \end{matrix}\]
-				\end{column}
-				\begin{column}{0.45\textwidth}
-					\begin{lstlisting}[style=nonumbers]
-\[
-  \begin{matrix}	
-    \alpha & \beta \\
-    \gamma & \delta \\
-  \end{matrix}
-\]
-					\end{lstlisting}
-				\end{column}
-			\end{columns}
-          \item On ajoute des délimiteurs avec \lstinline|pmatrix|,\lstinline|vmatrix|,\ldots{}
-			\begin{columns}
-				\begin{column}{0.45\textwidth}
-                  \[\begin{pmatrix}
-						a + b & c \\
-						d & e + f \\
-                  \end{pmatrix}\]
-				\end{column}
-				\begin{column}{0.45\textwidth}
-					\begin{lstlisting}[style=nonumbers]
-\[
-  \begin{pmatrix}
-    a + b & c \\
-    d & e + f \\
-  \end{pmatrix}
-\]
-					\end{lstlisting}
-				\end{column}
-			\end{columns}
-			
-		\begin{center}
-		\begin{tabular}{ll}
-			\lstinline|bmatrix| & [ ] \\
-			\lstinline|Bmatrix| & \{ \} \\
-			\lstinline|pmatrix| & ( ) \\
-			\lstinline|vmatrix| & | | \\
-			\lstinline|Vmatrix| & || || \\
-			\lstinline|smallmatrix| & petite matrice
-		\end{tabular}
-		\end{center}
+		\item \url{http://en.wikibooks.org/wiki/LaTeX}
+		\item \url{http://www.grappa.univ-lille3.fr/FAQ-LaTeX}
+            \item \url{http://www.andy-roberts.net/writing/latex}
+            \item \url{http://ctan.org/pkg/packagename} ou \lstinline[language=sh,morekeywords={texdoc}]{$ texdoc packagename}
+		\item Google est ton ami !
+            \item \url{http://www.sharelatex.com/learn}
+            \item La version de StackExchange spécialisée pour le \TeX:
+  \url{tex.stackexchange.com}.
+		\item Livres:
+		\begin{itemize}
+			\item \LaTeX HowTo par Sébastien Combéfis (EN/FR)
+			\item Framabook \LaTeX
+		\end{itemize}
+		\item \url{http://www.tablesgenerator.com/}
 	\end{itemize}
 \end{frame}
 
-\subsection{Formules numérotées}
-\begin{frame}[fragile,allowframebreaks]{Formules numérotées}
-
-\begin{itemize}
-	\item L'environnement \lstinline|align| permet d'écrire des équations alignées et numérotées.
-	\item On peut ne pas numéroter une équation en plaçant \lstinline|\nonumber| à la fin de la ligne. 
-	
-	\vspace{0.50cm}
-\begin{columns}
-  \begin{column}{0.45\textwidth}
-I like trains and the equations
-\begin{align}
-  e^{i\pi} + 1 & = 0\\
-  f(t) & = A\cos(\omega t + \phi) \nonumber 
-\end{align}
-I also know that
-\begin{align*}
-  1 + 1 & = 2\\
-  2 + 3 & = 5
-\end{align*}
-  \end{column}
-  \begin{column}{0.4\textwidth}
-    \begin{lstlisting}[style = nonumbers]
-I like trains and the equations
-\begin{align}
-  e^{i\pi} + 1 & = 0\\
-  f(t) & = A\cos(\omega t + \phi) \nonumber 
-\end{align}
-I also know that
-\begin{align*}
-  1 + 1 & = 2\\
-  2 + 3 & = 5
-\end{align*}
-    \end{lstlisting}
-  \end{column}
-\end{columns}
-\framebreak
-	\item Utilisation de l'environnement \lstinline|aligned| pour faire un système d'équation (utilisation semblable à \lstinline|align|).
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			\[ \left\{\begin{aligned}
-				x^2 + y &= 3 \\
-				\frac{y}{x} &= 0.42
-			\end{aligned}\right. \]
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\begin{lstlisting}[style=nonumbers]
-\[ 
-	\left\{ 
-		\begin{aligned}
-		 x^2 + y &= 3 \\
-		 \frac{y}{x} &= 0.42
-		\end{aligned}
-	\right.
-\]
-			\end{lstlisting}	
-		\end{column}
-	\end{columns}
-\end{itemize}
+\begin{frame}
+  \frametitle{Corrigés des exercices de ce cours}
+	\begin{description}
+		\item[Exercice 1] \url{http://bit.ly/2dBmaHo}
+		\item[Exercice 2] \url{http://bit.ly/2evTfWi}
+		\item[Exercice 3] \url{http://bit.ly/2dTdKcK}
+		\item[Exercice 4] \url{http://bit.ly/2dZBs7w}
+		\item[Exercice 5] \url{http://bit.ly/2dz9nlG}
+	\end{description}
 \end{frame}
-
-\subsection{Les maths et les polices}
-\begin{frame}[fragile]{Les maths et les polices}
-\begin{itemize}
-	\item Parfois, certaines variables sont composées de plusieurs lettres. On doit utiliser des polices différentes comme \lstinline|\mathrm| ou \lstinline|\mathsf|. \lstinline|\mathcal| produit des lettres \og calligraphiques \fg{}. 
-	\begin{center}
-			\begin{tabular}{lll}
-				\lstinline|$Var(x)$| & $Var(x)$ & Bad ! \\
-				\lstinline|$\mathrm{Var}(x)$| & $\mathrm{Var}(x)$ & Good \\
-				\lstinline|$\mathcal{M}$| & $\mathcal{M}$ &
-			\end{tabular}
-	\end{center}
-	
-	\item Les ensembles s'écrivent à l'aide de la police \lstinline|\mathbb|.
-	\begin{center}
-		\begin{tabular}{cccc}
-		\lstinline|$\mathbb{N}$| & $\mathbb{N}$ & \lstinline|$\mathbb{Z}$| & $\mathbb{Z}$ \\
-		\lstinline|$\mathbb{D}$| & $\mathbb{D}$ & \lstinline|$\mathbb{Q}$| & $\mathbb{Q}$ \\
-		\lstinline|$\mathbb{N}$| & $\mathbb{R}$ & \lstinline|$\mathbb{C}$| & $\mathbb{C}$			
-		\end{tabular}
-	\end{center}
-\end{itemize}	
-\end{frame}
-
-\subsection{Large Operators}
-\begin{frame}[fragile]{Large Operators}
-\begin{itemize}
-	\item Ces opérateurs mathématiques sont $\lim, \min, \max, \sum, \prod, \ldots$.
-	
-Quelle différence ? Leurs indices et exposant sont au dessus et en dessous et pas à leur droite.
-	\item Dans un texte, on obtient 
-	$\min_{x \in \mathbb{R}^n} \|x\| \text{~tel que~} \sum_{i = 1}^n x_i = 1$
-\begin{lstlisting}[style=nonumbers]
-Dans un texte, on obtient 
-$\min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1$
-\end{lstlisting}
-
-    \item Dans une équation, le résultat est : \[\min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1\]
-\begin{lstlisting}[style=nonumbers]
-Dans une équation, le résultat est : 
-\[ \min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1 \]
-\end{lstlisting}
-\end{itemize}
-\end{frame}
-
-\begin{comment}
-\subsection{Définir des commandes}
-%TODO : Exemple plus simple et \operatorname{}
-\begin{frame}[fragile]{Définition de commandes, plus d'excuse !}
-
-\begin{itemize}
-	\item Définition de nouvelles commandes par \lstinline|\newcommand{nom}{définition}|
-	\item Dans un environnement mathématique, on utilise \lstinline|\DeclareMathOperator{nom}{définition}|
-	
-	\begin{lstlisting}[style=nonumbers]
-\DeclareMathOperator{\sumN}{\sum_{i=1}^n}
-
-\DeclareMathOperator{\var}{\mathrm{Var}}
-	\end{lstlisting}
-	
-	\begin{columns}
-		\begin{column}{0.5\textwidth}	
-          \[\var(x) = \pi\]
-            \[\sumN \frac{i}{i+1}\]
-		\end{column}	
-		\begin{column}{0.5\textwidth}	
-			\begin{lstlisting}[style=nonumbers]
-\[ \var(x) = \pi \]
-\[ \sumN \frac{i}{i+1} \]
-			\end{lstlisting}
-		\end{column}	
-	\end{columns}
-
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{L'environnement mathématique}
-\framesubtitle{Forcer un espacement}
-Rarement utile !
-
-\begin{center}
-  \begin{tabular}{ll}
-    Commande & espacements en mu (espace normal${}={}$6mu)\\
-    \hline
-    \lstinline|\!|     & $-$3\\
-    \lstinline|\,|     &  3\\
-    \lstinline|\:|     &  4\\
-    \lstinline|\;|     &  5\\
-    \lstinline|\ |     &  6\\
-    \lstinline|\quad|  & 18\\
-    \lstinline|\qquad| & 36
-  \end{tabular}
-\end{center}
-\end{frame}
-
-\begin{frame}[fragile]{L'environnement mathématique}
-\framesubtitle{Forcer un espacement : Exemples}
-\begin{columns}
-  \begin{column}{0.5\textwidth}
-    \begin{lstlisting}
-\begin{align*}
-  a & = u + v + w + x + y\\
-    & \quad + z
-\end{align*}
-    \end{lstlisting}
-  \end{column}
-  \begin{column}{0.5\textwidth}
-\begin{align*}
-  a & = u + v + w + x + y\\
-    & \quad + z
-\end{align*}
-  \end{column}
-\end{columns}
-
-Erreur courante: les ensembles ont besoin d'espacement (i.e. \lstinline|\,|) en compréhension mais pas en extension.
-\begin{columns}
-  \begin{column}{0.5\textwidth}
-    \begin{lstlisting}
-\begin{align*}
-  \mathbb{R}_+ & = \{\, x \in \mathbb{R} \mid R \geq 0 \,\}\\
-  \mathbb{R}_+ & = \{\, x \in \mathbb{R} : R \geq 0 \,\}\\
-  \mathbb{N} & = \{0, 1, 2, 3, 4, \ldots\}\\
-\end{align*}
-    \end{lstlisting}
-  \end{column}
-  \begin{column}{0.5\textwidth}
-\begin{align*}
-  \mathbb{R}_+ & = \{\, x \in \mathbb{R} \mid R \geq 0 \,\}\\
-  \mathbb{R}_+ & = \{\, x \in \mathbb{R} : R \geq 0 \,\}\\
-  \mathbb{N} & = \{0, 1, 2, 3, 4, \ldots\}\\
-\end{align*}
-  \end{column}
-\end{columns}
-\end{frame}
-\end{comment}
-
-\subsection{La physique}
+\subsection{documentation supplémentaire}
 \begin{frame}[fragile]
-  \frametitle{Les unités}
-  \lstinline|\usepackage{siunitx}|
-  \begin{center}
-    \begin{tabular}{ll}
-      \num{314e-2} & \lstinline|\num{314e-2}|\\
-      \ang{42} & \lstinline|\ang{42}|\\
-      \si{g_{polymer}~mol_{cat}.s^{-1}} &
-      \lstinline|\si{g_{polymer}~mol_{cat}.s^{-1}}|\\
-      \si{\square\volt\cubic\lumen\per\farad} &
-      \lstinline|\si{\square\volt\cubic\lumen\per\farad}|\\
-      \SI{e-6}{\meter\per\second\per\ohm} &
-      \lstinline|\SI{e-6}{\meter\per\second\per\ohm}|\\
-      \SI[per-mode=symbol]{5.3e9}{m\per s} &
-      \lstinline|\SI[per-mode=symbol]{5.3e9}{m\per s}|\\
-      \SI[per-mode=symbol]{5.3e9}{\meter\per\second\per\ohm} &
-      \lstinline|\SI[per-mode=symbol]{5.3e9}{\meter\per\second\per\ohm}|\\
-      \SI[per-mode=fraction]{5e6}{\joule\per\second} &
-      \lstinline|\SI[per-mode=fraction]{5e6}{\joule\per\second}|\\
-      \SI{-273.15}{\celsius} &
-      \lstinline|\SI{-273.15}{\celsius}|
-    \end{tabular}
-  \end{center}
-  Super doc sur \url{http://ctan.org/pkg/siunitx}
+  \frametitle{Description}
+  \begin{itemize}
+    \item L'environnement \lstinline|description| permet de faire des définitions.
+    \begin{lstlisting}[style=nonumbers]
+\begin{description}
+  \item[ODT] Open Document Text.
+  \item[ODS] Open Document Spreadsheet.
+  \item[ODP] Open Document Presentation.
+\end{description}
+    \end{lstlisting}
+    \begin{description}
+      \item[ODT] Open Document Text.
+      \item[ODS] Open Document Spreadsheet.
+      \item[ODP] Open Document Presentation.
+    \end{description}
+\end{itemize}
 \end{frame}
+
 
 \subsection{La chimie}
 \begin{frame}[fragile]
@@ -1720,10 +1787,8 @@ else:
 	\end{figure}
 \end{frame}
 
-
-
-\subsection{Exercice 5} 
-\begin{frame}[fragile]{Cinquième exercice} 
+\subsection{Exercice complémentaire} 
+\begin{frame}[fragile]{Exercice complémentaire} 
   \begin{center}\large 
     Exemple de résultat: 
 
@@ -1739,88 +1804,5 @@ else:
     \item écrire encore plus d'équations si vous êtes motivés. 
   \end{itemize} 
 \end{frame} 
-
-%%%%%%%%%%%%%
-
-\AtBeginSection[]{} %% stop TOC
-
-\section{Ressources}
-\subsection{conclusion}
-\begin{frame}
-  \frametitle{Pour aller plus loin}
-  Chercher de l'information:
-	\begin{itemize}
-		\item \url{http://en.wikibooks.org/wiki/LaTeX}
-		\item \url{http://www.grappa.univ-lille3.fr/FAQ-LaTeX}
-            \item \url{http://www.andy-roberts.net/writing/latex}
-            \item \url{http://ctan.org/pkg/packagename} ou \lstinline[language=sh,morekeywords={texdoc}]{$ texdoc packagename}
-		\item Google est ton ami !
-            \item \url{http://www.sharelatex.com/learn}
-            \item La version de StackExchange spécialisée pour le \TeX:
-  \url{tex.stackexchange.com}.
-		\item Livres:
-		\begin{itemize}
-			\item \LaTeX HowTo par Sébastien Combéfis (EN/FR)
-			\item Framabook \LaTeX
-		\end{itemize}
-		\item \url{http://www.tablesgenerator.com/}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Corrigés des exercices de ce cours}
-	\begin{description}
-		\item[Exercice 1] \url{http://bit.ly/2dBmaHo}
-		\item[Exercice 2] \url{http://bit.ly/2evTfWi}
-		\item[Exercice 3] \url{http://bit.ly/2dTdKcK}
-		\item[Exercice 4] \url{http://bit.ly/2dZBs7w}
-		\item[Exercice 5] \url{http://bit.ly/2dz9nlG}
-	\end{description}
-\end{frame}
-\subsection{documentation supplémentaire}
-\begin{frame}[fragile]
-  \frametitle{Description}
-  \begin{itemize}
-    \item L'environnement \lstinline|description| permet de faire des définitions.
-    \begin{lstlisting}[style=nonumbers]
-\begin{description}
-  \item[ODT] Open Document Text.
-  \item[ODS] Open Document Spreadsheet.
-  \item[ODP] Open Document Presentation.
-\end{description}
-    \end{lstlisting}
-    \begin{description}
-      \item[ODT] Open Document Text.
-      \item[ODS] Open Document Spreadsheet.
-      \item[ODP] Open Document Presentation.
-    \end{description}
-\end{itemize}
-\end{frame}
-
-\subsection{Formules numérotées}
-
-\begin{frame}
- \frametitle{Formules Numérotées +}
-		\begin{column}{0.5\textwidth}
-			We see in equation~\ref{first} that $x$ is smaller than $3$ and in equation~\ref{third} that $y$ is greater than $x$. 
-			\begin{align}
-				x & < 3 \label{first} \\
-				y & > 5 \label{second} \\
-				y & > x \label{third}
-			\end{align}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-		\begin{lstlisting}[style=nonumbers]
-We see in equation~\ref{first} that $x$ is smaller than $3$ and in equation~\ref{third} that $y$ is greater than $x$. 
-\begin{align}
-  x & < 3 \label{first} \\
-  y & > 5 \label{second} \\
-  y & > x \label{third}
-\end{align}
-		\end{lstlisting}
-		\end{column}
-\end{frame}
-
-
 
 \end{document}
