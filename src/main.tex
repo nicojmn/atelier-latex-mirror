@@ -6,6 +6,7 @@
 \usepackage{framed}
 \usepackage{mdframed}
 \usepackage{epstopdf}
+\usepackage{xspace}
 
 \newcommand{\badet}{et}
 \newcommand{\goodet}{\mathbin{\mathrm{et}}}
@@ -43,6 +44,7 @@
 {ü}{{\"u}}1
 {ç}{{\c{c}}}1
 }
+\lstset{keepspaces}
 
 \logo{\includegraphics[height=5mm]{logo_12-13-mini.png}}
 \institute{Louvain-li-Nux}
@@ -615,21 +617,20 @@ Exponentielle lui répond : Je m'en fiche !
 \begin{frame}[fragile]{Changer la fonte de la police}
 
 \begin{itemize}
-\item Type de police
-\begin{center}
-\begin{tabular}{ll}
-\lstinline|\textrm{Serif (par défaut)}| & \textrm{Serif (par défaut)} \\
-\lstinline|\texttt{Machine à écrire}| & \texttt{Machine à écrire}
-\end{tabular}
-\end{center}
-
+    \item Mise en emphase:
+    \begin{center}
+    \begin{tabular}{ll}
+    \lstinline|\emph{Emphase}| & Mise en \emph{emphase} du texte
+    \end{tabular}
+    \end{center}
 \item Style de police
 \begin{center}
 \begin{tabular}{ll}
-\lstinline|\emph{Emphase}| & \emph{Emphase} \\
 \lstinline|\textbf{Gras}| & \textbf{Gras} \\
 \lstinline|\textit{Italique}| & \textsl{Italique} \\
-\lstinline|\textsc{Petites majuscules}| & \textsc{Petites majuscules}
+\lstinline|\textsc{Petites majuscules}| & \textsc{Petites majuscules} \\
+\lstinline|\texttt{Machine à écrire}| & \texttt{Machine à écrire} \\
+\lstinline|\textrm{Serif (par défaut)}| & \textrm{Serif (par défaut)}
 \end{tabular}
 \end{center}
 \end{itemize}
