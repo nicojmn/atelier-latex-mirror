@@ -1404,6 +1404,8 @@ I also know that
 			\begin{tabular}{lll}
 				\lstinline|$Var(x)$| & $Var(x)$ & Bad ! \\
 				\lstinline|$\mathrm{Var}(x)$| & $\mathrm{Var}(x)$ & Good \\
+				\lstinline|$F_{machine}$| & $F_{machine}$ & Bad ! \\
+				\lstinline|$F_\mathrm{machine}$| & $F_\mathrm{machine}$ & Good \\
 				\lstinline|$\mathcal{M}$| & $\mathcal{M}$ &
 			\end{tabular}
 	\end{center}
@@ -1416,35 +1418,24 @@ I also know that
 		\lstinline|$\mathbb{N}$| & $\mathbb{R}$ & \lstinline|$\mathbb{C}$| & $\mathbb{C}$			
 		\end{tabular}
 	\end{center}
-	\item Il est possible d'écrire du texte à l'intérieur des formules à l'aide de \lstinline|_\text|.
-	\begin{center}
-		\begin{tabular}{cccc}
-		 Avec & \lstinline|$Demo_\text{one}$| & $Demo_\text{one}$\\
-		 Sans & \lstinline|$Demo_{one}$| & $Demo_{one}$ 
-		\end{tabular}
-	\end{center}
 \end{itemize}	
 \end{frame}
 
 \subsection{Large Operators}
 \begin{frame}[fragile]{Large Operators}
 \begin{itemize}
-	\item Ces opérateurs mathématiques sont $\lim, \min, \max, \sum, \prod, \ldots$.
-	
-Quelle différence ? Leurs indices et exposant sont au dessus et en dessous et pas à leur droite.
-	\item Dans un texte, on obtient 
-	$\min_{x \in \mathbb{R}^n} \|x\| \text{~tel que~} \sum_{i = 1}^n x_i = 1$
-\begin{lstlisting}[style=nonumbers]
-Dans un texte, on obtient 
-$\min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1$
-\end{lstlisting}
-
-    \item Dans une équation, le résultat est : \[\min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1\]
-\begin{lstlisting}[style=nonumbers]
-Dans une équation, le résultat est : 
-\[ \min_{x \in \mathbb{R}^n} \|x\| \text{tel que} \sum_{i = 1}^n x_i = 1 \]
-\end{lstlisting}
-\item Une liste des opérateurs mathématiques les plus courant est disponible à cette adresse : \url{http://www.univ-irem.fr/lexique/res/Annexe_E_-_Liste_des_symboles_mathematiques_usuels__LaTeX_.pdf}
+	\item Voici quelques opérateurs utiles:
+	\begin{center}
+		\begin{tabular}{lll}
+		\lstinline|\min_{x \in \mathbb{R}}| & $\min_{x \in \mathbb{R}}$ & $\displaystyle\min_{x \in \mathbb{R}}$ \\
+		\lstinline|\max_{x \in \mathbb{R}}| & $\max_{x \in \mathbb{R}}$ & $\displaystyle\max_{x \in \mathbb{R}}$ \\
+		\lstinline|\lim_{x \to \infty}| & $\lim_{x \to \infty}$ & $\displaystyle\lim_{x \to \infty}$ \\
+		\lstinline|\sum_{i=1}^n| & $\sum_{i=1}^n$ & $\displaystyle\sum_{i=1}^n$ \\
+		\lstinline|\prod_{i=1}^n| & $\prod_{i=1}^n$ & $\displaystyle\prod_{i=1}^n$
+		\end{tabular}
+	\end{center}
+	\item Le résultat ne sera pas le même qu'on soit dans un texte ou dans une équation.
+	\item Une liste des opérateurs mathématiques les plus courant est disponible à cette adresse : \url{http://www.univ-irem.fr/lexique/res/Annexe_E_-_Liste_des_symboles_mathematiques_usuels__LaTeX_.pdf}
 \end{itemize}
 \end{frame}
 
@@ -1542,7 +1533,8 @@ Erreur courante: les ensembles ont besoin d'espacement (i.e. \lstinline|\,|) en 
 \subsection{La physique}
 \begin{frame}[fragile]
   \frametitle{Les unités}
-  \lstinline|\usepackage{siunitx}|
+  \begin{itemize}
+  	\item Le package \lstinline|\usepackage{siunitx}| permet de gérer l'utilisation d'unités dans vos formules.
   \begin{center}
     \begin{tabular}{ll}
       \num{314e-2} & \lstinline|\num{314e-2}|\\
@@ -1551,8 +1543,8 @@ Erreur courante: les ensembles ont besoin d'espacement (i.e. \lstinline|\,|) en 
       \lstinline|\si{g_{polymer}~mol_{cat}.s^{-1}}|\\
       \si{\square\volt\cubic\lumen\per\farad} &
       \lstinline|\si{\square\volt\cubic\lumen\per\farad}|\\
-      \SI{e-6}{\meter\per\second\per\ohm} &
-      \lstinline|\SI{e-6}{\meter\per\second\per\ohm}|\\
+      \SI{5e-6}{\meter\per\second\per\ohm} &
+      \lstinline|\SI{5e-6}{\meter\per\second\per\ohm}|\\
       \SI[per-mode=symbol]{5.3e9}{m\per s} &
       \lstinline|\SI[per-mode=symbol]{5.3e9}{m\per s}|\\
       \SI[per-mode=symbol]{5.3e9}{\meter\per\second\per\ohm} &
@@ -1563,7 +1555,64 @@ Erreur courante: les ensembles ont besoin d'espacement (i.e. \lstinline|\,|) en 
       \lstinline|\SI{-273.15}{\celsius}|
     \end{tabular}
   \end{center}
-  Super doc sur \url{http://ctan.org/pkg/siunitx}
+  \item Super doc sur \url{http://ctan.org/pkg/siunitx}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Quatrième exercice}
+	\begin{center}
+		\fbox{\includegraphics[width=0.8\textwidth,trim={2cm 16cm 2cm 2cm},clip]{exercices/exercice_4.pdf}}
+	\end{center}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]{Quatrième exercice (solution)}
+\begin{center}
+\begin{lstlisting}[style=nonumbers,basicstyle=\tiny]
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+
+\begin{document}
+Un système diagonal à résoudre:
+\begin{equation}
+	\begin{bmatrix}
+		2 & 1 & 0 & 0\\
+		1 & 2 & 1 & 0\\
+		0 & 1 & 2 & 1\\
+		0 & 0 & 1 & 2
+	\end{bmatrix}
+	\begin{bmatrix}
+		u_1 \\ u_2 \\ u_3 \\ u_4
+	\end{bmatrix} =
+	\begin{bmatrix}
+		1 \\ 1 \\ 1 \\ 1
+	\end{bmatrix}
+\end{equation}
+Plusieurs équations alignées et numérotées:
+\begin{align}
+	x^2 + y^2 &= r^2 \\
+	y^2 &= r^2 - x^2
+\end{align}
+\end{lstlisting}
+\framebreak
+\begin{lstlisting}[style=nonumbers,basicstyle=\tiny]
+Une grosse équation:
+\begin{equation} 
+	\eta_{th} = 1 - \frac{Q_{II}}{Q_I} = 1 - \left(\frac{T_4-T_1}{T_3-T_2}\right) = 1 - \left(\frac{1}{\tau^{\gamma-1}}\right) 
+\end{equation}
+Un exemple d'unités en \LaTeX:
+\begin{equation}
+	v_\mathrm{max} = \SI{300}{\meter\per\second}
+\end{equation}
+\end{document}
+\end{lstlisting}
+\end{center}
+
 \end{frame}
 
 \AtBeginSection[]{} %% stop TOC
@@ -1575,6 +1624,7 @@ Erreur courante: les ensembles ont besoin d'espacement (i.e. \lstinline|\,|) en 
   Chercher de l'information:
 	\begin{itemize}
 		\item \url{http://en.wikibooks.org/wiki/LaTeX}
+		\item \url{http://bertrandmasson.free.fr/}
 		\item \url{http://www.grappa.univ-lille3.fr/FAQ-LaTeX}
             \item \url{http://www.andy-roberts.net/writing/latex}
             \item \url{http://ctan.org/pkg/packagename} ou \lstinline[language=sh,morekeywords={texdoc}]{$ texdoc packagename}
@@ -1587,20 +1637,9 @@ Erreur courante: les ensembles ont besoin d'espacement (i.e. \lstinline|\,|) en 
 			\item \LaTeX HowTo par Sébastien Combéfis (EN/FR)
 			\item Framabook \LaTeX
 		\end{itemize}
-		\item \url{http://www.tablesgenerator.com/}
 	\end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Corrigés des exercices de ce cours}
-	\begin{description}
-		\item[Exercice 1] \url{http://bit.ly/2dBmaHo}
-		\item[Exercice 2] \url{http://bit.ly/2evTfWi}
-		\item[Exercice 3] \url{http://bit.ly/2dTdKcK}
-		\item[Exercice 4] \url{http://bit.ly/2dZBs7w}
-		\item[Exercice 5] \url{http://bit.ly/2dz9nlG}
-	\end{description}
-\end{frame}
 \subsection{documentation supplémentaire}
 \begin{frame}[fragile]
   \frametitle{Description}
@@ -1751,24 +1790,6 @@ Justifié; c'est le comportement par défaut de \LaTeX{}
     \end{columns}
   \end{itemize}	
 \end{frame}
-
-\subsection{Exercice complémentaire} 
-\begin{frame}[fragile]{Exercice complémentaire} 
-  \begin{center}\large 
-    Exemple de résultat: 
-
-    \vspace{0.25cm} 
-    \fbox{\url{http://bit.ly/2dz86v0}} 
-  \end{center} 
-   
-  Dans cet exercice, on vous invite à: 
-  \begin{itemize} 
-    \item écrire des équations dans et hors du texte; 
-    \item écrire un système d'équation et une matrice; 
-    \item écrire des équations référencées; 
-    \item écrire encore plus d'équations si vous êtes motivés. 
-  \end{itemize} 
-\end{frame} 
 
 \begin{frame}[fragile]{Jouer avec la police}
 \framesubtitle{Changer la taille de police}
