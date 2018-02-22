@@ -27,11 +27,28 @@
 \definecolor{darkgray}{rgb}{0.3,0.3,0.3}
 \usefonttheme[onlymath]{serif} % to see the difference when I do mathsf
 
+\lstset{literate=
+{á}{{\'a}}1
+{à}{{\`a}}1
+{À}{{\`A}}1
+{ã}{{\~a}}1
+{é}{{\'e}}1
+{è}{{\`e}}1
+{ê}{{\^e}}1
+{î}{{\^i}}1
+{í}{{\'i}}1
+{ó}{{\'o}}1
+{õ}{{\~o}}1
+{ú}{{\'u}}1
+{ü}{{\"u}}1
+{ç}{{\c{c}}}1
+}
+
 \logo{\includegraphics[height=5mm]{logo_12-13-mini.png}}
 \institute{Louvain-li-Nux}
 \title{\textbf{Formation \LaTeX}\\
 Introduction à l'écriture de documents avec \LaTeX}
-\author{Louis \textsc{Arys} \and Sébastien \textsc{de Longueville} \and Tux}
+\author{Louis \textsc{Arys} \and Adrien \textsc{Couplet} \and Gaëtan \textsc{Cassiers}}
 
 \date{5 octobre 2017}
 
@@ -41,6 +58,7 @@ Introduction à l'écriture de documents avec \LaTeX}
 %
 \begin{document}
 
+\begin{comment}
 %%%%%%%%%%%% SIDA
 \begin{landscape}
   \begin{frame}[noframenumbering,plain]
@@ -50,6 +68,7 @@ Introduction à l'écriture de documents avec \LaTeX}
   \end{frame}
 \end{landscape}
 %%%%%%%%%%%%
+\end{comment}
 
 \begin{frame}
   \begin{center}\Large
@@ -63,7 +82,7 @@ Introduction à l'écriture de documents avec \LaTeX}
 
 \begin{frame}
   \maketitle  
-  Merci à Jolan \textsc{Wolter}, Thomas \textsc{Vanzieleghem}, David \textsc{Ernst}, Matthieu \textsc{Baerts}, Arnaud \textsc{Cerckel}, Benoît \textsc{Legat}, Mattéo \textsc{Couplet}, Geoffroy \textsc{Jacquet} et Xavier \textsc{Lambein} pour la réalisation des précédentes versions de ces transparents
+  Merci à Jolan \textsc{Wolter}, Thomas \textsc{Vanzieleghem}, David \textsc{Ernst}, Matthieu \textsc{Baerts}, Arnaud \textsc{Cerckel}, Benoît \textsc{Legat}, Mattéo \textsc{Couplet}, Geoffroy \textsc{Jacquet}, Xavier \textsc{Lambein} et Sébastien \textsc{de Longueville} pour la réalisation des précédentes versions de ces transparents
 
 \end{frame}
 
@@ -81,10 +100,7 @@ Introduction à l'écriture de documents avec \LaTeX}
 \frametitle{Qu'est-ce que \LaTeX}
 
 \begin{itemize}
-\item \TeX{} $ \Rightarrow$ programme de mise en page
-\vspace{0.5cm}
-\item \LaTeX{} $ \Rightarrow$ ensemble de commandes qui seront
- interprétées par le programme \TeX
+\item \LaTeX{} $=$ méthode privilégiée d'écriture de documents scientifiques
  \vspace{0.5cm}
 \item \LaTeX{} $ \neq$ WYSIWYG (What You See Is What You Get)
 \end{itemize}
@@ -104,11 +120,8 @@ Introduction à l'écriture de documents avec \LaTeX}
 		\item références croisées
         \item \ldots{}
 	\end{itemize}
-	\item Séparation entre contenu et forme
-	\item Description du contenu indépendant de la forme
 	\item Gratuit
 	\item Stable, même pour les très gros documents
-	\item Possède une très bonne rétro compatibilité
   \end{itemize}
 \end{frame}
 
@@ -126,7 +139,6 @@ Introduction à l'écriture de documents avec \LaTeX}
 \begin{frame}{Pourquoi pas \LaTeX{}?}
 
   \begin{itemize}
-    \item Les tableaux\ldots{}
 	\item Prise en main plus longue que pour traitement de texte WYSIWYG
 	\item Je suis allergique à toute forme de code informatique
 	\item J'ai des actions Microsoft
@@ -173,26 +185,25 @@ Introduction à l'écriture de documents avec \LaTeX}
 	  \begin{itemize}
 	  	\item Distribution \LaTeX{} : \textbf{TeXLive}
           {\tiny (\lstinline|sudo apt install texlive-full|)}
-		\item Éditeur : \textbf{
-            \href{http://www.xm1math.net/texmaker/}{TeXMaker}, LaTeXila, Kile}
+		\item Éditeur : \textbf{\href{http://www.xm1math.net/texmaker/}{TeXMaker}}
 	  \end{itemize}
 	  \item Windows
 	  \begin{itemize}
-        \item Distribution \LaTeX{} : \textbf{\href{https://miktex.org/}{MiKTeX}}
+        \item Distribution \LaTeX{} : \textbf{TeXLive}
         \item Éditeur : \textbf{\href{http://www.xm1math.net/texmaker/}{TeXMaker}}
 	  \end{itemize}
 	  \item Mac OS
 	  \begin{itemize}
         \item Distribution \LaTeX{} : \textbf{\href{https://www.tug.org/mactex/}{MacTeX}}
-		\item Éditeur : \textbf{\href{http://www.xm1math.net/texmaker/}{TeXMaker}, TeXShop, iTeXMac}
+		\item Éditeur : \textbf{\href{http://www.xm1math.net/texmaker/}{TeXMaker}}
 	  \end{itemize}
 	  \item Dans votre navigateur
 	  \begin{itemize}
-		\item \textbf{\url{www.overleaf.com}}
   		\item \textbf{\url{www.sharelatex.com}}
+		\item \textbf{\url{www.overleaf.com}}
 	  \end{itemize}
   \end{itemize}
-  Par simplicité, nous utiliserons \textbf{Overleaf} dans ce cours.
+  Pour cet atelier, nous vous conseillons d'utiliser \textbf{TeXMaker} sur les PC UCL, sinon utiliser \textbf{overleaf} sur votre propre PC. 
 \end{frame}
 
 \subsection{Symboles spéciaux sur Mac}
@@ -321,10 +332,8 @@ Introduction à l'écriture de documents avec \LaTeX}
 
 \begin{frame}[fragile]{Les principales classes de document}
 \begin{tabular}{lp{8cm}}
-  \textbf{article} & pour les articles de journaux scientifiques, présentations, rapports courts,\dots \\
-  \textbf{report} & pour de plus long rapports de plusieurs chapitres, petits livres, thèses,\dots \\
-  \textbf{book} & pour de vrais livres.\\
-  \textbf{letter} & pour écrire des lettres.\\
+  \textbf{scrartcl} & pour les articles de journaux scientifiques, présentations, rapports courts,\dots \\
+  \textbf{scrreprt} & pour de plus long rapports de plusieurs chapitres, petits livres, thèses,\dots \\
   \textbf{beamer} & pour écrire des présentations (comme celle-ci).
 \end{tabular}
 \vspace{1cm}
@@ -339,8 +348,6 @@ Introduction à l'écriture de documents avec \LaTeX}
 \begin{tabular}{lp{8cm}}
   \textbf{10pt, 11pt, 12pt} & pour la taille de police.\\
   \textbf{a4paper, a5paper} & pour la taille de page.\\
-  \textbf{onecolumn, twocolumn} & pour faire plusieurs colonnes.\\
-  \textbf{landscape} & pour une mise en page paysage.\\
   \textbf{twoside} & pour des marges de livre
 \end{tabular}
 \vspace{1cm}
@@ -376,12 +383,11 @@ Introduction à l'écriture de documents avec \LaTeX}
 	\end{itemize}
 	\vspace{1cm}
 
-	\lstinline|\part{}|\\
-	\hspace{1cm} \lstinline|\chapter{}| \hspace{2cm}$\Longrightarrow$ \textcolor{red}{uniquement \textit{book} et \textit{report}}\\
-	\hspace{2cm} \lstinline|\section{}|\\
-	\hspace{3cm} \lstinline|\subsection{}| \\
-	\hspace{4cm} \lstinline|\subsubsection{}| \\
-	\hspace{5cm} \lstinline|\paragraph{}	| \\
+	\begin{itemize} 
+		\item \lstinline|\section{}|
+		\item \lstinline|\subsection{}|
+		\item \lstinline|\paragraph{}|
+	\end{itemize}
 
 \end{frame}
 
@@ -390,15 +396,24 @@ Introduction à l'écriture de documents avec \LaTeX}
 	\begin{columns}
       \begin{column}{0.5\textwidth}
         \begin{lstlisting}[style=nonumbers]
-\part{Ma partie}
-\section{Une section de mon document}
-\subsection{Ma sous-section}
+\section{Une section}
+\subsection{Une sous-section}
+\paragraph{Un paragraph} Le contenu de mon paragraphe
+
+Un paragraphe sans titre.
+La première ligne est toujours indentée.
+
+Un deuxième paragraphe sans titre.
+À nouveau la première ligne est indentée. 
         \end{lstlisting}
       \end{column}
       \begin{column}{0.5\textwidth}
-        \fbox{\includegraphics[width=1\textwidth]{structure_logique.png}}
+        \fbox{\includegraphics[width=1\textwidth,trim={1.5cm 14cm 1.5cm 1cm},clip]{examples/structure.pdf}}
       \end{column}
 	\end{columns}
+    \begin{itemize}
+	\item Pour créer un nouveau paragraphe, il suffit de faire deux retours à la ligne.
+    \end{itemize}
 \end{frame}
 
 %-----------------------
@@ -413,15 +428,16 @@ Introduction à l'écriture de documents avec \LaTeX}
 	\begin{columns}
       \begin{column}{0.5\textwidth}
         \begin{lstlisting}[style=nonumbers]
-\title{Formation \LaTeX}
+\subject{US Presidential Elections}
+\title{FBI Investigations}
+\subtitle{Russian interference in the 2016 United States elections}
 
 % Séparer les auteurs avec \and
-\author{Louis \textsc{Arys}
-        \and Sébastien \textsc{de Longueville}}
+\author{Donald Trump \and Vladimir Putin}
 
 \date{}               % pas de date
 \date{\today}         % aujourd'hui
-\date{5 october 2017} 
+\date{8 november 2016} 
 
 \begin{document}
 
@@ -431,8 +447,8 @@ Introduction à l'écriture de documents avec \LaTeX}
         \end{lstlisting}
       \end{column}
       \begin{column}{0.5\textwidth}
-		  \centering
-        \includegraphics[scale=0.35]{pdg.png}
+	\centering
+        \fbox{\includegraphics[width=1\textwidth,trim={1.5cm 10cm 1.5cm 1cm},clip]{examples/title.pdf}}
       \end{column}
 	\end{columns}
 \end{frame}
@@ -497,221 +513,10 @@ Le sujet est en or mais pas le vif.
 	\end{columns}
 \end{frame}
 
-\subsection{Exercice 1}
-\begin{frame}[fragile]{Premier exercice}
-  
-	\begin{columns}[T]
-    \begin{column}{0.5\textwidth}
-      \begin{center}\large
-        Template à refaire :
-        
-        \vspace{0.25cm}
-        \fbox{\url{http://bit.ly/2lXEyPH}}
-      \end{center}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      \begin{center}\large
-        \vfill
-        Code source du template:
-        
-        \vspace{0.25cm}
-        \fbox{\url{http://bit.ly/2wzoGVm}}
-      \end{center}
-        \vfill
-    \end{column}
-	\end{columns}
-  Essayez de recopier les pdf disponibles ci-dessus.
-  \vspace{0.25cm}
-  
-  Dans cet exercice, on vous invite à:
-  \begin{itemize}
-	  \item créer un \textbf{titre} de document;
-	  \item changer la \textbf{taille de police} du document;
-	  \item définir la structure de votre document avec quelques \textbf{sections} et \textbf{sous-sections};
-	  \item écrire un peu de \textbf{texte};
-	  \item générer la \textbf{table des matières} au début de votre document.
-  \end{itemize}
-\end{frame}
-
-%-----------------------
-\subsection{Paragraphes}
-\begin{frame}[fragile]{Les paragraphes avec \LaTeX{}}
-	\begin{itemize}
-	\item Pour créer un nouveau paragraphe, il suffit de faire deux retours à la ligne
-    \begin{columns}
-      \begin{column}{0.4\textwidth}
-    	  \begin{lstlisting}[style=nonumbers]
-Premier paragraphe.
-Ceci est toujours le premier
-paragraphe.
-
-Second paragraphe.
-	      \end{lstlisting}
-      \end{column}
-      \begin{column}{0.6\textwidth}
-        \setlength{\parindent}{1.5em}
-        \par{}Premier paragraphe.
-        Ceci est toujours le premier paragraphe.
-
-        Second paragraphe.
-        \setlength{\parindent}{0pt}
-      \end{column}
-    \end{columns}
-  \end{itemize}
-\end{frame}
-
-\subsection{Paragraphes}
-\begin{frame}[fragile]{Les paragraphes avec \LaTeX{}}
-\framesubtitle{Les styles de paragraphes}
-	\begin{itemize}
-	\setlength\itemsep{1em}
-	\item Par défaut, le style des paragraphes est défini par la langue
-
-	\item Ajouter de l'espace entre les paragraphes. Attention: ce package retire l'indentation.
-	  \begin{columns}
-	    \begin{column}{0.4\textwidth}
-    	  \begin{lstlisting}[style=nonumbers]
-\usepackage{parskip}
-	      \end{lstlisting}
-	    \end{column}
-	    \begin{column}{0.6\textwidth}
-        \par{}Ces deux paragraphes ont maintenant un espace entre eux.
-        \vspace{0.5em}
-
-        \par{}Cependant, l'indentation a disparue.
-	    \end{column}
-    \end{columns}
-  
-	\item Changer (ou remettre) l'indentation des paragraphes
-	  \begin{columns}
-	    \begin{column}{0.4\textwidth}
-	      \begin{lstlisting}[style=nonumbers]
-\setlength{\parindent}{30pt}
-    	  \end{lstlisting}
-	    \end{column}
-	    \begin{column}{0.6\textwidth}
-        \setlength{\parindent}{30pt}
-        \par{}Ce paragraphe est fortement indenté.
-        \setlength{\parindent}{0em}
-	    \end{column}
-    \end{columns}
-    
-\begin{comment}
-  \item Ajouter un espace interligne
-	  \begin{columns}
-	    \begin{column}{0.4\textwidth}
-        \begin{lstlisting}[style=nonumbers]
-\usepackage{setspace}
-\setstretch{1.5}
-        \end{lstlisting}
-	    \end{column}
-	    \begin{column}{0.6\textwidth}
-        \setlength{\parindent}{1.5em}
-        \setstretch{1.5}
-        \par{}Ce paragraphe a un espace interligne plus important que les autres.
-        \setlength{\parindent}{0em}
-	    \end{column}
-    \end{columns}
-\end{comment}
-  \end{itemize}
-  \setstretch{1.0}
-\end{frame}
-
-\begin{frame}[fragile]{Les paragraphes avec \LaTeX{}}
-  \framesubtitle{Alignement d'un paragraphe}
-  \begin{itemize}
-  	\item Les environnements \lstinline|center|, \lstinline|flushright| et \lstinline|flushleft| permettent d'aligner un paragraphe.
-    \begin{columns}
-      \begin{column}{0.4\textwidth}
-        \begin{lstlisting}[style=nonumbers]
-Justifié; c'est le comportement par défaut de \LaTeX{}  
-
-\begin{center}
-  Centré
-\end{center}
-
-\begin{flushright}
-  Aligné à droite
-\end{flushright}
-
-\begin{flushleft}
-  Aligné à gauche, mais pas justifié, comme vous pouvez le voir
-\end{flushleft}
-        \end{lstlisting}
-      \end{column}
-      \begin{column}{0.6\textwidth}
-        \begin{mdframed}
-          Justifié; c'est le comportement par défaut de \LaTeX{} 
-
-          \begin{center}
-            Centré
-          \end{center}
-
-          \begin{flushright}
-            Aligné à droite
-          \end{flushright}
-
-          \begin{flushleft}
-            Aligné à gauche, mais pas justifié, comme vous pouvez le voir
-          \end{flushleft}
-        \end{mdframed}
-      \end{column}
-    \end{columns}
-  \end{itemize}	
-\end{frame}
-
-
-%-----------------------
-\subsection{Les polices}
-
-\begin{frame}[fragile]{Jouer avec la police}
-\framesubtitle{Changer la taille de police}
-\begin{itemize}
-	\item \lstinline|{\small text}| pour changer la taille du texte à l'intérieur
-	\item \lstinline|\small| pour changer tout le texte jusqu'au prochain appel de \lstinline|\normalsize| 
-\end{itemize}
-\begin{tabular}{ll}
-\lstinline|{\tiny polygenelubricants}| & {\tiny polygenelubricants} \\
-\lstinline|{\small polygenelubricants}| & {\small polygenelubricants} \\
-\lstinline|{\normalsize polygenelubricants}| & {\normalsize polygenelubricants} \\
-\lstinline|{\large polygenelubricants}| & {\large polygenelubricants} \\
-\lstinline|{\Large polygenelubricants}| & {\Large polygenelubricants} \\
-\lstinline|{\LARGE polygenelubricants}| & {\LARGE polygenelubricants} \\
-\lstinline|{\huge polygenelubricants}| & {\huge polygenelubricants} \\
-\lstinline|{\Huge polygenelubricants}| & {\Huge polygenelubricants} \\
-\end{tabular}
-\end{frame}
-
-\begin{frame}[fragile]{Jouer avec les fontes}
-\framesubtitle{Changer le type et style de police}
-
-\begin{itemize}
-\item Type de police
-\begin{center}
-\begin{tabular}{ll}
-\lstinline|\textrm{Serif (par défaut)}| & \textrm{Serif (par défaut)} \\
-\lstinline|\textsf{Sans serif}| & \textsf{Sans serif} \\
-\lstinline|\texttt{Machine à écrire}| & \texttt{Machine à écrire}
-\end{tabular}
-\end{center}
-
-\item Style de police
-\begin{center}
-\begin{tabular}{ll}
-\lstinline|\emph{Emphase}| & \emph{Emphase} \\
-\lstinline|\textbf{Gras}| & \textbf{Gras} \\
-\lstinline|\textit{Italique}| & \textsl{Italique} \\
-\lstinline|\textsc{Petites majuscules}| & \textsc{Petites majuscules}
-\end{tabular}
-\end{center}
-\end{itemize}
-\end{frame}
-
-
 %-----------------------
 \subsection{Listes}
 \begin{frame}[fragile]
-  \frametitle{Itemize et enumerate}
+  \frametitle{Listes}
   \begin{itemize}
     \item Pour faire des listes à puce, utiliser l'environnement \lstinline|itemize|.
     \begin{columns}
@@ -755,6 +560,81 @@ Justifié; c'est le comportement par défaut de \LaTeX{}
   \end{itemize}
 \end{frame}
 
+\subsection{Exercice 1}
+\begin{frame}[fragile]{Premier exercice}
+\begin{center}
+\fbox{\includegraphics[height=7cm,trim={1.5cm 8cm 1.5cm 3cm},clip]{exercices/exercice_1.pdf}}
+\end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{Premier exercice (solution)}
+\begin{center}
+\begin{lstlisting}[style=nonumbers,basicstyle=\tiny]
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+
+\subject{LJOKE1230}
+\title{Synthèse du cours de Calembours I}
+\author{Adrien \and Louis}
+
+\begin{document}
+
+\maketitle
+
+\section{Analyse}
+\subsection{Fondements}
+Les démonstrations à connaître sont: implication, contraposition, equivalence et récurrence. 
+
+Les relations possibles sont: réflexive, symétrique, transitive ou antisymétrique.
+
+\section{Maths discrètes}
+\subsection{Définitions}
+Quel est le comble pour un cosinus ? Attraper une sinusite !
+
+\subsection{Principe des tiroirs}
+Logarithme et exponentielle sont dans un bateau. Tout à coup, Logarithme s'exclame, paniquée : Attention, on dérive !
+Exponentielle lui répond : Je m'en fiche !
+
+\begin{itemize}
+    \item Le Louvain-li-Nux n'est pas responsable de la qualité de ces blagues.
+    \item Ce sont des blagues dignes d'un mécatro...
+\end{itemize}
+
+\end{document}
+\end{lstlisting}
+\end{center}
+
+\end{frame}
+
+%-----------------------
+\subsection{Les polices}
+
+\begin{frame}[fragile]{Changer la fonte de la police}
+
+\begin{itemize}
+\item Type de police
+\begin{center}
+\begin{tabular}{ll}
+\lstinline|\textrm{Serif (par défaut)}| & \textrm{Serif (par défaut)} \\
+\lstinline|\texttt{Machine à écrire}| & \texttt{Machine à écrire}
+\end{tabular}
+\end{center}
+
+\item Style de police
+\begin{center}
+\begin{tabular}{ll}
+\lstinline|\emph{Emphase}| & \emph{Emphase} \\
+\lstinline|\textbf{Gras}| & \textbf{Gras} \\
+\lstinline|\textit{Italique}| & \textsl{Italique} \\
+\lstinline|\textsc{Petites majuscules}| & \textsc{Petites majuscules}
+\end{tabular}
+\end{center}
+\end{itemize}
+\end{frame}
+
 \subsection{Divers}
 \begin{frame}[fragile]{Divers}
   \frametitle{Divers}
@@ -782,27 +662,538 @@ Justifié; c'est le comportement par défaut de \LaTeX{}
  \end{itemize}
 \end{frame}
 
+
+
 %-----------------------
+\section{Les environnements flottants}
+\subsection{Les figures}
+
+\begin{frame}[fragile]
+  \frametitle{Figures I}
+  \begin{itemize}
+  
+  \item Utilisation du package \lstinline|\usepackage{graphicx}|
+  \item Insertion de l'image avec \lstinline|\includegraphics[options]{filename.ext}|  
+  
+  \item \textbf{Non-flottant}
+  
+    Référencement par ``ci-dessous'', \dots
+    \begin{lstlisting}[style=nonumbers]
+\begin{center}
+  \includegraphics{image.jpg}
+\end{center}
+    \end{lstlisting}
+  
+  \item \textbf{Flottant}
+  	\begin{itemize}
+  		\item Environnement \lstinline|figure|
+  		\item Ajout d'une référence par \lstinline|\label{...}|
+    	\item Référencement par \lstinline|voir figure~\ref{fig:graphique}|
+    	\item Ajout d'une légende par \lstinline|\caption{...}|
+    \end{itemize}
+    \begin{lstlisting}[style=nonumbers]
+\begin{figure}
+  \centering
+  \includegraphics{graph.png}
+  \caption{Voici un beau graphique}
+  \label{fig:graphique}
+\end{figure}
+    \end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Référencer des éléments du texte}
+  Pour faire référence à une page, section, figure, table, équation mathématique, \dots:
+  \begin{itemize}
+    \item Mettre une étiquette (label) à l'endroit à référencer
+      \begin{itemize}
+        \item \lstinline|\label{identifiant}|.
+      \end{itemize}
+    \item Mettre une référence à cette étiquette :
+      \begin{itemize}
+        \item \lstinline|\ref{identifiant}| pour le numéro de section, figure, table, équation;
+        \item \lstinline|\pageref{identifiant}| pour le numéro de page;
+      \end{itemize}
+    \item Séparer la référence avec une espace insécable \og{}\texttt{\textasciitilde}\fg{}.
+  \end{itemize}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{lstlisting}[style=nonumbers]
+  \label{ref}
+  Nous sommes section~\ref{ref},
+  page~\pageref{ref},
+      \end{lstlisting}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \label{id}
+      \par{}Nous sommes section~\ref{id},
+      page~\pageref{id},
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]\
+    \frametitle{Figures II}
+    \begin{itemize}
+ 
+  \item \textbf{Scaling}
+    \begin{lstlisting}[style=nonumbers]
+\includegraphics[width=0.7\textwidth]{image.jpg} % Largeur d'une ligne de texte
+\includegraphics[height=4cm]{image.jpg} % Hauteur de 4cm
+\includegraphics[scale=0.5]{image.png} % taille / 2
+    \end{lstlisting}
+
+  \vspace{2em}
+\end{itemize} 
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemple de figure}
+
+\begin{columns}
+    \begin{column}{0.5\textwidth}
+Sur la figure~\ref{fig:ucl}, vous pouvez voir le logo UCL
+mis a \SI{50}{\percent} de la largeur du texte.
+
+\begin{figure}[!ht]
+    \centering
+        \includegraphics[width=0.50\textwidth]{logo-ucl.eps}
+    \caption{Voici le logo UCL}
+    \label{fig:ucl}
+\end{figure}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\begin{lstlisting}[style=nonumbers]
+
+Sur la figure~\ref{fig:ucl}, vous pouvez 
+voir le logo UCL mis a 50\%
+de la largeur du texte.
+
+\begin{figure}
+    \centering
+        \includegraphics[width=0.50\textwidth]{logo-ucl.eps}
+    \caption{Voici le logo UCL}
+    \label{fig:ucl}
+\end{figure}
+\end{lstlisting}
+\end{column}
+\end{columns}
+
+\end{frame}
+
+
+\subsection{Les tableaux} 
+\begin{frame}[fragile,allowframebreaks]
+  \frametitle{Tableaux}
+  \begin{itemize}
+	\item \textbf{Code}
+  	\begin{lstlisting}[style=nonumbers]
+\begin{tabular}{<colonnes>}
+  <lignes>
+\end{tabular}
+  	\end{lstlisting}
+  	\begin{itemize}
+  		\item Définition de l'alignement des <colonnes> par :
+  			\begin{itemize}
+  				\item un \lstinline|l| pour aligner à gauche (\textit{left})
+  				\item un \lstinline|c| pour centrer (\textit{center})
+  				\item un \lstinline|r| pour aligner à droite (\textit{right})
+  				\item un \lstinline|p{<largeur>}| pour un texte justifié sur une largeur donnée
+  			\end{itemize}
+  		\item Une ligne verticale est tracée par \lstinline|||
+  		\item Le contenu des <lignes> est séparé par colonnes par \lstinline|&|
+  		\item Une <ligne> se termine par \lstinline|\\|
+  		\item Une ligne horizontale est tracée par \lstinline|\hline|
+  	\end{itemize}\framebreak
+	\item \textbf{Exemple}
+	\begin{lstlisting}
+\begin{tabular}{|lcrp{0.25\textwidth}|}
+  \hline
+  Gauche & Centré & Droite & Justifié\\
+  \hline
+  a & b & c & Le texte est trop long.\\
+  1 & 2 & 3 & Il passe donc à la ligne suivante.\\
+  \hline
+\end{tabular}
+	    \end{lstlisting}
+	  \item \textbf{Rendu}
+	\begin{table}[!ht] 
+	\centering
+	\begin{tabular}{|lcrp{0.25\textwidth}|}
+	  \hline
+	  Gauche & Centré & Droite & Justifié\\
+	  \hline
+	  a & b & c & Le texte est trop long.\\
+	  1 & 2 & 3 & Il passe donc à la ligne suivante.\\
+	  \hline
+	\end{tabular}
+	\end{table}
+	\framebreak
+
+  	\item \textbf{Non-flottant}
+  
+    Référencement par ``ci-dessous'', \dots
+    \begin{lstlisting}[style=nonumbers]
+\begin{center}
+    \begin{tabular}{...}
+        ...
+    \end{tabular}
+\end{center}
+    \end{lstlisting}
+    
+  \item \textbf{Flottant}
+  	\begin{itemize}
+  		\item Environnement \lstinline|table|
+    	\item Référencement par \lstinline|voir tableau~\ref{tab:data}|
+    \end{itemize}
+    \begin{lstlisting}
+\begin{table}
+  \centering
+  \begin{tabular}{...}
+    ...
+  \end{tabular}
+  \caption{Voici un beau tableau}
+  \label{tab:data}
+\end{table}
+    \end{lstlisting}
+    
+    
+  \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Exemple de tableau}
+\begin{footnotesize}
+\begin{lstlisting}[style=nonumbers]
+\begin{table}
+  \begin{center}
+    \begin {tabular}{|l||c|} %% 2 columns
+      \hline
+      \textit{Inventaire} & \textbf{Nombre} \\
+      \hline
+      Chemises  & 4   \\
+      Pulls     & 12  \\
+      Pantalons & 1   \\
+      \hline
+    \end{tabular}
+    \caption{Tableau relatif a l'inventaire}
+  \end{center}
+\end{table}
+\end{lstlisting}
+\end{footnotesize}
+\begin{center}
+\fbox{\includegraphics[width=0.6\textwidth]{table.jpg}}
+\end{center}
+\end{frame}
+
 \subsection{Exercice 2}
 \begin{frame}[fragile]{Deuxième exercice}
+\begin{center}
+\fbox{\includegraphics[height=7cm,trim={2cm 8cm 2cm 4cm},clip]{exercices/exercice_3.pdf}}
+\end{center}
+\end{frame}
 
+\begin{frame}[fragile]{Deuxième exercice (solution)}
+\begin{center}
+\begin{lstlisting}[style=nonumbers,basicstyle=\tiny]
+\documentclass[a4paper, 12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\begin{document}
+\section{L'histoire d'un Tux \label{sec:tux}}
+Il était une fois un petit pingouin appelé Tux.  Il était heureux et en bonne santé, mais il ne ressemblait à aucun autre 
+pingouin comme vous pouvez le voir sur la figure~\ref{fig:tux}. 
+\begin{figure}
+\centering
+\includegraphics[width=0.3\textwidth]{tux.jpeg}
+\caption{Tux en vacance (image issue de \url{https://frama.link/TuxEnVacances}}
+\label{fig:tux}
+\end{figure}
+Ce petit pingouin aime se dorer la pillule au soleil; avec un petit cocktail à la main. 
+
+\section{Mon beau tableau}
+Quittons nos histoires de Tux en vacances de la section~\ref{sec:tux} pour s'interésser au tableau~\ref{tab:Blabla} listant les 
+différents personnages de Blabla.
+\begin{table}
+\centering
+\begin{tabular}{|c||c|}\hline
+Nom & Rôle \\\hline\hline
+Blabla & personnage principal \\\hline
+Wilbur Disquedur & père de Blabla \\\hline
+Clic la Souris & meilleure amie de Blabla\\\hline
+\end{tabular}
+\caption{Liste non-exhaustive des personnages de l'émission Blabla}
+\label{tab:Blabla}
+\end{table}
+Cette magnifique émission, avec de magnifiques personnages qui est malheureusement terminée, à rythmé l'enfance de beaucoup 
+d'entre nous !
+
+\end{document}
+\end{lstlisting}
+\end{center}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Bibliographie}
+
+%-------------------
+\subsection{Notes de bas de page}
+\begin{frame}[fragile]
+  \frametitle{Notes de bas de page}
+  La commande \lstinline|\footnote{}| permet d'ajouter une note de bas de page:
+  \begin{lstlisting}[style=nonumbers]
+The earth\footnote{mostly harmless} was destroyed
+by Vogons\footnote{They have the worst poetry in the universe}.
+
+But Don't Panic\footnote{By the way, the answer is 42},
+even when you're at the restaurant at
+the end of the universe.
+  \end{lstlisting}
+  \begin{minipage}{\textwidth}
+    The earth\footnote{Mostly harmless} was destroyed
+    by Vogons\footnote{They have the worst poetry in the universe}.
+
+    But Don't Panic\footnote{By the way, the answer is 42},
+    even when you're at the restaurant at
+    the end of the universe.
+  \end{minipage}
+\end{frame}
+
+%-------------------
+\subsection{Bibliographie}
+\begin{frame}[fragile]
+  \frametitle{\insertsubsection}
+  \begin{itemize}
+    \item Avec \LaTeX{}, la bibliographie est séparée du reste dans un fichier \texttt{.bib} (par exemple: \texttt{biblio.bib}).
+    \item L'utilisation d'une bibliographie requièrent les paquets suivants :
+	\begin{itemize}
+	\item \lstinline|\usepackage[style=plain]{biblatex}|
+	\item \lstinline|\usepackage{csquotes}|.
+	\end{itemize}
+    \item On utilise le fichier \texttt{biblio.bib} dans le document via la commande \lstinline|\bibliography{biblio}|.
+    \item On cite un document avec la commande \lstinline|\cite{identifiant}|.
+    \item On affiche la bibliographie avec la commande \lstinline|\printbibliography|.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]
+\frametitle{Structure du fichier \texttt{.bib}}
+\begin{itemize}
+    \item Pour chaque référence bibliographique, on ajoute une entrée au fichier. Exemple avec un article de ce cher Laurent Francis:
+      \begin{lstlisting}[style=nonumbers]
+@inproceedings{ray2017challenges, 
+    title={Challenges of monolithic integration for SiGe MEMS technology}, 
+    author={Ray Chaudhuri, Ashesh and Severi, S and Helin, P and Francis, Laurent and Tilmans, HAC},
+    booktitle={15th IEEE Sensors Conference, SENSORS 2016},
+    year={2017} 
+}
+      \end{lstlisting}
+    Et un autre qui fit beaucoup de bruit:
+	\begin{lstlisting}[style=nonumbers]
+@article{lemaitre1934evolution,
+    title={Evolution of the expanding universe},
+    author={Lema{\^\i}tre, Georges}, 
+    journal={Proceedings of the National Academy of Sciences}, 
+    volume={20}, number={1}, pages={12--17}, 
+    year={1934}, 
+    publisher={National Acad Sciences} 
+}
+	\end{lstlisting}
+	\framebreak
+	Et encore un autre, que nous ne citerons pas:
+	\begin{lstlisting}[style=nonumbers]
+@article{de1966functions,
+  title={Functions of lysosomes},
+  author={De Duve, Christian and Wattiaux, Robert},
+  journal={Annual review of physiology},
+  year={1966},
+  publisher={Annual Reviews 4139 El Camino Way, PO Box 10139, Palo Alto, CA 94303-0139, USA}
+}
+	\end{lstlisting}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Exporter des \texttt{.bib}}
+    \begin{center}
+	\includegraphics[width=\textwidth]{img/scholar.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Style de bibliographie}
+    \begin{itemize}
+		\item Pour rappel: le style est défini lors de l'appel du paquet \lstinline|\usepackage[style=plain]{biblatex}|
+		\item Les différents styles sont:
+	    \begin{itemize}
+			\item \texttt{plain}, le style par défaut;
+			\item \texttt{apa}, American Psychological Association;
+			\item \texttt{chicago-authordate}, Chicago Style;
+			\item \texttt{ieee}, Institute of Electrical and Electronics Engineers (IEEE).
+		\end{itemize}
+		\item Pour plus de style de bibliographie, voir \url{https://fr.sharelatex.com/learn/Biblatex_citation_styles} et Google.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Exemple}
+	\begin{lstlisting}[style=nonumbers]
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[style=authoryear]{biblatex}
+\usepackage{csquotes}
+\usepackage[french]{babel}
+\bibliography{biblio}
+\begin{document}
+Lorem ipsum dolor sit amet\cite{ray2017challenges}, consectetuer adipiscing elit. 
+Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur 
+dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate 
+a, magna. Donec vehicula augue eu neque. Pellentesque habitant morbi tristique 
+senectus et netus et malesuada fames ac turpis egestas. Mauris ut leo. Cras
+viverra\cite{lemaitre1934evolution} metus rhoncus sem. Nulla et lectus vestibulum
+urna fringilla ultrices. 
+\nocite{de1966functions}
+\printbibliography
+\end{document}
+	\end{lstlisting}
+	\begin{itemize}
+		\item La commande \texttt{\nocite{}} permet d'inclure un élément dans la bibliographie sans le citer dans le texte.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Compilation}
+\end{frame}
+
+%-------------------
+\subsection{Découpe d'un projet en fichiers}
+\begin{frame}[fragile]
+  \frametitle{Découpe d'un projet en fichiers}
+  \begin{itemize}
+    \item Si vous travaillez sur un projet de moyenne ou grande envergure, il vaut la peine de le découper en plusieurs fichiers
+    \item Cela accélère la recompilation et permet une séparation plus claire entre les sections
+    \item Par exemple, un roman pourrait avoir un fichier par chapitre:
+    \begin{itemize}
+      \item \texttt{roman.tex} contient la structure du projet;
+      \item \texttt{entete.tex} contient l'en-tête \LaTeX{};
+      \item \texttt{intro.tex} contient l'introduction et les remerciements;
+      \item \texttt{chap1.tex} contient le premier chapitre et son titre;
+      \item \texttt{chap2.tex} contient le deuxième chapitre et son titre;
+      \item \dots
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Découpe d'un projet en fichiers}
+  \framesubtitle{input et include}
+  \begin{itemize}
+    \item Deux commandes permettent l'inclusion d'un fichier dans un autre: \lstinline|\input{}| et \lstinline|\include{}|
+    \item On leur donne en argument le nom du fichier sans le \texttt{.tex}
+    \item \lstinline|\input{}| \og{}copie\fg{} le document littéralement
+    \item \lstinline|\include{}| termine la page courante, copie le document, puis termine la page courante à nouveau
+    \item \lstinline|\input{}| peut se trouver n'importe où, y compris dans le préambule, tandis que \lstinline|\include{}| doit se trouver dans le corps du document
+    \item \lstinline|\include{}| accélère la compilation du document, car cela permet de ne recompiler que ce qui a été modifié
+    \item La commande \lstinline|\includeonly{doc1,doc2,...}| permet de restreindre les documents à inclure
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Découpe d'un projet en fichiers}
+  \framesubtitle{Exemple du roman}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      Dans \texttt{roman.tex}
+      \begin{lstlisting}[style=nonumbers]
+\documentclass[a4paper]{book}
+
+\input{entete}
+
+\begin{document}
+  \maketitle
+  \tableofcontents
+  
+  \includeonly{intro,chap2} % Inclure uniquement ces fichiers-ci
+  
+  \include{intro}
+  \include{chap1}
+  \include{chap2}
+  ...
+\end{document}
+      \end{lstlisting}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      Dans \texttt{entete.tex}
+      \begin{lstlisting}[style=nonumbers]
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+...
+      \end{lstlisting}
+      
+      Dans \texttt{intro.tex}
+      \begin{lstlisting}[style=nonumbers]
+\begin{center}
+  Je dédie ce roman à mon chat.
+  Tu nous a quitté trop vite, Dragibus.
+  Repose en paix.
+\end{center}
+      \end{lstlisting}
+      
+      Dans \texttt{chap1.tex}
+      \begin{lstlisting}[style=nonumbers]
+\chapter{Le début d'une histoire
+         trépidante ! ...}
+...
+      \end{lstlisting}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+%-----------------------
+\subsection{Exercice 4}
+\begin{frame}[fragile]{Quatrième exercice}
   \begin{center}\large
     Exemple de résultat:
     
     \vspace{0.25cm}
-    \fbox{\url{http://bit.ly/2hPVveb}}
+    \fbox{\url{http://bit.ly/2y3ydHz}}
   \end{center}
 
   Dans cet exercice, on vous invite à:
   \begin{itemize}
-    \item faire quelques paragraphes;
-    \item faire un paragraphe centré;
-    \item mettre un des mots en très grand, et un autre en très petit;
-    \item faire une liste numérotée avec un type de police différent pour chaque élément;
-    \item faire une liste à puce avec un style de police différent pour chaque élément;
-    \item combiner ce qui a été vu jusqu'ici à votre guise.
+	  \item créer deux sections, et référencer l'une dans l'autre;
+	  \item ajouter une ou deux notes de bas de page;
+	  \item créer une bibliographie avec au moins deux entrées, les citer dans votre document et inclure la bibliographie à la fin;
+	  \item séparer votre document en trois:
+	  \begin{itemize}
+	    \item \texttt{main.tex} contient la structure générale,
+	    \item \texttt{entete.tex} contient les packages,
+	    \item \texttt{corps.tex} contient le corps du document.
+    \end{itemize}
   \end{itemize}
+  {\footnotesize 
+    Note : pour avoir accès à la liste de fichiers dans Overleaf,
+    cliquez sur "Project" en haut à gauche.
+    Créez un nouveau fichier en cliquant sur "Files..."
+    puis sur "Blank File" et donnez-lui le nom souhaité.
+  }
 \end{frame}
+
+%%%%%%%%%%%%%
 
 %-----------------------
 
@@ -1151,499 +1542,6 @@ Erreur courante: les ensembles ont besoin d'espacement (i.e. \lstinline|\,|) en 
   Super doc sur \url{http://ctan.org/pkg/siunitx}
 \end{frame}
 
-%-----------------------
-\section{Les environnements flottants}
-\subsection{Les figures}
-
-\begin{frame}[fragile,allowframebreaks]
-  \frametitle{Figures}
-  \begin{itemize}
-  
-  \item Utilisation du package \lstinline|\usepackage{graphicx}|
-  \item Insertion de l'image avec \lstinline|\includegraphics[options]{filename.ext}|  
-  
-  \item \textbf{Non-flottant}
-  
-    Référencement par ``ci-dessous'', \dots
-    \begin{lstlisting}[style=nonumbers]
-\begin{center}
-  \includegraphics{image.jpg}
-\end{center}
-    \end{lstlisting}
-  
-  \item \textbf{Flottant}
-  	\begin{itemize}
-  		\item Environnement \lstinline|figure|
-  		\item Ajout d'une référence par \lstinline|\label{...}|
-    	\item Référencement par \lstinline|voir figure~\ref{fig:graphique}|
-    	\item Ajout d'une légende par \lstinline|\caption{...}|
-    \end{itemize}
-    \begin{lstlisting}[style=nonumbers]
-\begin{figure}[!ht]
-  \centering
-  \includegraphics{graph.png}
-  \caption{Voici un beau graphique}
-  \label{fig:graphique}
-\end{figure}
-    \end{lstlisting}
-    
- 
-  \item \textbf{Scaling}
-    \begin{lstlisting}[style=nonumbers]
-\includegraphics[width=\textwidth]{image.jpg} % Largeur d'une ligne de texte
-\includegraphics[height=4cm]{image.jpg} % Hauteur de 4cm
-\includegraphics[scale=0.5]{image.png} % taille / 2
-    \end{lstlisting}
-
-  \vspace{2em}
-
-
-\end{itemize} 
-\begin{quote}
-  1992: Extensive testing shows that 98.3\% of the time
-  no matter which of the
-  \lstinline|[h]|,
-  \lstinline|[t]|,
-  \lstinline|[b]|, or
-  \lstinline|[p]|
-  options is used,
-  \LaTeX{} will put your \lstinline|table| at the end of the document.
-
-  \vspace{1em}
-  \hfill
-  \em
-  \begin{minipage}{8cm}
-    DAVID F. GRIFFITHS and DESMOND J. HIGHAM, Great Moments in \LaTeX{} History (1997)
-  \end{minipage}
-\end{quote}
-
-\end{frame}
-
-
-\begin{frame}[fragile]{Exemple de figure}
-
-\begin{columns}
-    \begin{column}{0.5\textwidth}
-Sur la figure~\ref{fig:ucl}, vous pouvez voir le logo UCL
-mis a \SI{50}{\percent} de la largeur du texte.
-
-\begin{figure}[!ht]
-    \centering
-        \includegraphics[width=0.50\textwidth]{logo-ucl.eps}
-    \caption{Voici le logo UCL}
-    \label{fig:ucl}
-\end{figure}
-\end{column}
-
-\begin{column}{0.5\textwidth}
-\begin{lstlisting}[style=nonumbers]
-
-Sur la figure~\ref{fig:ucl}, vous pouvez 
-voir le logo UCL mis a \SI{50}{\percent}
-de la largeur du texte.
-
-\begin{figure}[!ht]
-    \centering
-        \includegraphics[width=0.50\textwidth]{logo-ucl.eps}
-    \caption{Voici le logo UCL}
-    \label{fig:ucl}
-\end{figure}
-\end{lstlisting}
-\end{column}
-\end{columns}
-
-\end{frame}
-
-
-\subsection{Les tableaux} 
-\begin{frame}[fragile,allowframebreaks]
-  \frametitle{Tableaux}
-  \begin{itemize}
-  \item Utilisation de l'environnement \lstinline|tabular|
-  \item \textbf{Non-flottant}
-  
-    Référencement par ``ci-dessous'', \dots
-    \begin{lstlisting}[style=nonumbers]
-\begin{tabular}{...}
-  ...
-\end{tabular}
-    \end{lstlisting}
-    
-  \item \textbf{Flottant}
-  	\begin{itemize}
-  		\item Environnement \lstinline|table|
-    	\item Référencement par \lstinline|voir tableau~\ref{tab:data}|
-    \end{itemize}
-    \begin{lstlisting}
-\begin{table}
-  \centering
-  \begin{tabular}{...}
-    ...
-  \end{tabular}
-  \caption{Voici un beau tableau}
-  \label{tab:data}
-\end{table}
-    \end{lstlisting}
-    
-  \item \textbf{Code}
-  	\begin{lstlisting}[style=nonumbers]
-\begin{tabular}{<colonnes>}
-  <lignes>
-\end{tabular}
-  	\end{lstlisting}
-  	\begin{itemize}
-  		\item Définition de l'alignement des <colonnes> par :
-  			\begin{itemize}
-  				\item un \lstinline|l| pour aligner à gauche (\textit{left})
-  				\item un \lstinline|c| pour centrer (\textit{center})
-  				\item un \lstinline|r| pour aligner à droite (\textit{right})
-  				\item un \lstinline|p{<largeur>}| pour un texte justifié sur une largeur donnée
-  			\end{itemize}
-  		\item Une ligne verticale est tracée par \lstinline|||
-  		\item Le contenu des <lignes> est séparé par colonnes par \lstinline|&|
-  		\item Une <ligne> se termine par \lstinline|\\|
-  		\item Une ligne horizontale est tracée par \lstinline|\hline|
-  	\end{itemize}
-    \begin{lstlisting}
-\begin{tabular}{|lcr|}
-  \hline
-  A & B & C\\
-  \hline
-  a & b & c\\
-  $\alpha$ & $\beta$ & $\gamma$\\
-  \hline
-\end{tabular}
-    \end{lstlisting}
-  \item \textbf{Rendu}
-\begin{table}[!ht] 
-\centering
-\begin{tabular}{|lcr|}
-  \hline
-  A & B & C\\
-  \hline
-  a & b & c\\
-  $\alpha$ & $\beta$ & $\gamma$\\
-  \hline
-\end{tabular}
-\end{table}
-  \end{itemize}
-\end{frame}
-
-
-
-\begin{frame}[fragile]{Exemple de tableau}
-\begin{footnotesize}
-\begin{lstlisting}[style=nonumbers]
-\begin{table}[!ht]
-  \begin{center}
-    \begin {tabular}{|l||c|} %% 2 columns
-      \hline
-      \textit{Inventaire} & \textbf{Nombre} \\
-      \hline
-      Chemises  & 4   \\
-      Pulls     & 12  \\
-      Pantalons & 1   \\
-      \hline
-    \end{tabular}
-    \caption{Tableau relatif a l'inventaire}
-  \end{center}
-\end{table}
-\end{lstlisting}
-\end{footnotesize}
-\begin{center}
-\fbox{\includegraphics[width=0.6\textwidth]{table.jpg}}
-\end{center}
-\end{frame}
-
-\subsection{Exercice 3}
-\begin{frame}[fragile]{Troisième exercice}
-      \begin{center}\large
-        Exemple de résultat:
-        
-        \vspace{0.25cm}
-        \fbox{\url{http://bit.ly/2y3xTIR}}
-      \end{center}
-  
-  Dans cet exercice, on vous invite à:
-  \begin{itemize}
-	  \item créer une \textbf{section} de document : 
-	  \begin{itemize}
-	  	\item écrire un peu de \textbf{texte};
-        \item ajouter une \textbf{figure} (flottant) avec une \textbf{légende} (caption) et \textbf{référence} (label) ;
-	  	\item écrire un peu de \textbf{texte} et faire \textbf{référence} à votre image;
-	  \end{itemize} 
-	  \item créer une \textbf{section} de document : 
-	  \begin{itemize}
-	  	\item écrire un peu de \textbf{texte} et faire \textbf{référence} à votre \textbf{tableau} (qui sera écrit plus bas);
-	  	\item ajouter un \textbf{tableau} (flottant) avec une \textbf{légende} (caption) et \textbf{référence} (label);
-	  \end{itemize}
-  \end{itemize}
-  {\footnotesize Une image vous est fournie dans 
-  \lstinline|Leslie_Lamport.jpg|}.
-\end{frame}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Références}
-
-\subsection{Référencer des éléments du texte}
-\begin{frame}[fragile]
-  \frametitle{\insertsubsection}
-  Pour faire référence à une page, section, figure, table, équation mathématique, \dots:
-  \begin{itemize}
-    \item Mettre une étiquette (label) à l'endroit à référencer
-      \begin{itemize}
-        \item \lstinline|\label{identifiant}|.
-      \end{itemize}
-    \item Mettre une référence à cette étiquette :
-      \begin{itemize}
-        \item \lstinline|\ref{identifiant}| pour le numéro de section, figure, table, équation;
-        \item \lstinline|\pageref{identifiant}| pour le numéro de page;
-      \end{itemize}
-    \item Séparer la référence avec une espace insécable \og{}\texttt{\textasciitilde}\fg{}.
-  \end{itemize}
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-      \begin{lstlisting}[style=nonumbers]
-  \label{ref}
-  Nous sommes section~\ref{ref},
-  page~\pageref{ref},
-      \end{lstlisting}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      \label{id}
-      \par{}Nous sommes section~\ref{id},
-      page~\pageref{id},
-    \end{column}
-  \end{columns}
-\end{frame}
-
-%-------------------
-\subsection{Notes de bas de page}
-\begin{frame}[fragile]
-  \frametitle{Notes de bas de page}
-  La commande \lstinline|\footnote{}| permet d'ajouter une note de bas de page:
-  \begin{lstlisting}[style=nonumbers]
-The earth\footnote{mostly harmless} was destroyed
-by Vogons\footnote{They have the worst poetry in the universe}.
-
-But Don't Panic\footnote{By the way, the answer is 42},
-even when you're at the restaurant at
-the end of the universe.
-  \end{lstlisting}
-  \begin{minipage}{\textwidth}
-    The earth\footnote{Mostly harmless} was destroyed
-    by Vogons\footnote{They have the worst poetry in the universe}.
-
-    But Don't Panic\footnote{By the way, the answer is 42},
-    even when you're at the restaurant at
-    the end of the universe.
-  \end{minipage}
-\end{frame}
-
-%-------------------
-\begin{comment}
-\subsection{Bibliographie}
-\begin{frame}[fragile]
-  \frametitle{\insertsubsection}
-  \begin{itemize}
-    \item Avec \LaTeX{}, la bibliographie est séparée du reste dans un fichier \texttt{.bib} (par exemple: \texttt{biblio.bib}).
-    \item Pour chaque référence bibliographique, on ajoute une entrée au fichier selon le format suivant:
-     \begin{lstlisting}[style=nonumbers]
-@type{identifiant,
-  paramètre1 = "valeur1",
-  paramètre2 = "valeur2",
-  ...
-}
-      \end{lstlisting}
-    \item Exemple avec un livre:
-      \begin{lstlisting}[style=nonumbers]
-@book{h2g2,
-  author    = "Douglas Adams",
-  title     = "The Hitchhiker's Guide to the Galaxy",
-  year      = "1979",
-  publisher = "Pan Books",
-  address   = "United Kingdom"
-}
-      \end{lstlisting}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{\insertsubsection}
-  \framesubtitle{Types et paramètres d'entrées bibliographiques}
-  \begin{columns}[T]
-    \begin{column}{0.5\textwidth}
-      Types d'entrées bibliographiques:
-      \begin{itemize}
-        \item \texttt{article};
-        \item \texttt{book};
-        \item \texttt{misc} (notamment pour les sites web);
-        \item beaucoup d'autres, à trouver sur le net.
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      Paramètres d'entrées bibliographiques:
-      \begin{itemize}
-        \item \texttt{author};
-        \item \texttt{title};
-        \item \texttt{publisher} (pour \texttt{book});
-        \item \texttt{journal} (pour \texttt{article});
-        \item \texttt{url} (pour un site web);
-        \item \texttt{volume};
-        \item \texttt{year};
-        \item \texttt{month};
-        \item \texttt{address};
-        \item à nouveau, beaucoup d'autres.
-      \end{itemize}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{\insertsubsection}
-  \framesubtitle{Inclure et référencer la bibliographie}
-  \begin{itemize}
-    \item À l'endroit où vous voulez mettre la bibliographie, ajoutez le code suivant:
-      \begin{lstlisting}[style=nonumbers]
-\bibliographystyle{plain} % Définit le style de bibliographie
-\bibliography{biblio} % Génère la bibliographie à partir du fichier "biblio.bib"
-      \end{lstlisting}
-    \item Pour référencer une entrée bibliographique, utiliser \lstinline|cite{}| avec l'identifiant de la référence:
-      \begin{lstlisting}[style=nonumbers]
-\cite{h2g2} % Une seule référence
-\cite[p.~42]{h2g2} % Une page en particulier
-\cite{h2g2,lotr,...} % Plusieurs références
-      \end{lstlisting}
-    \item Par exemple:
-      \begin{lstlisting}[style=nonumbers]
-Le Guide du Voyageur Galactique est sans aucun doute l'ouvrage le plus
-remarquable jamais publié par les éditeurs de la Petite Ourse~\cite{h2g2}.
-      \end{lstlisting}
-  \end{itemize}
-\end{frame}
-\end{comment}
-
-
-%-------------------
-\subsection{Découpe d'un projet en fichiers}
-\begin{frame}[fragile]
-  \frametitle{Découpe d'un projet en fichiers}
-  \begin{itemize}
-    \item Si vous travaillez sur un projet de moyenne ou grande envergure, il vaut la peine de le découper en plusieurs fichiers
-    \item Cela accélère la recompilation et permet une séparation plus claire entre les sections
-    \item Par exemple, un roman pourrait avoir un fichier par chapitre:
-    \begin{itemize}
-      \item \texttt{roman.tex} contient la structure du projet;
-      \item \texttt{entete.tex} contient l'en-tête \LaTeX{};
-      \item \texttt{intro.tex} contient l'introduction et les remerciements;
-      \item \texttt{chap1.tex} contient le premier chapitre et son titre;
-      \item \texttt{chap2.tex} contient le deuxième chapitre et son titre;
-      \item \dots
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Découpe d'un projet en fichiers}
-  \framesubtitle{input et include}
-  \begin{itemize}
-    \item Deux commandes permettent l'inclusion d'un fichier dans un autre: \lstinline|\input{}| et \lstinline|\include{}|
-    \item On leur donne en argument le nom du fichier sans le \texttt{.tex}
-    \item \lstinline|\input{}| \og{}copie\fg{} le document littéralement
-    \item \lstinline|\include{}| termine la page courante, copie le document, puis termine la page courante à nouveau
-    \item \lstinline|\input{}| peut se trouver n'importe où, y compris dans le préambule, tandis que \lstinline|\include{}| doit se trouver dans le corps du document
-    \item \lstinline|\include{}| accélère la compilation du document, car cela permet de ne recompiler que ce qui a été modifié
-    \item La commande \lstinline|\includeonly{doc1,doc2,...}| permet de restreindre les documents à inclure
-  \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Découpe d'un projet en fichiers}
-  \framesubtitle{Exemple du roman}
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-      Dans \texttt{roman.tex}
-      \begin{lstlisting}[style=nonumbers]
-\documentclass[a4paper]{book}
-
-\input{entete}
-
-\begin{document}
-  \maketitle
-  \tableofcontents
-  
-  \includeonly{intro,chap2} % Inclure uniquement ces fichiers-ci
-  
-  \include{intro}
-  \include{chap1}
-  \include{chap2}
-  ...
-\end{document}
-      \end{lstlisting}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      Dans \texttt{entete.tex}
-      \begin{lstlisting}[style=nonumbers]
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[french]{babel}
-...
-      \end{lstlisting}
-      
-      Dans \texttt{intro.tex}
-      \begin{lstlisting}[style=nonumbers]
-\begin{center}
-  Je dédie ce roman à mon chat.
-  Tu nous a quitté trop vite, Dragibus.
-  Repose en paix.
-\end{center}
-      \end{lstlisting}
-      
-      Dans \texttt{chap1.tex}
-      \begin{lstlisting}[style=nonumbers]
-\chapter{Le début d'une histoire
-         trépidante ! ...}
-...
-      \end{lstlisting}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-
-%-----------------------
-\subsection{Exercice 4}
-\begin{frame}[fragile]{Quatrième exercice}
-  \begin{center}\large
-    Exemple de résultat:
-    
-    \vspace{0.25cm}
-    \fbox{\url{http://bit.ly/2y3ydHz}}
-  \end{center}
-
-  Dans cet exercice, on vous invite à:
-  \begin{itemize}
-	  \item créer deux sections, et référencer l'une dans l'autre;
-	  \item ajouter une ou deux notes de bas de page;
-	  \item créer une bibliographie avec au moins deux entrées, les citer dans votre document et inclure la bibliographie à la fin;
-	  \item séparer votre document en trois:
-	  \begin{itemize}
-	    \item \texttt{main.tex} contient la structure générale,
-	    \item \texttt{entete.tex} contient les packages,
-	    \item \texttt{corps.tex} contient le corps du document.
-    \end{itemize}
-  \end{itemize}
-  {\footnotesize 
-    Note : pour avoir accès à la liste de fichiers dans Overleaf,
-    cliquez sur "Project" en haut à gauche.
-    Créez un nouveau fichier en cliquant sur "Files..."
-    puis sur "Blank File" et donnez-lui le nom souhaité.
-  }
-\end{frame}
-
-%%%%%%%%%%%%%
-
 \AtBeginSection[]{} %% stop TOC
 
 \section{Ressources}
@@ -1787,6 +1685,49 @@ else:
 	\end{figure}
 \end{frame}
 
+\begin{frame}[fragile]{Les paragraphes avec \LaTeX{}}
+  \framesubtitle{Alignement d'un paragraphe}
+  \begin{itemize}
+  	\item Les environnements \lstinline|center|, \lstinline|flushright| et \lstinline|flushleft| permettent d'aligner un paragraphe.
+    \begin{columns}
+      \begin{column}{0.4\textwidth}
+        \begin{lstlisting}[style=nonumbers]
+Justifié; c'est le comportement par défaut de \LaTeX{}  
+
+\begin{center}
+  Centré
+\end{center}
+
+\begin{flushright}
+  Aligné à droite
+\end{flushright}
+
+\begin{flushleft}
+  Aligné à gauche, mais pas justifié, comme vous pouvez le voir
+\end{flushleft}
+        \end{lstlisting}
+      \end{column}
+      \begin{column}{0.6\textwidth}
+        \begin{mdframed}
+          Justifié; c'est le comportement par défaut de \LaTeX{} 
+
+          \begin{center}
+            Centré
+          \end{center}
+
+          \begin{flushright}
+            Aligné à droite
+          \end{flushright}
+
+          \begin{flushleft}
+            Aligné à gauche, mais pas justifié, comme vous pouvez le voir
+          \end{flushleft}
+        \end{mdframed}
+      \end{column}
+    \end{columns}
+  \end{itemize}	
+\end{frame}
+
 \subsection{Exercice complémentaire} 
 \begin{frame}[fragile]{Exercice complémentaire} 
   \begin{center}\large 
@@ -1804,5 +1745,23 @@ else:
     \item écrire encore plus d'équations si vous êtes motivés. 
   \end{itemize} 
 \end{frame} 
+
+\begin{frame}[fragile]{Jouer avec la police}
+\framesubtitle{Changer la taille de police}
+\begin{itemize}
+	\item \lstinline|{\small text}| pour changer la taille du texte à l'intérieur
+	\item \lstinline|\small| pour changer tout le texte jusqu'au prochain appel de \lstinline|\normalsize| 
+\end{itemize}
+\begin{tabular}{ll}
+\lstinline|{\tiny polygenelubricants}| & {\tiny polygenelubricants} \\
+\lstinline|{\small polygenelubricants}| & {\small polygenelubricants} \\
+\lstinline|{\normalsize polygenelubricants}| & {\normalsize polygenelubricants} \\
+\lstinline|{\large polygenelubricants}| & {\large polygenelubricants} \\
+\lstinline|{\Large polygenelubricants}| & {\Large polygenelubricants} \\
+\lstinline|{\LARGE polygenelubricants}| & {\LARGE polygenelubricants} \\
+\lstinline|{\huge polygenelubricants}| & {\huge polygenelubricants} \\
+\lstinline|{\Huge polygenelubricants}| & {\Huge polygenelubricants} \\
+\end{tabular}
+\end{frame}
 
 \end{document}
