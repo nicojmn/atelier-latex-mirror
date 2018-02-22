@@ -40,6 +40,7 @@
 {í}{{\'i}}1
 {ó}{{\'o}}1
 {õ}{{\~o}}1
+{ô}{{\^o}}1
 {ú}{{\'u}}1
 {ü}{{\"u}}1
 {ç}{{\c{c}}}1
@@ -612,6 +613,29 @@ Exponentielle lui répond : Je m'en fiche !
 \end{frame}
 
 %-----------------------
+\subsection{Notes de bas de page}
+\begin{frame}[fragile]
+  \frametitle{Notes de bas de page}
+  La commande \lstinline|\footnote{}| permet d'ajouter une note de bas de page:
+  \begin{lstlisting}[style=nonumbers]
+The earth\footnote{mostly harmless} was destroyed
+by Vogons\footnote{They have the worst poetry in the universe}.
+
+But Don't Panic\footnote{By the way, the answer is 42},
+even when you're at the restaurant at
+the end of the universe.
+  \end{lstlisting}
+  \begin{minipage}{\textwidth}
+    The earth\footnote{Mostly harmless} was destroyed
+    by Vogons\footnote{They have the worst poetry in the universe}.
+
+    But Don't Panic\footnote{By the way, the answer is 42},
+    even when you're at the restaurant at
+    the end of the universe.
+  \end{minipage}
+\end{frame}
+
+%-----------------------
 \subsection{Les polices}
 
 \begin{frame}[fragile]{Changer la fonte de la police}
@@ -754,18 +778,6 @@ Exponentielle lui répond : Je m'en fiche !
 \begin{frame}[fragile]{Exemple de figure}
 
 \begin{columns}
-    \begin{column}{0.5\textwidth}
-Sur la figure~\ref{fig:ucl}, vous pouvez voir le logo UCL
-mis a \SI{50}{\percent} de la largeur du texte.
-
-\begin{figure}[!ht]
-    \centering
-        \includegraphics[width=0.50\textwidth]{logo-ucl.eps}
-    \caption{Voici le logo UCL}
-    \label{fig:ucl}
-\end{figure}
-\end{column}
-
 \begin{column}{0.5\textwidth}
 \begin{lstlisting}[style=nonumbers]
 
@@ -780,6 +792,17 @@ de la largeur du texte.
     \label{fig:ucl}
 \end{figure}
 \end{lstlisting}
+\end{column}
+\begin{column}{0.5\textwidth}
+Sur la figure~\ref{fig:ucl}, vous pouvez voir le logo UCL
+mis a \SI{50}{\percent} de la largeur du texte.
+
+\begin{figure}[!ht]
+    \centering
+        \includegraphics[width=0.50\textwidth]{logo-ucl.eps}
+    \caption{Voici le logo UCL}
+    \label{fig:ucl}
+\end{figure}
 \end{column}
 \end{columns}
 
@@ -949,29 +972,6 @@ d'entre nous !
 \section{Bibliographie}
 
 %-------------------
-\subsection{Notes de bas de page}
-\begin{frame}[fragile]
-  \frametitle{Notes de bas de page}
-  La commande \lstinline|\footnote{}| permet d'ajouter une note de bas de page:
-  \begin{lstlisting}[style=nonumbers]
-The earth\footnote{mostly harmless} was destroyed
-by Vogons\footnote{They have the worst poetry in the universe}.
-
-But Don't Panic\footnote{By the way, the answer is 42},
-even when you're at the restaurant at
-the end of the universe.
-  \end{lstlisting}
-  \begin{minipage}{\textwidth}
-    The earth\footnote{Mostly harmless} was destroyed
-    by Vogons\footnote{They have the worst poetry in the universe}.
-
-    But Don't Panic\footnote{By the way, the answer is 42},
-    even when you're at the restaurant at
-    the end of the universe.
-  \end{minipage}
-\end{frame}
-
-%-------------------
 \subsection{Bibliographie}
 \begin{frame}[fragile]
   \frametitle{\insertsubsection}
@@ -979,12 +979,14 @@ the end of the universe.
     \item Avec \LaTeX{}, la bibliographie est séparée du reste dans un fichier \texttt{.bib} (par exemple: \texttt{biblio.bib}).
     \item L'utilisation d'une bibliographie requièrent les paquets suivants :
 	\begin{itemize}
-	\item \lstinline|\usepackage[style=plain]{biblatex}|
+	\item \lstinline|\usepackage{biblatex}|
 	\item \lstinline|\usepackage{csquotes}|.
 	\end{itemize}
     \item On utilise le fichier \texttt{biblio.bib} dans le document via la commande \lstinline|\bibliography{biblio}|.
     \item On cite un document avec la commande \lstinline|\cite{identifiant}|.
     \item On affiche la bibliographie avec la commande \lstinline|\printbibliography|.
+    \item Update 2018: Sur les PC de l'UCL sous Windows, utilisez 
+    \begin{itemize} \item\lstinline|\usepackage[backend=bibtex]{biblatex}|.\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -1019,7 +1021,7 @@ the end of the universe.
   author={De Duve, Christian and Wattiaux, Robert},
   journal={Annual review of physiology},
   year={1966},
-  publisher={Annual Reviews 4139 El Camino Way, PO Box 10139, Palo Alto, CA 94303-0139, USA}
+  publisher={Annual Reviews 4139 El Camino Way, PO Box 10139, Palo Alto CA 94303-0139}
 }
 	\end{lstlisting}
   \end{itemize}
@@ -1035,10 +1037,9 @@ the end of the universe.
 \begin{frame}[fragile]
     \frametitle{Style de bibliographie}
     \begin{itemize}
-		\item Pour rappel: le style est défini lors de l'appel du paquet \lstinline|\usepackage[style=plain]{biblatex}|
+		\item Le style est défini lors de l'appel du paquet \lstinline|\usepackage[style=ieee]{biblatex}|
 		\item Les différents styles sont:
 	    \begin{itemize}
-			\item \texttt{plain}, le style par défaut;
 			\item \texttt{apa}, American Psychological Association;
 			\item \texttt{chicago-authordate}, Chicago Style;
 			\item \texttt{ieee}, Institute of Electrical and Electronics Engineers (IEEE).
@@ -1070,12 +1071,30 @@ urna fringilla ultrices.
 \end{document}
 	\end{lstlisting}
 	\begin{itemize}
-		\item La commande \texttt{\nocite{}} permet d'inclure un élément dans la bibliographie sans le citer dans le texte.
+		\item La commande \lstinline|\nocite{}| permet d'inclure un élément dans la bibliographie sans le citer dans le texte.
 	\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
     \frametitle{Compilation}
+    \begin{itemize}
+    	\item Pour \textbf{TeXMaker}
+    	\begin{itemize}
+    		\item Options $\rightarrow$ Configurer Texmaker $\rightarrow$ Compil rapide $\rightarrow$ Sélectionner ``PdfLaTex + BibLaTeX + PdfLaTeX (2x) + Voir pdf''
+    	\end{itemize}
+    	\item Pour \textbf{Overleaf} ou \textbf{ShareLaTeX}
+    	\begin{itemize}
+    		\item Fonctionne déjà dans la compilation de base.
+    	\end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Troisième exercice}
+	\begin{center}
+		Compiler l'exemple de bibliographie et ajouter une référence depuis Google Scholar.\vspace{0.5cm}
+		\fbox{\includegraphics[width=0.8\textwidth,trim={2cm 18cm 2cm 2cm},clip]{exercices/exercice_bib.pdf}}
+	\end{center}
 \end{frame}
 
 %-------------------
@@ -1085,18 +1104,19 @@ urna fringilla ultrices.
   \begin{itemize}
     \item Si vous travaillez sur un projet de moyenne ou grande envergure, il vaut la peine de le découper en plusieurs fichiers
     \item Cela accélère la recompilation et permet une séparation plus claire entre les sections
-    \item Par exemple, un roman pourrait avoir un fichier par chapitre:
+    \item Par exemple, un article pourrait avoir un fichier par section:
     \begin{itemize}
-      \item \texttt{roman.tex} contient la structure du projet;
-      \item \texttt{entete.tex} contient l'en-tête \LaTeX{};
+      \item \texttt{main.tex} contient la structure et l'en-tête du projet;
       \item \texttt{intro.tex} contient l'introduction et les remerciements;
-      \item \texttt{chap1.tex} contient le premier chapitre et son titre;
-      \item \texttt{chap2.tex} contient le deuxième chapitre et son titre;
+      \item \texttt{section1.tex} contient la première section et son titre;
+      \item \texttt{section2.tex} contient la deuxième section et son titre;
       \item \dots
     \end{itemize}
+    \item L'inclusion dans fichier dans un autre se fait via la commande \lstinline|\input{}|.
   \end{itemize}
 \end{frame}
 
+\begin{comment}
 \begin{frame}[fragile]
   \frametitle{Découpe d'un projet en fichiers}
   \framesubtitle{input et include}
@@ -1110,88 +1130,58 @@ urna fringilla ultrices.
     \item La commande \lstinline|\includeonly{doc1,doc2,...}| permet de restreindre les documents à inclure
   \end{itemize}
 \end{frame}
+\end{comment}
 
 \begin{frame}[fragile]
   \frametitle{Découpe d'un projet en fichiers}
-  \framesubtitle{Exemple du roman}
+  \framesubtitle{Exemple de l'article}
   \begin{columns}
     \begin{column}{0.5\textwidth}
-      Dans \texttt{roman.tex}
+      Dans \texttt{main.tex}
       \begin{lstlisting}[style=nonumbers]
-\documentclass[a4paper]{book}
-
-\input{entete}
+\documentclass[a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
 
 \begin{document}
   \maketitle
   \tableofcontents
   
-  \includeonly{intro,chap2} % Inclure uniquement ces fichiers-ci
-  
-  \include{intro}
-  \include{chap1}
-  \include{chap2}
+  \input{intro.tex}
+  \input{section1.tex}
+  \input{section2.tex}
   ...
 \end{document}
       \end{lstlisting}
     \end{column}
     \begin{column}{0.5\textwidth}
-      Dans \texttt{entete.tex}
-      \begin{lstlisting}[style=nonumbers]
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[french]{babel}
-...
-      \end{lstlisting}
-      
       Dans \texttt{intro.tex}
       \begin{lstlisting}[style=nonumbers]
 \begin{center}
-  Je dédie ce roman à mon chat.
+  Je dédie cet article à mon chat.
   Tu nous a quitté trop vite, Dragibus.
   Repose en paix.
 \end{center}
       \end{lstlisting}
       
-      Dans \texttt{chap1.tex}
+      Dans \texttt{section1.tex}
       \begin{lstlisting}[style=nonumbers]
-\chapter{Le début d'une histoire
-         trépidante ! ...}
-...
+\section{Le Louvain-li-Nux}
+  Le Louvain-li-Nux est un kot à projet
+  de Louvain-la-Neuve.
+  ...
+      \end{lstlisting}
+      
+      Dans \texttt{section2.tex}
+      \begin{lstlisting}[style=nonumbers]
+\section{Le Kotangente}
+  Le Kotangente est kot ami du 
+  Louvain-li-Nux.
+  ...
       \end{lstlisting}
     \end{column}
   \end{columns}
-\end{frame}
-
-
-%-----------------------
-\subsection{Exercice 4}
-\begin{frame}[fragile]{Quatrième exercice}
-  \begin{center}\large
-    Exemple de résultat:
-    
-    \vspace{0.25cm}
-    \fbox{\url{http://bit.ly/2y3ydHz}}
-  \end{center}
-
-  Dans cet exercice, on vous invite à:
-  \begin{itemize}
-	  \item créer deux sections, et référencer l'une dans l'autre;
-	  \item ajouter une ou deux notes de bas de page;
-	  \item créer une bibliographie avec au moins deux entrées, les citer dans votre document et inclure la bibliographie à la fin;
-	  \item séparer votre document en trois:
-	  \begin{itemize}
-	    \item \texttt{main.tex} contient la structure générale,
-	    \item \texttt{entete.tex} contient les packages,
-	    \item \texttt{corps.tex} contient le corps du document.
-    \end{itemize}
-  \end{itemize}
-  {\footnotesize 
-    Note : pour avoir accès à la liste de fichiers dans Overleaf,
-    cliquez sur "Project" en haut à gauche.
-    Créez un nouveau fichier en cliquant sur "Files..."
-    puis sur "Blank File" et donnez-lui le nom souhaité.
-  }
 \end{frame}
 
 %%%%%%%%%%%%%
@@ -1235,13 +1225,6 @@ urna fringilla ultrices.
 \vspace{0.5cm}
 \begin{columns}
   \begin{column}{0.45\textwidth}
-    L'expression $\sin(x)$ peut s'écrire de différents manières. En effet, il a été démontré que 
-    
-    \[ \sin(x) = \frac{e^{iz} - e^{-iz}}{2i} \]
-
-    avec $i$ étant l'unité imaginaire.
-  \end{column}
-  \begin{column}{0.45\textwidth}
     \begin{lstlisting}[style = nonumbers]
 L'expression $\sin(x)$ peut s'écrire de différents manières. En effet, il a été démontré que 
 
@@ -1253,6 +1236,14 @@ L'expression $\sin(x)$ peut s'écrire de différents manières. En effet, il a �
 avec $i$ étant l'unité imaginaire.
     \end{lstlisting}
   \end{column}
+  \begin{column}{0.45\textwidth}
+    L'expression $\sin(x)$ peut s'écrire de différents manières. En effet, il a été démontré que 
+    
+    \[ \sin(x) = \frac{e^{iz} - e^{-iz}}{2i} \]
+
+    avec $i$ étant l'unité imaginaire.
+  \end{column}
+  
 \end{columns}
 
 \end{itemize}
@@ -1263,12 +1254,6 @@ avec $i$ étant l'unité imaginaire.
 		\item Les matrices s'écrivent avec l'environnement \lstinline|matrix| (fonctionnement semblable à \lstinline|tabular|).
 			\begin{columns}
 				\begin{column}{0.45\textwidth}
-                  \[\begin{matrix}
-						\alpha & \beta \\
-						\gamma & \delta \\
-                  \end{matrix}\]
-				\end{column}
-				\begin{column}{0.45\textwidth}
 					\begin{lstlisting}[style=nonumbers]
 \[
   \begin{matrix}	
@@ -1276,17 +1261,17 @@ avec $i$ étant l'unité imaginaire.
     \gamma & \delta \\
   \end{matrix}
 \]
-					\end{lstlisting}
+\end{lstlisting}
+				\end{column}
+				\begin{column}{0.45\textwidth}
+                  \[\begin{matrix}
+						\alpha & \beta \\
+						\gamma & \delta \\
+                  \end{matrix}\]
 				\end{column}
 			\end{columns}
           \item On ajoute des délimiteurs avec \lstinline|pmatrix|,\lstinline|vmatrix|,\ldots{}
 			\begin{columns}
-				\begin{column}{0.45\textwidth}
-                  \[\begin{pmatrix}
-						a + b & c \\
-						d & e + f \\
-                  \end{pmatrix}\]
-				\end{column}
 				\begin{column}{0.45\textwidth}
 					\begin{lstlisting}[style=nonumbers]
 \[
@@ -1295,45 +1280,69 @@ avec $i$ étant l'unité imaginaire.
     d & e + f \\
   \end{pmatrix}
 \]
-					\end{lstlisting}
+\end{lstlisting}
+				\end{column}
+				\begin{column}{0.45\textwidth}
+                  \[\begin{pmatrix}
+						a + b & c \\
+						d & e + f \\
+                  \end{pmatrix}\]
 				\end{column}
 			\end{columns}
-			
+		\item Les différents délimiteurs sont
 		\begin{center}
-		\begin{tabular}{ll}
-			\lstinline|bmatrix| & [ ] \\
-			\lstinline|Bmatrix| & \{ \} \\
-			\lstinline|pmatrix| & ( ) \\
-			\lstinline|vmatrix| & | | \\
-			\lstinline|Vmatrix| & || || \\
-			\lstinline|smallmatrix| & petite matrice
+		\begin{tabular}{llllll}
+			\lstinline|bmatrix| & [ ] & \lstinline|Bmatrix| & \{ \} & \lstinline|pmatrix| & ( ) \\
+			\lstinline|vmatrix| & | | &	\lstinline|Vmatrix| & || || 
 		\end{tabular}
 		\end{center}
 	\end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+	\frametitle{Les délimiteurs}
+	\begin{itemize}
+		\item Par défaut \LaTeX utilise des parenthèses de taille standard, ne s'adaptant pas au contenu qu'elles contiennent.
+		\begin{lstlisting}[style=nonumbers]
+\[ ( \frac{x^2}{y^3} ) \]
+\end{lstlisting}
+\[ (\frac{x^2}{y^3}) \]
+		\item La solution ? Les commandes \lstinline|\left...| et \lstinline|\right...| permettent d'adapter automatiquement la taille des parenthèses.
+		\begin{lstlisting}[style=nonumbers]
+\[ \left( \frac{x^2}{y^3} \right) \]
+\end{lstlisting}
+\[ \left( \frac{x^2}{y^3} \right) \]
+		\item Fonctionne aussi avec \lstinline|\left\{ \right\}| ou \lstinline|\left[ \right]|
+\[ \left\{\frac{x^2}{y^3}\right\} \qquad \left[\frac{x^2}{y^3}\right] \]
+	\end{itemize}
+\end{frame}
+	
+	
+
 \subsection{Formules numérotées}
 \begin{frame}[fragile,allowframebreaks]{Formules numérotées}
 
 \begin{itemize}
-	\item L'environnement \lstinline|align| permet d'écrire des équations alignées et numérotées.
-	\item On peut ne pas numéroter une équation en plaçant \lstinline|\nonumber| à la fin de la ligne. 
+	\item L'environnement \lstinline|equation| permet d'écrire des équations numérotées.
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{lstlisting}[style=nonumbers]
+\begin{equation}
+	c^2 = a^2 + b^2
+\end{equation}
+\end{lstlisting}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{equation}
+				c^2 = a^2 + b^2
+			\end{equation}
+		\end{column}
+	\end{columns}
 	
-	\vspace{0.50cm}
+	\item L'environnement \lstinline|align| permet d'écrire des équations alignées et numérotées. \lstinline|align*| aligne plusieurs équations sans les numéroter.
+	\item On peut ne pas numéroter une équation en plaçant \lstinline|\nonumber| à la fin de la ligne. 
 \begin{columns}
-  \begin{column}{0.45\textwidth}
-I like trains and the equations
-\begin{align}
-  e^{i\pi} + 1 & = 0\\
-  f(t) & = A\cos(\omega t + \phi) \nonumber 
-\end{align}
-I also know that
-\begin{align*}
-  1 + 1 & = 2\\
-  2 + 3 & = 5
-\end{align*}
-  \end{column}
-  \begin{column}{0.4\textwidth}
+	\begin{column}{0.5\textwidth}
     \begin{lstlisting}[style = nonumbers]
 I like trains and the equations
 \begin{align}
@@ -1345,19 +1354,26 @@ I also know that
   1 + 1 & = 2\\
   2 + 3 & = 5
 \end{align*}
-    \end{lstlisting}
+\end{lstlisting}
   \end{column}
+  \begin{column}{0.5\textwidth}
+I like trains and the equations
+\begin{align}
+  e^{i\pi} + 1 & = 0\\
+  f(t) & = A\cos(\omega t + \phi) \nonumber 
+\end{align}
+I also know that
+\begin{align*}
+  1 + 1 & = 2\\
+  2 + 3 & = 5
+\end{align*}
+  \end{column}
+  
 \end{columns}
 \framebreak
 	\item Utilisation de l'environnement \lstinline|aligned| pour faire un système d'équation (utilisation semblable à \lstinline|align|).
 	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			\[ \left\{\begin{aligned}
-				x^2 + y &= 3 \\
-				\frac{y}{x} &= 0.42
-			\end{aligned}\right. \]
-		\end{column}
-		\begin{column}{0.5\textwidth}
+			\begin{column}{0.5\textwidth}
 			\begin{lstlisting}[style=nonumbers]
 \[ 
 	\left\{ 
@@ -1369,6 +1385,13 @@ I also know that
 \]
 			\end{lstlisting}	
 		\end{column}
+		\begin{column}{0.5\textwidth}
+			\[ \left\{\begin{aligned}
+				x^2 + y &= 3 \\
+				\frac{y}{x} &= 0.42
+			\end{aligned}\right. \]
+		\end{column}
+
 	\end{columns}
 \end{itemize}
 \end{frame}
