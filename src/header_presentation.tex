@@ -1,10 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 
-\usetheme[compress]{Singapore} % theme
-
-\usepackage[frenchb]{babel}
 \usepackage[T1]{fontenc}
-\usepackage[utf8x]{inputenc}
+%\usepackage[utf8x]{inputenc}
 \usepackage{lmodern}
 \usepackage{amsmath,amsthm,amssymb}        % un packages mathématiques
 \usepackage{pifont}
@@ -14,12 +11,12 @@
 \usepackage{graphicx}       % pour insérer des figures
 \usepackage{lmodern}
 \usepackage{url}
-	\urlstyle{sf}
+\urlstyle{sf}
 \usepackage{lastpage}
 \usepackage{endnotes}
 
 \usepackage{listings}
-\usepackage{listingsutf8}
+%\usepackage{listingsutf8}
 
 \usepackage{siunitx}
 \usepackage{circuitikz}
@@ -32,12 +29,84 @@
 \usepackage{verbatim}
 \usepackage{graphicx}
 
-\usepackage{setspace}
+\usepackage{xspace}
+\usepackage{mdframed}
+\usepackage{pgfplots}
+\usepackage[french]{varioref} % \vpageref
+\usepackage{epstopdf}
+\usepackage{pdflscape} %% portrait
 
-%\usepackage[svgnames]{color}
-%\definecolor{webdarkblue}{rgb}{0,0,0.4}
-%\definecolor{webgreen}{rgb}{0,0.3,0}
-%\definecolor{webblue}{rgb}{0,0,0.8}
+% Comportement des itemize
+\setbeamertemplate{itemize item}[ball]
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamertemplate{itemize subsubitem}[circle]
+
+%\renewcommand\sfdefault{cmss} % Polices
+
+\usepackage[french]{babel}
+
+
+
+\usetheme[compress]{Singapore} % theme
+
+\definecolor{codeGreen}{rgb}{0,0.5,0}
+\lstset{
+      language=TeX,
+      flexiblecolumns=true,
+      numbers=left,
+      stepnumber=1,
+      numberstyle=\ttfamily\tiny,
+      keywordstyle=\ttfamily\textcolor{blue},
+      stringstyle=\ttfamily\textcolor{red},
+      commentstyle=\ttfamily\textcolor{codeGreen},
+      breaklines=true,
+      extendedchars=true,
+      basicstyle=\ttfamily\scriptsize,
+      showstringspaces=false,
+      morekeywords={usepackage,documentclass,begin,textbf,textit,texttt,ref,includegraphics,caption,label,setlength,mathbb,notag,frac,num,si,ang,SI,textwidth,percent,meter,ohm,joule,second,more,section,subsection,tableofcontents,setstretch,TeX,LaTeX,huge,sffamily,emph,chemfig,pageref,vpageref,date,maketitle,institute,author,and,textsc,title,includeonly,include,clearpage,newcommand,mathsf,renewcommand,DeclareMathOperator,mathrm,captionof,lstinputlisting,lstinline},
+      frame=single,
+      extendedchars=true,
+      inputencoding=utf8x,
+	    literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {è}{{\`e}}1 {à}{{\`a }}1
+    }
+%\lstset{inputencoding=utf8/latin1}
+\lstset{literate=
+{á}{{\'a}}1
+{à}{{\`a}}1
+{À}{{\`A}}1
+{ã}{{\~a}}1
+{é}{{\'e}}1
+{è}{{\`e}}1
+{ê}{{\^e}}1
+{î}{{\^i}}1
+{í}{{\'i}}1
+{ó}{{\'o}}1
+{õ}{{\~o}}1
+{ô}{{\^o}}1
+{ú}{{\'u}}1
+{ü}{{\"u}}1
+{ç}{{\c{c}}}1
+}
+\lstset{keepspaces}
+\lstdefinestyle{nonumbers}
+{numbers=none}
+
+
+% Pour personnaliser la barre de navigation du dessous
+\setbeamertemplate{navigation symbols}{
+	%\insertslidenavigationsymbol
+	%\insertframenavigationsymbol
+	%\insertsubsectionnavigationsymbol
+	\quad\textbf{\insertframenumber/\inserttotalframenumber} % Numéro de page
+	%\insertsectionnavigationsymbol
+	%\insertdocnavigationsymbol
+	%\insertbackfindforwardnavigationsymbol
+}
+% Supprimer les icones de navigation (pour les transparents)
+%\setbeamertemplate{navigation symbols}{}
+
+% Mettre les icones de navigation en mode vertical (pour projection)
+% \setbeamertemplate{navigation symbols}[vertical]
 
 \setbeamercolor{section in head/foot}{use=structure,bg=structure.fg!25!bg} % "Amélioration du jeu de couleur"
 %\useoutertheme[subsection=true]{smoothbars} % Pour avoir un rappel de la subsection
@@ -47,14 +116,6 @@
 
 % "Fioriture de style" : qd <x-> dans les item, les autres en gris clair
 \beamertemplatetransparentcovered
-
-
-% Comportement des itemize
-\setbeamertemplate{itemize item}[ball]
-\setbeamertemplate{itemize subitem}[triangle]
-\setbeamertemplate{itemize subsubitem}[circle]
-
-%\renewcommand\sfdefault{cmss} % Polices
 
 % Les block arrondis et ombrés dans la couleur que je veux
 \setbeamertemplate{blocks}[rounded][shadow=true]
@@ -78,80 +139,9 @@
 \setbeamercolor*{block body example}{fg=exampleBlockTextColor,bg=exampleBlockColor}
 \setbeamerfont{block title}{size={}}
 
+% Pour rendre les toc plus compactes (pour éviter que ça déborde)
+\makeatletter
+\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0.5em}{}{}
+\makeatother
+\setbeamerfont{subsection in toc}{size=\scriptsize}
 
-
-%------------ fin style beamer -------------------
-
-% Faire apparaître un sommaire avant chaque section
-% \AtBeginSection[]{
-%   \begin{frame}
-%   \frametitle{Plan}
-%   \medskip
-%   %%% affiche en début de chaque section, les noms de sections et
-%   %%% noms de sous-sections de la section en cours.
-%   \small \tableofcontents[currentsection, hideothersubsections]
-%   \end{frame}
-% }
-
-
-% Pour personnaliser la barre de navigation du dessous
-\setbeamertemplate{navigation symbols}{
-	%\insertslidenavigationsymbol
-	%\insertframenavigationsymbol
-	%\insertsubsectionnavigationsymbol
-	\quad\textbf{\insertframenumber/\inserttotalframenumber} % Numéro de page
-	%\insertsectionnavigationsymbol
-	%\insertdocnavigationsymbol
-	%\insertbackfindforwardnavigationsymbol
-}
-% Supprimer les icones de navigation (pour les transparents)
-%\setbeamertemplate{navigation symbols}{}
-
-% Mettre les icones de navigation en mode vertical (pour projection)
-% \setbeamertemplate{navigation symbols}[vertical]
-
-\newenvironment{itemize2}%
-	{ \begin{list}%
-		{$\bullet$}%
-		{\setlength{\labelwidth}{30pt}%
-		 \setlength{\leftmargin}{35pt}%
-		 \setlength{\itemsep}{\parsep}}}%
-	{ \end{list} }
-
-\def\siecle#1{\textsc{\romannumeral #1}\textsuperscript{e}~siècle} % => le \siecle{19}
-
-\definecolor{codeBlue}{rgb}{0,0,1}
-\definecolor{webred}{rgb}{0.5,0,0}
-\definecolor{codeGreen}{rgb}{0,0.5,0}
-\definecolor{codeGrey}{rgb}{0.6,0.6,0.6}
-\definecolor{webdarkblue}{rgb}{0,0,0.4}
-\definecolor{webgreen}{rgb}{0,0.3,0}
-\definecolor{webblue}{rgb}{0,0,0.8}
-\definecolor{orange}{rgb}{0.7,0.1,0.1}
-\lstset{
-      language=TeX,
-      flexiblecolumns=true,
-      numbers=left,
-      stepnumber=1,
-      numberstyle=\ttfamily\tiny,
-      keywordstyle=\ttfamily\textcolor{blue},
-      stringstyle=\ttfamily\textcolor{red},
-      commentstyle=\ttfamily\textcolor{codeGreen},
-      breaklines=true,
-      extendedchars=true,
-      basicstyle=\ttfamily\scriptsize,
-      showstringspaces=false,
-      morekeywords={usepackage,documentclass,begin,textbf,textit,texttt,ref,includegraphics,caption,label,setlength,mathbb,notag,frac,num,si,ang,SI,textwidth,percent,meter,ohm,joule,second,more,section,subsection,tableofcontents,setstretch,TeX,LaTeX,huge,sffamily,emph,chemfig,pageref,vpageref,date,maketitle,institute,author,and,textsc,title,includeonly,include,clearpage,newcommand,mathsf,renewcommand,DeclareMathOperator,mathrm,captionof,lstinputlisting,lstinline},
-      frame=single,
-      extendedchars=true,
-      inputencoding=utf8x,
-	    literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {è}{{\`e}}1 {à}{{\`a }}1
-    }
-\lstset{inputencoding=utf8/latin1}
-
-\newsavebox\mybox
-\newenvironment{aquote}[1]
-{\savebox\mybox{#1}\begin{quote}}
-{{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
-    \hbox{}\nobreak\hfil(\usebox\mybox)%
-\parfillskip=0pt \finalhyphendemerits=0 \endgraf}}\end{quote}}

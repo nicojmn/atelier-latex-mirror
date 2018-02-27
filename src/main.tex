@@ -1,26 +1,11 @@
 \documentclass[10pt,svgnames,usenames,table]{beamer} %,handout si version papier
 \input{header_presentation}
-\usepackage{pdflscape} %% portrait
-\usepackage[french]{varioref} % \vpageref
-\usepackage{pgfplots}
-\usepackage{framed}
-\usepackage{mdframed}
-\usepackage{epstopdf}
-\usepackage{xspace}
 
 \newcommand{\badet}{et}
 \newcommand{\goodet}{\mathbin{\mathrm{et}}}
 \DeclareMathOperator{\sumN}{\sum_{i=1}^n}
 \DeclareMathOperator{\var}{\mathrm{Var}}
 
-\lstdefinestyle{nonumbers}
-{numbers=none}
-
-% Pour rendre les toc plus compactes (pour éviter que ça déborde)
-\makeatletter
-\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0.5em}{}{}
-\makeatother
-\setbeamerfont{subsection in toc}{size=\scriptsize}
 
 \graphicspath{{img/}}
 \definecolor{gris}{RGB}{228,228,228}
@@ -28,24 +13,6 @@
 \definecolor{darkgray}{rgb}{0.3,0.3,0.3}
 \usefonttheme[onlymath]{serif} % to see the difference when I do mathsf
 
-\lstset{literate=
-{á}{{\'a}}1
-{à}{{\`a}}1
-{À}{{\`A}}1
-{ã}{{\~a}}1
-{é}{{\'e}}1
-{è}{{\`e}}1
-{ê}{{\^e}}1
-{î}{{\^i}}1
-{í}{{\'i}}1
-{ó}{{\'o}}1
-{õ}{{\~o}}1
-{ô}{{\^o}}1
-{ú}{{\'u}}1
-{ü}{{\"u}}1
-{ç}{{\c{c}}}1
-}
-\lstset{keepspaces}
 
 \logo{\includegraphics[height=5mm]{logo_12-13-mini.png}}
 \institute{Louvain-li-Nux}
