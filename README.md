@@ -1,7 +1,9 @@
 Conf LaTeX
 ----------
 
-Conférence LaTeX du [Louvain-li-Nux](http://louvainlinux.org).
+Conférence LaTeX du [Louvain-li-Nux](https://louvainlinux.org).
+
+Plus d'infos sur <https://louvainlinux.org/activites/atelier-latex>.
 
 ## License
 
