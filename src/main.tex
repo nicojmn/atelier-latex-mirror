@@ -18,9 +18,9 @@
 \institute{Louvain-li-Nux}
 \title{\textbf{Formation \LaTeX}\\
 Introduction à l'écriture de documents avec \LaTeX}
-\author{Louis \textsc{Arys} \and Adrien \textsc{Couplet} \and Gaëtan \textsc{Cassiers}}
+\author{Louis \textsc{Arys} \and Adrien \textsc{Couplet}}
 
-\date{5 octobre 2017}
+\date{3 octobre 2018}
 
 % A changer (selon Arnaud) le utf8x pas aligné slide 12/30
 % maketitle
@@ -52,7 +52,7 @@ Introduction à l'écriture de documents avec \LaTeX}
 
 \begin{frame}
   \maketitle  
-  Merci à Jolan \textsc{Wolter}, Thomas \textsc{Vanzieleghem}, David \textsc{Ernst}, Matthieu \textsc{Baerts}, Arnaud \textsc{Cerckel}, Benoît \textsc{Legat}, Mattéo \textsc{Couplet}, Geoffroy \textsc{Jacquet}, Xavier \textsc{Lambein} et Sébastien \textsc{de Longueville} pour la réalisation des précédentes versions de ces transparents
+  Merci à Jolan \textsc{Wolter}, Thomas \textsc{Vanzieleghem}, David \textsc{Ernst}, Matthieu \textsc{Baerts}, Arnaud \textsc{Cerckel}, Benoît \textsc{Legat}, Mattéo \textsc{Couplet}, Geoffroy \textsc{Jacquet}, Xavier \textsc{Lambein}, Sébastien \textsc{de Longueville} et Gaëtan \textsc{Cassiers} pour la réalisation des précédentes versions de ces transparents
 
 \end{frame}
 
@@ -173,7 +173,7 @@ Introduction à l'écriture de documents avec \LaTeX}
 		\item \textbf{\url{www.overleaf.com}}
 	  \end{itemize}
   \end{itemize}
-  Pour cet atelier, nous vous conseillons d'utiliser \textbf{TeXMaker} sur les PC UCL, sinon utiliser \textbf{overleaf} sur votre propre PC. 
+  Pour cet atelier, nous vous conseillons d'utiliser \textbf{overleaf} sur votre propre PC ou sur les PC de l'UCL. 
 \end{frame}
 
 \subsection{Symboles spéciaux sur Mac}
@@ -245,7 +245,7 @@ Introduction à l'écriture de documents avec \LaTeX}
 \small
 \begin{tabular}{ll}
   Type de document &
-  \lstinline|\documentclass[a4paper, 10pt]{article}|\\
+  \lstinline|\documentclass[a4paper, 10pt]{scrartcl}|\\
   Utilisation de \textit{package} &
   \lstinline|\usepackage[utf8]{inputenc}|\\
   Utilisation de \textit{package} &
@@ -308,7 +308,7 @@ Introduction à l'écriture de documents avec \LaTeX}
 \end{tabular}
 \vspace{1cm}
 \begin{center}
-\verb|\documentclass[a4paper,10pt]{|\alert{\texttt{article}}\verb|}|\\
+\verb|\documentclass[a4paper,10pt]{|\alert{\texttt{scrartcl}}\verb|}|\\
 \end{center}
 \end{frame}
 
@@ -322,7 +322,7 @@ Introduction à l'écriture de documents avec \LaTeX}
 \end{tabular}
 \vspace{1cm}
 \begin{center}
-\verb|\documentclass[|\alert{\texttt{a4paper,10pt}}\verb|]{article}|\\
+\verb|\documentclass[|\alert{\texttt{a4paper,10pt}}\verb|]{scrartcl}|\\
 \end{center}
 \end{frame}
 
@@ -387,7 +387,7 @@ Un deuxième paragraphe sans titre.
 \end{frame}
 
 %-----------------------
-\section{Mise en page générale} %TODO: faire ca plus clairement
+\section{Mise en page générale}
 
 \subsection{Titre}
 \begin{frame}[fragile]{Titre}
@@ -540,41 +540,7 @@ Le sujet est en or mais pas le vif.
 
 \begin{frame}[fragile]{Premier exercice (solution)}
 \begin{center}
-\begin{lstlisting}[style=nonumbers,basicstyle=\tiny]
-\documentclass[a4paper,12pt]{scrartcl}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[french]{babel}
-
-\subject{LJOKE1230}
-\title{Synthèse du cours de Calembours I}
-\author{Adrien \and Louis}
-
-\begin{document}
-
-\maketitle
-
-\section{Analyse}
-\subsection{Fondements}
-Les démonstrations à connaître sont: implication, contraposition, equivalence et récurrence. 
-
-Les relations possibles sont: réflexive, symétrique, transitive ou antisymétrique.
-
-\section{Maths discrètes}
-\subsection{Définitions}
-Quel est le comble pour un cosinus ? Attraper une sinusite !
-
-\subsection{Principe des tiroirs}
-Logarithme et exponentielle sont dans un bateau. Tout à coup, Logarithme s'exclame, paniquée : Attention, on dérive !
-Exponentielle lui répond : Je m'en fiche !
-
-\begin{itemize}
-    \item Le Louvain-li-Nux n'est pas responsable de la qualité de ces blagues.
-    \item Ce sont des blagues dignes d'un mécatro...
-\end{itemize}
-
-\end{document}
-\end{lstlisting}
+Lien Overleaf de la solution du premier exercice \url{https://www.overleaf.com/read/cgsxdzhjrknb}
 \end{center}
 
 \end{frame}
@@ -749,25 +715,25 @@ the end of the universe.
 \begin{lstlisting}[style=nonumbers]
 
 Sur la figure~\ref{fig:ucl}, vous pouvez 
-voir le logo UCL mis a 50\%
+voir le logo UCLouvain mis a 50\%
 de la largeur du texte.
 
 \begin{figure}
     \centering
-        \includegraphics[width=0.50\textwidth]{logo-ucl.eps}
-    \caption{Voici le logo UCL}
+    \includegraphics[width=0.50\textwidth]{logo-uclouvain.eps}
+    \caption{Voici le logo UCLouvain}
     \label{fig:ucl}
 \end{figure}
 \end{lstlisting}
 \end{column}
 \begin{column}{0.5\textwidth}
-Sur la figure~\ref{fig:ucl}, vous pouvez voir le logo UCL
+Sur la figure~\ref{fig:ucl}, vous pouvez voir le logo UCLouvain
 mis a \SI{50}{\percent} de la largeur du texte.
 
 \begin{figure}[!ht]
     \centering
-        \includegraphics[width=0.50\textwidth]{logo-ucl.eps}
-    \caption{Voici le logo UCL}
+    \includegraphics[width=0.50\textwidth]{logo-uclouvain.pdf}
+    \caption{Voici le logo UCLouvain}
     \label{fig:ucl}
 \end{figure}
 \end{column}
@@ -884,51 +850,13 @@ mis a \SI{50}{\percent} de la largeur du texte.
 \subsection{Exercice 2}
 \begin{frame}[fragile]{Deuxième exercice}
 \begin{center}
-\fbox{\includegraphics[height=7cm,trim={2cm 8cm 2cm 4cm},clip]{exercices/3/build_latex/main.pdf}}
+\fbox{\includegraphics[height=7cm,trim={2cm 8cm 2cm 4cm},clip]{exercices/2/build_latex/main.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]{Deuxième exercice (solution)}
 \begin{center}
-\begin{lstlisting}[style=nonumbers,basicstyle=\tiny]
-\documentclass[a4paper, 12pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[french]{babel}
-\usepackage{hyperref}
-\usepackage{graphicx}
-
-\begin{document}
-\section{L'histoire d'un Tux \label{sec:tux}}
-Il était une fois un petit pingouin appelé Tux.  Il était heureux et en bonne santé, mais il ne ressemblait à aucun autre 
-pingouin comme vous pouvez le voir sur la figure~\ref{fig:tux}. 
-\begin{figure}
-\centering
-\includegraphics[width=0.3\textwidth]{tux.jpeg}
-\caption{Tux en vacance (image issue de \url{https://frama.link/TuxEnVacances}}
-\label{fig:tux}
-\end{figure}
-Ce petit pingouin aime se dorer la pillule au soleil; avec un petit cocktail à la main. 
-
-\section{Mon beau tableau}
-Quittons nos histoires de Tux en vacances de la section~\ref{sec:tux} pour s'interésser au tableau~\ref{tab:Blabla} listant les 
-différents personnages de Blabla.
-\begin{table}
-\centering
-\begin{tabular}{|c||c|}\hline
-Nom & Rôle \\\hline\hline
-Blabla & personnage principal \\\hline
-Wilbur Disquedur & père de Blabla \\\hline
-Clic la Souris & meilleure amie de Blabla\\\hline
-\end{tabular}
-\caption{Liste non-exhaustive des personnages de l'émission Blabla}
-\label{tab:Blabla}
-\end{table}
-Cette magnifique émission, avec de magnifiques personnages qui est malheureusement terminée, à rythmé l'enfance de beaucoup 
-d'entre nous !
-
-\end{document}
-\end{lstlisting}
+Lien Overleaf de la solution du deuxième exercice \url{https://www.overleaf.com/read/dmcqrmdjwmdw}
 \end{center}
 
 \end{frame}
@@ -946,14 +874,12 @@ d'entre nous !
     \item Avec \LaTeX{}, la bibliographie est séparée du reste dans un fichier \texttt{.bib} (par exemple: \texttt{biblio.bib}).
     \item L'utilisation d'une bibliographie requièrent les paquets suivants :
 	\begin{itemize}
-	\item \lstinline|\usepackage{biblatex}|
+	\item \lstinline|\usepackage[backend=bibtex]{biblatex}|
 	\item \lstinline|\usepackage{csquotes}|.
 	\end{itemize}
-    \item On utilise le fichier \texttt{biblio.bib} dans le document via la commande \lstinline|\bibliography{biblio}|.
+    \item On utilise le fichier \texttt{biblio.bib} dans le document via la commande \lstinline|\bibliography{biblio.bib}|.
     \item On cite un document avec la commande \lstinline|\cite{identifiant}|.
     \item On affiche la bibliographie avec la commande \lstinline|\printbibliography|.
-    \item Update 2018: Sur les PC de l'UCL sous Windows, utilisez 
-    \begin{itemize} \item\lstinline|\usepackage[backend=bibtex]{biblatex}|.\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -1063,6 +989,12 @@ urna fringilla ultrices.
 		\fbox{\includegraphics[width=0.8\textwidth,trim={2cm 18cm 2cm 2cm},clip]{exercices/bib/build_latex/main.pdf}}
 	\end{center}
 \end{frame}
+\begin{frame}[fragile]{Troisième exercice (solution)}
+\begin{center}
+Lien Overleaf de la solution du troisième exercice \url{https://www.overleaf.com/read/pstswcfgbsyg}
+\end{center}
+\end{frame}
+
 
 %-------------------
 \subsection{Découpe d'un projet en fichiers}
@@ -1529,57 +1461,14 @@ Erreur courante: les ensembles ont besoin d'espacement (i.e. \lstinline|\,|) en 
 \begin{frame}[fragile]
 	\frametitle{Quatrième exercice}
 	\begin{center}
-		\fbox{\includegraphics[width=0.8\textwidth,trim={2cm 16cm 2cm 2cm},clip]{exercices/4/build_latex/main.pdf}}
+		\fbox{\includegraphics[width=0.8\textwidth,trim={2cm 16cm 2cm 2cm},clip]{exercices/3/build_latex/main.pdf}}
 	\end{center}
 \end{frame}
 
-\begin{frame}[fragile,allowframebreaks]{Quatrième exercice (solution)}
+\begin{frame}[fragile]{Quatrième exercice (solution)}
 \begin{center}
-\begin{lstlisting}[style=nonumbers,basicstyle=\tiny]
-\documentclass[a4paper,12pt]{scrartcl}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[french]{babel}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{siunitx}
-
-\begin{document}
-Un système diagonal à résoudre:
-\begin{equation}
-	\begin{bmatrix}
-		2 & 1 & 0 & 0\\
-		1 & 2 & 1 & 0\\
-		0 & 1 & 2 & 1\\
-		0 & 0 & 1 & 2
-	\end{bmatrix}
-	\begin{bmatrix}
-		u_1 \\ u_2 \\ u_3 \\ u_4
-	\end{bmatrix} =
-	\begin{bmatrix}
-		1 \\ 1 \\ 1 \\ 1
-	\end{bmatrix}
-\end{equation}
-Plusieurs équations alignées et numérotées:
-\begin{align}
-	x^2 + y^2 &= r^2 \\
-	y^2 &= r^2 - x^2
-\end{align}
-\end{lstlisting}
-\framebreak
-\begin{lstlisting}[style=nonumbers,basicstyle=\tiny]
-Une grosse équation:
-\begin{equation} 
-	\eta_{th} = 1 - \frac{Q_{II}}{Q_I} = 1 - \left(\frac{T_4-T_1}{T_3-T_2}\right) = 1 - \left(\frac{1}{\tau^{\gamma-1}}\right) 
-\end{equation}
-Un exemple d'unités en \LaTeX:
-\begin{equation}
-	v_\mathrm{max} = \SI{300}{\meter\per\second}
-\end{equation}
-\end{document}
-\end{lstlisting}
+Lien Overleaf de la solution du quatrième exercice \url{https://www.overleaf.com/read/dqdzcnzsmnsh}
 \end{center}
-
 \end{frame}
 
 \AtBeginSection[]{} %% stop TOC
