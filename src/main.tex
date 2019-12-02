@@ -18,9 +18,9 @@
 \institute{Louvain-li-Nux}
 \title{\textbf{Formation \LaTeX}\\
 Introduction à l'écriture de documents avec \LaTeX}
-\author{Louis \textsc{Arys} \and Adrien \textsc{Couplet}}
+\author{Morgan \textsc{Leclerc} \and Martin \textsc{Vandenbussche}}
 
-\date{28 février 2019}
+\date{04 décembre 2019}
 
 % A changer (selon Arnaud) le utf8x pas aligné slide 12/30
 % maketitle
@@ -31,7 +31,7 @@ Introduction à l'écriture de documents avec \LaTeX}
 \begin{frame}
   \begin{center}\Large
   Suivez cette présentation sur votre ordinateur :-)
-  
+
   \vspace{1cm}
   \fbox{\url{https://louvainlinux.org/activites/atelier-latex}}
   \end{center}
@@ -39,7 +39,7 @@ Introduction à l'écriture de documents avec \LaTeX}
 
 
 \begin{frame}
-  \maketitle  
+  \maketitle
 %  Merci à Jolan \textsc{Wolter}, Thomas \textsc{Vanzieleghem}, David \textsc{Ernst}, Matthieu \textsc{Baerts}, Arnaud \textsc{Cerckel}, Benoît \textsc{Legat}, Mattéo \textsc{Couplet}, Geoffroy \textsc{Jacquet}, Xavier \textsc{Lambein}, Sébastien \textsc{de Longueville} et Gaëtan \textsc{Cassiers} pour la réalisation des précédentes versions de ces transparents
 
 \end{frame}
@@ -160,7 +160,7 @@ Introduction à l'écriture de documents avec \LaTeX}
         \item \textbf{\url{www.overleaf.com}}
       \end{itemize}
   \end{itemize}
-  Pour cet atelier, nous vous conseillons d'utiliser \textbf{overleaf} sur votre propre PC. 
+  Pour cet atelier, nous vous conseillons d'utiliser \textbf{overleaf} sur votre propre PC.
 \end{frame}
 
 \subsection{Symboles spéciaux sur Mac}
@@ -250,9 +250,9 @@ Introduction à l'écriture de documents avec \LaTeX}
 \end{frame}
 
 \subsection{Commandes et environnements}
-\begin{frame}[fragile]{Les commandes et environnements}
+\begin{frame}[fragile]{Les commandes}
 \begin{itemize}
-\item \textbf{Commande} 
+\item \textbf{Commande}
     \begin{itemize}
     \item Débute par \textbackslash
     \item S'applique à une partie du texte, délimité par des accolades
@@ -266,6 +266,11 @@ Introduction à l'écriture de documents avec \LaTeX}
     \lstinline|\implies| & $\implies$ & \lstinline|\textbf{texte}| & \textbf{texte}
     \end{tabular}
     \end{center}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Les environnements}
+\begin{itemize}
 \item \textbf{Environnement}
     \begin{itemize}
     \item S'applique à des portions de texte et applique une règle de mise en page,\dots
@@ -277,9 +282,26 @@ Introduction à l'écriture de documents avec \LaTeX}
 \end{EnvironnementName}
     \end{lstlisting}
     \begin{center}
-    \begin{tabular}{ll}
-        \lstinline|\begin{scriptsize} Louvain-li-Nux \end{scriptsize}| & \begin{scriptsize} Louvain-li-Nux \end{scriptsize}
-    \end{tabular}
+      \begin{columns}
+      \begin{column}{0.5\textwidth}
+      \begin{lstlisting}[style=nonumbers]
+      \begin{figure}
+          \centering
+          \includegraphics[width=0.50\textwidth]{logo-uclouvain.eps}
+          \caption{Voici le logo UCLouvain}
+          \label{fig:ucl}
+      \end{figure}
+      \end{lstlisting}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+      \begin{figure}[!ht]
+          \centering
+          \includegraphics[width=0.50\textwidth]{logo-uclouvain.pdf}
+          \caption{Voici le logo UCLouvain}
+          \label{fig:ucl}
+      \end{figure}
+      \end{column}
+      \end{columns}
     \end{center}
 \end{itemize}
 \end{frame}
@@ -340,7 +362,7 @@ Introduction à l'écriture de documents avec \LaTeX}
     \end{itemize}
     \vspace{1cm}
 
-    \begin{itemize} 
+    \begin{itemize}
         \item \lstinline|\section{}|
         \item \lstinline|\subsection{}|
         \item \lstinline|\paragraph{}|
@@ -361,7 +383,7 @@ Un paragraphe sans titre.
 La première ligne est toujours indentée.
 
 Un deuxième paragraphe sans titre.
-À nouveau la première ligne est indentée. 
+À nouveau la première ligne est indentée.
         \end{lstlisting}
       \end{column}
       \begin{column}{0.5\textwidth}
@@ -394,7 +416,7 @@ Un deuxième paragraphe sans titre.
 
 \date{}               % pas de date
 \date{\today}         % aujourd'hui
-\date{8 november 2016} 
+\date{8 november 2016}
 
 \begin{document}
 
@@ -585,19 +607,19 @@ the end of the universe.
   \frametitle{Divers}
   \begin{itemize}
   \item Caractères spéciaux utilisés par \LaTeX
-  
+
   \begin{tabular}{cccccccccc}
   \lstinline|\$| & \lstinline|\&| & \lstinline|\%| & \lstinline|\#| & \lstinline|\_| & \lstinline|\{| & \lstinline|\}| & \lstinline|\~{}| & \lstinline|\^{}| & \lstinline|\textbackslash| \\
   \$ & \& & \% & \# & \_ & \{ & \} & \~{} & \^{} & \textbackslash
   \end{tabular}
-  
+
  \item Tirets
    \begin{tabular}{llp{0.5\textwidth}}
      \lstinline|-| & court & Jean-Patrick\\
      \lstinline|--| & moyen ou semi-cadratin & 1984--2015\\
      \lstinline|---| & cadratin & le \LaTeX{} --- c'est chouette --- a été créé par Leslie Lamport\\
    \end{tabular}
-    
+
     \item Autres caractères
     \begin{itemize}
         \item \lstinline|M\up{me}| pour M\up{me}
@@ -616,19 +638,19 @@ the end of the universe.
 \begin{frame}[fragile]
   \frametitle{Figures I}
   \begin{itemize}
-  
+
   \item Utilisation du package \lstinline|\usepackage{graphicx}|
-  \item Insertion de l'image avec \lstinline|\includegraphics[options]{filename.ext}|  
-  
+  \item Insertion de l'image avec \lstinline|\includegraphics[options]{filename.ext}|
+
   \item \textbf{Non-flottant}
-  
+
     Référencement par ``ci-dessous'', \dots
     \begin{lstlisting}[style=nonumbers]
 \begin{center}
   \includegraphics{image.jpg}
 \end{center}
     \end{lstlisting}
-  
+
   \item \textbf{Flottant}
       \begin{itemize}
           \item Environnement \lstinline|figure|
@@ -671,9 +693,9 @@ the end of the universe.
       \end{lstlisting}
     \end{column}
     \begin{column}{0.5\textwidth}
-      \label{id}
-      \par{}Nous sommes section~\ref{id},
-      page~\pageref{id},
+      \label{ref:id}
+      \par{}Nous sommes section~\ref{ref:id},
+      page~\pageref{ref:id},
     \end{column}
   \end{columns}
 \end{frame}
@@ -681,7 +703,7 @@ the end of the universe.
 \begin{frame}[fragile]\
     \frametitle{Figures II}
     \begin{itemize}
- 
+
   \item \textbf{Scaling}
     \begin{lstlisting}[style=nonumbers]
 \includegraphics[width=0.7\textwidth]{image.jpg} % Largeur d'une ligne de texte
@@ -690,7 +712,7 @@ the end of the universe.
     \end{lstlisting}
 
   \vspace{2em}
-\end{itemize} 
+\end{itemize}
 
 \end{frame}
 
@@ -701,7 +723,7 @@ the end of the universe.
 \begin{column}{0.5\textwidth}
 \begin{lstlisting}[style=nonumbers]
 
-Sur la figure~\ref{fig:ucl}, vous pouvez 
+Sur la figure~\ref{fig:ucl}, vous pouvez
 voir le logo UCLouvain mis a 50\%
 de la largeur du texte.
 
@@ -714,7 +736,7 @@ de la largeur du texte.
 \end{lstlisting}
 \end{column}
 \begin{column}{0.5\textwidth}
-Sur la figure~\ref{fig:ucl}, vous pouvez voir le logo UCLouvain
+Sur la figure \ref{fig:ucl}, vous pouvez voir le logo UCLouvain
 mis a \SI{50}{\percent} de la largeur du texte.
 
 \begin{figure}[!ht]
@@ -729,7 +751,7 @@ mis a \SI{50}{\percent} de la largeur du texte.
 \end{frame}
 
 
-\subsection{Les tableaux} 
+\subsection{Les tableaux}
 \begin{frame}[fragile,allowframebreaks]
   \frametitle{Tableaux}
   \begin{itemize}
@@ -764,7 +786,7 @@ mis a \SI{50}{\percent} de la largeur du texte.
 \end{tabular}
         \end{lstlisting}
       \item \textbf{Rendu}
-    \begin{table}[!ht] 
+    \begin{table}[!ht]
     \centering
     \begin{tabular}{|lcrp{0.25\textwidth}|}
       \hline
@@ -778,7 +800,7 @@ mis a \SI{50}{\percent} de la largeur du texte.
     \framebreak
 
       \item \textbf{Non-flottant}
-  
+
     Référencement par ``ci-dessous'', \dots
     \begin{lstlisting}[style=nonumbers]
 \begin{center}
@@ -787,7 +809,7 @@ mis a \SI{50}{\percent} de la largeur du texte.
     \end{tabular}
 \end{center}
     \end{lstlisting}
-    
+
   \item \textbf{Flottant}
       \begin{itemize}
           \item Environnement \lstinline|table|
@@ -803,8 +825,8 @@ mis a \SI{50}{\percent} de la largeur du texte.
   \label{tab:data}
 \end{table}
     \end{lstlisting}
-    
-    
+
+
   \end{itemize}
 \end{frame}
 
@@ -875,22 +897,22 @@ Lien Overleaf de la solution du deuxième exercice \url{https://www.overleaf.com
 \begin{itemize}
     \item Pour chaque référence bibliographique, on ajoute une entrée au fichier. Exemple avec un article de ce cher Laurent Francis:
       \begin{lstlisting}[style=nonumbers]
-@inproceedings{ray2017challenges, 
-    title={Challenges of monolithic integration for SiGe MEMS technology}, 
+@inproceedings{ray2017challenges,
+    title={Challenges of monolithic integration for SiGe MEMS technology},
     author={Ray Chaudhuri, Ashesh and Severi, S and Helin, P and Francis, Laurent and Tilmans, HAC},
     booktitle={15th IEEE Sensors Conference, SENSORS 2016},
-    year={2017} 
+    year={2017}
 }
       \end{lstlisting}
     Et un autre qui fit beaucoup de bruit:
     \begin{lstlisting}[style=nonumbers]
 @article{lemaitre1934evolution,
     title={Evolution of the expanding universe},
-    author={Lema{\^\i}tre, Georges}, 
-    journal={Proceedings of the National Academy of Sciences}, 
-    volume={20}, number={1}, pages={12--17}, 
-    year={1934}, 
-    publisher={National Acad Sciences} 
+    author={Lema{\^\i}tre, Georges},
+    journal={Proceedings of the National Academy of Sciences},
+    volume={20}, number={1}, pages={12--17},
+    year={1934},
+    publisher={National Acad Sciences}
 }
     \end{lstlisting}
     \framebreak
@@ -939,13 +961,13 @@ Lien Overleaf de la solution du deuxième exercice \url{https://www.overleaf.com
 \usepackage[french]{babel}
 \bibliography{biblio}
 \begin{document}
-Lorem ipsum dolor sit amet\cite{ray2017challenges}, consectetuer adipiscing elit. 
-Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur 
-dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate 
-a, magna. Donec vehicula augue eu neque. Pellentesque habitant morbi tristique 
+Lorem ipsum dolor sit amet\cite{ray2017challenges}, consectetuer adipiscing elit.
+Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur
+dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate
+a, magna. Donec vehicula augue eu neque. Pellentesque habitant morbi tristique
 senectus et netus et malesuada fames ac turpis egestas. Mauris ut leo. Cras
 viverra\cite{lemaitre1934evolution} metus rhoncus sem. Nulla et lectus vestibulum
-urna fringilla ultrices. 
+urna fringilla ultrices.
 \nocite{de1966functions}
 \printbibliography
 \end{document}
@@ -1033,7 +1055,7 @@ Lien Overleaf de la solution du troisième exercice \url{https://www.overleaf.co
 \begin{document}
   \maketitle
   \tableofcontents
-  
+
   \input{intro.tex}
   \input{section1.tex}
   \input{section2.tex}
@@ -1050,7 +1072,7 @@ Lien Overleaf de la solution du troisième exercice \url{https://www.overleaf.co
   Repose en paix.
 \end{center}
       \end{lstlisting}
-      
+
       Dans \texttt{section1.tex}
       \begin{lstlisting}[style=nonumbers]
 \section{Le Louvain-li-Nux}
@@ -1058,11 +1080,11 @@ Lien Overleaf de la solution du troisième exercice \url{https://www.overleaf.co
   de Louvain-la-Neuve.
   ...
       \end{lstlisting}
-      
+
       Dans \texttt{section2.tex}
       \begin{lstlisting}[style=nonumbers]
 \section{Le Kotangente}
-  Le Kotangente est kot ami du 
+  Le Kotangente est kot ami du
   Louvain-li-Nux.
   ...
       \end{lstlisting}
@@ -1096,7 +1118,7 @@ Lien Overleaf de la solution du troisième exercice \url{https://www.overleaf.co
             \lstinline|$a^11$| & $a^11$ & Bad ! \\
             \lstinline|$\sin(x)$| & $\sin(x)$ & Good \\
             \lstinline|$sin(x)$| & $sin(x)$ & Bad !\\
-            \lstinline|$\frac{\Theta}{\sqrt{\beta}}$| & $\frac{\Theta}{\sqrt{\beta}}$ & Very good !	
+            \lstinline|$\frac{\Theta}{\sqrt{\beta}}$| & $\frac{\Theta}{\sqrt{\beta}}$ & Very good !
         \end{tabular}
     \end{center}
     \item Les packages \lstinline|amsmath| et \lstinline|amssymb| apportent beaucoup d'environements et symboles supplémentaires très utiles, à inclure par défaut.
@@ -1112,7 +1134,7 @@ Lien Overleaf de la solution du troisième exercice \url{https://www.overleaf.co
 \begin{columns}
   \begin{column}{0.45\textwidth}
     \begin{lstlisting}[style = nonumbers]
-L'expression $\sin(x)$ peut s'écrire de différents manières. En effet, il a été démontré que 
+L'expression $\sin(x)$ peut s'écrire de différents manières. En effet, il a été démontré que
 
 \[
   \sin(x) =
@@ -1123,13 +1145,13 @@ avec $i$ étant l'unité imaginaire.
     \end{lstlisting}
   \end{column}
   \begin{column}{0.45\textwidth}
-    L'expression $\sin(x)$ peut s'écrire de différents manières. En effet, il a été démontré que 
-    
+    L'expression $\sin(x)$ peut s'écrire de différents manières. En effet, il a été démontré que
+
     \[ \sin(x) = \frac{e^{iz} - e^{-iz}}{2i} \]
 
     avec $i$ étant l'unité imaginaire.
   \end{column}
-  
+
 \end{columns}
 
 \end{itemize}
@@ -1142,7 +1164,7 @@ avec $i$ étant l'unité imaginaire.
                 \begin{column}{0.45\textwidth}
                     \begin{lstlisting}[style=nonumbers]
 \[
-  \begin{matrix}	
+  \begin{matrix}
     \alpha & \beta \\
     \gamma & \delta \\
   \end{matrix}
@@ -1179,7 +1201,7 @@ avec $i$ étant l'unité imaginaire.
         \begin{center}
         \begin{tabular}{llllll}
             \lstinline|bmatrix| & [ ] & \lstinline|Bmatrix| & \{ \} & \lstinline|pmatrix| & ( ) \\
-            \lstinline|vmatrix| & | | &	\lstinline|Vmatrix| & || || 
+            \lstinline|vmatrix| & | | &	\lstinline|Vmatrix| & || ||
         \end{tabular}
         \end{center}
     \end{itemize}
@@ -1202,8 +1224,10 @@ avec $i$ étant l'unité imaginaire.
 \[ \left\{\frac{x^2}{y^3}\right\} \qquad \left[\frac{x^2}{y^3}\right] \]
     \end{itemize}
 \end{frame}
-    
-    
+
+
+
+
 
 \subsection{Formules numérotées}
 \begin{frame}[fragile,allowframebreaks]{Formules numérotées}
@@ -1224,16 +1248,16 @@ avec $i$ étant l'unité imaginaire.
             \end{equation}
         \end{column}
     \end{columns}
-    
+
     \item L'environnement \lstinline|align| permet d'écrire des équations alignées et numérotées. \lstinline|align*| aligne plusieurs équations sans les numéroter.
-    \item On peut ne pas numéroter une équation en plaçant \lstinline|\nonumber| à la fin de la ligne. 
+    \item On peut ne pas numéroter une équation en plaçant \lstinline|\nonumber| à la fin de la ligne.
 \begin{columns}
     \begin{column}{0.5\textwidth}
     \begin{lstlisting}[style = nonumbers]
 I like trains and the equations
 \begin{align}
   e^{i\pi} + 1 & = 0\\
-  f(t) & = A\cos(\omega t + \phi) \nonumber 
+  f(t) & = A\cos(\omega t + \phi) \nonumber
 \end{align}
 I also know that
 \begin{align*}
@@ -1246,7 +1270,7 @@ I also know that
 I like trains and the equations
 \begin{align}
   e^{i\pi} + 1 & = 0\\
-  f(t) & = A\cos(\omega t + \phi) \nonumber 
+  f(t) & = A\cos(\omega t + \phi) \nonumber
 \end{align}
 I also know that
 \begin{align*}
@@ -1254,22 +1278,22 @@ I also know that
   2 + 3 & = 5
 \end{align*}
   \end{column}
-  
+
 \end{columns}
 \framebreak
     \item Utilisation de l'environnement \lstinline|aligned| pour faire un système d'équation (utilisation semblable à \lstinline|align|).
     \begin{columns}
             \begin{column}{0.5\textwidth}
             \begin{lstlisting}[style=nonumbers]
-\[ 
-    \left\{ 
+\[
+    \left\{
         \begin{aligned}
          x^2 + y &= 3 \\
          \frac{y}{x} &= 0.42
         \end{aligned}
     \right.
 \]
-            \end{lstlisting}	
+            \end{lstlisting}
         \end{column}
         \begin{column}{0.5\textwidth}
             \[ \left\{\begin{aligned}
@@ -1285,7 +1309,7 @@ I also know that
 \subsection{Les maths et les polices}
 \begin{frame}[fragile]{Les maths et les polices}
 \begin{itemize}
-    \item Parfois, certaines variables sont composées de plusieurs lettres. On doit utiliser des polices différentes comme \lstinline|\mathrm| ou \lstinline|\mathsf|. \lstinline|\mathcal| produit des lettres \og calligraphiques \fg{}. 
+    \item Parfois, certaines variables sont composées de plusieurs lettres. On doit utiliser des polices différentes comme \lstinline|\mathrm| ou \lstinline|\mathsf|. \lstinline|\mathcal| produit des lettres \og calligraphiques \fg{}.
     \begin{center}
             \begin{tabular}{lll}
                 \lstinline|$Var(x)$| & $Var(x)$ & Bad ! \\
@@ -1295,16 +1319,16 @@ I also know that
                 \lstinline|$\mathcal{M}$| & $\mathcal{M}$ &
             \end{tabular}
     \end{center}
-    
+
     \item Les ensembles s'écrivent à l'aide de la police \lstinline|\mathbb|.
     \begin{center}
         \begin{tabular}{cccc}
         \lstinline|$\mathbb{N}$| & $\mathbb{N}$ & \lstinline|$\mathbb{Z}$| & $\mathbb{Z}$ \\
         \lstinline|$\mathbb{D}$| & $\mathbb{D}$ & \lstinline|$\mathbb{Q}$| & $\mathbb{Q}$ \\
-        \lstinline|$\mathbb{N}$| & $\mathbb{R}$ & \lstinline|$\mathbb{C}$| & $\mathbb{C}$			
+        \lstinline|$\mathbb{N}$| & $\mathbb{R}$ & \lstinline|$\mathbb{C}$| & $\mathbb{C}$
         \end{tabular}
     \end{center}
-\end{itemize}	
+\end{itemize}
 \end{frame}
 
 \subsection{Large Operators}
@@ -1333,24 +1357,24 @@ I also know that
 \begin{itemize}
     \item Définition de nouvelles commandes par \lstinline|\newcommand{nom}{définition}|
     \item Dans un environnement mathématique, on utilise \lstinline|\DeclareMathOperator{nom}{définition}|
-    
+
     \begin{lstlisting}[style=nonumbers]
 \DeclareMathOperator{\sumN}{\sum_{i=1}^n}
 
 \DeclareMathOperator{\var}{\mathrm{Var}}
     \end{lstlisting}
-    
+
     \begin{columns}
-        \begin{column}{0.5\textwidth}	
+        \begin{column}{0.5\textwidth}
           \[\var(x) = \pi\]
             \[\sumN \frac{i}{i+1}\]
-        \end{column}	
-        \begin{column}{0.5\textwidth}	
+        \end{column}
+        \begin{column}{0.5\textwidth}
             \begin{lstlisting}[style=nonumbers]
 \[ \var(x) = \pi \]
 \[ \sumN \frac{i}{i+1} \]
             \end{lstlisting}
-        \end{column}	
+        \end{column}
     \end{columns}
 
 \end{itemize}
@@ -1598,7 +1622,7 @@ else:
     \begin{columns}
       \begin{column}{0.4\textwidth}
         \begin{lstlisting}[style=nonumbers]
-Justifié; c'est le comportement par défaut de \LaTeX{}  
+Justifié; c'est le comportement par défaut de \LaTeX{}
 
 \begin{center}
   Centré
@@ -1615,7 +1639,7 @@ Justifié; c'est le comportement par défaut de \LaTeX{}
       \end{column}
       \begin{column}{0.6\textwidth}
         \begin{mdframed}
-          Justifié; c'est le comportement par défaut de \LaTeX{} 
+          Justifié; c'est le comportement par défaut de \LaTeX{}
 
           \begin{center}
             Centré
@@ -1631,25 +1655,25 @@ Justifié; c'est le comportement par défaut de \LaTeX{}
         \end{mdframed}
       \end{column}
     \end{columns}
-  \end{itemize}	
+  \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Jouer avec la police}
 \framesubtitle{Changer la taille de police}
-\begin{itemize}
-    \item \lstinline|{\small text}| pour changer la taille du texte à l'intérieur
-    \item \lstinline|\small| pour changer tout le texte jusqu'au prochain appel de \lstinline|\normalsize| 
-\end{itemize}
-\begin{tabular}{ll}
-\lstinline|{\tiny polygenelubricants}| & {\tiny polygenelubricants} \\
-\lstinline|{\small polygenelubricants}| & {\small polygenelubricants} \\
-\lstinline|{\normalsize polygenelubricants}| & {\normalsize polygenelubricants} \\
-\lstinline|{\large polygenelubricants}| & {\large polygenelubricants} \\
-\lstinline|{\Large polygenelubricants}| & {\Large polygenelubricants} \\
-\lstinline|{\LARGE polygenelubricants}| & {\LARGE polygenelubricants} \\
-\lstinline|{\huge polygenelubricants}| & {\huge polygenelubricants} \\
-\lstinline|{\Huge polygenelubricants}| & {\Huge polygenelubricants} \\
-\end{tabular}
+  \begin{itemize}
+      \item \lstinline|{\small text}| pour changer la taille du texte à l'intérieur
+      \item \lstinline|\small| pour changer tout le texte jusqu'au prochain appel de \lstinline|\normalsize|
+  \end{itemize}
+  \begin{tabular}{ll}
+  \lstinline|{\tiny polygenelubricants}| & {\tiny polygenelubricants} \\
+  \lstinline|{\small polygenelubricants}| & {\small polygenelubricants} \\
+  \lstinline|{\normalsize polygenelubricants}| & {\normalsize polygenelubricants} \\
+  \lstinline|{\large polygenelubricants}| & {\large polygenelubricants} \\
+  \lstinline|{\Large polygenelubricants}| & {\Large polygenelubricants} \\
+  \lstinline|{\LARGE polygenelubricants}| & {\LARGE polygenelubricants} \\
+  \lstinline|{\huge polygenelubricants}| & {\huge polygenelubricants} \\
+  \lstinline|{\Huge polygenelubricants}| & {\Huge polygenelubricants} \\
+  \end{tabular}
 \end{frame}
 
 \end{document}
