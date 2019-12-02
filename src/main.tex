@@ -69,17 +69,17 @@ Introduction à l'écriture de documents avec \LaTeX}
 \begin{frame}{Pourquoi \LaTeX{}?}
 
   \begin{itemize}
-  	\item Documents de qualité professionnelle
-	\item Facilité d'emploi des :
-	\begin{itemize}
-		\item formules mathématiques
-		\item tables des matières
-		\item références bibliographiques
-		\item références croisées
+      \item Documents de qualité professionnelle
+    \item Facilité d'emploi des :
+    \begin{itemize}
+        \item formules mathématiques
+        \item tables des matières
+        \item références bibliographiques
+        \item références croisées
         \item \ldots{}
-	\end{itemize}
-	\item Gratuit
-	\item Stable, même pour les très gros documents
+    \end{itemize}
+    \item Gratuit
+    \item Stable, même pour les très gros documents
   \end{itemize}
 \end{frame}
 
@@ -97,10 +97,10 @@ Introduction à l'écriture de documents avec \LaTeX}
 \begin{frame}{Pourquoi pas \LaTeX{}?}
 
   \begin{itemize}
-	\item Prise en main plus longue que pour traitement de texte WYSIWYG
-	\item Je suis allergique à toute forme de code informatique
-	\item J'ai des actions Microsoft
-	\item Je ne trouve pas le ``\textbackslash'' sur mon clavier
+    \item Prise en main plus longue que pour traitement de texte WYSIWYG
+    \item Je suis allergique à toute forme de code informatique
+    \item J'ai des actions Microsoft
+    \item Je ne trouve pas le ``\textbackslash'' sur mon clavier
   \end{itemize}
 \end{frame}
 
@@ -139,26 +139,26 @@ Introduction à l'écriture de documents avec \LaTeX}
 \begin{frame}{Quels logiciels pour utiliser \LaTeX{}?}
 
   \begin{itemize}
-	  \item GNU/Linux
-	  \begin{itemize}
-	  	\item Distribution \LaTeX{} : \textbf{TeXLive}
+      \item GNU/Linux
+      \begin{itemize}
+          \item Distribution \LaTeX{} : \textbf{TeXLive}
           {\tiny (\lstinline|sudo apt install texlive-full|)}
-		\item Éditeur : \textbf{\href{http://www.xm1math.net/texmaker/}{TeXMaker}}
-	  \end{itemize}
-	  \item Windows
-	  \begin{itemize}
+        \item Éditeur : \textbf{\href{http://www.xm1math.net/texmaker/}{TeXMaker}}
+      \end{itemize}
+      \item Windows
+      \begin{itemize}
         \item Distribution \LaTeX{} : \textbf{TeXLive}
         \item Éditeur : \textbf{\href{http://www.xm1math.net/texmaker/}{TeXMaker}}
-	  \end{itemize}
-	  \item Mac OS
-	  \begin{itemize}
+      \end{itemize}
+      \item Mac OS
+      \begin{itemize}
         \item Distribution \LaTeX{} : \textbf{\href{https://www.tug.org/mactex/}{MacTeX}}
-		\item Éditeur : \textbf{\href{http://www.xm1math.net/texmaker/}{TeXMaker}}
-	  \end{itemize}
-	  \item Dans votre navigateur
-	  \begin{itemize}
-		\item \textbf{\url{www.overleaf.com}}
-	  \end{itemize}
+        \item Éditeur : \textbf{\href{http://www.xm1math.net/texmaker/}{TeXMaker}}
+      \end{itemize}
+      \item Dans votre navigateur
+      \begin{itemize}
+        \item \textbf{\url{www.overleaf.com}}
+      \end{itemize}
   \end{itemize}
   Pour cet atelier, nous vous conseillons d'utiliser \textbf{overleaf} sur votre propre PC. 
 \end{frame}
@@ -183,23 +183,23 @@ Introduction à l'écriture de documents avec \LaTeX}
 
 \begin{frame}{Les fichiers}
 
-	\begin{center}
-		\includegraphics[height=3cm]{compilation.jpg}
-	\end{center}
+    \begin{center}
+        \includegraphics[height=3cm]{compilation.jpg}
+    \end{center}
 
-	\begin{itemize}
-		\item Fichier source = essais\alert{\textbf{.tex}}
-		\item Fichier de bibliographie = essais\alert{\textbf{.bib}}
-		\item Lors de compilation $\rightarrow$ création de nombreux fichiers annexes
-		\begin{itemize}
-			\item style, class;
-			\item structure du document;
-			\item table des matières, liste des figures;
-			\item liste des références;
+    \begin{itemize}
+        \item Fichier source = essais\alert{\textbf{.tex}}
+        \item Fichier de bibliographie = essais\alert{\textbf{.bib}}
+        \item Lors de compilation $\rightarrow$ création de nombreux fichiers annexes
+        \begin{itemize}
+            \item style, class;
+            \item structure du document;
+            \item table des matières, liste des figures;
+            \item liste des références;
             \item \ldots{}
-		\end{itemize}
-		\item Création d'un fichier essais\alert{\textbf{.pdf}}
-	\end{itemize}
+        \end{itemize}
+        \item Création d'un fichier essais\alert{\textbf{.pdf}}
+    \end{itemize}
 \end{frame}
 
 %-----------------------
@@ -220,9 +220,9 @@ Introduction à l'écriture de documents avec \LaTeX}
 \end{document}
 \end{lstlisting}
 \begin{itemize}
-	\item On charge les \textit{packages} et effectue certains réglages dans le préambule.
-	\item On écrit le contenu de son document entre \lstinline|\begin{document}| et \lstinline|\end{document}|.
-	\item Commentaires introduits par \%
+    \item On charge les \textit{packages} et effectue certains réglages dans le préambule.
+    \item On écrit le contenu de son document entre \lstinline|\begin{document}| et \lstinline|\end{document}|.
+    \item Commentaires introduits par \%
 \end{itemize}
 
 \end{frame}
@@ -253,34 +253,34 @@ Introduction à l'écriture de documents avec \LaTeX}
 \begin{frame}[fragile]{Les commandes et environnements}
 \begin{itemize}
 \item \textbf{Commande} 
-	\begin{itemize}
-	\item Débute par \textbackslash
-	\item S'applique à une partie du texte, délimité par des accolades
-	\item Permet d'insérer des symboles
-	\end{itemize}
-	\begin{lstlisting}[style=nonumbers]
+    \begin{itemize}
+    \item Débute par \textbackslash
+    \item S'applique à une partie du texte, délimité par des accolades
+    \item Permet d'insérer des symboles
+    \end{itemize}
+    \begin{lstlisting}[style=nonumbers]
 \commandName[options]{FirstParameter} ... {LastParameter}
-	\end{lstlisting}
-	\begin{center}
-	\begin{tabular}{llll}
-	\lstinline|\implies| & $\implies$ & \lstinline|\textbf{texte}| & \textbf{texte}
-	\end{tabular}
-	\end{center}
+    \end{lstlisting}
+    \begin{center}
+    \begin{tabular}{llll}
+    \lstinline|\implies| & $\implies$ & \lstinline|\textbf{texte}| & \textbf{texte}
+    \end{tabular}
+    \end{center}
 \item \textbf{Environnement}
-	\begin{itemize}
-	\item S'applique à des portions de texte et applique une règle de mise en page,\dots
-	\item Délimité par \lstinline|\begin| et \lstinline|\end|
-	\end{itemize}
-	\begin{lstlisting}[style=nonumbers]
+    \begin{itemize}
+    \item S'applique à des portions de texte et applique une règle de mise en page,\dots
+    \item Délimité par \lstinline|\begin| et \lstinline|\end|
+    \end{itemize}
+    \begin{lstlisting}[style=nonumbers]
 \begin{EnvironnementName}[options]
 
 \end{EnvironnementName}
-	\end{lstlisting}
-	\begin{center}
-	\begin{tabular}{ll}
-		\lstinline|\begin{scriptsize} Louvain-li-Nux \end{scriptsize}| & \begin{scriptsize} Louvain-li-Nux \end{scriptsize}
-	\end{tabular}
-	\end{center}
+    \end{lstlisting}
+    \begin{center}
+    \begin{tabular}{ll}
+        \lstinline|\begin{scriptsize} Louvain-li-Nux \end{scriptsize}| & \begin{scriptsize} Louvain-li-Nux \end{scriptsize}
+    \end{tabular}
+    \end{center}
 \end{itemize}
 \end{frame}
 %-----------------------
@@ -328,29 +328,29 @@ Introduction à l'écriture de documents avec \LaTeX}
 \end{tabular}
 \vskip2em
 \begin{itemize}
-	\item Ces 3 packages sont nécessaires à la compilation
+    \item Ces 3 packages sont nécessaires à la compilation
 \end{itemize}
 \end{frame}
 
 \subsection{La structure du document}
 \begin{frame}[fragile]{La structure logique du document}
-	\begin{itemize}
-		\item Structure logique du document uniquement
-		\item \LaTeX{} se charge de la numérotation et de la mise en page\\
-	\end{itemize}
-	\vspace{1cm}
+    \begin{itemize}
+        \item Structure logique du document uniquement
+        \item \LaTeX{} se charge de la numérotation et de la mise en page\\
+    \end{itemize}
+    \vspace{1cm}
 
-	\begin{itemize} 
-		\item \lstinline|\section{}|
-		\item \lstinline|\subsection{}|
-		\item \lstinline|\paragraph{}|
-	\end{itemize}
+    \begin{itemize} 
+        \item \lstinline|\section{}|
+        \item \lstinline|\subsection{}|
+        \item \lstinline|\paragraph{}|
+    \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]{La structure logique du document}
 \framesubtitle{Exemple}
-	\begin{columns}
+    \begin{columns}
       \begin{column}{0.5\textwidth}
         \begin{lstlisting}[style=nonumbers]
 \section{Une section}
@@ -367,9 +367,9 @@ Un deuxième paragraphe sans titre.
       \begin{column}{0.5\textwidth}
         \fbox{\includegraphics[width=1\textwidth,trim={1.5cm 14cm 1.5cm 1cm},clip]{examples/structure/build_latex/main.pdf}}
       \end{column}
-	\end{columns}
+    \end{columns}
     \begin{itemize}
-	\item Pour créer un nouveau paragraphe, il suffit de faire deux retours à la ligne.
+    \item Pour créer un nouveau paragraphe, il suffit de faire deux retours à la ligne.
     \end{itemize}
 \end{frame}
 
@@ -378,11 +378,11 @@ Un deuxième paragraphe sans titre.
 
 \subsection{Titre}
 \begin{frame}[fragile]{Titre}
-	\begin{itemize}
-		\item Informations données dans \lstinline|\author{}|, \lstinline|\date{}| and \lstinline|\title{}| \textbf{avant} le \lstinline|\begin{document}|
-		\item Création de la page de titre avec \lstinline|\maketitle| \textbf{après} le \lstinline|\begin{document}|
-	\end{itemize}
-	\begin{columns}
+    \begin{itemize}
+        \item Informations données dans \lstinline|\author{}|, \lstinline|\date{}| and \lstinline|\title{}| \textbf{avant} le \lstinline|\begin{document}|
+        \item Création de la page de titre avec \lstinline|\maketitle| \textbf{après} le \lstinline|\begin{document}|
+    \end{itemize}
+    \begin{columns}
       \begin{column}{0.5\textwidth}
         \begin{lstlisting}[style=nonumbers]
 \subject{US Presidential Elections}
@@ -404,19 +404,19 @@ Un deuxième paragraphe sans titre.
         \end{lstlisting}
       \end{column}
       \begin{column}{0.5\textwidth}
-	\centering
+    \centering
         \fbox{\includegraphics[width=1\textwidth,trim={1.5cm 10cm 1.5cm 1cm},clip]{examples/title/build_latex/main.pdf}}
       \end{column}
-	\end{columns}
+    \end{columns}
 \end{frame}
 
 \begin{comment}
 \subsection{Le résumé ou abstract}
 \begin{frame}[fragile]{Le résumé ou abstract}
-	\begin{itemize}
-		\item L'environnement \lstinline|abstract| permet de mettre en page un résumé au début du document.
-	\end{itemize}
-	\begin{columns}
+    \begin{itemize}
+        \item L'environnement \lstinline|abstract| permet de mettre en page un résumé au début du document.
+    \end{itemize}
+    \begin{columns}
       \begin{column}{0.5\textwidth}
         \begin{lstlisting}[style=nonumbers]
 \begin{document}
@@ -430,20 +430,20 @@ Un deuxième paragraphe sans titre.
         \end{lstlisting}
       \end{column}
       \begin{column}{0.5\textwidth}
-				\begin{abstract}
-					Voici un résumé succint du contenu de mon document.
-				\end{abstract}
+                \begin{abstract}
+                    Voici un résumé succint du contenu de mon document.
+                \end{abstract}
       \end{column}
-	\end{columns}
+    \end{columns}
 \end{frame}
 \end{comment}
 
 \subsection{La table des matières}
 \begin{frame}[fragile]{Table des matières}
-	\begin{itemize}
-		\item La commande \lstinline|\tableofcontents| suffit pour générer toute la table des matières
-	\end{itemize}
-	\begin{columns}
+    \begin{itemize}
+        \item La commande \lstinline|\tableofcontents| suffit pour générer toute la table des matières
+    \end{itemize}
+    \begin{columns}
       \begin{column}{0.6\textwidth}
         \begin{lstlisting}[style=nonumbers]
 \begin{document}
@@ -467,7 +467,7 @@ Le sujet est en or mais pas le vif.
           \fbox{\includegraphics[width=0.9\textwidth]{table.png}}
         \end{center}
       \end{column}
-	\end{columns}
+    \end{columns}
 \end{frame}
 
 %-----------------------
@@ -598,12 +598,12 @@ the end of the universe.
      \lstinline|---| & cadratin & le \LaTeX{} --- c'est chouette --- a été créé par Leslie Lamport\\
    \end{tabular}
     
-	\item Autres caractères
-	\begin{itemize}
-		\item \lstinline|M\up{me}| pour M\up{me}
-		\item \lstinline|1\ier{} 2\ieme{}| pour 1\ier{} et 2\ieme{}
-		\item \lstinline|\no \No| pour \no et \No
-	\end{itemize}
+    \item Autres caractères
+    \begin{itemize}
+        \item \lstinline|M\up{me}| pour M\up{me}
+        \item \lstinline|1\ier{} 2\ieme{}| pour 1\ier{} et 2\ieme{}
+        \item \lstinline|\no \No| pour \no et \No
+    \end{itemize}
  \end{itemize}
 \end{frame}
 
@@ -630,11 +630,11 @@ the end of the universe.
     \end{lstlisting}
   
   \item \textbf{Flottant}
-  	\begin{itemize}
-  		\item Environnement \lstinline|figure|
-  		\item Ajout d'une référence par \lstinline|\label{...}|
-    	\item Référencement par \lstinline|voir figure~\ref{fig:graphique}|
-    	\item Ajout d'une légende par \lstinline|\caption{...}|
+      \begin{itemize}
+          \item Environnement \lstinline|figure|
+          \item Ajout d'une référence par \lstinline|\label{...}|
+        \item Référencement par \lstinline|voir figure~\ref{fig:graphique}|
+        \item Ajout d'une légende par \lstinline|\caption{...}|
     \end{itemize}
     \begin{lstlisting}[style=nonumbers]
 \begin{figure}
@@ -733,27 +733,27 @@ mis a \SI{50}{\percent} de la largeur du texte.
 \begin{frame}[fragile,allowframebreaks]
   \frametitle{Tableaux}
   \begin{itemize}
-	\item \textbf{Code}
-  	\begin{lstlisting}[style=nonumbers]
+    \item \textbf{Code}
+      \begin{lstlisting}[style=nonumbers]
 \begin{tabular}{<colonnes>}
   <lignes>
 \end{tabular}
-  	\end{lstlisting}
-  	\begin{itemize}
-  		\item Définition de l'alignement des <colonnes> par :
-  			\begin{itemize}
-  				\item un \lstinline|l| pour aligner à gauche (\textit{left})
-  				\item un \lstinline|c| pour centrer (\textit{center})
-  				\item un \lstinline|r| pour aligner à droite (\textit{right})
-  				\item un \lstinline|p{<largeur>}| pour un texte justifié sur une largeur donnée
-  			\end{itemize}
-  		\item Une ligne verticale est tracée par \lstinline|||
-  		\item Le contenu des <lignes> est séparé par colonnes par \lstinline|&|
-  		\item Une <ligne> se termine par \lstinline|\\|
-  		\item Une ligne horizontale est tracée par \lstinline|\hline|
-  	\end{itemize}\framebreak
-	\item \textbf{Exemple}
-	\begin{lstlisting}
+      \end{lstlisting}
+      \begin{itemize}
+          \item Définition de l'alignement des <colonnes> par :
+              \begin{itemize}
+                  \item un \lstinline|l| pour aligner à gauche (\textit{left})
+                  \item un \lstinline|c| pour centrer (\textit{center})
+                  \item un \lstinline|r| pour aligner à droite (\textit{right})
+                  \item un \lstinline|p{<largeur>}| pour un texte justifié sur une largeur donnée
+              \end{itemize}
+          \item Une ligne verticale est tracée par \lstinline|||
+          \item Le contenu des <lignes> est séparé par colonnes par \lstinline|&|
+          \item Une <ligne> se termine par \lstinline|\\|
+          \item Une ligne horizontale est tracée par \lstinline|\hline|
+      \end{itemize}\framebreak
+    \item \textbf{Exemple}
+    \begin{lstlisting}
 \begin{tabular}{|lcrp{0.25\textwidth}|}
   \hline
   Gauche & Centré & Droite & Justifié\\
@@ -762,22 +762,22 @@ mis a \SI{50}{\percent} de la largeur du texte.
   1 & 2 & 3 & Il passe donc à la ligne suivante.\\
   \hline
 \end{tabular}
-	    \end{lstlisting}
-	  \item \textbf{Rendu}
-	\begin{table}[!ht] 
-	\centering
-	\begin{tabular}{|lcrp{0.25\textwidth}|}
-	  \hline
-	  Gauche & Centré & Droite & Justifié\\
-	  \hline
-	  a & b & c & Le texte est trop long.\\
-	  1 & 2 & 3 & Il passe donc à la ligne suivante.\\
-	  \hline
-	\end{tabular}
-	\end{table}
-	\framebreak
+        \end{lstlisting}
+      \item \textbf{Rendu}
+    \begin{table}[!ht] 
+    \centering
+    \begin{tabular}{|lcrp{0.25\textwidth}|}
+      \hline
+      Gauche & Centré & Droite & Justifié\\
+      \hline
+      a & b & c & Le texte est trop long.\\
+      1 & 2 & 3 & Il passe donc à la ligne suivante.\\
+      \hline
+    \end{tabular}
+    \end{table}
+    \framebreak
 
-  	\item \textbf{Non-flottant}
+      \item \textbf{Non-flottant}
   
     Référencement par ``ci-dessous'', \dots
     \begin{lstlisting}[style=nonumbers]
@@ -789,9 +789,9 @@ mis a \SI{50}{\percent} de la largeur du texte.
     \end{lstlisting}
     
   \item \textbf{Flottant}
-  	\begin{itemize}
-  		\item Environnement \lstinline|table|
-    	\item Référencement par \lstinline|voir tableau~\ref{tab:data}|
+      \begin{itemize}
+          \item Environnement \lstinline|table|
+        \item Référencement par \lstinline|voir tableau~\ref{tab:data}|
     \end{itemize}
     \begin{lstlisting}
 \begin{table}
@@ -860,10 +860,10 @@ Lien Overleaf de la solution du deuxième exercice \url{https://www.overleaf.com
   \begin{itemize}
     \item Avec \LaTeX{}, la bibliographie est séparée du reste dans un fichier \texttt{.bib} (par exemple: \texttt{biblio.bib}).
     \item L'utilisation d'une bibliographie requièrent les paquets suivants :
-	\begin{itemize}
-	\item \lstinline|\usepackage[backend=bibtex]{biblatex}|
-	\item \lstinline|\usepackage{csquotes}|.
-	\end{itemize}
+    \begin{itemize}
+    \item \lstinline|\usepackage[backend=bibtex]{biblatex}|
+    \item \lstinline|\usepackage{csquotes}|.
+    \end{itemize}
     \item On utilise le fichier \texttt{biblio.bib} dans le document via la commande \lstinline|\bibliography{biblio.bib}|.
     \item On cite un document avec la commande \lstinline|\cite{identifiant}|.
     \item On affiche la bibliographie avec la commande \lstinline|\printbibliography|.
@@ -883,7 +883,7 @@ Lien Overleaf de la solution du deuxième exercice \url{https://www.overleaf.com
 }
       \end{lstlisting}
     Et un autre qui fit beaucoup de bruit:
-	\begin{lstlisting}[style=nonumbers]
+    \begin{lstlisting}[style=nonumbers]
 @article{lemaitre1934evolution,
     title={Evolution of the expanding universe},
     author={Lema{\^\i}tre, Georges}, 
@@ -892,10 +892,10 @@ Lien Overleaf de la solution du deuxième exercice \url{https://www.overleaf.com
     year={1934}, 
     publisher={National Acad Sciences} 
 }
-	\end{lstlisting}
-	\framebreak
-	Et encore un autre, que nous ne citerons pas:
-	\begin{lstlisting}[style=nonumbers]
+    \end{lstlisting}
+    \framebreak
+    Et encore un autre, que nous ne citerons pas:
+    \begin{lstlisting}[style=nonumbers]
 @article{de1966functions,
   title={Functions of lysosomes},
   author={De Duve, Christian and Wattiaux, Robert},
@@ -903,34 +903,34 @@ Lien Overleaf de la solution du deuxième exercice \url{https://www.overleaf.com
   year={1966},
   publisher={Annual Reviews 4139 El Camino Way, PO Box 10139, Palo Alto CA 94303-0139}
 }
-	\end{lstlisting}
+    \end{lstlisting}
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
     \frametitle{Exporter des \texttt{.bib}}
     \begin{center}
-	\includegraphics[width=\textwidth]{img/scholar.png}
+    \includegraphics[width=\textwidth]{img/scholar.png}
     \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
     \frametitle{Style de bibliographie}
     \begin{itemize}
-		\item Le style est défini lors de l'appel du paquet \lstinline|\usepackage[style=ieee]{biblatex}|
-		\item Les différents styles sont:
-	    \begin{itemize}
-			\item \texttt{apa}, American Psychological Association;
-			\item \texttt{chicago-authordate}, Chicago Style;
-			\item \texttt{ieee}, Institute of Electrical and Electronics Engineers (IEEE).
-		\end{itemize}
-		\item Pour plus de style de bibliographie, voir \url{https://fr.sharelatex.com/learn/Biblatex_citation_styles} et Google.
+        \item Le style est défini lors de l'appel du paquet \lstinline|\usepackage[style=ieee]{biblatex}|
+        \item Les différents styles sont:
+        \begin{itemize}
+            \item \texttt{apa}, American Psychological Association;
+            \item \texttt{chicago-authordate}, Chicago Style;
+            \item \texttt{ieee}, Institute of Electrical and Electronics Engineers (IEEE).
+        \end{itemize}
+        \item Pour plus de style de bibliographie, voir \url{https://fr.sharelatex.com/learn/Biblatex_citation_styles} et Google.
     \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
     \frametitle{Exemple}
-	\begin{lstlisting}[style=nonumbers]
+    \begin{lstlisting}[style=nonumbers]
 \documentclass[11pt]{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -949,32 +949,32 @@ urna fringilla ultrices.
 \nocite{de1966functions}
 \printbibliography
 \end{document}
-	\end{lstlisting}
-	\begin{itemize}
-		\item La commande \lstinline|\nocite{}| permet d'inclure un élément dans la bibliographie sans le citer dans le texte.
-	\end{itemize}
+    \end{lstlisting}
+    \begin{itemize}
+        \item La commande \lstinline|\nocite{}| permet d'inclure un élément dans la bibliographie sans le citer dans le texte.
+    \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
     \frametitle{Compilation}
     \begin{itemize}
-    	\item Pour \textbf{TeXMaker}
-    	\begin{itemize}
-    		\item Options $\rightarrow$ Configurer Texmaker $\rightarrow$ Compil rapide $\rightarrow$ Sélectionner ``PdfLaTex + BibLaTeX + PdfLaTeX (2x) + Voir pdf''
-    	\end{itemize}
-    	\item Pour \textbf{Overleaf} ou \textbf{ShareLaTeX}
-    	\begin{itemize}
-    		\item Fonctionne déjà dans la compilation de base.
-    	\end{itemize}
+        \item Pour \textbf{TeXMaker}
+        \begin{itemize}
+            \item Options $\rightarrow$ Configurer Texmaker $\rightarrow$ Compil rapide $\rightarrow$ Sélectionner ``PdfLaTex + BibLaTeX + PdfLaTeX (2x) + Voir pdf''
+        \end{itemize}
+        \item Pour \textbf{Overleaf} ou \textbf{ShareLaTeX}
+        \begin{itemize}
+            \item Fonctionne déjà dans la compilation de base.
+        \end{itemize}
     \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-	\frametitle{Troisième exercice}
-	\begin{center}
-		Compiler l'exemple de bibliographie et ajouter une référence depuis Google Scholar.\vspace{0.5cm}
-		\fbox{\includegraphics[width=0.8\textwidth,trim={2cm 18cm 2cm 2cm},clip]{exercices/bib/build_latex/main.pdf}}
-	\end{center}
+    \frametitle{Troisième exercice}
+    \begin{center}
+        Compiler l'exemple de bibliographie et ajouter une référence depuis Google Scholar.\vspace{0.5cm}
+        \fbox{\includegraphics[width=0.8\textwidth,trim={2cm 18cm 2cm 2cm},clip]{exercices/bib/build_latex/main.pdf}}
+    \end{center}
 \end{frame}
 \begin{frame}[fragile]{Troisième exercice (solution)}
 \begin{center}
@@ -1080,7 +1080,7 @@ Lien Overleaf de la solution du troisième exercice \url{https://www.overleaf.co
 \begin{frame}[fragile]{L'environnement mathématique}
 \framesubtitle{Inclure des formules dans le texte}
 \begin{itemize}
-	\item On peut ajouter une formule mathématique dans du texte entre deux symboles \textbf{\$}.
+    \item On peut ajouter une formule mathématique dans du texte entre deux symboles \textbf{\$}.
 
 \begin{center}
   \begin{tabular}{lll}
@@ -1089,17 +1089,17 @@ Lien Overleaf de la solution du troisième exercice \url{https://www.overleaf.co
     \lstinline|$\frac{1}{x}$| & $\frac{1}{x}$\\
   \end{tabular}
 \end{center}
-	\item Les opérateurs, symboles,\dots{} commencent par \textbf{\textbackslash}, sauf \lstinline|+, -, /, ^, _,|\dots
-	\begin{center}
-		\begin{tabular}{llr}
-			\lstinline|$a^{11}$| & $a^{11}$ & Good \\
-			\lstinline|$a^11$| & $a^11$ & Bad ! \\
-			\lstinline|$\sin(x)$| & $\sin(x)$ & Good \\
-			\lstinline|$sin(x)$| & $sin(x)$ & Bad !\\
-			\lstinline|$\frac{\Theta}{\sqrt{\beta}}$| & $\frac{\Theta}{\sqrt{\beta}}$ & Very good !	
-		\end{tabular}
-	\end{center}
-	\item Les packages \lstinline|amsmath| et \lstinline|amssymb| apportent beaucoup d'environements et symboles supplémentaires très utiles, à inclure par défaut.
+    \item Les opérateurs, symboles,\dots{} commencent par \textbf{\textbackslash}, sauf \lstinline|+, -, /, ^, _,|\dots
+    \begin{center}
+        \begin{tabular}{llr}
+            \lstinline|$a^{11}$| & $a^{11}$ & Good \\
+            \lstinline|$a^11$| & $a^11$ & Bad ! \\
+            \lstinline|$\sin(x)$| & $\sin(x)$ & Good \\
+            \lstinline|$sin(x)$| & $sin(x)$ & Bad !\\
+            \lstinline|$\frac{\Theta}{\sqrt{\beta}}$| & $\frac{\Theta}{\sqrt{\beta}}$ & Very good !	
+        \end{tabular}
+    \end{center}
+    \item Les packages \lstinline|amsmath| et \lstinline|amssymb| apportent beaucoup d'environements et symboles supplémentaires très utiles, à inclure par défaut.
 \end{itemize}
 \end{frame}
 
@@ -1136,11 +1136,11 @@ avec $i$ étant l'unité imaginaire.
 \end{frame}
 \subsection{Matrices}
 \begin{frame}[fragile]{Matrices}
-	\begin{itemize}
-		\item Les matrices s'écrivent avec l'environnement \lstinline|matrix| (fonctionnement semblable à \lstinline|tabular|).
-			\begin{columns}
-				\begin{column}{0.45\textwidth}
-					\begin{lstlisting}[style=nonumbers]
+    \begin{itemize}
+        \item Les matrices s'écrivent avec l'environnement \lstinline|matrix| (fonctionnement semblable à \lstinline|tabular|).
+            \begin{columns}
+                \begin{column}{0.45\textwidth}
+                    \begin{lstlisting}[style=nonumbers]
 \[
   \begin{matrix}	
     \alpha & \beta \\
@@ -1148,18 +1148,18 @@ avec $i$ étant l'unité imaginaire.
   \end{matrix}
 \]
 \end{lstlisting}
-				\end{column}
-				\begin{column}{0.45\textwidth}
+                \end{column}
+                \begin{column}{0.45\textwidth}
                   \[\begin{matrix}
-						\alpha & \beta \\
-						\gamma & \delta \\
+                        \alpha & \beta \\
+                        \gamma & \delta \\
                   \end{matrix}\]
-				\end{column}
-			\end{columns}
+                \end{column}
+            \end{columns}
           \item On ajoute des délimiteurs avec \lstinline|pmatrix|,\lstinline|vmatrix|,\ldots{}
-			\begin{columns}
-				\begin{column}{0.45\textwidth}
-					\begin{lstlisting}[style=nonumbers]
+            \begin{columns}
+                \begin{column}{0.45\textwidth}
+                    \begin{lstlisting}[style=nonumbers]
 \[
   \begin{pmatrix}
     a + b & c \\
@@ -1167,68 +1167,68 @@ avec $i$ étant l'unité imaginaire.
   \end{pmatrix}
 \]
 \end{lstlisting}
-				\end{column}
-				\begin{column}{0.45\textwidth}
+                \end{column}
+                \begin{column}{0.45\textwidth}
                   \[\begin{pmatrix}
-						a + b & c \\
-						d & e + f \\
+                        a + b & c \\
+                        d & e + f \\
                   \end{pmatrix}\]
-				\end{column}
-			\end{columns}
-		\item Les différents délimiteurs sont
-		\begin{center}
-		\begin{tabular}{llllll}
-			\lstinline|bmatrix| & [ ] & \lstinline|Bmatrix| & \{ \} & \lstinline|pmatrix| & ( ) \\
-			\lstinline|vmatrix| & | | &	\lstinline|Vmatrix| & || || 
-		\end{tabular}
-		\end{center}
-	\end{itemize}
+                \end{column}
+            \end{columns}
+        \item Les différents délimiteurs sont
+        \begin{center}
+        \begin{tabular}{llllll}
+            \lstinline|bmatrix| & [ ] & \lstinline|Bmatrix| & \{ \} & \lstinline|pmatrix| & ( ) \\
+            \lstinline|vmatrix| & | | &	\lstinline|Vmatrix| & || || 
+        \end{tabular}
+        \end{center}
+    \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-	\frametitle{Les délimiteurs}
-	\begin{itemize}
-		\item Par défaut \LaTeX utilise des parenthèses de taille standard, ne s'adaptant pas au contenu qu'elles contiennent.
-		\begin{lstlisting}[style=nonumbers]
+    \frametitle{Les délimiteurs}
+    \begin{itemize}
+        \item Par défaut \LaTeX utilise des parenthèses de taille standard, ne s'adaptant pas au contenu qu'elles contiennent.
+        \begin{lstlisting}[style=nonumbers]
 \[ ( \frac{x^2}{y^3} ) \]
 \end{lstlisting}
 \[ (\frac{x^2}{y^3}) \]
-		\item La solution ? Les commandes \lstinline|\left...| et \lstinline|\right...| permettent d'adapter automatiquement la taille des parenthèses.
-		\begin{lstlisting}[style=nonumbers]
+        \item La solution ? Les commandes \lstinline|\left...| et \lstinline|\right...| permettent d'adapter automatiquement la taille des parenthèses.
+        \begin{lstlisting}[style=nonumbers]
 \[ \left( \frac{x^2}{y^3} \right) \]
 \end{lstlisting}
 \[ \left( \frac{x^2}{y^3} \right) \]
-		\item Fonctionne aussi avec \lstinline|\left\{ \right\}| ou \lstinline|\left[ \right]|
+        \item Fonctionne aussi avec \lstinline|\left\{ \right\}| ou \lstinline|\left[ \right]|
 \[ \left\{\frac{x^2}{y^3}\right\} \qquad \left[\frac{x^2}{y^3}\right] \]
-	\end{itemize}
+    \end{itemize}
 \end{frame}
-	
-	
+    
+    
 
 \subsection{Formules numérotées}
 \begin{frame}[fragile,allowframebreaks]{Formules numérotées}
 
 \begin{itemize}
-	\item L'environnement \lstinline|equation| permet d'écrire des équations numérotées.
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			\begin{lstlisting}[style=nonumbers]
+    \item L'environnement \lstinline|equation| permet d'écrire des équations numérotées.
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{lstlisting}[style=nonumbers]
 \begin{equation}
-	c^2 = a^2 + b^2
+    c^2 = a^2 + b^2
 \end{equation}
 \end{lstlisting}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\begin{equation}
-				c^2 = a^2 + b^2
-			\end{equation}
-		\end{column}
-	\end{columns}
-	
-	\item L'environnement \lstinline|align| permet d'écrire des équations alignées et numérotées. \lstinline|align*| aligne plusieurs équations sans les numéroter.
-	\item On peut ne pas numéroter une équation en plaçant \lstinline|\nonumber| à la fin de la ligne. 
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{equation}
+                c^2 = a^2 + b^2
+            \end{equation}
+        \end{column}
+    \end{columns}
+    
+    \item L'environnement \lstinline|align| permet d'écrire des équations alignées et numérotées. \lstinline|align*| aligne plusieurs équations sans les numéroter.
+    \item On peut ne pas numéroter une équation en plaçant \lstinline|\nonumber| à la fin de la ligne. 
 \begin{columns}
-	\begin{column}{0.5\textwidth}
+    \begin{column}{0.5\textwidth}
     \begin{lstlisting}[style = nonumbers]
 I like trains and the equations
 \begin{align}
@@ -1257,71 +1257,71 @@ I also know that
   
 \end{columns}
 \framebreak
-	\item Utilisation de l'environnement \lstinline|aligned| pour faire un système d'équation (utilisation semblable à \lstinline|align|).
-	\begin{columns}
-			\begin{column}{0.5\textwidth}
-			\begin{lstlisting}[style=nonumbers]
+    \item Utilisation de l'environnement \lstinline|aligned| pour faire un système d'équation (utilisation semblable à \lstinline|align|).
+    \begin{columns}
+            \begin{column}{0.5\textwidth}
+            \begin{lstlisting}[style=nonumbers]
 \[ 
-	\left\{ 
-		\begin{aligned}
-		 x^2 + y &= 3 \\
-		 \frac{y}{x} &= 0.42
-		\end{aligned}
-	\right.
+    \left\{ 
+        \begin{aligned}
+         x^2 + y &= 3 \\
+         \frac{y}{x} &= 0.42
+        \end{aligned}
+    \right.
 \]
-			\end{lstlisting}	
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\[ \left\{\begin{aligned}
-				x^2 + y &= 3 \\
-				\frac{y}{x} &= 0.42
-			\end{aligned}\right. \]
-		\end{column}
+            \end{lstlisting}	
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \[ \left\{\begin{aligned}
+                x^2 + y &= 3 \\
+                \frac{y}{x} &= 0.42
+            \end{aligned}\right. \]
+        \end{column}
 
-	\end{columns}
+    \end{columns}
 \end{itemize}
 \end{frame}
 
 \subsection{Les maths et les polices}
 \begin{frame}[fragile]{Les maths et les polices}
 \begin{itemize}
-	\item Parfois, certaines variables sont composées de plusieurs lettres. On doit utiliser des polices différentes comme \lstinline|\mathrm| ou \lstinline|\mathsf|. \lstinline|\mathcal| produit des lettres \og calligraphiques \fg{}. 
-	\begin{center}
-			\begin{tabular}{lll}
-				\lstinline|$Var(x)$| & $Var(x)$ & Bad ! \\
-				\lstinline|$\mathrm{Var}(x)$| & $\mathrm{Var}(x)$ & Good \\
-				\lstinline|$F_{machine}$| & $F_{machine}$ & Bad ! \\
-				\lstinline|$F_\mathrm{machine}$| & $F_\mathrm{machine}$ & Good \\
-				\lstinline|$\mathcal{M}$| & $\mathcal{M}$ &
-			\end{tabular}
-	\end{center}
-	
-	\item Les ensembles s'écrivent à l'aide de la police \lstinline|\mathbb|.
-	\begin{center}
-		\begin{tabular}{cccc}
-		\lstinline|$\mathbb{N}$| & $\mathbb{N}$ & \lstinline|$\mathbb{Z}$| & $\mathbb{Z}$ \\
-		\lstinline|$\mathbb{D}$| & $\mathbb{D}$ & \lstinline|$\mathbb{Q}$| & $\mathbb{Q}$ \\
-		\lstinline|$\mathbb{N}$| & $\mathbb{R}$ & \lstinline|$\mathbb{C}$| & $\mathbb{C}$			
-		\end{tabular}
-	\end{center}
+    \item Parfois, certaines variables sont composées de plusieurs lettres. On doit utiliser des polices différentes comme \lstinline|\mathrm| ou \lstinline|\mathsf|. \lstinline|\mathcal| produit des lettres \og calligraphiques \fg{}. 
+    \begin{center}
+            \begin{tabular}{lll}
+                \lstinline|$Var(x)$| & $Var(x)$ & Bad ! \\
+                \lstinline|$\mathrm{Var}(x)$| & $\mathrm{Var}(x)$ & Good \\
+                \lstinline|$F_{machine}$| & $F_{machine}$ & Bad ! \\
+                \lstinline|$F_\mathrm{machine}$| & $F_\mathrm{machine}$ & Good \\
+                \lstinline|$\mathcal{M}$| & $\mathcal{M}$ &
+            \end{tabular}
+    \end{center}
+    
+    \item Les ensembles s'écrivent à l'aide de la police \lstinline|\mathbb|.
+    \begin{center}
+        \begin{tabular}{cccc}
+        \lstinline|$\mathbb{N}$| & $\mathbb{N}$ & \lstinline|$\mathbb{Z}$| & $\mathbb{Z}$ \\
+        \lstinline|$\mathbb{D}$| & $\mathbb{D}$ & \lstinline|$\mathbb{Q}$| & $\mathbb{Q}$ \\
+        \lstinline|$\mathbb{N}$| & $\mathbb{R}$ & \lstinline|$\mathbb{C}$| & $\mathbb{C}$			
+        \end{tabular}
+    \end{center}
 \end{itemize}	
 \end{frame}
 
 \subsection{Large Operators}
 \begin{frame}[fragile]{Large Operators}
 \begin{itemize}
-	\item Voici quelques opérateurs utiles:
-	\begin{center}
-		\begin{tabular}{lll}
-		\lstinline|\min_{x \in \mathbb{R}}| & $\min_{x \in \mathbb{R}}$ & $\displaystyle\min_{x \in \mathbb{R}}$ \\
-		\lstinline|\max_{x \in \mathbb{R}}| & $\max_{x \in \mathbb{R}}$ & $\displaystyle\max_{x \in \mathbb{R}}$ \\
-		\lstinline|\lim_{x \to \infty}| & $\lim_{x \to \infty}$ & $\displaystyle\lim_{x \to \infty}$ \\
-		\lstinline|\sum_{i=1}^n| & $\sum_{i=1}^n$ & $\displaystyle\sum_{i=1}^n$ \\
-		\lstinline|\prod_{i=1}^n| & $\prod_{i=1}^n$ & $\displaystyle\prod_{i=1}^n$
-		\end{tabular}
-	\end{center}
-	\item Le résultat ne sera pas le même qu'on soit dans un texte ou dans une équation.
-	\item Une liste des opérateurs mathématiques les plus courant est disponible à cette adresse : \url{http://www.univ-irem.fr/lexique/res/Annexe_E_-_Liste_des_symboles_mathematiques_usuels__LaTeX_.pdf}
+    \item Voici quelques opérateurs utiles:
+    \begin{center}
+        \begin{tabular}{lll}
+        \lstinline|\min_{x \in \mathbb{R}}| & $\min_{x \in \mathbb{R}}$ & $\displaystyle\min_{x \in \mathbb{R}}$ \\
+        \lstinline|\max_{x \in \mathbb{R}}| & $\max_{x \in \mathbb{R}}$ & $\displaystyle\max_{x \in \mathbb{R}}$ \\
+        \lstinline|\lim_{x \to \infty}| & $\lim_{x \to \infty}$ & $\displaystyle\lim_{x \to \infty}$ \\
+        \lstinline|\sum_{i=1}^n| & $\sum_{i=1}^n$ & $\displaystyle\sum_{i=1}^n$ \\
+        \lstinline|\prod_{i=1}^n| & $\prod_{i=1}^n$ & $\displaystyle\prod_{i=1}^n$
+        \end{tabular}
+    \end{center}
+    \item Le résultat ne sera pas le même qu'on soit dans un texte ou dans une équation.
+    \item Une liste des opérateurs mathématiques les plus courant est disponible à cette adresse : \url{http://www.univ-irem.fr/lexique/res/Annexe_E_-_Liste_des_symboles_mathematiques_usuels__LaTeX_.pdf}
 \end{itemize}
 \end{frame}
 
@@ -1331,27 +1331,27 @@ I also know that
 \begin{frame}[fragile]{Définition de commandes, plus d'excuse !}
 
 \begin{itemize}
-	\item Définition de nouvelles commandes par \lstinline|\newcommand{nom}{définition}|
-	\item Dans un environnement mathématique, on utilise \lstinline|\DeclareMathOperator{nom}{définition}|
-	
-	\begin{lstlisting}[style=nonumbers]
+    \item Définition de nouvelles commandes par \lstinline|\newcommand{nom}{définition}|
+    \item Dans un environnement mathématique, on utilise \lstinline|\DeclareMathOperator{nom}{définition}|
+    
+    \begin{lstlisting}[style=nonumbers]
 \DeclareMathOperator{\sumN}{\sum_{i=1}^n}
 
 \DeclareMathOperator{\var}{\mathrm{Var}}
-	\end{lstlisting}
-	
-	\begin{columns}
-		\begin{column}{0.5\textwidth}	
+    \end{lstlisting}
+    
+    \begin{columns}
+        \begin{column}{0.5\textwidth}	
           \[\var(x) = \pi\]
             \[\sumN \frac{i}{i+1}\]
-		\end{column}	
-		\begin{column}{0.5\textwidth}	
-			\begin{lstlisting}[style=nonumbers]
+        \end{column}	
+        \begin{column}{0.5\textwidth}	
+            \begin{lstlisting}[style=nonumbers]
 \[ \var(x) = \pi \]
 \[ \sumN \frac{i}{i+1} \]
-			\end{lstlisting}
-		\end{column}	
-	\end{columns}
+            \end{lstlisting}
+        \end{column}	
+    \end{columns}
 
 \end{itemize}
 \end{frame}
@@ -1420,7 +1420,7 @@ Erreur courante: les ensembles ont besoin d'espacement (i.e. \lstinline|\,|) en 
 \begin{frame}[fragile]
   \frametitle{Les unités}
   \begin{itemize}
-  	\item Le package \lstinline|\usepackage{siunitx}| permet de gérer l'utilisation d'unités dans vos formules.
+      \item Le package \lstinline|\usepackage{siunitx}| permet de gérer l'utilisation d'unités dans vos formules.
   \begin{center}
     \begin{tabular}{ll}
       \num{314e-2} & \lstinline|\num{314e-2}|\\
@@ -1446,10 +1446,10 @@ Erreur courante: les ensembles ont besoin d'espacement (i.e. \lstinline|\,|) en 
 \end{frame}
 
 \begin{frame}[fragile]
-	\frametitle{Quatrième exercice}
-	\begin{center}
-		\fbox{\includegraphics[width=0.8\textwidth,trim={2cm 16cm 2cm 2cm},clip]{exercices/3/build_latex/main.pdf}}
-	\end{center}
+    \frametitle{Quatrième exercice}
+    \begin{center}
+        \fbox{\includegraphics[width=0.8\textwidth,trim={2cm 16cm 2cm 2cm},clip]{exercices/3/build_latex/main.pdf}}
+    \end{center}
 \end{frame}
 
 \begin{frame}[fragile]{Quatrième exercice (solution)}
@@ -1465,22 +1465,22 @@ Lien Overleaf de la solution du quatrième exercice \url{https://www.overleaf.co
 \begin{frame}
   \frametitle{Pour aller plus loin}
   Chercher de l'information:
-	\begin{itemize}
-		\item \url{http://en.wikibooks.org/wiki/LaTeX}
-		\item \url{http://bertrandmasson.free.fr/}
-		\item \url{http://www.grappa.univ-lille3.fr/FAQ-LaTeX}
+    \begin{itemize}
+        \item \url{http://en.wikibooks.org/wiki/LaTeX}
+        \item \url{http://bertrandmasson.free.fr/}
+        \item \url{http://www.grappa.univ-lille3.fr/FAQ-LaTeX}
             \item \url{http://www.andy-roberts.net/writing/latex}
             \item \url{http://ctan.org/pkg/packagename} ou \lstinline[language=sh,morekeywords={texdoc}]{$ texdoc packagename}
-		\item Google est ton ami !
+        \item Google est ton ami !
             \item \url{http://www.sharelatex.com/learn}
             \item La version de StackExchange spécialisée pour le \TeX:
   \url{tex.stackexchange.com}.
-		\item Livres:
-		\begin{itemize}
-			\item \LaTeX HowTo par Sébastien Combéfis (EN/FR)
-			\item Framabook \LaTeX
-		\end{itemize}
-	\end{itemize}
+        \item Livres:
+        \begin{itemize}
+            \item \LaTeX HowTo par Sébastien Combéfis (EN/FR)
+            \item Framabook \LaTeX
+        \end{itemize}
+    \end{itemize}
 \end{frame}
 
 \subsection{documentation supplémentaire}
@@ -1541,7 +1541,7 @@ Lien Overleaf de la solution du quatrième exercice \url{https://www.overleaf.co
 \shorthandon{:!} % Pour certaines versions de circuitikz
   \end{lstlisting}
   \begin{center}
-		\shorthandoff{:!}
+        \shorthandoff{:!}
     \begin{circuitikz}
       \draw (0,0) to [sI, v=$V_2$] (0,-3);
       \draw (6,-3) to[short, i = $I_2$] (0,-3);
@@ -1549,7 +1549,7 @@ Lien Overleaf de la solution du quatrième exercice \url{https://www.overleaf.co
       \draw (3,0) to [L = L, v = $V_L$] (6,0);
       \draw (6,0) to [C = C, v = $V_C$] (6,-3);
     \end{circuitikz}
-		\shorthandon{:!}
+        \shorthandon{:!}
   \end{center}
 \end{frame}
 
@@ -1586,15 +1586,15 @@ else:
 \subsection{Dessiner en LaTeX avec Tikz}
 \begin{frame}[fragile]
 \frametitle{Dessiner en LaTeX avec Tikz}
-	\begin{figure}[!ht] \centering
-		\includegraphics[width=0.4\textwidth]{img/turbine}
-	\end{figure}
+    \begin{figure}[!ht] \centering
+        \includegraphics[width=0.4\textwidth]{img/turbine}
+    \end{figure}
 \end{frame}
 
 \begin{frame}[fragile]{Les paragraphes avec \LaTeX{}}
   \framesubtitle{Alignement d'un paragraphe}
   \begin{itemize}
-  	\item Les environnements \lstinline|center|, \lstinline|flushright| et \lstinline|flushleft| permettent d'aligner un paragraphe.
+      \item Les environnements \lstinline|center|, \lstinline|flushright| et \lstinline|flushleft| permettent d'aligner un paragraphe.
     \begin{columns}
       \begin{column}{0.4\textwidth}
         \begin{lstlisting}[style=nonumbers]
@@ -1637,8 +1637,8 @@ Justifié; c'est le comportement par défaut de \LaTeX{}
 \begin{frame}[fragile]{Jouer avec la police}
 \framesubtitle{Changer la taille de police}
 \begin{itemize}
-	\item \lstinline|{\small text}| pour changer la taille du texte à l'intérieur
-	\item \lstinline|\small| pour changer tout le texte jusqu'au prochain appel de \lstinline|\normalsize| 
+    \item \lstinline|{\small text}| pour changer la taille du texte à l'intérieur
+    \item \lstinline|\small| pour changer tout le texte jusqu'au prochain appel de \lstinline|\normalsize| 
 \end{itemize}
 \begin{tabular}{ll}
 \lstinline|{\tiny polygenelubricants}| & {\tiny polygenelubricants} \\
