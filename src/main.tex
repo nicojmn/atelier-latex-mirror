@@ -1041,55 +1041,55 @@ Lien Overleaf de la solution du troisième exercice \url{https://www.overleaf.co
 \end{comment}
 
 \begin{frame}[fragile]
-  \frametitle{Découpe d'un projet en fichiers}
-  \framesubtitle{Exemple de l'article}
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-      Dans \texttt{main.tex}
-      \begin{lstlisting}[style=nonumbers]
+    \frametitle{Découpe d'un projet en fichiers}
+    \framesubtitle{Exemple de l'article}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Dans \texttt{main.tex}
+            \begin{lstlisting}[style=nonumbers, mathescape]
 \documentclass[a4paper]{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
 
 \begin{document}
-  \maketitle
-  \tableofcontents
+\maketitle
+\tableofcontents
 
-  \input{intro.tex}
-  \input{section1.tex}
-  \input{section2.tex}
+\input{intro.tex}
+  \input{$\color{black}{\texttt{section}}$1.tex}
+  \input{$\color{black}{\texttt{section}}$2.tex}
   ...
 \end{document}
-      \end{lstlisting}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      Dans \texttt{intro.tex}
-      \begin{lstlisting}[style=nonumbers]
+            \end{lstlisting}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            Dans \texttt{intro.tex}
+            \begin{lstlisting}[style=nonumbers]
 \begin{center}
   Je dédie cet article à mon chat.
   Tu nous a quitté trop vite, Dragibus.
   Repose en paix.
 \end{center}
-      \end{lstlisting}
-
-      Dans \texttt{section1.tex}
-      \begin{lstlisting}[style=nonumbers]
+            \end{lstlisting}
+      
+            Dans \texttt{section1.tex}
+            \begin{lstlisting}[style=nonumbers]
 \section{Le Louvain-li-Nux}
   Le Louvain-li-Nux est un kot à projet
   de Louvain-la-Neuve.
   ...
-      \end{lstlisting}
-
-      Dans \texttt{section2.tex}
-      \begin{lstlisting}[style=nonumbers]
+            \end{lstlisting}
+      
+            Dans \texttt{section2.tex}
+            \begin{lstlisting}[style=nonumbers]
 \section{Le Kotangente}
   Le Kotangente est kot ami du
   Louvain-li-Nux.
   ...
-      \end{lstlisting}
-    \end{column}
-  \end{columns}
+            \end{lstlisting}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 %%%%%%%%%%%%%
