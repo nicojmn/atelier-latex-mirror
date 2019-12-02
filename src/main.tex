@@ -28,14 +28,13 @@ Introduction à l'écriture de documents avec \LaTeX}
 %
 \begin{document}
 
-\begin{frame}
-  \begin{center}\Large
-  Suivez cette présentation sur votre ordinateur :-)
-
-  \vspace{1cm}
-  \fbox{\url{https://louvainlinux.org/activites/atelier-latex}}
-  \end{center}
-\end{frame}
+%\begin{frame}
+%  \begin{center}\Large
+%  Suivez cette présentation sur votre ordinateur :-)
+%
+%  \vspace{1cm}
+%  \end{center}
+%\end{frame}
 
 
 \begin{frame}
@@ -74,6 +73,7 @@ Introduction à l'écriture de documents avec \LaTeX}
     \begin{itemize}
         \item formules mathématiques
         \item tables des matières
+        \item images et tableaux
         \item références bibliographiques
         \item références croisées
         \item \ldots{}
@@ -104,6 +104,7 @@ Introduction à l'écriture de documents avec \LaTeX}
   \end{itemize}
 \end{frame}
 
+\begin{comment}
 \begin{frame}{Oui mais\ldots{}}
   \begin{center}
     %\resizebox{\textwidth}{!}{
@@ -133,7 +134,7 @@ Introduction à l'écriture de documents avec \LaTeX}
     %}
   \end{center}
 \end{frame}
-
+\end{comment}
 %-----------------------
 \subsection{Les Outils}
 \begin{frame}{Quels logiciels pour utiliser \LaTeX{}?}
@@ -243,14 +244,14 @@ Introduction à l'écriture de documents avec \LaTeX}
   Début du document &
   \lstinline|\begin{document}|\\
   Corps du document &
-  \lstinline|Ceci est mon premier document en \LaTeX{}|\\
+  \lstinline|Ceci est mon premier document en LaTeX !!!|\\
   Fin du document &
   \lstinline|\end{document}|\\
 \end{tabular}
 \end{frame}
 
 \subsection{Commandes et environnements}
-\begin{frame}[fragile]{Les commandes}
+\begin{frame}[fragile]{Les Commandes}
 \begin{itemize}
 \item \textbf{Commande}
     \begin{itemize}
@@ -262,19 +263,19 @@ Introduction à l'écriture de documents avec \LaTeX}
 \commandName[options]{FirstParameter} ... {LastParameter}
     \end{lstlisting}
     \begin{center}
-    \begin{tabular}{llll}
-    \lstinline|\implies| & $\implies$ & \lstinline|\textbf{texte}| & \textbf{texte}
+    \begin{tabular}{lllll}
+    \lstinline|\implies| & $\implies$ & & \lstinline|\textbf{texte}| & \textbf{texte}
     \end{tabular}
     \end{center}
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Les environnements}
+\begin{frame}[fragile]{Les Environnements}
 \begin{itemize}
 \item \textbf{Environnement}
     \begin{itemize}
-    \item S'applique à des portions de texte et applique une règle de mise en page,\dots
-    \item Délimité par \lstinline|\begin| et \lstinline|\end|
+    \item S'applique à des \textit{portions de texte} et permet par exemple d'appliquer une règle de mise en page
+    \item Délimité par \lstinline|\begin{}| et \lstinline|\end{}|
     \end{itemize}
     \begin{lstlisting}[style=nonumbers]
 \begin{EnvironnementName}[options]
@@ -285,12 +286,12 @@ Introduction à l'écriture de documents avec \LaTeX}
       \begin{columns}
       \begin{column}{0.5\textwidth}
       \begin{lstlisting}[style=nonumbers]
-      \begin{figure}
-          \centering
-          \includegraphics[width=0.50\textwidth]{logo-uclouvain.eps}
-          \caption{Voici le logo UCLouvain}
-          \label{fig:ucl}
-      \end{figure}
+\begin{figure}
+    \centering
+    \includegraphics{logo-uclouvain.eps}
+    \caption{Voici le logo UCLouvain}
+    \label{fig:ucl}
+\end{figure}
       \end{lstlisting}
       \end{column}
       \begin{column}{0.5\textwidth}
@@ -310,12 +311,13 @@ Introduction à l'écriture de documents avec \LaTeX}
 \subsection{Les classes}
 
 \begin{frame}[fragile]{Les principales classes de document}
-\begin{tabular}{lp{8cm}}
-  \textbf{scrartcl} & pour les articles de journaux scientifiques, présentations, rapports courts,\dots \\
-  \textbf{scrreprt} & pour de plus long rapports de plusieurs chapitres, petits livres, thèses,\dots \\
-  \textbf{beamer} & pour écrire des présentations (comme celle-ci).
+\begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+  \textbf{scrartcl} & pour les articles de journaux scientifiques, présentations, rapports courts,\dots \\ \\
+  \textbf{scrreprt} & pour de plus long rapports de plusieurs chapitres, petits livres, thèses,\dots \\ \\
+  \textbf{beamer} & pour écrire des présentations (comme celle-ci) \\ \\
+  \textbf{et beaucoup d'autres} & dont les références sont facilement trouvables sur Internet
 \end{tabular}
-\vspace{1cm}
+%\vspace{1cm}
 \begin{center}
 \verb|\documentclass[a4paper,10pt]{|\alert{\texttt{scrartcl}}\verb|}|\\
 \end{center}
@@ -346,7 +348,8 @@ Introduction à l'écriture de documents avec \LaTeX}
 \begin{tabular}{ll}
 \lstinline|\usepackage[utf8]{inputenc}| & Utilisation des caractères accentués \\
 \lstinline|\usepackage[T1]{fontenc}| & Permet d'utiliser tous les caractères du clavier \\
-\lstinline|\usepackage[french]{babel}| & Spécifie la langue (français ici)
+\lstinline|\usepackage[french]{babel}| & Spécifie la langue (français ici) \\
+\lstinline|\usepackage{graphicx}| & Permet d'importer des images
 \end{tabular}
 \vskip2em
 \begin{itemize}
@@ -365,7 +368,7 @@ Introduction à l'écriture de documents avec \LaTeX}
     \begin{itemize}
         \item \lstinline|\section{}|
         \item \lstinline|\subsection{}|
-        \item \lstinline|\paragraph{}|
+        \item \lstinline[mathescape]|\$\color{blue}{\texttt{paragraph}}${}| % Don't question it, it just works
     \end{itemize}
 
 \end{frame}
@@ -374,16 +377,16 @@ Introduction à l'écriture de documents avec \LaTeX}
 \framesubtitle{Exemple}
     \begin{columns}
       \begin{column}{0.5\textwidth}
-        \begin{lstlisting}[style=nonumbers]
-\section{Une section}
-\subsection{Une sous-section}
-\paragraph{Un paragraph} Le contenu de mon paragraphe
+        \begin{lstlisting}[style=nonumbers,mathescape]
+\section{Une $\color{black}{\texttt{section}}$}
+\subsection{Une sous-$\color{black}{\texttt{section}}$}
+\paragraph{Un paragraph} Le contenu de mon paragraphe sans alinéa.
 
 Un paragraphe sans titre.
-La première ligne est toujours indentée.
+La première ligne a toujours un alinéa.
 
 Un deuxième paragraphe sans titre.
-À nouveau la première ligne est indentée.
+À nouveau la première ligne a un alinéa.
         \end{lstlisting}
       \end{column}
       \begin{column}{0.5\textwidth}
@@ -406,16 +409,16 @@ Un deuxième paragraphe sans titre.
     \end{itemize}
     \begin{columns}
       \begin{column}{0.5\textwidth}
-        \begin{lstlisting}[style=nonumbers]
-\subject{US Presidential Elections}
+        \begin{lstlisting}[style=nonumbers,mathescape]
+\$\color{blue}{\texttt{subject}}${US Presidential Elections}
 \title{FBI Investigations}
-\subtitle{Russian interference in the 2016 United States elections}
+\$\color{blue}{\texttt{subtitle}}${Russian interference in the 2016 United States elections}
 
 % Séparer les auteurs avec \and
 \author{Donald Trump \and Vladimir Putin}
 
 \date{}               % pas de date
-\date{\today}         % aujourd'hui
+\date{\$\color{blue}{\texttt{today}}$}         % aujourd'hui
 \date{8 november 2016}
 
 \begin{document}
@@ -432,7 +435,6 @@ Un deuxième paragraphe sans titre.
     \end{columns}
 \end{frame}
 
-\begin{comment}
 \subsection{Le résumé ou abstract}
 \begin{frame}[fragile]{Le résumé ou abstract}
     \begin{itemize}
@@ -458,12 +460,11 @@ Un deuxième paragraphe sans titre.
       \end{column}
     \end{columns}
 \end{frame}
-\end{comment}
 
 \subsection{La table des matières}
 \begin{frame}[fragile]{Table des matières}
     \begin{itemize}
-        \item La commande \lstinline|\tableofcontents| suffit pour générer toute la table des matières
+        \item La commande \lstinline|\tableofcontents| suffit pour générer toute la table des matières dynamiquement à partir desvos sections, sous-sections etc.
     \end{itemize}
     \begin{columns}
       \begin{column}{0.6\textwidth}
@@ -560,20 +561,14 @@ Lien Overleaf de la solution du premier exercice \url{https://www.overleaf.com/r
   \frametitle{Notes de bas de page}
   La commande \lstinline|\footnote{}| permet d'ajouter une note de bas de page:
   \begin{lstlisting}[style=nonumbers]
-The earth\footnote{mostly harmless} was destroyed
-by Vogons\footnote{They have the worst poetry in the universe}.
+It's the ship that made the Kessel\footnote{Kessel is a planet in the Outer Rim} run in less than twelve parsecs\footnote{Whatever that means...}.
 
-But Don't Panic\footnote{By the way, the answer is 42},
-even when you're at the restaurant at
-the end of the universe.
+She's fast enough for you, old man.
   \end{lstlisting}
   \begin{minipage}{\textwidth}
-    The earth\footnote{Mostly harmless} was destroyed
-    by Vogons\footnote{They have the worst poetry in the universe}.
+    It's the ship that made the Kessel\footnote{Kessel is a planet in the Outer Rim} run in less than twelve parsecs\footnote{Whatever that means...}.
 
-    But Don't Panic\footnote{By the way, the answer is 42},
-    even when you're at the restaurant at
-    the end of the universe.
+    She's fast enough for you, old man.
   \end{minipage}
 \end{frame}
 
@@ -620,7 +615,7 @@ the end of the universe.
      \lstinline|---| & cadratin & le \LaTeX{} --- c'est chouette --- a été créé par Leslie Lamport\\
    \end{tabular}
 
-    \item Autres caractères
+    \item Autres caractères (attention, certains nécessitent la présence du package \texttt{babel (french)})
     \begin{itemize}
         \item \lstinline|M\up{me}| pour M\up{me}
         \item \lstinline|1\ier{} 2\ieme{}| pour 1\ier{} et 2\ieme{}
@@ -655,7 +650,7 @@ the end of the universe.
       \begin{itemize}
           \item Environnement \lstinline|figure|
           \item Ajout d'une référence par \lstinline|\label{...}|
-        \item Référencement par \lstinline|voir figure~\ref{fig:graphique}|
+        \item Référencement par \lstinline|voir figure \ref{fig:graphique}|
         \item Ajout d'une légende par \lstinline|\caption{...}|
     \end{itemize}
     \begin{lstlisting}[style=nonumbers]
@@ -682,14 +677,13 @@ the end of the universe.
         \item \lstinline|\ref{identifiant}| pour le numéro de section, figure, table, équation;
         \item \lstinline|\pageref{identifiant}| pour le numéro de page;
       \end{itemize}
-    \item Séparer la référence avec une espace insécable \og{}\texttt{\textasciitilde}\fg{}.
   \end{itemize}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{lstlisting}[style=nonumbers]
   \label{ref}
-  Nous sommes section~\ref{ref},
-  page~\pageref{ref},
+  Nous sommes section \ref{ref},
+  page \pageref{ref},
       \end{lstlisting}
     \end{column}
     \begin{column}{0.5\textwidth}
@@ -706,9 +700,9 @@ the end of the universe.
 
   \item \textbf{Scaling}
     \begin{lstlisting}[style=nonumbers]
-\includegraphics[width=0.7\textwidth]{image.jpg} % Largeur d'une ligne de texte
+\includegraphics[width=0.7\textwidth]{image.jpg} % Largeur dépendant du texte
 \includegraphics[height=4cm]{image.jpg} % Hauteur de 4cm
-\includegraphics[scale=0.5]{image.png} % taille / 2
+\includegraphics[scale=0.5]{image.png} % taille de l'image / 2
     \end{lstlisting}
 
   \vspace{2em}
@@ -723,7 +717,7 @@ the end of the universe.
 \begin{column}{0.5\textwidth}
 \begin{lstlisting}[style=nonumbers]
 
-Sur la figure~\ref{fig:ucl}, vous pouvez
+Sur la figure \ref{fig:uclLogo}, vous pouvez
 voir le logo UCLouvain mis a 50\%
 de la largeur du texte.
 
@@ -731,19 +725,19 @@ de la largeur du texte.
     \centering
     \includegraphics[width=0.50\textwidth]{logo-uclouvain.eps}
     \caption{Voici le logo UCLouvain}
-    \label{fig:ucl}
+    \label{fig:uclLogo}
 \end{figure}
 \end{lstlisting}
 \end{column}
 \begin{column}{0.5\textwidth}
-Sur la figure \ref{fig:ucl}, vous pouvez voir le logo UCLouvain
+Sur la figure \ref{fig:uclLogo}, vous pouvez voir le logo UCLouvain
 mis a \SI{50}{\percent} de la largeur du texte.
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.50\textwidth]{logo-uclouvain.pdf}
     \caption{Voici le logo UCLouvain}
-    \label{fig:ucl}
+    \label{fig:uclLogo}
 \end{figure}
 \end{column}
 \end{columns}
@@ -770,7 +764,7 @@ mis a \SI{50}{\percent} de la largeur du texte.
                   \item un \lstinline|p{<largeur>}| pour un texte justifié sur une largeur donnée
               \end{itemize}
           \item Une ligne verticale est tracée par \lstinline|||
-          \item Le contenu des <lignes> est séparé par colonnes par \lstinline|&|
+          \item Le contenu des <lignes> est séparé par colonne grâce à des \lstinline|&|
           \item Une <ligne> se termine par \lstinline|\\|
           \item Une ligne horizontale est tracée par \lstinline|\hline|
       \end{itemize}\framebreak
@@ -801,7 +795,7 @@ mis a \SI{50}{\percent} de la largeur du texte.
 
       \item \textbf{Non-flottant}
 
-    Référencement par ``ci-dessous'', \dots
+    Référencement par ''ci-dessous'', \dots
     \begin{lstlisting}[style=nonumbers]
 \begin{center}
     \begin{tabular}{...}
@@ -813,7 +807,7 @@ mis a \SI{50}{\percent} de la largeur du texte.
   \item \textbf{Flottant}
       \begin{itemize}
           \item Environnement \lstinline|table|
-        \item Référencement par \lstinline|voir tableau~\ref{tab:data}|
+        \item Référencement par \lstinline|voir tableau \ref{tab:data}|
     \end{itemize}
     \begin{lstlisting}
 \begin{table}
@@ -886,16 +880,16 @@ Lien Overleaf de la solution du deuxième exercice \url{https://www.overleaf.com
     \item \lstinline|\usepackage[backend=bibtex]{biblatex}|
     \item \lstinline|\usepackage{csquotes}|.
     \end{itemize}
-    \item On utilise le fichier \texttt{biblio.bib} dans le document via la commande \lstinline|\bibliography{biblio.bib}|.
-    \item On cite un document avec la commande \lstinline|\cite{identifiant}|.
-    \item On affiche la bibliographie avec la commande \lstinline|\printbibliography|.
+    \item On utilise le fichier \texttt{biblio.bib} dans le document via la commande \lstinline|\bibliography{biblio.bib}| (dans l'en-tête du document).
+    \item On cite un document avec la commande \lstinline|\cite{identifiant}|. Cet identifiant est repris dans le fichier \texttt{.bib}.
+    \item On affiche la bibliographie à l'endroit souhaité avec la commande \lstinline|\printbibliography|.
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile,allowframebreaks]
 \frametitle{Structure du fichier \texttt{.bib}}
 \begin{itemize}
-    \item Pour chaque référence bibliographique, on ajoute une entrée au fichier. Exemple avec un article de ce cher Laurent Francis:
+    \item Pour chaque référence bibliographique, on ajoute une entrée au fichier. Exemple avec un article de Laurent Francis:
       \begin{lstlisting}[style=nonumbers]
 @inproceedings{ray2017challenges,
     title={Challenges of monolithic integration for SiGe MEMS technology},
@@ -931,6 +925,7 @@ Lien Overleaf de la solution du deuxième exercice \url{https://www.overleaf.com
 
 \begin{frame}[fragile]
     \frametitle{Exporter des \texttt{.bib}}
+    \framesubtitle{Par exemple sur Google Scholar :}
     \begin{center}
     \includegraphics[width=\textwidth]{img/scholar.png}
     \end{center}
@@ -946,34 +941,34 @@ Lien Overleaf de la solution du deuxième exercice \url{https://www.overleaf.com
             \item \texttt{chicago-authordate}, Chicago Style;
             \item \texttt{ieee}, Institute of Electrical and Electronics Engineers (IEEE).
         \end{itemize}
-        \item Pour plus de style de bibliographie, voir \url{https://fr.sharelatex.com/learn/Biblatex_citation_styles} et Google.
+        \item Pour plus de style de bibliographie, voir \url{https://www.overleaf.com/learn/latex/Biblatex_citation_styles} et Google.
     \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
     \frametitle{Exemple}
-    \begin{lstlisting}[style=nonumbers]
+    \begin{lstlisting}[style=nonumbers,mathescape]
 \documentclass[11pt]{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[style=authoryear]{biblatex}
 \usepackage{csquotes}
 \usepackage[french]{babel}
-\bibliography{biblio}
+\$\color{blue}{\texttt{bibliography}}$
 \begin{document}
-Lorem ipsum dolor sit amet\cite{ray2017challenges}, consectetuer adipiscing elit.
+Lorem ipsum dolor sit amet\$\color{blue}{\texttt{cite}}${ray2017challenges}, consectetuer adipiscing elit.
 Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur
 dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate
 a, magna. Donec vehicula augue eu neque. Pellentesque habitant morbi tristique
 senectus et netus et malesuada fames ac turpis egestas. Mauris ut leo. Cras
-viverra\cite{lemaitre1934evolution} metus rhoncus sem. Nulla et lectus vestibulum
+viverra\$\color{blue}{\texttt{cite}}${lemaitre1934evolution} metus rhoncus sem. Nulla et lectus vestibulum
 urna fringilla ultrices.
-\nocite{de1966functions}
-\printbibliography
+\$\color{blue}{\texttt{nocite}}${de1966functions}
+\$\color{blue}{\texttt{printbibliography}}$
 \end{document}
     \end{lstlisting}
     \begin{itemize}
-        \item La commande \lstinline|\nocite{}| permet d'inclure un élément dans la bibliographie sans le citer dans le texte.
+        \item La commande \lstinline|\nocite{}| permet d'inclure dans la bibliographie un élément dans la bibliographie qui n'a pas été cité dans le texte.
     \end{itemize}
 \end{frame}
 
@@ -984,7 +979,7 @@ urna fringilla ultrices.
         \begin{itemize}
             \item Options $\rightarrow$ Configurer Texmaker $\rightarrow$ Compil rapide $\rightarrow$ Sélectionner ``PdfLaTex + BibLaTeX + PdfLaTeX (2x) + Voir pdf''
         \end{itemize}
-        \item Pour \textbf{Overleaf} ou \textbf{ShareLaTeX}
+        \item Pour \textbf{Overleaf}
         \begin{itemize}
             \item Fonctionne déjà dans la compilation de base.
         \end{itemize}
@@ -1102,7 +1097,7 @@ Lien Overleaf de la solution du troisième exercice \url{https://www.overleaf.co
 \begin{frame}[fragile]{L'environnement mathématique}
 \framesubtitle{Inclure des formules dans le texte}
 \begin{itemize}
-    \item On peut ajouter une formule mathématique dans du texte entre deux symboles \textbf{\$}.
+    \item On peut ouvrir un environnement mathématique entre deux symboles \textbf{\$}.
 
 \begin{center}
   \begin{tabular}{lll}
@@ -1111,7 +1106,7 @@ Lien Overleaf de la solution du troisième exercice \url{https://www.overleaf.co
     \lstinline|$\frac{1}{x}$| & $\frac{1}{x}$\\
   \end{tabular}
 \end{center}
-    \item Les opérateurs, symboles,\dots{} commencent par \textbf{\textbackslash}, sauf \lstinline|+, -, /, ^, _,|\dots
+    \item Les opérateurs et symboles, comme les autres commandes, commencent par \textbf{\textbackslash}, sauf \lstinline|+, -, /, ^,| et \lstinline|_|
     \begin{center}
         \begin{tabular}{llr}
             \lstinline|$a^{11}$| & $a^{11}$ & Good \\
@@ -1158,52 +1153,52 @@ avec $i$ étant l'unité imaginaire.
 \end{frame}
 \subsection{Matrices}
 \begin{frame}[fragile]{Matrices}
-    \begin{itemize}
-        \item Les matrices s'écrivent avec l'environnement \lstinline|matrix| (fonctionnement semblable à \lstinline|tabular|).
-            \begin{columns}
-                \begin{column}{0.45\textwidth}
-                    \begin{lstlisting}[style=nonumbers]
+  \begin{itemize}
+    \item Les matrices s'écrivent avec l'environnement \lstinline|matrix| (fonctionnement semblable à \lstinline|tabular|).
+      \begin{columns}
+        \begin{column}{0.45\textwidth}
+          \begin{lstlisting}[style=nonumbers]
 \[
   \begin{matrix}
     \alpha & \beta \\
     \gamma & \delta \\
   \end{matrix}
 \]
-\end{lstlisting}
-                \end{column}
-                \begin{column}{0.45\textwidth}
-                  \[\begin{matrix}
-                        \alpha & \beta \\
-                        \gamma & \delta \\
-                  \end{matrix}\]
-                \end{column}
-            \end{columns}
-          \item On ajoute des délimiteurs avec \lstinline|pmatrix|,\lstinline|vmatrix|,\ldots{}
-            \begin{columns}
-                \begin{column}{0.45\textwidth}
-                    \begin{lstlisting}[style=nonumbers]
+          \end{lstlisting}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+          \[\begin{matrix}
+            \alpha & \beta \\
+            \gamma & \delta \\
+            \end{matrix}\]
+        \end{column}
+      \end{columns}
+    \item On ajoute des délimiteurs avec \lstinline|pmatrix|,\lstinline|vmatrix|,\ldots{}
+      \begin{columns}
+        \begin{column}{0.45\textwidth}
+          \begin{lstlisting}[style=nonumbers]
 \[
   \begin{pmatrix}
     a + b & c \\
     d & e + f \\
   \end{pmatrix}
 \]
-\end{lstlisting}
-                \end{column}
-                \begin{column}{0.45\textwidth}
-                  \[\begin{pmatrix}
-                        a + b & c \\
-                        d & e + f \\
-                  \end{pmatrix}\]
-                \end{column}
-            \end{columns}
-        \item Les différents délimiteurs sont
-        \begin{center}
+          \end{lstlisting}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+          \[\begin{pmatrix}
+            a + b & c \\
+            d & e + f \\
+            \end{pmatrix}\]
+        \end{column}
+      \end{columns}
+    \item Les différents délimiteurs sont
+      \begin{center}
         \begin{tabular}{llllll}
             \lstinline|bmatrix| & [ ] & \lstinline|Bmatrix| & \{ \} & \lstinline|pmatrix| & ( ) \\
             \lstinline|vmatrix| & | | &	\lstinline|Vmatrix| & || ||
         \end{tabular}
-        \end{center}
+      \end{center}
     \end{itemize}
 \end{frame}
 
@@ -1496,9 +1491,9 @@ Lien Overleaf de la solution du quatrième exercice \url{https://www.overleaf.co
             \item \url{http://www.andy-roberts.net/writing/latex}
             \item \url{http://ctan.org/pkg/packagename} ou \lstinline[language=sh,morekeywords={texdoc}]{$ texdoc packagename}
         \item Google est ton ami !
-            \item \url{http://www.sharelatex.com/learn}
+            \item \url{https://www.overleaf.com/learn}
             \item La version de StackExchange spécialisée pour le \TeX:
-  \url{tex.stackexchange.com}.
+  \url{https://tex.stackexchange.com}.
         \item Livres:
         \begin{itemize}
             \item \LaTeX HowTo par Sébastien Combéfis (EN/FR)
@@ -1562,8 +1557,7 @@ Lien Overleaf de la solution du quatrième exercice \url{https://www.overleaf.co
   \draw (3,0) to [L = L, v = $V_L$] (6,0);
   \draw (6,0) to [C = C, v = $V_C$] (6,-3);
 \end{circuitikz}
-\shorthandon{:!} % Pour certaines versions de circuitikz
-  \end{lstlisting}
+\shorthandon{:!} % Pour certaines versions de circuitikz\end{lstlisting}
   \begin{center}
         \shorthandoff{:!}
     \begin{circuitikz}
@@ -1586,24 +1580,20 @@ if a == b:
   return 0
 else:
   return 1
-\$$end{lstlisting}
-  \end{lstlisting}
+\$\color{blue}{\texttt{end}}${lstlisting}\end{lstlisting}
 donne
   \begin{lstlisting}[language=Python]
 if a == b:
   return 0
 else:
-  return 1
-  \end{lstlisting}
+  return 1\end{lstlisting}
 
   Il y a aussi
   \begin{lstlisting}
-\lstinputlisting[caption={...},label=...]{main.py}
-  \end{lstlisting}
+\lstinputlisting[caption={...},label=...]{main.py}\end{lstlisting}
   et
   \begin{lstlisting}
-\lstinline|if a == b|
-  \end{lstlisting}
+\lstinline|if a == b|\end{lstlisting}
   qui donne \lstinline|if a == b|.
 \end{frame}
 
@@ -1611,7 +1601,7 @@ else:
 \begin{frame}[fragile]
 \frametitle{Dessiner en LaTeX avec Tikz}
     \begin{figure}[!ht] \centering
-        \includegraphics[width=0.4\textwidth]{img/turbine}
+        \includegraphics[width=0.8\textwidth]{img/turbine}
     \end{figure}
 \end{frame}
 
