@@ -2,6 +2,7 @@
 
 \usepackage[T1]{fontenc}
 %\usepackage[utf8x]{inputenc}
+\usepackage[french]{babel}
 \usepackage{lmodern}
 \usepackage{amsmath,amsthm,amssymb}        % un packages mathématiques
 \usepackage{pifont}
@@ -35,19 +36,22 @@
 \usepackage{epstopdf}
 \usepackage{pdflscape} %% portrait
 
-% Comportement des itemize
-\setbeamertemplate{itemize item}[ball]
-\setbeamertemplate{itemize subitem}[triangle]
-\setbeamertemplate{itemize subsubitem}[circle]
 
-%\renewcommand\sfdefault{cmss} % Polices
+\newcommand{\badet}{et}
+\newcommand{\goodet}{\mathbin{\mathrm{et}}}
 
-\usepackage[french]{babel}
-
+\DeclareMathOperator{\sumN}{\sum_{i=1}^n}
+\DeclareMathOperator{\var}{\mathrm{Var}}
 
 
 \usetheme[compress]{Singapore} % theme
+\usefonttheme[onlymath]{serif} % to see the difference when I do mathsf
+%\renewcommand\sfdefault{cmss} % Polices
 
+
+\definecolor{gris}{RGB}{228,228,228}
+\definecolor{bleu}{RGB}{34,148,255}
+\definecolor{darkgray}{rgb}{0.3,0.3,0.3}
 \definecolor{codeGreen}{rgb}{0,0.5,0}
 \lstset{
       language=TeX,
@@ -112,6 +116,10 @@
 \setbeamerfont{frametitle}{series=\bfseries}
 \setbeamertemplate{frametitle}[default][center] % Titre centré et bien placé.
 
+% Comportement des itemize
+\setbeamertemplate{itemize item}[ball]
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamertemplate{itemize subsubitem}[circle]
 
 % "Fioriture de style" : qd <x-> dans les item, les autres en gris clair
 \beamertemplatetransparentcovered
@@ -143,3 +151,6 @@
 \patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0.5em}{}{}
 \makeatother
 \setbeamerfont{subsection in toc}{size=\scriptsize}
+
+
+\graphicspath{{img/}}
