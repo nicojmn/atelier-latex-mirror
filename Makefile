@@ -1,4 +1,4 @@
-latex_flags=-outdir=build_latex -silent -pdflatex="pdflualatex --shell-escape -cd src/"
+latex_flags=-outdir=build_latex -silent -pdflatex="pdflualatex --shell-escape" -cd src/
 
 
 .PHONY: all clean
