@@ -1,7 +1,7 @@
 LATEX_FLAGS := -pdf -lualatex -cd
 BASH_FLAGS :=
 
-.PHONY: all clean main prep
+.PHONY: all clean main
 
 all: build_latex/examples/structure/main.pdf \
 	build_latex/examples/title/main.pdf      \
