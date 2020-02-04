@@ -1,9 +1,17 @@
-Conf LaTeX
+Atelier LaTeX
 ----------
 
 Conférence LaTeX du [Louvain-li-Nux](https://louvainlinux.org).
 
 Plus d'infos sur <https://louvainlinux.org/activites/atelier-latex>.
+
+## Compiler les slides
+
+À la racine du reposetory, exécutez: `make clean all`, le nouveau fichier `main.pdf` devrait être accessible dans le dossier `build_latex`.
+
+Les options par défaut passée à `latexmk` sont `-pdf -lualatex -cd -silent`, vous pouvez en ajouter en définissant `LATEX_FLAGS` dans votre environnement ou en passant sa valeur à `make`, par exemple: `make LATEX_FLAGS=-verbose`.
+
+Vous pouvez aussi ajouter des instructions bash à la fin de la commande, en définissant `BASH_POSTPROCESSING` dans votre environnement ou en passant sa valeur à `make`. Les variables spéciales sont accessibles, par exemple pour rediriger l'output complète vers un logfile pour chaque fichier compilé: `make LATEX_OPT=-verbose BASH_POSTPROCESSING=2>&1 1>$(@D)/out.log`, ou encore pour supprimer tout logs de `latexmk`: `make BASH_POSTPROCESSING=2>/dev/null 1>/dev/null`.
 
 ## Contribuer
 
