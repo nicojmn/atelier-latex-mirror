@@ -1,5 +1,4 @@
-LATEX_OPT := -pdf -lualatex -cd -silent
-BASH_POSTPROCESSING :=
+LATEX_FLAGS := -pdf -lualatex -cd -silent
 
 .PHONY: all main open clean clean_aux
 
@@ -24,30 +23,30 @@ clean-aux:
 
 build_latex/examples/structure/main.pdf: src/examples/structure/main.tex
 	@echo -e "\e[1;7;32m[=]\e[27m Compiling $< to $@ ...\e[0m"
-	latexmk $(LATEX_OPT) -outdir=$(PWD)/$(@D) $< $(BASH_POSTPROCESSING)
+	latexmk $(LATEX_FLAGS) $(LATEX_OPT) -outdir=$(PWD)/$(@D) $< $(BASH_POSTPROCESSING)
 
 build_latex/examples/title/main.pdf: src/examples/title/main.tex
 	@echo -e "\e[1;7;32m[=]\e[27m Compiling $< to $@ ...\e[0m"
-	latexmk $(LATEX_OPT) -outdir=$(PWD)/$(@D) $< $(BASH_POSTPROCESSING)
+	latexmk $(LATEX_FLAGS) $(LATEX_OPT) -outdir=$(PWD)/$(@D) $< $(BASH_POSTPROCESSING)
 
 build_latex/exercices/1/main.pdf: src/exercices/1/main.tex
 	@echo -e "\e[1;7;32m[=]\e[27m Compiling $< to $@ ...\e[0m"
-	latexmk $(LATEX_OPT) -outdir=$(PWD)/$(@D) $< $(BASH_POSTPROCESSING)
+	latexmk $(LATEX_FLAGS) $(LATEX_OPT) -outdir=$(PWD)/$(@D) $< $(BASH_POSTPROCESSING)
 
 build_latex/exercices/2/main.pdf: src/exercices/2/main.tex
 	@echo -e "\e[1;7;32m[=]\e[27m Compiling $< to $@ ...\e[0m"
-	latexmk $(LATEX_OPT) -outdir=$(PWD)/$(@D) $< $(BASH_POSTPROCESSING)
+	latexmk $(LATEX_FLAGS) $(LATEX_OPT) -outdir=$(PWD)/$(@D) $< $(BASH_POSTPROCESSING)
 
 build_latex/exercices/3/main.pdf: src/exercices/3/main.tex
 	@echo -e "\e[1;7;32m[=]\e[27m Compiling $< to $@ ...\e[0m"
-	latexmk $(LATEX_OPT) -outdir=$(PWD)/$(@D) $< $(BASH_POSTPROCESSING)
+	latexmk $(LATEX_FLAGS) $(LATEX_OPT) -outdir=$(PWD)/$(@D) $< $(BASH_POSTPROCESSING)
 
 build_latex/exercices/bib/main.pdf: src/exercices/bib/main.tex
 	@echo -e "\e[1;7;32m[=]\e[27m Compiling $< to $@ ...\e[0m"
-	latexmk $(LATEX_OPT) -outdir=$(PWD)/$(@D) $< $(BASH_POSTPROCESSING)
+	latexmk $(LATEX_FLAGS) $(LATEX_OPT) -outdir=$(PWD)/$(@D) $< $(BASH_POSTPROCESSING)
 
 build_latex/main.pdf: src/main.tex
 	@echo -e "\e[1;7;32m[=]\e[27m Compiling $< to $@ ...\e[0m"
-	latexmk $(LATEX_OPT) -outdir=$(PWD)/$(@D) $< $(BASH_POSTPROCESSING)
+	latexmk $(LATEX_FLAGS) $(LATEX_OPT) -outdir=$(PWD)/$(@D) $< $(BASH_POSTPROCESSING)
 
 
