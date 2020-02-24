@@ -43,16 +43,24 @@
 \DeclareMathOperator{\sumN}{\sum_{i=1}^n}
 \DeclareMathOperator{\var}{\mathrm{Var}}
 
+% THEME
+% voir (http://mcclinews.free.fr/latex/beamergalerie.php)
+%\usetheme{Singapore} % Thème général; les lignes suivantes le recréent en le personnalisant un peu
+\setbeamercolor{section in head/foot}{use=structure,bg=structure.fg!25!bg} % "Amélioration du jeu de couleur"
+\useoutertheme[subsection=false,footline=institutetitle]{miniframes} % Gère les bullets de navigation en topbar. Options : pas de rappel du titre de ss-section + un footer
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamertemplate{frametitle}[default][center] % Titre centré et bien placé.
 
-\usetheme[compress]{Singapore} % theme
 \usefonttheme[onlymath]{serif} % to see the difference when I do mathsf
 %\renewcommand\sfdefault{cmss} % Polices
 
-
+% COULEURS PERSO
 \definecolor{gris}{RGB}{228,228,228}
 \definecolor{bleu}{RGB}{34,148,255}
 \definecolor{darkgray}{rgb}{0.3,0.3,0.3}
 \definecolor{codeGreen}{rgb}{0,0.5,0}
+
+% OPTIONS POUR LES LSTLISTINGS IMBRIQUES
 \lstset{
       language=TeX,
       flexiblecolumns=true,
@@ -94,7 +102,7 @@
 \lstdefinestyle{nonumbers}
 {numbers=none}
 
-
+% NAVIGATION SYMBOLS
 % Pour personnaliser la barre de navigation du dessous
 \setbeamertemplate{navigation symbols}{
 	%\insertslidenavigationsymbol
@@ -111,12 +119,8 @@
 % Mettre les icones de navigation en mode vertical (pour projection)
 % \setbeamertemplate{navigation symbols}[vertical]
 
-\setbeamercolor{section in head/foot}{use=structure,bg=structure.fg!25!bg} % "Amélioration du jeu de couleur"
-%\useoutertheme[subsection=true]{smoothbars} % Pour avoir un rappel de la subsection
-\setbeamerfont{frametitle}{series=\bfseries}
-\setbeamertemplate{frametitle}[default][center] % Titre centré et bien placé.
 
-% Comportement des itemize
+% CUSTOM DES ITEMIZE
 \setbeamertemplate{itemize item}[ball]
 \setbeamertemplate{itemize subitem}[triangle]
 \setbeamertemplate{itemize subsubitem}[circle]
@@ -146,6 +150,7 @@
 \setbeamercolor*{block body example}{fg=exampleBlockTextColor,bg=exampleBlockColor}
 \setbeamerfont{block title}{size={}}
 
+% TABLES OF CONTENT
 % Pour rendre les toc plus compactes (pour éviter que ça déborde)
 \makeatletter
 \patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0.5em}{}{}

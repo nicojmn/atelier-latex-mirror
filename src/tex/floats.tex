@@ -1,4 +1,6 @@
-\section{Les environnements flottants}
+\section{Environnements flottants}
+
+%-----------------------
 \subsection{Les figures}
 
 \begin{frame}[fragile]
@@ -9,7 +11,6 @@
   \item Insertion de l'image avec \lstinline|\includegraphics[options]{filename.ext}|
 
   \item \textbf{Non-flottant}
-
     Référencement par ``ci-dessous'', \dots
     \begin{lstlisting}[style=nonumbers]
 \begin{center}
@@ -75,7 +76,6 @@
 \includegraphics[height=4cm]{image.jpg} % Hauteur de 4cm
 \includegraphics[scale=0.5]{image.png} % taille de l'image / 2
   \end{lstlisting}
-
   \vspace{2em}
   \end{itemize}
 \end{frame}
@@ -111,6 +111,7 @@
   \end{columns}
 \end{frame}
 
+%-----------------------
 \subsection{Les tableaux}
 
 \begin{frame}[fragile,allowframebreaks]
@@ -123,18 +124,19 @@
 \end{tabular}
       \end{lstlisting}
       \begin{itemize}
-          \item Définition de l'alignement des <colonnes> par :
+        \item Définition de l'alignement des <colonnes> par :
               \begin{itemize}
                   \item un \lstinline|l| pour aligner à gauche (\textit{left})
                   \item un \lstinline|c| pour centrer (\textit{center})
                   \item un \lstinline|r| pour aligner à droite (\textit{right})
                   \item un \lstinline|p{<largeur>}| pour un texte justifié sur une largeur donnée
               \end{itemize}
-          \item Une ligne verticale est tracée par \lstinline|||
-          \item Le contenu des <lignes> est séparé par colonne grâce à des \lstinline|&|
-          \item Une <ligne> se termine par \lstinline|\\|
-          \item Une ligne horizontale est tracée par \lstinline|\hline|
-      \end{itemize}\framebreak
+        \item Une ligne verticale est tracée par \lstinline|||
+        \item Le contenu des <lignes> est séparé par colonne grâce à des \lstinline|&|
+        \item Une <ligne> se termine par \lstinline|\\|
+        \item Une ligne horizontale est tracée par \lstinline|\hline|
+      \end{itemize}
+      \framebreak
     \item \textbf{Exemple}
     \begin{lstlisting}
 \begin{tabular}{|lcrp{0.25\textwidth}|}
@@ -145,8 +147,8 @@
   1 & 2 & 3 & Il passe donc à la ligne suivante.\\
   \hline
 \end{tabular}
-        \end{lstlisting}
-      \item \textbf{Rendu}
+    \end{lstlisting}
+    \item \textbf{Rendu}
     \begin{table}[!ht]
     \centering
     \begin{tabular}{|lcrp{0.25\textwidth}|}
@@ -160,8 +162,7 @@
     \end{table}
     \framebreak
 
-      \item \textbf{Non-flottant}
-
+    \item \textbf{Non-flottant}
     Référencement par ''ci-dessous'', \dots
     \begin{lstlisting}[style=nonumbers]
 \begin{center}
@@ -171,12 +172,12 @@
 \end{center}
     \end{lstlisting}
 
-  \item \textbf{Flottant}
+    \item \textbf{Flottant}
       \begin{itemize}
-          \item Environnement \lstinline|table|
+        \item Environnement \lstinline|table|
         \item Référencement par \lstinline|voir tableau \ref{tab:data}|
-    \end{itemize}
-    \begin{lstlisting}
+      \end{itemize}
+      \begin{lstlisting}
 \begin{table}
   \centering
   \begin{tabular}{...}
@@ -185,7 +186,7 @@
   \caption{Voici un beau tableau}
   \label{tab:data}
 \end{table}
-    \end{lstlisting}
+      \end{lstlisting}
   \end{itemize}
 \end{frame}
 
@@ -213,6 +214,7 @@
   \end{center}
 \end{frame}
 
+%-----------------------
 \subsection{Exercice 2}
 
 \begin{frame}[fragile]{Deuxième exercice}

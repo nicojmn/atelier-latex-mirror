@@ -1,9 +1,9 @@
-\section{Les concepts de base}
+\section{Concepts de base}
+
+%-----------------------
 \subsection{Les fichiers}
 
-
 \begin{frame}{Les fichiers}
-
     \begin{center}
         \includegraphics[height=3cm]{compilation.jpg}
     \end{center}
@@ -20,18 +20,14 @@
         \end{itemize}
         \item Création d'un fichier essais\alert{\textbf{.pdf}}
     \end{itemize}
-
 \end{frame}
 
 %-----------------------
-
 \subsection{La structure du fichier}
 
-\begin{frame}[fragile,label=frame:structure]{Structure générale du document I}
-
+\begin{frame}[fragile]{Structure générale du document I}
   \framesubtitle{Document minimal}
   \small
-
   \begin{lstlisting}[style=nonumbers]
   \documentclass{article} %Type de document
 
@@ -47,11 +43,9 @@
       \item On écrit le contenu de son document entre \lstinline|\begin{document}| et \lstinline|\end{document}|.
       \item Commentaires introduits par \%
   \end{itemize}
-
 \end{frame}
 
 \begin{frame}[fragile]{Structure générale du document II}
-
   \framesubtitle{Exemple de document type}
   \small
   \begin{tabular}{ll}
@@ -73,13 +67,15 @@
   \end{tabular}
 \end{frame}
 
+%-----------------------
 \subsection{Commandes et environnements}
+
 \begin{frame}[fragile]{Les Commandes}
   \begin{itemize}
   \item \textbf{Commande}
       \begin{itemize}
       \item Débute par \textbackslash
-      \item Peut prendre plusieurs arguements, placés entre accolades
+      \item Peut prendre plusieurs arguments, placés entre accolades
       \item Permet d'insérer des symboles
       \end{itemize}
       \begin{lstlisting}[style=nonumbers]
@@ -131,7 +127,6 @@
 \end{frame}
 
 %-----------------------
-
 \subsection{Les classes}
 
 \begin{frame}[fragile]{Les principales classes de document}
@@ -147,6 +142,7 @@
   \end{center}
 \end{frame}
 
+%-----------------------
 \subsection{Les options}
 
 \begin{frame}[fragile]{Les principales options de document}
@@ -161,6 +157,7 @@
   \end{center}
 \end{frame}
 
+%-----------------------
 \subsection{Les packages}
 
 \begin{frame}[fragile]{Les packages}
@@ -177,10 +174,11 @@
   \end{tabular}
   \vskip2em
   \begin{itemize}
-      \item Les 3 premiers packages de l'exemple sont nécessaires à la compilation !
+      \item Les 2 premiers packages de l'exemple sont nécessaires à la compilation !
   \end{itemize}
 \end{frame}
 
+%-----------------------
 \subsection{La structure du document}
 
 \begin{frame}[fragile]{La structure logique du document}
@@ -195,7 +193,6 @@
         \item \lstinline|\subsection{}|
         \item \lstinline[mathescape]|\$\color{blue}{\texttt{paragraph}}${}| % Don't question it, it just works
     \end{itemize}
-
 \end{frame}
 
 \begin{frame}[fragile]{La structure logique du document}
