@@ -45,7 +45,7 @@ build_latex/exercices/bib/main.pdf: src/exercices/bib/main.tex
 	@echo -e "\e[1;7;32m[=]\e[27m Compiling $< to $@ ...\e[0m"
 	latexmk $(LATEX_FLAGS) $(LATEX_OPT) -outdir=$(PWD)/$(@D) $< $(BASH_POSTPROCESSING)
 
-build_latex/main.pdf: src/main.tex
+build_latex/main.pdf: src/main.tex src/tex/*
 	@echo -e "\e[1;7;32m[=]\e[27m Compiling $< to $@ ...\e[0m"
 	latexmk $(LATEX_FLAGS) $(LATEX_OPT) -outdir=$(PWD)/$(@D) $< $(BASH_POSTPROCESSING)
 
