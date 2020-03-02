@@ -25,9 +25,9 @@ N'hésitez pas à proposer des amélioration à ces slides (via pull requests) !
 
 ## Déployer des changements
 
-*Information destinée aux membre du Louvain-li-Nux*
+*Information destinée aux membres du Louvain-li-Nux*
 
-La version qui est sur master est celle qui est publiée sur [GitHub Pages](https://louvainlinux.github.io/atelier-latex/src/build_latex/main.pdf), vers laquelle les liens du [site du louvain-li-nux](https://louvainlinux.org) pointent.
+La version qui est sur master est celle qui est publiée sur [GitHub Pages](https://louvainlinux.github.io/atelier-latex/build_latex/main.pdf), vers laquelle les liens du [site du Louvain-li-Nux](https://louvainlinux.org) pointent.
 
 ## License
 
