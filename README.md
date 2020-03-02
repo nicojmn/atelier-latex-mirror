@@ -1,13 +1,12 @@
-Atelier LaTeX
-----------
+## Atelier LaTeX
 
 Atelier LaTeX du [Louvain-li-Nux](https://louvainlinux.org).
 
-Plus d'infos sur <https://louvainlinux.org/activites/atelier-latex>.
+Plus d'informations sur <https://louvainlinux.org/activites/atelier-latex>.
 
 ## Compiler les slides
 
-À la racine du reposetory, exécutez: `make`, le nouveau fichier `main.pdf` devrait s'ouvrir à la fin de la compilation, et être accessible dans le dossier `build_latex`.
+À la racine du repository, exécutez: `make`, le nouveau fichier `main.pdf` devrait s'ouvrir à la fin de la compilation, et être accessible dans le dossier `./build_latex`.
 
 Si vous voulez recompiler, il peut être nécessaire d'exécuter `make clean` avant.
 
@@ -15,9 +14,9 @@ Si vous voulez supprimer les fichiers auxiliaires et logs, vous pouvez exécuter
 
 Si vous voulez compiler sans ouvrir le pdf, exécutez `make main`, et `make open` si vous voulez juste ouvrir un pdf déjà compilé.
 
-Les options par défaut passée à `latexmk` sont `-pdf -lualatex -cd -silent`, vous pouvez en ajouter en définissant `LATEX_OPT` dans votre environnement ou en passant sa valeur à `make`, par exemple: `make LATEX_OPT=-verbose`.
+Les options par défaut passées à `latexmk` sont `-pdf -lualatex -cd -silent`, vous pouvez en ajouter en définissant `LATEX_OPT` dans votre environnement ou en passant sa valeur à `make`, par exemple: `make LATEX_OPT=-verbose`.
 
-Vous pouvez aussi ajouter des instructions bash à la fin de la commande, en définissant `BASH_POSTPROCESSING` dans votre environnement ou en passant sa valeur à `make`. Les variables spéciales sont accessibles, par exemple pour rediriger l'output complète vers un logfile pour chaque fichier compilé: `make LATEX_OPT=-verbose BASH_POSTPROCESSING=2>&1 1>$(@D)/out.log`, ou encore pour supprimer tout logs de `latexmk`: `make BASH_POSTPROCESSING=2>/dev/null 1>/dev/null`. Ces instructions sont simplement inséré à la fin de la commande de compilation `latexmk`.
+Vous pouvez aussi ajouter des instructions `bash` à la fin de la commande, en définissant `BASH_POSTPROCESSING` dans votre environnement ou en passant sa valeur à `make`. Les variables spéciales sont accessibles, par exemple pour rediriger l'output complète vers un logfile pour chaque fichier compilé: `make LATEX_OPT=-verbose BASH_POSTPROCESSING=2>&1 1>$(@D)/out.log`, ou encore pour supprimer tous les logs de `latexmk`: `make BASH_POSTPROCESSING=2>/dev/null 1>/dev/null`. Ces instructions sont simplement inséré à la fin de la commande de compilation `latexmk`.
 
 ## Contribuer
 
@@ -27,7 +26,7 @@ N'hésitez pas à proposer des amélioration à ces slides (via pull requests) !
 
 *Information destinée aux membres du Louvain-li-Nux*
 
-La version qui est sur master est celle qui est publiée sur [GitHub Pages](https://louvainlinux.github.io/atelier-latex/build_latex/main.pdf), vers laquelle les liens du [site du Louvain-li-Nux](https://louvainlinux.org) pointent.
+La version qui est sur `master` est celle qui est publiée sur [GitHub Pages](https://louvainlinux.github.io/atelier-latex/build_latex/main.pdf), vers laquelle les liens du [site du Louvain-li-Nux](https://louvainlinux.org) pointent.
 
 ## License
 
