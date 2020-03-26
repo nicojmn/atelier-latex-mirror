@@ -205,6 +205,9 @@ TSWLatexianTemp*
 *.bak
 *.sav
 
+# IntelliJ
+.idea/
+
 # Texpad
 .texpadtmp
 
