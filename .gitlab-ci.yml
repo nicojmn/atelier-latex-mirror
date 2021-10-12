@@ -17,6 +17,7 @@ stages:          # List of stages for jobs, and their order of execution
   - build
 
 default:
+    image: "arkark:latexmk"
     cache:
         paths:
             - build_latex/
