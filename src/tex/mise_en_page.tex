@@ -149,7 +149,7 @@ Le sujet est en or mais pas le vif.
 %-----------------------
 \subsection{Exercice 1}
 
-\begin{frame}[fragile]{Premier exercice}
+\begin{frame}[fragile]{Démonstration \textbf{overleaf} et premier exercice}
   \framesubtitle{(Utilisez la classe \texttt{scrartcl})}
   \begin{center}
       \fbox{\includegraphics[height=7cm,trim={1.5cm 8cm 1.5cm 3cm},clip]{../build_latex/exercices/1/main.pdf}}
@@ -205,10 +205,56 @@ She's fast enough for you, old man.
 \end{frame}
 
 %-----------------------
+\subsection{Les Alignements}
+
+\begin{frame}[fragile]{Les paragraphes avec \LaTeX{}}
+  \framesubtitle{Alignement d'un paragraphe}
+  \begin{itemize}
+      \item Les environnements \lstinline|center|, \lstinline|flushright| et \lstinline|flushleft| permettent d'aligner un paragraphe.
+    \begin{columns}
+      \begin{column}{0.4\textwidth}
+        \begin{lstlisting}[style=nonumbers]
+Justifié; c'est le comportement par défaut de \LaTeX{}
+
+\begin{center}
+  Centré
+\end{center}
+
+\begin{flushright}
+  Aligné à droite
+\end{flushright}
+
+\begin{flushleft}
+  Aligné à gauche, mais pas justifié, comme vous pouvez le voir
+\end{flushleft}
+        \end{lstlisting}
+      \end{column}
+      \begin{column}{0.6\textwidth}
+        \begin{mdframed}
+          Justifié; c'est le comportement par défaut de \LaTeX{}
+
+          \begin{center}
+            Centré
+          \end{center}
+
+          \begin{flushright}
+            Aligné à droite
+          \end{flushright}
+
+          \begin{flushleft}
+            Aligné à gauche, mais pas justifié, comme vous pouvez le voir
+          \end{flushleft}
+        \end{mdframed}
+      \end{column}
+    \end{columns}
+  \end{itemize}
+\end{frame}
+
+%-----------------------
 \subsection{Divers}
 
 \begin{frame}[fragile]{Divers}
-  \frametitle{Divers}
+  \frametitle{\Warning Divers}
   \begin{itemize}
   \item Caractères spéciaux utilisés par \LaTeX
 
