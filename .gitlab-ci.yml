@@ -15,7 +15,6 @@
 
 stages:          # List of stages for jobs, and their order of execution
   - build
-  - publish
 
 default:
     cache:
@@ -35,3 +34,6 @@ build-pdf:       # This job runs in the build stage, which runs first.
     - free
   script:
       - make main
+  artifacts:
+    paths:
+      - build_latex/main.pdf
