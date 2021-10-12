@@ -35,4 +35,3 @@ build-pdf:       # This job runs in the build stage, which runs first.
     - free
   script:
       - make main
-      - make clean
