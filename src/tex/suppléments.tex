@@ -127,6 +127,38 @@ else:
 \end{frame}
 
 %-----------------------
+
+\begin{frame}[fragile]
+  \frametitle{Minted}
+
+  \begin{itemize}
+    \item Sur Overleaf : tout est déjà prêt pour minted
+    \item Sur votre pc (en local) :
+    \begin{enumerate}
+      \item Ajouter --shell-escape aux paramètres de compilation
+      \item Besoin du package python pigmentize
+    \end{enumerate}
+  \end{itemize}
+
+  \begin{lstlisting}[mathescape=true]
+    \begin{minted}{python}
+      def dummy_function(count):
+          i = 0
+          while i < count:
+            print("Affiche du code de façon simple")
+    \end{minted}\end{lstlisting}
+
+  Ceci donne :
+
+  \begin{minted}{python}
+    def dummy_function(count):
+        i = 0
+        while i < count:
+          print("Affiche du code de façon simple")
+  \end{minted}
+\end{frame}
+
+%-----------------------
 \subsection{Dessiner en LaTeX avec Tikz}
 
 \begin{frame}[fragile]

@@ -1,4 +1,4 @@
-LATEX_FLAGS := -pdf -lualatex -cd -silent
+LATEX_FLAGS := -pdf -lualatex -cd -silent --shell-escape
 
 .PHONY: all main open clean clean_aux
 
