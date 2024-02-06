@@ -1,6 +1,9 @@
 
 */build_latex/*
 !*/build_latex/main.pdf
+!*/build_latex/exercices/1/main.pdf
+!*/build_latex/exercices/2/main.pdf
+!*/build_latex/exercices/3/main.pdf
 
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
