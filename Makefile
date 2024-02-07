@@ -1,7 +1,13 @@
-LATEX_FLAGS := -pdf -lualatex -cd -silent --shell-escape
+# Before runnig this Makefile, be sure to have all the required tex packages
+# We recommand you to install texlive-full (package may have a different name depending of your distro)
+# In case of 'french' babel error you'll need to install texlive-langfrench
+
+# Here are the flags we use at LLNux to make our presentation, change them at your need
+LATEX_FLAGS := -pdf -lualatex -cd -silent -shell-escape
 
 .PHONY: all main open clean clean_aux
 
+# Default target
 all: open
 
 open: main
@@ -18,9 +24,12 @@ main: build_latex/examples/structure/main.pdf \
 clean:
 	rm -r build_latex/*
 
+# Delete everything in build_latex/ except the main pdf for the workshop
 clean-aux:
 	rm $(shell find build_latex/* -not -type d -not -path build_latex/main.pdf)
 
+
+# The following targets compile each tex file into a pdf into build_latex/ directory
 build_latex/examples/structure/main.pdf: src/examples/structure/main.tex
 	@echo -e "\e[1;7;32m[=]\e[27m Compiling $< to $@ ...\e[0m"
 	latexmk $(LATEX_FLAGS) $(LATEX_OPT) -outdir=$(PWD)/$(@D) $< $(BASH_POSTPROCESSING)
