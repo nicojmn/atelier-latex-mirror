@@ -7,14 +7,14 @@
   \frametitle{Pour aller plus loin}
   Chercher de l'information:
     \begin{itemize}
-        \item \url{http://en.wikibooks.org/wiki/LaTeX} % still working 11/02/24
-        \item \url{https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes} % still working 11/02/24
-            \item \url{http://www.andy-roberts.net/writing/latex} % still working 11/02/24
-            \item \url{http://ctan.org/pkg/packagename} ou \lstinline[language=sh,morekeywords={texdoc}]{$ texdoc packagename} % yeah
-        \item Google est ton ami ! % obviously still working
+        \item \url{http://en.wikibooks.org/wiki/LaTeX}
+        \item \url{http://www.grappa.univ-lille3.fr/FAQ-LaTeX}
+            \item \url{http://www.andy-roberts.net/writing/latex}
+            \item \url{http://ctan.org/pkg/packagename} ou \lstinline[language=sh,morekeywords={texdoc}]{$ texdoc packagename}
+        \item Google est ton ami !
             \item \url{https://www.overleaf.com/learn}
             \item La version de StackExchange spécialisée pour le \TeX:
-  \url{https://tex.stackexchange.com}. % still working 11/02/24
+  \url{https://tex.stackexchange.com}.
         \item Livres:
         \begin{itemize}
             \item \LaTeX HowTo par Sébastien Combéfis (EN/FR)
@@ -75,6 +75,7 @@
   \begin{lstlisting}
 \usepackage{circuitikz}
 ...
+\shorthandoff{:!} % Pour certaines versions de circuitikz
 \begin{circuitikz}
   \draw (0,0) to [sI, v=$V_2$] (0,-3);
   \draw (6,-3) to[short, i = $I_2$] (0,-3);
@@ -82,8 +83,9 @@
   \draw (3,0) to [L = L, v = $V_L$] (6,0);
   \draw (6,0) to [C = C, v = $V_C$] (6,-3);
 \end{circuitikz}
-\end{lstlisting}
+\shorthandon{:!} % Pour certaines versions de circuitikz\end{lstlisting}
   \begin{center}
+        \shorthandoff{:!}
     \begin{circuitikz}
       \draw (0,0) to [sI, v=$V_2$] (0,-3);
       \draw (6,-3) to[short, i = $I_2$] (0,-3);
@@ -91,7 +93,46 @@
       \draw (3,0) to [L = L, v = $V_L$] (6,0);
       \draw (6,0) to [C = C, v = $V_C$] (6,-3);
     \end{circuitikz}
+        \shorthandon{:!}
   \end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Les circuits}
+    \begin{lstlisting}
+\usepackage{circuitikz}
+...
+\begin{tikzpicture}
+  \begin{scope}[scale=0.8,transform shape] \draw
+    (1,13) node [op amp,xscale=1,yscale=-1] (opampgenerateur) {}
+    (-2,16) node[vcc]{$V_{in}$}  to [R,a=$R_{D1}$,-] (-2,14) to (-2,13.5)  node[circ]{} to (opampgenerateur.+)
+    ...
+    (-2,13.5) to [R,a=$R_{D2}$,-] (-2,11) to (-2,9) node [ground]{}
+    (-0.19,11) node [circ]{} node[left]{$V_c$}to (POT23.wiper)
+    (opampgenerateur.out) to (3, 13)
+  \end{scope}
+\end{tikzpicture}
+\end{lstlisting}
+  
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+      \begin{scope}[scale=0.4,transform shape] \draw
+        (1,13) node [op amp,xscale=1,yscale=-1] (opampgenerateur) {}
+        (-2,16) node[vcc]{$V_{in}$}  to [R,a=$R_{D1}$,-] (-2,14) to (-2,13.5)  node[circ]{} to (opampgenerateur.+)
+        (-2,13.5) to [R,a=$R_{D2}$,-] (-2,11) to (-2,9) node [ground]{}
+        (opampgenerateur.out) to (2.19,15) to [R,a=$R_{D3}$,-] (0.25,15) to (-0.19,15) to (opampgenerateur.+)
+        (opampgenerateur.out) to (2.19,12) to (1.8,12)
+        (1.8,9.5) node[circ]{} to (1.8,10)  to [pR,a=$R_{G}$,n=POT23] (1.8,12) 
+        (-0.19,9) node [ground]{} to [C,a=$C_G$,-](-0.19,12) to (opampgenerateur.-)
+        (-0.19,11) node [circ]{} node[left]{$V_c$}to (POT23.wiper)
+        (opampgenerateur.out) to (3, 13)
+        (-1.5,13.5) node [above=0.1cm] {V$_D$} 
+        (3.19,13.5) node [left=0.1cm] {V$_{S}$};
+      \end{scope}
+    \end{tikzpicture}
+    \caption{Schéma du circuit de l'oscillateur.}
+  \end{figure}
 \end{frame}
 
 %-----------------------
@@ -131,7 +172,7 @@ else:
     \item Sur Overleaf : tout est déjà prêt pour minted
     \item Sur votre pc (en local) :
     \begin{enumerate}
-      \item Ajouter -shell-escape aux paramètres de compilation
+      \item Ajouter --shell-escape aux paramètres de compilation
       \item Besoin du package python pygmentize
     \end{enumerate}
   \end{itemize}
@@ -158,17 +199,38 @@ else:
 \subsection{Dessiner en LaTeX avec Tikz}
 
 \begin{frame}[fragile]
-  \begin{columns}
-    \begin{column}{0.45\textwidth}
-      % TODO : Insert the tikz code here
-    \end{column}
-    \begin{column}{0.45\textwidth}
-      \begin{figure}[!ht] \centering
-        \includegraphics[width=0.8\textwidth]{img/turbine} % TODO : replace your new image here
-      \end{figure}
-    \end{column}
-  \end{columns}
   \frametitle{Dessiner en LaTeX avec Tikz}
+  \begin{lstlisting}
+\begin{tikzpicture}[node distance=2.3cm, auto]
+    \node (start) [circle, draw] {Start};
+    \node (process1) [right of=start, rectangle, draw] {Process 1};
+    \node (decision) [right of=process1, diamond, draw] {Decision};
+    \node (process2a) [below of=decision, rectangle, draw] {Process 2a};
+    \node (process2b) [right of=decision, rectangle, draw] {Process 2b};
+    \node (end) [right of=process2b, circle, draw] {End};
+    \draw[->] (start) -- (process1);
+    \draw[->] (process1) -- (decision);
+    \draw[->] (decision) -- node {yes} (process2b);
+    \draw[->] (decision) -- node {no} (process2a);
+    \draw[->] (process2a) -| (process1);
+    \draw[->] (process2b) -- (end);
+\end{tikzpicture}
+  \end{lstlisting}
+
+  \begin{tikzpicture}[scale=0.3, node distance=2.3cm, auto]
+    \node (start) [circle, draw] {Start};
+    \node (process1) [right of=start, rectangle, draw] {Process 1};
+    \node (decision) [right of=process1, diamond, draw] {Decision};
+    \node (process2a) [below of=decision, rectangle, draw] {Process 2a};
+    \node (process2b) [right of=decision, rectangle, draw] {Process 2b};
+    \node (end) [right of=process2b, circle, draw] {End};
+    \draw[->] (start) -- (process1);
+    \draw[->] (process1) -- (decision);
+    \draw[->] (decision) -- node {yes} (process2b);
+    \draw[->] (decision) -- node {no} (process2a);
+    \draw[->] (process2a) -| (process1);
+    \draw[->] (process2b) -- (end);
+  \end{tikzpicture}
 \end{frame}
 
 %-----------------------
