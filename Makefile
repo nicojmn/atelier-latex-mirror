@@ -15,6 +15,7 @@ open: main
 
 main: build_latex/examples/structure/main.pdf \
 	build_latex/examples/title/main.pdf       \
+	build_latex/examples/biblio/main.pdf      \
 	build_latex/exercices/1/main.pdf          \
 	build_latex/exercices/2/main.pdf          \
 	build_latex/exercices/3/main.pdf          \
@@ -35,6 +36,10 @@ build_latex/examples/structure/main.pdf: src/examples/structure/main.tex
 	latexmk $(LATEX_FLAGS) $(LATEX_OPT) -outdir=$(PWD)/$(@D) $< $(BASH_POSTPROCESSING)
 
 build_latex/examples/title/main.pdf: src/examples/title/main.tex
+	@echo -e "\e[1;7;32m[=]\e[27m Compiling $< to $@ ...\e[0m"
+	latexmk $(LATEX_FLAGS) $(LATEX_OPT) -outdir=$(PWD)/$(@D) $< $(BASH_POSTPROCESSING)
+
+build_latex/examples/biblio/main.pdf: src/examples/biblio/main.tex
 	@echo -e "\e[1;7;32m[=]\e[27m Compiling $< to $@ ...\e[0m"
 	latexmk $(LATEX_FLAGS) $(LATEX_OPT) -outdir=$(PWD)/$(@D) $< $(BASH_POSTPROCESSING)
 
