@@ -17,7 +17,7 @@ stages:          # List of stages for jobs, and their order of execution
   - build
 
 default:
-    image: "arkark/latexmk"
+    image: "arkark/latexmk:full"
     cache:
         paths:
             - build_latex/
@@ -27,6 +27,8 @@ default:
 workflow:
     rules:
         - if: $CI_PIPELINE_SOURCE == "web"
+        - if: $CI_PIPELINE_SOURCE == "push"
+        - if: $CI_PIPELINE_SOURCE == "merge_request_event"
 
 build-pdf:       # This job runs in the build stage, which runs first.
   stage: build
